@@ -10,6 +10,7 @@ import Grades from "./Screens/Grades";
 import Lessons from "./Screens/Lessons";
 import SubCatergories from "./Screens/SubCatergories";
 import QuizList from "./Screens/QuizList";
+import Content from "./Screens/Content";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -18,7 +19,8 @@ export type RootStackParamList = {
   Quizes: undefined;
   Assessments: undefined;
   Grades: undefined;
-  Lessons: { grade: number };
+  Lessons: { grade: string }; // Changed from number to string
+  Content: { lessonId: string; grade: string };
   SubCategories: { lessonId: number };
   QuizList: { subCategoryId: number };
   Quiz: { quizId: number };
@@ -41,6 +43,7 @@ export default function App() {
         <Stack.Screen name="Grades" component={Grades} />
         <Stack.Screen name="Lessons" component={Lessons} />
         <Stack.Screen name="SubCategories" component={SubCatergories} />
+        <Stack.Screen name="Content" component={Content} />
         <Stack.Screen name="QuizList" component={QuizList} />
         {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
       </Stack.Navigator>
