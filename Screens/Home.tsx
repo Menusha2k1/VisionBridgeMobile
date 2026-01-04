@@ -5,9 +5,10 @@ import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { Audio } from "expo-av";
 
+// Ensure this matches your App.tsx stack definitions
 type RootStackParamList = {
   Home: undefined;
-  Modules: undefined;
+  Grades: undefined; // Navigation destination
   Marks: undefined;
   Quizes: undefined;
   Assessments: undefined;
@@ -16,7 +17,9 @@ type RootStackParamList = {
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const DOUBLE_TAP_DELAY = 400;
-const BUTTON_KEYS = ["Modules", "Quizes", "Marks", "Assessments"] as const;
+
+// The display names for the buttons
+const BUTTON_LABELS = ["Lessons", "Quizes", "Marks", "Assessments"] as const;
 
 export default function Home({ navigation }: Props) {
   const focused = useRef<string | null>(null);
@@ -25,40 +28,30 @@ export default function Home({ navigation }: Props) {
     Record<string, { x: number; y: number; w: number; h: number }>
   >({});
   const soundRef = useRef<Audio.Sound | null>(null);
-  const navSoundRef = useRef<Audio.Sound | null>(null);
 
-  // 1. Load sound on mount
   useEffect(() => {
     async function loadSound() {
       const { sound } = await Audio.Sound.createAsync(
-        require("../assets/sounds/tick.mp3") // Ensure you have a short mp3 here
+        require("../assets/sounds/tick.mp3")
       );
       soundRef.current = sound;
     }
     loadSound();
-
     return () => {
       soundRef.current?.unloadAsync();
     };
   }, []);
 
   const playFeedback = useCallback(async () => {
-    // Play Haptic
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-
-    // Play Sound
-    if (soundRef.current) {
-      await soundRef.current.replayAsync();
-    }
+    if (soundRef.current) await soundRef.current.replayAsync();
   }, []);
 
   const speak = useCallback(
     (label: string) => {
       if (focused.current !== label) {
         focused.current = label;
-
-        playFeedback(); // Trigger Sound + Haptic
-
+        playFeedback();
         Speech.stop();
         Speech.speak(label, { volume: 1, rate: 1.0 });
       }
@@ -69,7 +62,14 @@ export default function Home({ navigation }: Props) {
   const navigateFocused = () => {
     if (!focused.current) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    navigation.navigate(focused.current as keyof RootStackParamList);
+
+    // LOGIC CHANGE: If the user double-taps "Lessons", go to "Grades"
+    if (focused.current === "Lessons") {
+      navigation.navigate("Grades");
+    } else {
+      // Cast to any to avoid strict TS errors for other routes while building
+      navigation.navigate(focused.current as any);
+    }
   };
 
   const panResponder = useRef(
@@ -87,8 +87,8 @@ export default function Home({ navigation }: Props) {
         const { moveX, moveY } = gestureState;
         let foundMatch = false;
 
-        for (const key of BUTTON_KEYS) {
-          const b = layouts.current[key];
+        for (const label of BUTTON_LABELS) {
+          const b = layouts.current[label];
           if (
             b &&
             moveX >= b.x &&
@@ -96,7 +96,7 @@ export default function Home({ navigation }: Props) {
             moveY >= b.y &&
             moveY <= b.y + b.h
           ) {
-            speak(key);
+            speak(label);
             foundMatch = true;
             break;
           }
@@ -106,29 +106,27 @@ export default function Home({ navigation }: Props) {
     })
   ).current;
 
-  const refs: Record<string, React.RefObject<View | null>> = {
-    Modules: useRef<View>(null),
-    Quizes: useRef<View>(null),
-    Marks: useRef<View>(null),
-    Assessments: useRef<View>(null),
-  };
+  // Dynamically create refs for the labels
+  const viewRefs = useRef<Record<string, View | null>>({});
 
-  const handleLayout = (key: string) => {
-    refs[key].current?.measureInWindow((x, y, width, height) => {
-      layouts.current[key] = { x, y, w: width, h: height };
+  const handleLayout = (label: string) => {
+    viewRefs.current[label]?.measureInWindow((x, y, width, height) => {
+      layouts.current[label] = { x, y, w: width, h: height };
     });
   };
 
   return (
     <View style={styles.container} {...panResponder.panHandlers}>
-      {BUTTON_KEYS.map((key) => (
+      {BUTTON_LABELS.map((label) => (
         <View
-          key={key}
-          ref={refs[key]}
-          onLayout={() => handleLayout(key)}
+          key={label}
+          ref={(el) => {
+            if (el) viewRefs.current[label] = el;
+          }}
+          onLayout={() => handleLayout(label)}
           style={styles.button}
         >
-          <Text style={styles.text}>{key}</Text>
+          <Text style={styles.text}>{label}</Text>
         </View>
       ))}
     </View>
