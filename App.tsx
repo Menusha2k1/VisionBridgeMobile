@@ -12,6 +12,13 @@ import SubCatergories from "./Screens/SubCatergories";
 import QuizList from "./Screens/QuizList";
 import Content from "./Screens/Content";
 import StudentLogin from "./Screens/StudentLogin";
+import * as tf from "@tensorflow/tfjs";
+import "@tensorflow/tfjs-react-native";
+import * as tfLayers from "@tensorflow/tfjs-layers";
+import "@tensorflow/tfjs-backend-cpu"; // Or '@tensorflow/tfjs-react-native'
+import { bundleResourceIO } from "@tensorflow/tfjs-react-native";
+import { useEffect, useState } from "react";
+import { SettingsProvider } from "./Context/SettingsContext";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -31,25 +38,47 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
+  const [isAiReady, setIsAiReady] = useState(false);
+  useEffect(() => {
+    async function setup() {
+      try {
+        // 1. Wait for the hardware bridge
+        await tf.ready();
+        // 2. Explicitly set and verify the backend
+        await tf.setBackend("cpu");
+        console.log("AI Engine status:", tf.getBackend());
+        setIsAiReady(true);
+      } catch (e) {
+        console.error("AI Initialization failed", e);
+      }
+    }
+    setup();
+  }, []);
+
+  if (!isAiReady) {
+    return null; // Or a loading screen for the student
+  }
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{ headerShown: true }}
-        initialRouteName="StudentLogin"
-      >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Modules" component={Modules} />
-        <Stack.Screen name="Marks" component={Marks} />
-        <Stack.Screen name="Quizes" component={Quizes} />
-        <Stack.Screen name="Assessments" component={Assessments} />
-        <Stack.Screen name="Grades" component={Grades} />
-        <Stack.Screen name="Lessons" component={Lessons} />
-        <Stack.Screen name="SubCategories" component={SubCatergories} />
-        <Stack.Screen name="Content" component={Content} />
-        <Stack.Screen name="QuizList" component={QuizList} />
-        <Stack.Screen name="StudentLogin" component={StudentLogin} />
-        {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SettingsProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{ headerShown: true }}
+          initialRouteName="Home"
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Modules" component={Modules} />
+          <Stack.Screen name="Marks" component={Marks} />
+          <Stack.Screen name="Quizes" component={Quizes} />
+          <Stack.Screen name="Assessments" component={Assessments} />
+          <Stack.Screen name="Grades" component={Grades} />
+          <Stack.Screen name="Lessons" component={Lessons} />
+          <Stack.Screen name="SubCategories" component={SubCatergories} />
+          <Stack.Screen name="Content" component={Content} />
+          <Stack.Screen name="QuizList" component={QuizList} />
+          <Stack.Screen name="StudentLogin" component={StudentLogin} />
+          {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SettingsProvider>
   );
 }

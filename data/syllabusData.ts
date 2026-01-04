@@ -6,6 +6,49 @@ export interface Lesson {
   topics: string[];
 }
 
+export interface Quiz {
+  id: string;
+  lessonId: string;
+  lessonName: string;
+  questionsCount: number;
+}
+export const QUIZZES_DATA: Record<string, Quiz[]> = {
+  "Grade 10": [
+    {
+      id: "q1",
+      lessonId: "10-1",
+      lessonName: "ICT & National Development",
+      questionsCount: 10,
+    },
+    {
+      id: "q2",
+      lessonId: "10-2",
+      lessonName: "Hardware Architecture",
+      questionsCount: 15,
+    },
+    {
+      id: "q4",
+      lessonId: "10-4",
+      lessonName: "Logic Gates",
+      questionsCount: 12,
+    },
+  ],
+  "Grade 11": [
+    {
+      id: "q7",
+      lessonId: "11-7",
+      lessonName: "Pascal Programming",
+      questionsCount: 20,
+    },
+    {
+      id: "q9",
+      lessonId: "11-9",
+      lessonName: "Networking",
+      questionsCount: 10,
+    },
+  ],
+};
+
 export const SYLLABUS_DATA: Record<string, Lesson[]> = {
   "Grade 10": [
     {
@@ -68,6 +111,28 @@ export const SYLLABUS_DATA: Record<string, Lesson[]> = {
     {
       id: "10-6",
       number: 6,
+      title: "Database Management Systems",
+      scope: "Theory and application of relational databases.",
+      topics: [
+        "Field, Record, Table",
+        "Primary & Foreign Keys",
+        "Database Integrity",
+      ],
+    },
+    {
+      id: "10-7",
+      number: 7,
+      title: "Database Management Systems",
+      scope: "Theory and application of relational databases.",
+      topics: [
+        "Field, Record, Table",
+        "Primary & Foreign Keys",
+        "Database Integrity",
+      ],
+    },
+    {
+      id: "10-8",
+      number: 8,
       title: "Database Management Systems",
       scope: "Theory and application of relational databases.",
       topics: [

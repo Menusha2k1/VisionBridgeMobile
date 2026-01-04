@@ -12,6 +12,7 @@ type RootStackParamList = {
   Marks: undefined;
   Quizes: undefined;
   Assessments: undefined;
+  QuizList: { grade: string };
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
@@ -63,11 +64,15 @@ export default function Home({ navigation }: Props) {
     if (!focused.current) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
 
-    // LOGIC CHANGE: If the user double-taps "Lessons", go to "Grades"
+    // CLEANED NAVIGATION LOGIC
     if (focused.current === "Lessons") {
       navigation.navigate("Grades");
+    } else if (focused.current === "Quizes") {
+      // For now, we pass a default grade or you can pull this
+      // from a global user state / context
+      navigation.navigate("QuizList", { grade: "Grade 10" });
     } else {
-      // Cast to any to avoid strict TS errors for other routes while building
+      // Fallback for Marks and Assessments
       navigation.navigate(focused.current as any);
     }
   };
@@ -76,13 +81,42 @@ export default function Home({ navigation }: Props) {
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
+
+      onPanResponderGrant: (evt) => {
         const now = Date.now();
-        if (now - lastTap.current < DOUBLE_TAP_DELAY && focused.current) {
+        const { pageX, pageY } = evt.nativeEvent;
+
+        // Check which button is under the initial touch
+        let touchedLabel: string | null = null;
+        for (const label of BUTTON_LABELS) {
+          const b = layouts.current[label];
+          if (
+            b &&
+            pageX >= b.x &&
+            pageX <= b.x + b.w &&
+            pageY >= b.y &&
+            pageY <= b.y + b.h
+          ) {
+            touchedLabel = label;
+            break;
+          }
+        }
+
+        // Double tap detection on the SAME button
+        if (
+          now - lastTap.current < DOUBLE_TAP_DELAY &&
+          touchedLabel === focused.current
+        ) {
           navigateFocused();
         }
+
+        if (touchedLabel) {
+          speak(touchedLabel);
+        }
+
         lastTap.current = now;
       },
+
       onPanResponderMove: (evt, gestureState) => {
         const { moveX, moveY } = gestureState;
         let foundMatch = false;
@@ -106,14 +140,22 @@ export default function Home({ navigation }: Props) {
     })
   ).current;
 
+  // Measurement logic for home screen buttons
+  const handleLayout = (label: string) => {
+    const tryMeasure = () => {
+      viewRefs.current[label]?.measure((x, y, width, height, pageX, pageY) => {
+        if (width > 0) {
+          layouts.current[label] = { x: pageX, y: pageY, w: width, h: height };
+        } else {
+          setTimeout(tryMeasure, 100);
+        }
+      });
+    };
+    tryMeasure();
+  };
+
   // Dynamically create refs for the labels
   const viewRefs = useRef<Record<string, View | null>>({});
-
-  const handleLayout = (label: string) => {
-    viewRefs.current[label]?.measureInWindow((x, y, width, height) => {
-      layouts.current[label] = { x, y, w: width, h: height };
-    });
-  };
 
   return (
     <View style={styles.container} {...panResponder.panHandlers}>
