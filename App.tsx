@@ -11,6 +11,7 @@ import Lessons from "./Screens/Lessons";
 import SubCatergories from "./Screens/SubCatergories";
 import QuizList from "./Screens/QuizList";
 import Content from "./Screens/Content";
+import StudentLogin from "./Screens/StudentLogin";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -24,6 +25,7 @@ export type RootStackParamList = {
   SubCategories: { lessonId: number };
   QuizList: { subCategoryId: number };
   Quiz: { quizId: number };
+  StudentLogin: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -33,7 +35,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: true }}
-        initialRouteName="Grades"
+        initialRouteName="StudentLogin"
       >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Modules" component={Modules} />
@@ -45,6 +47,7 @@ export default function App() {
         <Stack.Screen name="SubCategories" component={SubCatergories} />
         <Stack.Screen name="Content" component={Content} />
         <Stack.Screen name="QuizList" component={QuizList} />
+        <Stack.Screen name="StudentLogin" component={StudentLogin} />
         {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
       </Stack.Navigator>
     </NavigationContainer>
