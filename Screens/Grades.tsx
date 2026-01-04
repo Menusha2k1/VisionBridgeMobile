@@ -14,37 +14,35 @@ type Props = NativeStackScreenProps<RootStackParamList, "Grades">;
 const DOUBLE_TAP_DELAY = 400;
 const GRADES = ["Grade 10", "Grade 11"];
 
+// ... existing imports
+
 const Grades = ({ navigation }: Props) => {
-  const [activeGrade, setActiveGrade] = useState<string | null>(null);
+  // Use a Ref for the logic, State for the UI colors
+  const focusedGradeRef = useRef<string | null>(null);
+  const [uiActiveGrade, setUiActiveGrade] = useState<string | null>(null);
   const lastTap = useRef<number>(0);
   const layouts = useRef<
     Record<string, { x: number; y: number; w: number; h: number }>
   >({});
   const viewRefs = useRef<Record<string, View | null>>({});
 
-  // 1. Speak the grade name when focused
-  const announceGrade = (grade: string) => {
-    Speech.stop(); // Stop any current speech
-    Speech.speak(grade, { rate: 1.0 });
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-  };
-
   const navigateFocused = (grade: string) => {
+    Speech.stop();
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    Speech.speak(`Entering ${grade}`);
+    Speech.speak(`Opening ${grade}`);
     navigation.navigate("Lessons", { grade });
   };
 
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
-
-      onPanResponderGrant: (evt, gestureState) => {
+      onPanResponderGrant: (evt) => {
         const now = Date.now();
-        // Check if double tap happened on a focused item
-        if (now - lastTap.current < DOUBLE_TAP_DELAY && activeGrade) {
-          navigateFocused(activeGrade);
+        const timeSinceLastTap = now - lastTap.current;
+
+        // Check if double tap happened while finger is over a grade
+        if (timeSinceLastTap < DOUBLE_TAP_DELAY && focusedGradeRef.current) {
+          navigateFocused(focusedGradeRef.current);
         }
         lastTap.current = now;
       },
@@ -54,38 +52,40 @@ const Grades = ({ navigation }: Props) => {
         let foundGrade: string | null = null;
 
         for (const grade of GRADES) {
-          const layout = layouts.current[grade];
+          const l = layouts.current[grade];
           if (
-            layout &&
-            moveX >= layout.x &&
-            moveX <= layout.x + layout.w &&
-            moveY >= layout.y &&
-            moveY <= layout.y + layout.h
+            l &&
+            moveX >= l.x &&
+            moveX <= l.x + l.w &&
+            moveY >= l.y &&
+            moveY <= l.y + l.h
           ) {
             foundGrade = grade;
             break;
           }
         }
 
-        // Only trigger if we moved onto a NEW grade
-        if (foundGrade && foundGrade !== activeGrade) {
-          setActiveGrade(foundGrade);
-          announceGrade(foundGrade);
-        } else if (!foundGrade && activeGrade !== null) {
-          setActiveGrade(null);
+        if (foundGrade !== focusedGradeRef.current) {
+          focusedGradeRef.current = foundGrade; // Update Ref immediately
+          setUiActiveGrade(foundGrade); // Update UI state for colors
+
+          if (foundGrade) {
+            Speech.stop();
+            Speech.speak(foundGrade);
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          }
         }
-      },
-      onPanResponderRelease: () => {
-        // Optional: clear active state on release
       },
     })
   ).current;
 
-  // 2. Measure absolute coordinates (crucial for PanResponder)
   const updateLayout = (grade: string) => {
-    viewRefs.current[grade]?.measure((x, y, width, height, pageX, pageY) => {
-      layouts.current[grade] = { x: pageX, y: pageY, w: width, h: height };
-    });
+    // We use a small delay to ensure the screen has finished rendering
+    setTimeout(() => {
+      viewRefs.current[grade]?.measure((x, y, width, height, pageX, pageY) => {
+        layouts.current[grade] = { x: pageX, y: pageY, w: width, h: height };
+      });
+    }, 100);
   };
 
   return (
@@ -99,7 +99,7 @@ const Grades = ({ navigation }: Props) => {
           onLayout={() => updateLayout(grade)}
           style={[
             styles.gradeContainer,
-            activeGrade === grade && styles.activeGradeContainer, // Visual feedback
+            uiActiveGrade === grade && styles.activeGradeContainer,
           ]}
         >
           <Text style={styles.gradeText}>{grade}</Text>
