@@ -23,7 +23,7 @@ It includes:
 ## 🏗️ System Architecture
 
 ### 🔹 Overall System Architecture
-![System Architecture](assets/images/system.png)
+![System Architecture](assets/system.png)
 
 
 
