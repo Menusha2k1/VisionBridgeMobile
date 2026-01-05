@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { StyleSheet, Text, View, PanResponder, Dimensions } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { SYLLABUS_DATA } from "../data/syllabusData";
 import { RootStackParamList } from "../App";
+import { useFocusEffect } from "@react-navigation/native";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Content">;
 
@@ -27,6 +28,20 @@ const Content = ({ route }: Props) => {
     Speech.speak(text, { rate: 1.0 });
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      const count = topics.length;
+      const lessonPlural = count === 1 ? "Topic" : "Topics";
+      const announcement =
+        count > 0
+          ? `There are ${count} sub ${lessonPlural} available under ${lesson?.title}......, swipe through screen to explore sub topics `
+          : "There are no lessons to show.";
+
+      Speech.speak(announcement, { rate: 0.9 });
+      return () => Speech.stop();
+    }, [topics])
+  );
 
   const panResponder = useRef(
     PanResponder.create({
