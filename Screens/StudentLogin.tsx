@@ -37,10 +37,6 @@ const PinLogin = ({ navigation }: any) => {
           volume: 1.0,
         }
       );
-
-      return () => {
-        Speech.stop();
-      };
     }, [])
   );
 

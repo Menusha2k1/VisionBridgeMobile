@@ -4,6 +4,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { Audio } from "expo-av";
+import { useFocusEffect } from "@react-navigation/native";
 
 type RootStackParamList = {
   Home: undefined;
@@ -28,6 +29,19 @@ export default function Home({ navigation }: Props) {
   >({});
   const viewRefs = useRef<Record<string, View | null>>({});
   const soundRef = useRef<Audio.Sound | null>(null);
+
+  useFocusEffect(
+    useCallback(() => {
+      Speech.speak(
+        "You are now on Home page..., swipe through the screen to explore tabs",
+        {
+          rate: 0.9,
+          pitch: 1,
+          volume: 1.0,
+        }
+      );
+    }, [])
+  );
 
   useEffect(() => {
     async function loadSound() {
