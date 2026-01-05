@@ -1,17 +1,14 @@
 import React, { useCallback, useRef, useState } from "react";
-import { StyleSheet, Text, View, PanResponder, Dimensions } from "react-native";
+import { StyleSheet, Text, View, PanResponder } from "react-native";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { QUIZZES_DATA } from "../data/syllabusData";
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
-const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 const DOUBLE_TAP_DELAY = 400;
-const SWIPE_UP_VELOCITY = -0.6; // Speed required to trigger "Back"
-const TOP_THRESHOLD = 180;
-const BOTTOM_THRESHOLD = SCREEN_HEIGHT - 150;
 
-const QuizList = ({ route, navigation }: any) => {
+const QuizList = ({ route }: any) => {
+  const navigation = useNavigation<any>();
   const { grade } = route.params || { grade: "Grade 10" };
   const availableQuizzes = QUIZZES_DATA[grade] || [];
 
@@ -30,8 +27,8 @@ const QuizList = ({ route, navigation }: any) => {
 
       const announcement =
         count > 0
-          ? `You are now on the Quizzes page. There are ${count} ${quizPlural} available. Swipe through the screen to explore.`
-          : `You are now on the Quizzes page. There are no quizzes available for ${grade} at the moment.`;
+          ? `You are now on the Quizzes page. There are ${count} ${quizPlural} available. Swipe to explore. Double tap to start a quiz.`
+          : `No quizzes available for ${grade} at the moment.`;
 
       Speech.speak(announcement, { rate: 0.9 });
 
@@ -57,17 +54,20 @@ const QuizList = ({ route, navigation }: any) => {
         const { pageX, pageY } = evt.nativeEvent;
         const timeSinceLastTap = now - lastTap.current;
 
-        // 1. GLOBAL DOUBLE TAP (Navigate to focused item)
+        // DOUBLE TAP NAVIGATION
         if (timeSinceLastTap < DOUBLE_TAP_DELAY && focusedIdRef.current) {
           Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
           Speech.speak("Starting Quiz");
-          // navigation.navigate("QuizDetail", { quizId: focusedIdRef.current });
+          navigation.navigate("Quizes", {
+            quizId: focusedIdRef.current,
+            grade,
+          });
           lastTap.current = 0;
           return;
         }
         lastTap.current = now;
 
-        // 2. CHECK FOR INITIAL TOUCH FOCUS
+        // CHECK FOR INITIAL TOUCH FOCUS
         let touchedId: string | null = null;
         for (const quiz of availableQuizzes) {
           const l = layouts.current[quiz.id];
@@ -97,7 +97,6 @@ const QuizList = ({ route, navigation }: any) => {
         const { moveX, moveY } = gestureState;
         let foundId: string | null = null;
 
-        // HIT DETECTION
         for (const quiz of availableQuizzes) {
           const l = layouts.current[quiz.id];
           if (
@@ -112,30 +111,16 @@ const QuizList = ({ route, navigation }: any) => {
           }
         }
 
-        // UPDATE FOCUS IF CHANGED
         if (foundId && foundId !== focusedIdRef.current) {
           focusedIdRef.current = foundId;
           setActiveId(foundId);
           const quiz = availableQuizzes.find((q) => q.id === foundId);
           announce(quiz?.lessonName || "");
         }
-
-        // HAPTIC FEEDBACK FOR MOVEMENT
-        if (Math.abs(gestureState.dy) % 25 < 5) {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-        }
       },
 
-      onPanResponderRelease: (evt, gestureState) => {
-        // Clear highlight visually, but KEEP focusedIdRef for global double tap
+      onPanResponderRelease: () => {
         setActiveId(null);
-
-        // --- BACKWARD NAVIGATION (Swipe Up) ---
-        if (gestureState.vy < SWIPE_UP_VELOCITY) {
-          Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-          Speech.speak("Going back");
-          navigation.goBack();
-        }
       },
     })
   ).current;
@@ -145,7 +130,7 @@ const QuizList = ({ route, navigation }: any) => {
       viewRefs.current[id]?.measure((x, y, w, h, px, py) => {
         if (w > 0) layouts.current[id] = { x: px, y: py, w, h };
       });
-    }, 500); // Delay to ensure layout is ready
+    }, 500);
   };
 
   return (
@@ -186,11 +171,7 @@ const QuizList = ({ route, navigation }: any) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#121212",
-    paddingTop: 60,
-  },
+  container: { flex: 1, backgroundColor: "#121212", paddingTop: 60 },
   header: {
     color: "white",
     fontSize: 26,
@@ -205,13 +186,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     borderWidth: 3,
     borderColor: "transparent",
-    elevation: 5,
   },
-  unfocusedCard: {
-    backgroundColor: "#444444", // Grey
-  },
+  unfocusedCard: { backgroundColor: "#444444" },
   activeCard: {
-    backgroundColor: "#a51818", // Red
+    backgroundColor: "#a51818",
     borderColor: "white",
     transform: [{ scale: 1.03 }],
   },
