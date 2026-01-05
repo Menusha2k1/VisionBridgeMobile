@@ -14,6 +14,8 @@ import SubCatergories from "./Screens/SubCatergories";
 import QuizList from "./Screens/QuizList";
 import Content from "./Screens/Content";
 import StudentLogin from "./Screens/StudentLogin";
+import LessonPlayer from "./components/LessonPlayer";
+
 // import * as tf from "@tensorflow/tfjs";
 // import "@tensorflow/tfjs-react-native";
 // import * as tfLayers from "@tensorflow/tfjs-layers";
@@ -35,6 +37,7 @@ export type RootStackParamList = {
   QuizList: { subCategoryId: number };
   Quiz: { quizId: number };
   StudentLogin: undefined;
+  LessonPlayer: { subTopicId: string; title: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -78,6 +81,8 @@ export default function App() {
         <Stack.Screen name="Content" component={Content} />
         <Stack.Screen name="QuizList" component={QuizList} />
         <Stack.Screen name="StudentLogin" component={StudentLogin} />
+        <Stack.Screen name="LessonPlayer" component={LessonPlayer} />
+
         {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
       </Stack.Navigator>
     </NavigationContainer>
