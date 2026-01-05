@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import { View, Text, StyleSheet, PanResponder, Dimensions } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as Haptics from "expo-haptics";
@@ -7,58 +7,52 @@ import { Audio } from "expo-av";
 
 type RootStackParamList = {
   Home: undefined;
-  Modules: undefined;
+  Grades: undefined;
   Marks: undefined;
   Quizes: undefined;
   Assessments: undefined;
+  QuizList: { grade: string };
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const DOUBLE_TAP_DELAY = 400;
-const BUTTON_KEYS = ["Modules", "Quizes", "Marks", "Assessments"] as const;
+const BUTTON_LABELS = ["Lessons", "Quizes", "Marks", "Assessments"] as const;
 
 export default function Home({ navigation }: Props) {
+  const [activeLabel, setActiveLabel] = useState<string | null>(null);
   const focused = useRef<string | null>(null);
   const lastTap = useRef<number>(0);
   const layouts = useRef<
     Record<string, { x: number; y: number; w: number; h: number }>
   >({});
+  const viewRefs = useRef<Record<string, View | null>>({});
   const soundRef = useRef<Audio.Sound | null>(null);
-  const navSoundRef = useRef<Audio.Sound | null>(null);
 
-  // 1. Load sound on mount
   useEffect(() => {
     async function loadSound() {
       const { sound } = await Audio.Sound.createAsync(
-        require("../assets/sounds/tick.mp3") // Ensure you have a short mp3 here
+        require("../assets/sounds/tick.mp3")
       );
       soundRef.current = sound;
     }
     loadSound();
-
     return () => {
       soundRef.current?.unloadAsync();
     };
   }, []);
 
   const playFeedback = useCallback(async () => {
-    // Play Haptic
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-
-    // Play Sound
-    if (soundRef.current) {
-      await soundRef.current.replayAsync();
-    }
+    if (soundRef.current) await soundRef.current.replayAsync();
   }, []);
 
   const speak = useCallback(
     (label: string) => {
       if (focused.current !== label) {
         focused.current = label;
-
-        playFeedback(); // Trigger Sound + Haptic
-
+        setActiveLabel(label);
+        playFeedback();
         Speech.stop();
         Speech.speak(label, { volume: 1, rate: 1.0 });
       }
@@ -67,28 +61,64 @@ export default function Home({ navigation }: Props) {
   );
 
   const navigateFocused = () => {
-    if (!focused.current) return;
+    if (!focused.current) {
+      Speech.speak("Select an option first");
+      return;
+    }
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    navigation.navigate(focused.current as keyof RootStackParamList);
+
+    // Using a temporary variable to avoid ref-clearing issues during transition
+    const destination = focused.current;
+
+    if (destination === "Lessons") navigation.navigate("Grades");
+    else if (destination === "Quizes")
+      navigation.navigate("QuizList", { grade: "Grade 10" });
+    else navigation.navigate(destination as any);
   };
 
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
+      onPanResponderGrant: (evt) => {
         const now = Date.now();
-        if (now - lastTap.current < DOUBLE_TAP_DELAY && focused.current) {
+        const timeSinceLastTap = now - lastTap.current;
+
+        // --- GLOBAL DOUBLE TAP LOGIC ---
+        // If user double taps ANYWHERE, navigate to whatever is currently focused
+        if (timeSinceLastTap < DOUBLE_TAP_DELAY) {
           navigateFocused();
+          lastTap.current = 0;
+          return; // STOP execution here so we don't focus a new button
         }
+
         lastTap.current = now;
+
+        // --- SINGLE TAP / FOCUS LOGIC ---
+        const { pageX, pageY } = evt.nativeEvent;
+        let touchedLabel: string | null = null;
+        for (const label of BUTTON_LABELS) {
+          const b = layouts.current[label];
+          if (
+            b &&
+            pageX >= b.x &&
+            pageX <= b.x + b.w &&
+            pageY >= b.y &&
+            pageY <= b.y + b.h
+          ) {
+            touchedLabel = label;
+            break;
+          }
+        }
+
+        if (touchedLabel) {
+          speak(touchedLabel);
+        }
       },
       onPanResponderMove: (evt, gestureState) => {
         const { moveX, moveY } = gestureState;
-        let foundMatch = false;
-
-        for (const key of BUTTON_KEYS) {
-          const b = layouts.current[key];
+        for (const label of BUTTON_LABELS) {
+          const b = layouts.current[label];
           if (
             b &&
             moveX >= b.x &&
@@ -96,39 +126,44 @@ export default function Home({ navigation }: Props) {
             moveY >= b.y &&
             moveY <= b.y + b.h
           ) {
-            speak(key);
-            foundMatch = true;
+            speak(label);
             break;
           }
         }
-        if (!foundMatch) focused.current = null;
       },
     })
   ).current;
 
-  const refs: Record<string, React.RefObject<View | null>> = {
-    Modules: useRef<View>(null),
-    Quizes: useRef<View>(null),
-    Marks: useRef<View>(null),
-    Assessments: useRef<View>(null),
-  };
-
-  const handleLayout = (key: string) => {
-    refs[key].current?.measureInWindow((x, y, width, height) => {
-      layouts.current[key] = { x, y, w: width, h: height };
-    });
+  const handleLayout = (label: string) => {
+    const tryMeasure = () => {
+      viewRefs.current[label]?.measure((x, y, width, height, pageX, pageY) => {
+        if (width > 0) {
+          layouts.current[label] = { x: pageX, y: pageY, w: width, h: height };
+        } else {
+          setTimeout(tryMeasure, 100);
+        }
+      });
+    };
+    tryMeasure();
   };
 
   return (
     <View style={styles.container} {...panResponder.panHandlers}>
-      {BUTTON_KEYS.map((key) => (
+      {BUTTON_LABELS.map((label) => (
         <View
-          key={key}
-          ref={refs[key]}
-          onLayout={() => handleLayout(key)}
-          style={styles.button}
+          key={label}
+          ref={(el) => {
+            viewRefs.current[label] = el;
+          }}
+          onLayout={() => handleLayout(label)}
+          style={[
+            styles.button,
+            activeLabel === label
+              ? styles.buttonFocused
+              : styles.buttonUnfocused,
+          ]}
         >
-          <Text style={styles.text}>{key}</Text>
+          <Text style={styles.text}>{label}</Text>
         </View>
       ))}
     </View>
@@ -147,10 +182,17 @@ const styles = StyleSheet.create({
     height: 110,
     marginVertical: 10,
     borderRadius: 25,
-    backgroundColor: "#a51818",
     justifyContent: "center",
     alignItems: "center",
     elevation: 8,
+  },
+  buttonUnfocused: {
+    backgroundColor: "#444444",
+  },
+  buttonFocused: {
+    backgroundColor: "#a51818", // Red when focused
+    borderWidth: 3,
+    borderColor: "#ffffff",
   },
   text: { fontSize: 30, color: "#fff", fontWeight: "bold" },
 });
