@@ -1,8 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { StyleSheet, Text, View, PanResponder, Dimensions } from "react-native";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { validateStudentLogin } from "../data/studentData";
+import { useFocusEffect } from "@react-navigation/native";
 
 const PIN_LENGTH = 5;
 const DOUBLE_TAP_DELAY = 450;
@@ -24,6 +25,24 @@ const PinLogin = ({ navigation }: any) => {
   useEffect(() => {
     pinRef.current = pin;
   }, [pin]);
+
+  useFocusEffect(
+    useCallback(() => {
+      Speech.stop(); // stop previous speech
+      Speech.speak(
+        "Hi.., welcome To vision Bridge.., enter your student pin to login..,  swipe through the screen to type numbers..., double tap to enter the number",
+        {
+          rate: 1,
+          pitch: 1,
+          volume: 1.0,
+        }
+      );
+
+      return () => {
+        Speech.stop();
+      };
+    }, [])
+  );
 
   // Key press logic
   const handleKeyPress = (key: string) => {
