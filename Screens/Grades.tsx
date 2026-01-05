@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, PanResponder } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech"; // Added for Text-to-Speech
+import { useFocusEffect } from "@react-navigation/native";
 
 type RootStackParamList = {
   Grades: undefined;
@@ -25,6 +26,19 @@ const Grades = ({ navigation }: Props) => {
     Record<string, { x: number; y: number; w: number; h: number }>
   >({});
   const viewRefs = useRef<Record<string, View | null>>({});
+
+  useFocusEffect(
+    useCallback(() => {
+      Speech.stop(); // stop previous speech
+      Speech.speak("Choose your Grade", {
+        rate: 0.9,
+        pitch: 1,
+        volume: 1.0,
+      });
+
+      return () => {};
+    }, [])
+  );
 
   const navigateFocused = (grade: string) => {
     Speech.stop();

@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import { View, Text, StyleSheet, PanResponder, Dimensions } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { Audio } from "expo-av";
 
-// Ensure this matches your App.tsx stack definitions
 type RootStackParamList = {
   Home: undefined;
-  Grades: undefined; // Navigation destination
+  Grades: undefined;
   Marks: undefined;
   Quizes: undefined;
   Assessments: undefined;
@@ -18,16 +17,16 @@ type RootStackParamList = {
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const DOUBLE_TAP_DELAY = 400;
-
-// The display names for the buttons
 const BUTTON_LABELS = ["Lessons", "Quizes", "Marks", "Assessments"] as const;
 
 export default function Home({ navigation }: Props) {
+  const [activeLabel, setActiveLabel] = useState<string | null>(null);
   const focused = useRef<string | null>(null);
   const lastTap = useRef<number>(0);
   const layouts = useRef<
     Record<string, { x: number; y: number; w: number; h: number }>
   >({});
+  const viewRefs = useRef<Record<string, View | null>>({});
   const soundRef = useRef<Audio.Sound | null>(null);
 
   useEffect(() => {
@@ -52,6 +51,7 @@ export default function Home({ navigation }: Props) {
     (label: string) => {
       if (focused.current !== label) {
         focused.current = label;
+        setActiveLabel(label);
         playFeedback();
         Speech.stop();
         Speech.speak(label, { volume: 1, rate: 1.0 });
@@ -61,32 +61,41 @@ export default function Home({ navigation }: Props) {
   );
 
   const navigateFocused = () => {
-    if (!focused.current) return;
+    if (!focused.current) {
+      Speech.speak("Select an option first");
+      return;
+    }
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
 
-    // CLEANED NAVIGATION LOGIC
-    if (focused.current === "Lessons") {
-      navigation.navigate("Grades");
-    } else if (focused.current === "Quizes") {
-      // For now, we pass a default grade or you can pull this
-      // from a global user state / context
+    // Using a temporary variable to avoid ref-clearing issues during transition
+    const destination = focused.current;
+
+    if (destination === "Lessons") navigation.navigate("Grades");
+    else if (destination === "Quizes")
       navigation.navigate("QuizList", { grade: "Grade 10" });
-    } else {
-      // Fallback for Marks and Assessments
-      navigation.navigate(focused.current as any);
-    }
+    else navigation.navigate(destination as any);
   };
 
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
-
       onPanResponderGrant: (evt) => {
         const now = Date.now();
-        const { pageX, pageY } = evt.nativeEvent;
+        const timeSinceLastTap = now - lastTap.current;
 
-        // Check which button is under the initial touch
+        // --- GLOBAL DOUBLE TAP LOGIC ---
+        // If user double taps ANYWHERE, navigate to whatever is currently focused
+        if (timeSinceLastTap < DOUBLE_TAP_DELAY) {
+          navigateFocused();
+          lastTap.current = 0;
+          return; // STOP execution here so we don't focus a new button
+        }
+
+        lastTap.current = now;
+
+        // --- SINGLE TAP / FOCUS LOGIC ---
+        const { pageX, pageY } = evt.nativeEvent;
         let touchedLabel: string | null = null;
         for (const label of BUTTON_LABELS) {
           const b = layouts.current[label];
@@ -102,25 +111,12 @@ export default function Home({ navigation }: Props) {
           }
         }
 
-        // Double tap detection on the SAME button
-        if (
-          now - lastTap.current < DOUBLE_TAP_DELAY &&
-          touchedLabel === focused.current
-        ) {
-          navigateFocused();
-        }
-
         if (touchedLabel) {
           speak(touchedLabel);
         }
-
-        lastTap.current = now;
       },
-
       onPanResponderMove: (evt, gestureState) => {
         const { moveX, moveY } = gestureState;
-        let foundMatch = false;
-
         for (const label of BUTTON_LABELS) {
           const b = layouts.current[label];
           if (
@@ -131,16 +127,13 @@ export default function Home({ navigation }: Props) {
             moveY <= b.y + b.h
           ) {
             speak(label);
-            foundMatch = true;
             break;
           }
         }
-        if (!foundMatch) focused.current = null;
       },
     })
   ).current;
 
-  // Measurement logic for home screen buttons
   const handleLayout = (label: string) => {
     const tryMeasure = () => {
       viewRefs.current[label]?.measure((x, y, width, height, pageX, pageY) => {
@@ -154,19 +147,21 @@ export default function Home({ navigation }: Props) {
     tryMeasure();
   };
 
-  // Dynamically create refs for the labels
-  const viewRefs = useRef<Record<string, View | null>>({});
-
   return (
     <View style={styles.container} {...panResponder.panHandlers}>
       {BUTTON_LABELS.map((label) => (
         <View
           key={label}
           ref={(el) => {
-            if (el) viewRefs.current[label] = el;
+            viewRefs.current[label] = el;
           }}
           onLayout={() => handleLayout(label)}
-          style={styles.button}
+          style={[
+            styles.button,
+            activeLabel === label
+              ? styles.buttonFocused
+              : styles.buttonUnfocused,
+          ]}
         >
           <Text style={styles.text}>{label}</Text>
         </View>
@@ -187,10 +182,17 @@ const styles = StyleSheet.create({
     height: 110,
     marginVertical: 10,
     borderRadius: 25,
-    backgroundColor: "#a51818",
     justifyContent: "center",
     alignItems: "center",
     elevation: 8,
+  },
+  buttonUnfocused: {
+    backgroundColor: "#444444",
+  },
+  buttonFocused: {
+    backgroundColor: "#a51818", // Red when focused
+    borderWidth: 3,
+    borderColor: "#ffffff",
   },
   text: { fontSize: 30, color: "#fff", fontWeight: "bold" },
 });
