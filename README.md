@@ -121,6 +121,7 @@ To develop an accessible gesture-enabled mobile learning platform for visually i
 | PR No | Description | Author | Date | Status |
 |-------|--------------|--------|------|--------|
 | #1 | Added README and repo setup | @Menusha2k1  | 2025-10-23 | ✅ Merged |
+|#2| Merge pull request  from Menusha2k1/Menusha/Gesture_Haptic_feedback_Navigation| @Menusha2k1  | 2026-01-05 | ✅ Merged |
 
 
 
