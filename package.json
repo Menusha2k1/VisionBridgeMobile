@@ -37,5 +37,11 @@
     "@types/react-native": "^0.72.8",
     "typescript": "~5.9.2"
   },
+  "overrides": {
+  "@tensorflow/tfjs-react-native": {
+    "@react-native-async-storage/async-storage": "$@react-native-async-storage/async-storage"
+  }
+},
   "private": true
+  
 }
