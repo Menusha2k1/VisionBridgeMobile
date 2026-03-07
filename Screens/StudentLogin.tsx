@@ -1,15 +1,25 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import { StyleSheet, Text, View, PanResponder, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  PanResponder,
+  TouchableOpacity,
+} from "react-native";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { validateStudentLogin } from "../data/studentData";
 import { useFocusEffect } from "@react-navigation/native";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { RootStackParamList } from "../App";
 
 const PIN_LENGTH = 5;
 const DOUBLE_TAP_DELAY = 450;
 const PAD = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Clear", "0", "OK"];
 
-const PinLogin = ({ navigation }: any) => {
+type Props = NativeStackScreenProps<RootStackParamList, "StudentLogin">;
+
+const PinLogin = ({ navigation }: Props) => {
   const [pin, setPin] = useState("");
   const [activeKey, setActiveKey] = useState<string | null>(null);
 
@@ -21,20 +31,19 @@ const PinLogin = ({ navigation }: any) => {
   >({});
   const viewRefs = useRef<Record<string, View | null>>({});
 
-  // Keep ref updated
   useEffect(() => {
     pinRef.current = pin;
   }, [pin]);
 
   useFocusEffect(
     useCallback(() => {
-      Speech.stop(); // stop previous speech
+      Speech.stop();
       Speech.speak(
-        "Hi.., welcome To vision Bridge.., enter your student pin to login..,  swipe through the screen to type numbers..., double tap to enter the number",
+        "Hi, welcome to Vision Bridge. Enter your student pin to login. Swipe through the screen to hear the keypad. Double tap to enter a number. Or use the teacher dashboard button below for research analytics access.",
         {
           rate: 1,
           pitch: 1,
-          volume: 1.0,
+          volume: 1,
         }
       );
 
@@ -44,7 +53,15 @@ const PinLogin = ({ navigation }: any) => {
     }, [])
   );
 
-  // Key press logic
+  const handleTeacherAccess = () => {
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(
+      () => {}
+    );
+    Speech.stop();
+    Speech.speak("Opening teacher dashboard login");
+    navigation.navigate("TeacherLogin");
+  };
+
   const handleKeyPress = (key: string) => {
     Haptics.selectionAsync().catch(() => {});
 
@@ -52,10 +69,15 @@ const PinLogin = ({ navigation }: any) => {
       setPin("");
       Speech.stop();
       Speech.speak("Cleared");
-    } else if (key === "OK") {
+      return;
+    }
+
+    if (key === "OK") {
       const currentPin = pinRef.current;
+
       if (currentPin.length === PIN_LENGTH) {
         const student = validateStudentLogin(currentPin);
+
         if (student) {
           Speech.stop();
           Speech.speak(`Welcome ${student.name}`);
@@ -71,25 +93,30 @@ const PinLogin = ({ navigation }: any) => {
           `PIN incomplete. You have entered ${currentPin.length} digits.`
         );
       }
-    } else {
-      if (pinRef.current.length < PIN_LENGTH) {
-        setPin((prev) => {
-          const newPin = prev + key;
-          Speech.stop();
-          Speech.speak(key);
-          if (newPin.length === PIN_LENGTH) {
-            Speech.speak("PIN complete. Select OK to login");
-          }
-          return newPin;
-        });
-      } else {
+      return;
+    }
+
+    if (pinRef.current.length < PIN_LENGTH) {
+      setPin((prev) => {
+        const newPin = prev + key;
         Speech.stop();
-        Speech.speak("PIN is full. Select OK.");
-      }
+        Speech.speak(key);
+
+        if (newPin.length === PIN_LENGTH) {
+          setTimeout(() => {
+            Speech.stop();
+            Speech.speak("PIN complete. Select OK to login.");
+          }, 300);
+        }
+
+        return newPin;
+      });
+    } else {
+      Speech.stop();
+      Speech.speak("PIN is full. Select OK.");
     }
   };
 
-  // PanResponder
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -125,13 +152,16 @@ const PinLogin = ({ navigation }: any) => {
             setActiveKey(foundKey);
             Speech.stop();
             Speech.speak(foundKey);
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(
+              () => {}
+            );
           }
         }
+
         lastTap.current = now;
       },
 
-      onPanResponderMove: (evt, gestureState) => {
+      onPanResponderMove: (_evt, gestureState) => {
         const { moveX, moveY } = gestureState;
         let currentKey: string | null = null;
 
@@ -154,14 +184,16 @@ const PinLogin = ({ navigation }: any) => {
           setActiveKey(currentKey);
           Speech.stop();
           Speech.speak(currentKey);
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(
+            () => {}
+          );
         }
       },
+
       onPanResponderRelease: () => setActiveKey(null),
     })
   ).current;
 
-  // Measure keys
   const measureKey = (key: string) => {
     const tryMeasure = () => {
       viewRefs.current[key]?.measure((x, y, width, height, pageX, pageY) => {
@@ -172,6 +204,7 @@ const PinLogin = ({ navigation }: any) => {
         }
       });
     };
+
     tryMeasure();
   };
 
@@ -179,6 +212,7 @@ const PinLogin = ({ navigation }: any) => {
     <View style={styles.container} {...panResponder.panHandlers}>
       <View style={styles.header}>
         <Text style={styles.title}>PIN Login</Text>
+
         <View style={styles.dotContainer}>
           {[...Array(PIN_LENGTH)].map((_, i) => (
             <View
@@ -203,15 +237,44 @@ const PinLogin = ({ navigation }: any) => {
           </View>
         ))}
       </View>
+
+      <View style={styles.teacherAccessWrap}>
+        <TouchableOpacity
+          style={styles.teacherButton}
+          onPress={handleTeacherAccess}
+          activeOpacity={0.85}
+        >
+          <Text style={styles.teacherButtonText}>Open Teacher Dashboard</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.teacherHint}>
+          Research mode: access AI analytics, student risk prediction, and reports
+        </Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#121212" },
-  header: { flex: 1, justifyContent: "center", alignItems: "center" },
-  title: { color: "white", fontSize: 24, fontWeight: "bold", marginBottom: 20 },
-  dotContainer: { flexDirection: "row" },
+  container: {
+    flex: 1,
+    backgroundColor: "#121212",
+  },
+  header: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 10,
+  },
+  title: {
+    color: "white",
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  dotContainer: {
+    flexDirection: "row",
+  },
   dot: {
     width: 16,
     height: 16,
@@ -220,13 +283,17 @@ const styles = StyleSheet.create({
     borderColor: "white",
     marginHorizontal: 8,
   },
-  dotFilled: { backgroundColor: "#a51818", borderColor: "#a51818" },
+  dotFilled: {
+    backgroundColor: "#a51818",
+    borderColor: "#a51818",
+  },
   grid: {
     flex: 4,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingTop: 10,
   },
   key: {
     width: "28%",
@@ -237,8 +304,40 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 15,
   },
-  keyActive: { backgroundColor: "#a51818" },
-  keyText: { color: "white", fontSize: 30, fontWeight: "bold" },
+  keyActive: {
+    backgroundColor: "#a51818",
+  },
+  keyText: {
+    color: "white",
+    fontSize: 30,
+    fontWeight: "bold",
+  },
+  teacherAccessWrap: {
+    paddingHorizontal: 20,
+    paddingBottom: 24,
+    paddingTop: 8,
+  },
+  teacherButton: {
+    backgroundColor: "#1f2937",
+    borderWidth: 1,
+    borderColor: "#374151",
+    borderRadius: 14,
+    paddingVertical: 14,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  teacherButtonText: {
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "700",
+  },
+  teacherHint: {
+    color: "#9ca3af",
+    fontSize: 12,
+    textAlign: "center",
+    marginTop: 8,
+    lineHeight: 17,
+  },
 });
 
 export default PinLogin;

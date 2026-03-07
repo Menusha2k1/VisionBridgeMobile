@@ -5,4 +5,7 @@ const config = getDefaultConfig(__dirname);
 // This line is the "magic" that lets TensorFlow.js load your model weights
 config.resolver.assetExts.push("bin");
 
+// Add csv as an asset extension
+config.resolver.assetExts.push("csv");
+
 module.exports = config;
