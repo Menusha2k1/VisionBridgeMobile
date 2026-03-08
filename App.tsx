@@ -11,10 +11,20 @@ import Quizes from "./Screens/Quizes";
 import Assessments from "./Screens/Assesments";
 import Grades from "./Screens/Grades";
 import Lessons from "./Screens/Lessons";
-import SubCatergories from "./Screens/SubCatergories";
 import QuizList from "./Screens/QuizList";
 import Content from "./Screens/Content";
 import StudentLogin from "./Screens/StudentLogin";
+import LessonPlayer from "./components/LessonPlayer";
+import Help from "./Screens/Help";
+import { SpeechProvider } from "./Context/SpeechContext";
+
+// import * as tf from "@tensorflow/tfjs";
+// import "@tensorflow/tfjs-react-native";
+// import * as tfLayers from "@tensorflow/tfjs-layers";
+// import "@tensorflow/tfjs-backend-cpu"; // Or '@tensorflow/tfjs-react-native'
+// import { bundleResourceIO } from "@tensorflow/tfjs-react-native";
+// import { useEffect, useState } from "react";
+// import { SettingsProvider } from "./Context/SettingsContext";
 
 // Teacher screens
 import TeacherLogin from "./Screens/Teacher/login";
@@ -35,12 +45,12 @@ export type RootStackParamList = {
   Grades: undefined;
   Lessons: { grade: string };
   Content: { lessonId: string; grade: string };
-  SubCategories: { lessonId: number };
   QuizList: { subCategoryId: number };
   Quiz: { quizId: number };
+  Help: undefined;
   StudentLogin: undefined;
-
-  // Teacher routes
+    
+    // Teacher routes
   TeacherLogin: undefined;
   TeacherDashboard: undefined;
   TeacherLessonUpload: undefined;
@@ -49,75 +59,38 @@ export type RootStackParamList = {
   TeacherReports: undefined;
   TeacherWeakTopics: undefined;
   TeacherSettings: undefined;
+    
+
+  LessonPlayer: { subTopicId: string; title: string };
+
+
+  
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{ headerShown: true }}
-        initialRouteName="StudentLogin"
-      >
-        {/* Student Flow */}
-        <Stack.Screen
-          name="StudentLogin"
-          component={StudentLogin}
-          options={{ title: "Student Login" }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ title: "Home" }}
-        />
-        <Stack.Screen
-          name="Modules"
-          component={Modules}
-          options={{ title: "Modules" }}
-        />
-        <Stack.Screen
-          name="Marks"
-          component={Marks}
-          options={{ title: "Marks" }}
-        />
-        <Stack.Screen
-          name="Quizes"
-          component={Quizes}
-          options={{ title: "Quizes" }}
-        />
-        <Stack.Screen
-          name="Assessments"
-          component={Assessments}
-          options={{ title: "Assessments" }}
-        />
-        <Stack.Screen
-          name="Grades"
-          component={Grades}
-          options={{ title: "Grades" }}
-        />
-        <Stack.Screen
-          name="Lessons"
-          component={Lessons}
-          options={{ title: "Lessons" }}
-        />
-        <Stack.Screen
-          name="SubCategories"
-          component={SubCatergories}
-          options={{ title: "Sub Categories" }}
-        />
-        <Stack.Screen
-          name="Content"
-          component={Content}
-          options={{ title: "Lesson Content" }}
-        />
-        <Stack.Screen
-          name="QuizList"
-          component={QuizList}
-          options={{ title: "Quiz List" }}
-        />
-
-        {/* Teacher / Research ML Flow */}
+    // <SettingsProvider>
+    <SpeechProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName="StudentLogin"
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Modules" component={Modules} />
+          <Stack.Screen name="Marks" component={Marks} />
+          <Stack.Screen name="Quizes" component={Quizes} />
+          <Stack.Screen name="Assessments" component={Assessments} />
+          <Stack.Screen name="Grades" component={Grades} />
+          <Stack.Screen name="Lessons" component={Lessons} />
+          <Stack.Screen name="Content" component={Content} />
+          <Stack.Screen name="QuizList" component={QuizList} />
+          <Stack.Screen name="StudentLogin" component={StudentLogin} />
+          <Stack.Screen name="LessonPlayer" component={LessonPlayer} />
+          <Stack.Screen name="Help" component={Help} />
+           {/* Teacher / Research ML Flow */}
         <Stack.Screen
           name="TeacherLogin"
           component={TeacherLogin}
@@ -159,8 +132,10 @@ export default function App() {
           options={{ title: "Settings" }}
         />
 
-        {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
-      </Stack.Navigator>
-    </NavigationContainer>
+          {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SpeechProvider>
+
   );
 }
