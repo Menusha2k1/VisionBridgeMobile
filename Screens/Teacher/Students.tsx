@@ -85,7 +85,7 @@ export default function Students({ navigation }: Props) {
   };
 
   return (
-    <Screen>
+    <View style={{ flex: 1, marginTop: 60 }}>
       <PageHeader
         title="Students"
         subtitle="Manage student accounts and monitor activity"
@@ -158,7 +158,7 @@ export default function Students({ navigation }: Props) {
           )}
         </Card>
       </View>
-    </Screen>
+    </View>
   );
 }
 

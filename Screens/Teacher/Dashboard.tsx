@@ -66,7 +66,7 @@ export default function Dashboard({ navigation }: Props) {
   const topStudents = predictionData?.studentSummaries.slice(0, 5) ?? [];
 
   return (
-    <Screen>
+    <View style={{ flex: 1, marginTop: 40 }}>
       <PageHeader
         title="Teacher Dashboard"
         subtitle="AI-powered learning analytics for visually impaired ICT learners"
@@ -288,7 +288,7 @@ export default function Dashboard({ navigation }: Props) {
           </Card>
         )}
       </ScrollView>
-    </Screen>
+    </View>
   );
 }
 
