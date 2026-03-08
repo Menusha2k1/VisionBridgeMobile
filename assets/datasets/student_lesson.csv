@@ -1,0 +1,158 @@
+student_id,lesson_id,grade,topic,unit,total_listen_time_sec,pause_count,replay_count,seek_back_seconds,completion_rate
+VS0001,ICT_L01,10,Introduction to Programming and Algorithms,Programming,234,4,1,28,0.42
+VS0001,ICT_L02,10,Functions of an Operating System,Operating Systems,262,8,0,75,0.84
+VS0001,ICT_L03,10,"Types of Networks: LAN, MAN, WAN",Networking,552,1,1,29,0.42
+VS0001,ICT_L04,10,"Internet, Web, and Common Services",Internet & Web,637,8,1,83,0.76
+VS0002,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,678,7,4,35,0.65
+VS0002,ICT_L06,10,Networking Devices and Client Server Model,Networking,126,2,5,54,0.86
+VS0002,ICT_L04,10,"Internet, Web, and Common Services",Internet & Web,468,3,6,43,0.57
+VS0002,ICT_L01,10,Introduction to Programming and Algorithms,Programming,224,1,2,44,0.46
+VS0003,ICT_L07,10,Input and Output Devices,Computer Hardware,390,7,4,15,0.88
+VS0003,ICT_L01,10,Introduction to Programming and Algorithms,Programming,507,4,6,80,0.45
+VS0003,ICT_L08,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,753,5,4,24,0.93
+VS0003,ICT_L09,10,Types of Computer Systems,Computer Hardware,841,3,6,37,0.44
+VS0004,ICT_L01,10,Introduction to Programming and Algorithms,Programming,358,6,2,58,0.92
+VS0004,ICT_L10,10,Structured Programming in Pascal-Style Syntax,Programming,770,2,2,45,0.9
+VS0005,ICT_L01,10,Introduction to Programming and Algorithms,Programming,806,1,4,81,0.56
+VS0005,ICT_L06,10,Networking Devices and Client Server Model,Networking,295,3,1,59,0.72
+VS0006,ICT_L11,11,Systems Development Life Cycle,Systems Development,396,8,1,87,0.99
+VS0006,ICT_L09,11,Types of Computer Systems,Computer Hardware,452,0,1,4,0.91
+VS0006,ICT_L12,11,Role of ICT in Society,ICT & Society,443,1,1,72,0.64
+VS0007,ICT_L03,11,"Types of Networks: LAN, MAN, WAN",Networking,442,7,3,82,0.53
+VS0007,ICT_L13,11,Applications of ICT in Different Sectors,ICT Applications,589,2,1,71,0.49
+VS0007,ICT_L10,11,Structured Programming in Pascal-Style Syntax,Programming,671,6,4,51,0.56
+VS0007,ICT_L04,11,"Internet, Web, and Common Services",Internet & Web,490,2,4,63,0.53
+VS0008,ICT_L14,11,Introduction to Computer Networks,Networking,893,1,1,80,0.43
+VS0008,ICT_L11,11,Systems Development Life Cycle,Systems Development,283,6,4,8,0.88
+VS0009,ICT_L12,11,Role of ICT in Society,ICT & Society,510,7,4,32,0.76
+VS0009,ICT_L08,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,686,0,5,14,0.92
+VS0009,ICT_L06,11,Networking Devices and Client Server Model,Networking,818,4,6,82,0.93
+VS0010,ICT_L15,10,Basics of Web Page Development,Web Development,234,2,3,0,0.58
+VS0010,ICT_L16,10,Number Systems and Data Units,Data Representation,859,4,4,22,0.93
+VS0010,ICT_L04,10,"Internet, Web, and Common Services",Internet & Web,639,4,6,81,0.95
+VS0011,ICT_L07,10,Input and Output Devices,Computer Hardware,743,5,6,20,0.52
+VS0011,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,672,8,0,76,0.97
+VS0011,ICT_L04,10,"Internet, Web, and Common Services",Internet & Web,451,1,2,39,0.69
+VS0011,ICT_L10,10,Structured Programming in Pascal-Style Syntax,Programming,365,1,0,62,0.43
+VS0012,ICT_L13,10,Applications of ICT in Different Sectors,ICT Applications,898,2,1,84,0.72
+VS0012,ICT_L04,10,"Internet, Web, and Common Services",Internet & Web,606,2,2,67,0.97
+VS0013,ICT_L01,11,Introduction to Programming and Algorithms,Programming,553,8,6,88,0.98
+VS0013,ICT_L03,11,"Types of Networks: LAN, MAN, WAN",Networking,325,6,5,83,0.83
+VS0013,ICT_L17,11,Introduction to Database Systems,Database Management,502,8,3,15,0.66
+VS0013,ICT_L08,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,373,5,0,75,0.53
+VS0014,ICT_L13,11,Applications of ICT in Different Sectors,ICT Applications,355,0,0,90,0.75
+VS0014,ICT_L04,11,"Internet, Web, and Common Services",Internet & Web,766,1,0,42,0.44
+VS0014,ICT_L06,11,Networking Devices and Client Server Model,Networking,192,4,5,62,0.71
+VS0014,ICT_L11,11,Systems Development Life Cycle,Systems Development,339,7,1,60,0.72
+VS0015,ICT_L12,10,Role of ICT in Society,ICT & Society,314,6,2,54,0.46
+VS0015,ICT_L09,10,Types of Computer Systems,Computer Hardware,540,0,5,83,0.68
+VS0015,ICT_L02,10,Functions of an Operating System,Operating Systems,781,6,5,43,0.46
+VS0016,ICT_L08,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,374,8,3,17,0.51
+VS0016,ICT_L09,10,Types of Computer Systems,Computer Hardware,552,7,1,9,0.51
+VS0017,ICT_L17,11,Introduction to Database Systems,Database Management,683,8,6,1,0.46
+VS0017,ICT_L08,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,215,3,1,52,0.96
+VS0017,ICT_L14,11,Introduction to Computer Networks,Networking,617,6,0,21,0.69
+VS0018,ICT_L18,11,Basic Logic Gates,Logic Gates,122,4,6,58,0.99
+VS0018,ICT_L08,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,412,8,5,62,0.65
+VS0018,ICT_L12,11,Role of ICT in Society,ICT & Society,278,3,0,74,0.51
+VS0019,ICT_L03,10,"Types of Networks: LAN, MAN, WAN",Networking,675,5,0,6,0.44
+VS0019,ICT_L14,10,Introduction to Computer Networks,Networking,718,8,1,7,0.69
+VS0019,ICT_L09,10,Types of Computer Systems,Computer Hardware,640,2,0,76,0.45
+VS0019,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,189,3,3,15,0.81
+VS0020,ICT_L03,10,"Types of Networks: LAN, MAN, WAN",Networking,372,0,4,10,0.75
+VS0020,ICT_L07,10,Input and Output Devices,Computer Hardware,549,8,2,33,0.79
+VS0020,ICT_L16,10,Number Systems and Data Units,Data Representation,329,5,1,33,0.8
+VS0020,ICT_L17,10,Introduction to Database Systems,Database Management,525,4,3,40,0.48
+VS0021,ICT_L04,11,"Internet, Web, and Common Services",Internet & Web,129,1,0,68,0.67
+VS0021,ICT_L13,11,Applications of ICT in Different Sectors,ICT Applications,338,2,2,8,0.7
+VS0022,ICT_L12,10,Role of ICT in Society,ICT & Society,498,7,6,69,0.57
+VS0022,ICT_L06,10,Networking Devices and Client Server Model,Networking,840,8,0,85,0.58
+VS0023,ICT_L09,11,Types of Computer Systems,Computer Hardware,426,1,1,33,0.96
+VS0023,ICT_L18,11,Basic Logic Gates,Logic Gates,238,8,1,34,0.93
+VS0023,ICT_L04,11,"Internet, Web, and Common Services",Internet & Web,408,5,1,87,0.76
+VS0023,ICT_L01,11,Introduction to Programming and Algorithms,Programming,769,8,3,32,0.91
+VS0024,ICT_L14,10,Introduction to Computer Networks,Networking,214,4,0,0,0.78
+VS0024,ICT_L13,10,Applications of ICT in Different Sectors,ICT Applications,461,4,1,56,0.86
+VS0025,ICT_L04,11,"Internet, Web, and Common Services",Internet & Web,842,0,0,9,0.66
+VS0025,ICT_L18,11,Basic Logic Gates,Logic Gates,827,8,0,47,0.94
+VS0025,ICT_L17,11,Introduction to Database Systems,Database Management,716,6,1,5,0.73
+VS0025,ICT_L01,11,Introduction to Programming and Algorithms,Programming,435,0,2,26,0.62
+VS0026,ICT_L02,10,Functions of an Operating System,Operating Systems,375,5,6,71,0.8
+VS0026,ICT_L03,10,"Types of Networks: LAN, MAN, WAN",Networking,536,2,1,20,0.98
+VS0026,ICT_L15,10,Basics of Web Page Development,Web Development,301,0,1,42,0.93
+VS0026,ICT_L09,10,Types of Computer Systems,Computer Hardware,541,3,2,20,0.88
+VS0027,ICT_L14,11,Introduction to Computer Networks,Networking,230,0,6,60,0.63
+VS0027,ICT_L03,11,"Types of Networks: LAN, MAN, WAN",Networking,347,7,2,39,0.52
+VS0027,ICT_L17,11,Introduction to Database Systems,Database Management,353,3,3,42,0.53
+VS0027,ICT_L15,11,Basics of Web Page Development,Web Development,405,4,2,82,0.92
+VS0028,ICT_L07,10,Input and Output Devices,Computer Hardware,529,8,2,3,0.81
+VS0028,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,238,4,1,74,0.93
+VS0028,ICT_L08,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,391,6,2,40,0.42
+VS0028,ICT_L06,10,Networking Devices and Client Server Model,Networking,566,8,0,49,0.76
+VS0029,ICT_L10,11,Structured Programming in Pascal-Style Syntax,Programming,314,6,0,66,0.55
+VS0029,ICT_L13,11,Applications of ICT in Different Sectors,ICT Applications,671,3,2,55,0.81
+VS0029,ICT_L02,11,Functions of an Operating System,Operating Systems,191,5,4,40,0.97
+VS0029,ICT_L15,11,Basics of Web Page Development,Web Development,799,4,4,39,0.91
+VS0030,ICT_L06,10,Networking Devices and Client Server Model,Networking,538,4,4,16,0.6
+VS0030,ICT_L14,10,Introduction to Computer Networks,Networking,316,6,5,22,0.65
+VS0030,ICT_L16,10,Number Systems and Data Units,Data Representation,750,6,4,0,0.74
+VS0030,ICT_L15,10,Basics of Web Page Development,Web Development,431,6,6,74,0.57
+VS0031,ICT_L18,10,Basic Logic Gates,Logic Gates,790,7,3,86,0.59
+VS0031,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,338,2,5,10,0.71
+VS0031,ICT_L08,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,410,5,0,30,0.71
+VS0031,ICT_L09,10,Types of Computer Systems,Computer Hardware,808,3,1,3,0.59
+VS0032,ICT_L04,11,"Internet, Web, and Common Services",Internet & Web,370,1,3,53,0.99
+VS0032,ICT_L05,11,"Computer Security, Ethics, and Legal Issues",ICT & Society,764,6,3,51,0.75
+VS0033,ICT_L06,11,Networking Devices and Client Server Model,Networking,271,0,6,13,0.79
+VS0033,ICT_L10,11,Structured Programming in Pascal-Style Syntax,Programming,555,8,3,6,0.53
+VS0034,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,375,1,3,17,0.95
+VS0034,ICT_L02,10,Functions of an Operating System,Operating Systems,595,8,4,40,0.8
+VS0034,ICT_L06,10,Networking Devices and Client Server Model,Networking,893,8,3,70,0.93
+VS0034,ICT_L04,10,"Internet, Web, and Common Services",Internet & Web,576,7,3,33,0.94
+VS0035,ICT_L07,11,Input and Output Devices,Computer Hardware,772,8,3,80,0.57
+VS0035,ICT_L08,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,364,1,5,36,0.56
+VS0036,ICT_L07,10,Input and Output Devices,Computer Hardware,398,8,0,17,0.6
+VS0036,ICT_L18,10,Basic Logic Gates,Logic Gates,274,2,5,27,0.54
+VS0037,ICT_L17,11,Introduction to Database Systems,Database Management,544,8,3,53,0.64
+VS0037,ICT_L12,11,Role of ICT in Society,ICT & Society,183,6,3,74,0.52
+VS0038,ICT_L16,10,Number Systems and Data Units,Data Representation,140,6,3,0,0.91
+VS0038,ICT_L18,10,Basic Logic Gates,Logic Gates,480,6,6,53,0.58
+VS0038,ICT_L10,10,Structured Programming in Pascal-Style Syntax,Programming,671,8,6,77,0.85
+VS0038,ICT_L07,10,Input and Output Devices,Computer Hardware,345,4,3,62,0.69
+VS0039,ICT_L07,11,Input and Output Devices,Computer Hardware,518,6,5,21,0.6
+VS0039,ICT_L15,11,Basics of Web Page Development,Web Development,598,8,0,50,0.95
+VS0040,ICT_L12,10,Role of ICT in Society,ICT & Society,697,1,5,54,0.8
+VS0040,ICT_L02,10,Functions of an Operating System,Operating Systems,258,2,0,33,0.92
+VS0040,ICT_L16,10,Number Systems and Data Units,Data Representation,508,7,2,43,0.6
+VS0040,ICT_L13,10,Applications of ICT in Different Sectors,ICT Applications,899,4,6,53,0.93
+VS0041,ICT_L13,11,Applications of ICT in Different Sectors,ICT Applications,203,8,0,44,0.68
+VS0041,ICT_L08,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,349,0,6,3,0.79
+VS0041,ICT_L17,11,Introduction to Database Systems,Database Management,373,0,4,19,0.52
+VS0042,ICT_L13,10,Applications of ICT in Different Sectors,ICT Applications,249,1,4,27,0.68
+VS0042,ICT_L03,10,"Types of Networks: LAN, MAN, WAN",Networking,596,5,1,77,0.82
+VS0043,ICT_L10,11,Structured Programming in Pascal-Style Syntax,Programming,885,2,2,13,0.83
+VS0043,ICT_L09,11,Types of Computer Systems,Computer Hardware,712,4,4,86,0.42
+VS0043,ICT_L08,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,504,3,0,75,0.64
+VS0043,ICT_L02,11,Functions of an Operating System,Operating Systems,827,3,0,89,0.9
+VS0044,ICT_L09,10,Types of Computer Systems,Computer Hardware,820,1,6,72,0.76
+VS0044,ICT_L08,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,162,6,5,47,0.61
+VS0044,ICT_L11,10,Systems Development Life Cycle,Systems Development,190,5,0,53,0.7
+VS0045,ICT_L18,11,Basic Logic Gates,Logic Gates,228,5,5,58,0.66
+VS0045,ICT_L15,11,Basics of Web Page Development,Web Development,844,2,5,66,0.49
+VS0045,ICT_L14,11,Introduction to Computer Networks,Networking,786,8,6,61,0.56
+VS0046,ICT_L01,10,Introduction to Programming and Algorithms,Programming,566,4,2,31,0.9
+VS0046,ICT_L18,10,Basic Logic Gates,Logic Gates,208,7,1,59,0.57
+VS0046,ICT_L08,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,703,6,2,3,0.77
+VS0047,ICT_L10,11,Structured Programming in Pascal-Style Syntax,Programming,452,3,2,33,0.51
+VS0047,ICT_L11,11,Systems Development Life Cycle,Systems Development,468,4,4,1,0.57
+VS0047,ICT_L06,11,Networking Devices and Client Server Model,Networking,649,1,1,52,0.97
+VS0048,ICT_L17,10,Introduction to Database Systems,Database Management,688,7,5,62,0.85
+VS0048,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,578,1,2,28,0.88
+VS0048,ICT_L06,10,Networking Devices and Client Server Model,Networking,534,4,5,74,0.82
+VS0049,ICT_L16,11,Number Systems and Data Units,Data Representation,604,5,3,70,0.73
+VS0049,ICT_L03,11,"Types of Networks: LAN, MAN, WAN",Networking,458,7,2,39,0.61
+VS0049,ICT_L15,11,Basics of Web Page Development,Web Development,377,3,2,15,0.54
+VS0050,ICT_L05,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,668,2,1,27,0.97
+VS0050,ICT_L15,10,Basics of Web Page Development,Web Development,876,8,4,36,0.69
+VS0050,ICT_L06,10,Networking Devices and Client Server Model,Networking,222,4,1,46,0.9
+VS0050,ICT_L13,10,Applications of ICT in Different Sectors,ICT Applications,303,8,1,35,0.58
