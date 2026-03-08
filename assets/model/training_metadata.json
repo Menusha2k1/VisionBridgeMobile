@@ -1,0 +1,25 @@
+{
+  "target": "difficulty_label (quantile-based)",
+  "numeric_features": [
+    "pause_count",
+    "replay_count",
+    "seek_back_seconds",
+    "total_listen_time_sec",
+    "completion_rate",
+    "listen_time_min",
+    "interaction_load",
+    "seek_pause_ratio",
+    "replay_pause_ratio",
+    "completion_gap"
+  ],
+  "categorical_features": [
+    "grade",
+    "topic",
+    "unit",
+    "visually_impaired_type"
+  ],
+  "cv_selection_metric": "f1_macro_mean",
+  "best_model": "xgboost",
+  "records": 157,
+  "saved_model_path": "C:\\Users\\Ravindu\\Desktop\\VisionBridgeMobile\\assets\\model\\best_model_xgboost.joblib"
+}
