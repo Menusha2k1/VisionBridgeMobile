@@ -58,3 +58,24 @@ exports.getReport = (req, res) => {
     logs,
   });
 };
+exports.getAllReports = (req, res) => {
+  const students = db.prepare("SELECT id, name, grade FROM students").all();
+
+  const reports = students.map((student) => {
+    const logs = db
+      .prepare(
+        "SELECT id, screen_name, user_path, prediction_label, timestamp FROM struggle_logs WHERE student_id = ? ORDER BY timestamp DESC",
+      )
+      .all(student.id);
+
+    return {
+      totalLogs: logs.length,
+      logs,
+    };
+  });
+
+  res.json({
+    totalStudents: students.length,
+    reports,
+  });
+};

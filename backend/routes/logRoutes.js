@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { saveLog } = require("../controllers/logController");
-const { getReport } = require("../controllers/logController");
+const {
+  getReport,
+  getAllReports,
+  saveLog,
+} = require("../controllers/logController");
 
 router.post("/logs", saveLog);
 router.get("/reports/:student_id", getReport);
+router.get("/reports", getAllReports);
 
 module.exports = router;

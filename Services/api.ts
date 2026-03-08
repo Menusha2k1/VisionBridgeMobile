@@ -40,3 +40,12 @@ export const apiSaveLog = async (log: {
   }
   return data;
 };
+
+export const getStudentReport = async (studentId: number) => {
+  const response = await fetch(`${API_BASE}/reports/${studentId}`);
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error || "Failed to fetch report");
+  }
+  return data; // { student, totalLogs, logs }
+};

@@ -19,6 +19,7 @@ type RootStackParamList = {
   Assessments: undefined;
   Help: undefined;
   QuizList: { grade: string };
+  StudentLogin: undefined;
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
@@ -30,6 +31,7 @@ const BUTTON_LABELS = [
   "Marks",
   "Assessments",
   "Help",
+  "Logout",
 ] as const;
 
 export default function Home({ navigation }: Props) {
@@ -62,6 +64,12 @@ export default function Home({ navigation }: Props) {
   useEffect(() => {
     globalRateRef.current = globalRate;
   }, [globalRate]);
+
+  const haddleLogout = () => {
+    AsyncStorage.removeItem("student_session").then(() => {
+      navigation.replace("StudentLogin");
+    });
+  };
 
   useFocusEffect(
     useCallback(() => {
@@ -115,7 +123,9 @@ export default function Home({ navigation }: Props) {
     if (destination === "Lessons") navigation.navigate("Grades");
     else if (destination === "Quizes")
       navigation.navigate("QuizList", { grade: "Grade 10" });
-    else navigation.navigate(destination as any);
+    else if (destination === "Logout") {
+      haddleLogout();
+    } else navigation.navigate(destination as any);
   };
 
   const panResponder = useRef(
@@ -267,7 +277,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: Dimensions.get("window").width * 0.85,
-    height: 110,
+    height: 90,
     marginVertical: 10,
     borderRadius: 25,
     justifyContent: "center",

@@ -3,7 +3,6 @@ const path = require("path");
 
 const dbPath = path.join(__dirname, "visionbridge.db");
 const db = new Database(dbPath, {
-  verbose: console.log,
   timeout: 5000,
 });
 
