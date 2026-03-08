@@ -5,6 +5,11 @@ import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { Audio } from "expo-av";
 import { useFocusEffect } from "@react-navigation/native";
+import useStrugglePredictor from "../Hooks/useStrugglePredictor";
+import commands from "../components/commands";
+import { useSpeechSettings } from "../Context/SpeechContext";
+import { apiSaveLog } from "../Services/api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type RootStackParamList = {
   Home: undefined;
@@ -12,41 +17,70 @@ type RootStackParamList = {
   Marks: undefined;
   Quizes: undefined;
   Assessments: undefined;
+  Help: undefined;
   QuizList: { grade: string };
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const DOUBLE_TAP_DELAY = 400;
-const BUTTON_LABELS = ["Lessons", "Quizes", "Marks", "Assessments"] as const;
+const BUTTON_LABELS = [
+  "Lessons",
+  "Quizes",
+  "Marks",
+  "Assessments",
+  "Help",
+] as const;
 
 export default function Home({ navigation }: Props) {
   const [activeLabel, setActiveLabel] = useState<string | null>(null);
   const focused = useRef<string | null>(null);
   const lastTap = useRef<number>(0);
+  const tapCount = useRef(0); // Random tap count
+  const studentIdRef = useRef<number | null>(null);
+
   const layouts = useRef<
     Record<string, { x: number; y: number; w: number; h: number }>
   >({});
   const viewRefs = useRef<Record<string, View | null>>({});
   const soundRef = useRef<Audio.Sound | null>(null);
 
+  // --- AI PREDICTOR SETUP ---
+  const { predict } = useStrugglePredictor();
+  const { globalRate, setGlobalRate } = useSpeechSettings();
+  const gestureHistory = useRef<string[]>([]);
+  const globalRateRef = useRef(globalRate); // To keep track of globalRate in gesture callbacks
+
+  useEffect(() => {
+    AsyncStorage.getItem("student_session").then((data) => {
+      if (data) {
+        const session = JSON.parse(data);
+        studentIdRef.current = session.student.id;
+      }
+    });
+  }, []);
+  useEffect(() => {
+    globalRateRef.current = globalRate;
+  }, [globalRate]);
+
   useFocusEffect(
     useCallback(() => {
-      Speech.speak(
-        "You are now on Home page..., swipe through the screen to explore tabs",
-        {
-          rate: 0.9,
-          pitch: 1,
-          volume: 1.0,
-        }
-      );
-    }, [])
+      // Pro ද නැද්ද බලලා commands තෝරනවා
+      const isPro = globalRate > 1.0;
+      const message = isPro ? "Main Menu." : commands.Home.welcome;
+
+      Speech.speak(message, {
+        rate: globalRate,
+        pitch: 1,
+        volume: 1.0,
+      });
+    }, [globalRate]),
   );
 
   useEffect(() => {
     async function loadSound() {
       const { sound } = await Audio.Sound.createAsync(
-        require("../assets/sounds/tick.mp3")
+        require("../assets/sounds/tick.mp3"),
       );
       soundRef.current = sound;
     }
@@ -68,22 +102,16 @@ export default function Home({ navigation }: Props) {
         setActiveLabel(label);
         playFeedback();
         Speech.stop();
-        Speech.speak(label, { volume: 1, rate: 1.0 });
+        Speech.speak(label, { volume: 1, rate: globalRate });
       }
     },
-    [playFeedback]
+    [playFeedback, globalRate],
   );
 
   const navigateFocused = () => {
-    if (!focused.current) {
-      Speech.speak("Select an option first");
-      return;
-    }
+    if (!focused.current) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-
-    // Using a temporary variable to avoid ref-clearing issues during transition
     const destination = focused.current;
-
     if (destination === "Lessons") navigation.navigate("Grades");
     else if (destination === "Quizes")
       navigation.navigate("QuizList", { grade: "Grade 10" });
@@ -94,43 +122,67 @@ export default function Home({ navigation }: Props) {
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
+
       onPanResponderGrant: (evt) => {
         const now = Date.now();
         const timeSinceLastTap = now - lastTap.current;
 
-        // --- GLOBAL DOUBLE TAP LOGIC ---
-        // If user double taps ANYWHERE, navigate to whatever is currently focused
+        // 1. Double Tap Success
         if (timeSinceLastTap < DOUBLE_TAP_DELAY) {
           navigateFocused();
           lastTap.current = 0;
-          return; // STOP execution here so we don't focus a new button
+          tapCount.current = 0;
+          return;
         }
 
-        lastTap.current = now;
-
-        // --- SINGLE TAP / FOCUS LOGIC ---
-        const { pageX, pageY } = evt.nativeEvent;
-        let touchedLabel: string | null = null;
-        for (const label of BUTTON_LABELS) {
-          const b = layouts.current[label];
-          if (
-            b &&
-            pageX >= b.x &&
-            pageX <= b.x + b.w &&
-            pageY >= b.y &&
-            pageY <= b.y + b.h
-          ) {
-            touchedLabel = label;
-            break;
+        if (timeSinceLastTap >= DOUBLE_TAP_DELAY && timeSinceLastTap < 1000) {
+          if (focused.current) {
+            Speech.stop();
+            Speech.speak(
+              `To enter ${focused.current}, please tap twice very quickly.`,
+              { rate: globalRate },
+            );
           }
         }
 
-        if (touchedLabel) {
-          speak(touchedLabel);
+        // 3. Excessive Tapping on empty space
+        if (!focused.current) {
+          tapCount.current += 1;
+          if (tapCount.current > 3) {
+            Speech.stop();
+            Speech.speak(
+              "You are tapping on an empty area. Please slide your finger to find menu options.",
+              { rate: globalRate },
+            );
+            tapCount.current = 0;
+          }
+        } else {
+          tapCount.current = 0;
         }
+
+        lastTap.current = now;
+        gestureHistory.current = [];
       },
+
       onPanResponderMove: (evt, gestureState) => {
-        const { moveX, moveY } = gestureState;
+        const { moveX, moveY, vx, vy } = gestureState;
+
+        if (Math.abs(vx) > 0.1 || Math.abs(vy) > 0.1) {
+          const dir =
+            Math.abs(vx) > Math.abs(vy)
+              ? vx > 0
+                ? "R"
+                : "L"
+              : vy > 0
+                ? "D"
+                : "U";
+          if (
+            gestureHistory.current[gestureHistory.current.length - 1] !== dir
+          ) {
+            gestureHistory.current.push(dir);
+          }
+        }
+
         for (const label of BUTTON_LABELS) {
           const b = layouts.current[label];
           if (
@@ -145,20 +197,42 @@ export default function Home({ navigation }: Props) {
           }
         }
       },
-    })
+
+      onPanResponderRelease: () => {
+        // --- AI STRUGGLE PREDICTION (Gestures) ---
+        if (gestureHistory.current.length > 2) {
+          const userPath = gestureHistory.current.join("");
+          const prediction = predict(userPath, "D");
+
+          if (prediction.predictedIndex === 0) {
+            setGlobalRate(1.2);
+          } else if (prediction.predictedIndex === 2) {
+            setGlobalRate(0.8);
+            Speech.stop();
+            Speech.speak(commands.Home.struggle, { rate: 0.8 });
+
+            // Send struggle log to backend
+            if (studentIdRef.current) {
+              apiSaveLog({
+                student_id: studentIdRef.current,
+                screen_name: "Home",
+                user_path: userPath,
+                prediction_label: prediction.label,
+              }).catch((err) =>
+                console.warn("Failed to save struggle log:", err),
+              );
+            }
+          }
+        }
+      },
+    }),
   ).current;
 
   const handleLayout = (label: string) => {
-    const tryMeasure = () => {
-      viewRefs.current[label]?.measure((x, y, width, height, pageX, pageY) => {
-        if (width > 0) {
-          layouts.current[label] = { x: pageX, y: pageY, w: width, h: height };
-        } else {
-          setTimeout(tryMeasure, 100);
-        }
-      });
-    };
-    tryMeasure();
+    viewRefs.current[label]?.measure((x, y, width, height, pageX, pageY) => {
+      if (width > 0)
+        layouts.current[label] = { x: pageX, y: pageY, w: width, h: height };
+    });
   };
 
   return (
@@ -200,11 +274,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     elevation: 8,
   },
-  buttonUnfocused: {
-    backgroundColor: "#444444",
-  },
+  buttonUnfocused: { backgroundColor: "#444444" },
   buttonFocused: {
-    backgroundColor: "#a51818", // Red when focused
+    backgroundColor: "#a51818",
     borderWidth: 3,
     borderColor: "#ffffff",
   },

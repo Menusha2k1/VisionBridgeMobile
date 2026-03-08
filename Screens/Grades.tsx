@@ -4,6 +4,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech"; // Added for Text-to-Speech
 import { useFocusEffect } from "@react-navigation/native";
+import commands from "../components/commands";
 
 type RootStackParamList = {
   Grades: undefined;
@@ -30,14 +31,14 @@ const Grades = ({ navigation }: Props) => {
   useFocusEffect(
     useCallback(() => {
       Speech.stop(); // stop previous speech
-      Speech.speak("Choose your Grade", {
+      Speech.speak(commands.Grade, {
         rate: 0.9,
         pitch: 1,
         volume: 1.0,
       });
 
       return () => {};
-    }, [])
+    }, []),
   );
 
   const navigateFocused = (grade: string) => {
@@ -50,6 +51,7 @@ const Grades = ({ navigation }: Props) => {
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant: (evt) => {
         const now = Date.now();
         const timeSinceLastTap = now - lastTap.current;
@@ -61,6 +63,17 @@ const Grades = ({ navigation }: Props) => {
         lastTap.current = now;
       },
 
+      onPanResponderRelease: (evt, gestureState) => {
+        // --- SWIPE LEFT TO GO BACK ---
+        if (
+          Math.abs(gestureState.dx) > Math.abs(gestureState.dy) &&
+          gestureState.dx < -100
+        ) {
+          Speech.stop();
+          Speech.speak("Going back");
+          navigation.goBack();
+        }
+      },
       onPanResponderMove: (evt, gestureState) => {
         const { moveX, moveY } = gestureState;
         let foundGrade: string | null = null;
@@ -90,7 +103,7 @@ const Grades = ({ navigation }: Props) => {
           }
         }
       },
-    })
+    }),
   ).current;
 
   const updateLayout = (grade: string) => {

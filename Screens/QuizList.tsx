@@ -35,7 +35,7 @@ const QuizList = ({ route }: any) => {
       return () => {
         Speech.stop();
       };
-    }, [availableQuizzes, grade])
+    }, [availableQuizzes, grade]),
   );
 
   const announce = (text: string) => {
@@ -88,7 +88,7 @@ const QuizList = ({ route }: any) => {
           setActiveId(touchedId);
           const quiz = availableQuizzes.find((q) => q.id === touchedId);
           announce(
-            `${quiz?.lessonName} Quiz, ${quiz?.questionsCount} questions`
+            `${quiz?.lessonName} Quiz, ${quiz?.questionsCount} questions`,
           );
         }
       },
@@ -119,10 +119,20 @@ const QuizList = ({ route }: any) => {
         }
       },
 
-      onPanResponderRelease: () => {
+      onPanResponderRelease: (evt, gestureState) => {
+        // --- SWIPE LEFT TO GO BACK ---
+        if (
+          Math.abs(gestureState.dx) > Math.abs(gestureState.dy) &&
+          gestureState.dx < -100
+        ) {
+          Speech.stop();
+          Speech.speak("Going back");
+          navigation.goBack();
+          return;
+        }
         setActiveId(null);
       },
-    })
+    }),
   ).current;
 
   const measureView = (id: string) => {

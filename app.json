@@ -22,7 +22,9 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.vision"
+      "package": "com.anonymous.vision",
+        "usesCleartextTraffic": true
+
     },
     "web": {
       "favicon": "./assets/favicon.png"

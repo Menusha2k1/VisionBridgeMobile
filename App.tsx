@@ -14,6 +14,8 @@ import QuizList from "./Screens/QuizList";
 import Content from "./Screens/Content";
 import StudentLogin from "./Screens/StudentLogin";
 import LessonPlayer from "./components/LessonPlayer";
+import Help from "./Screens/Help";
+import { SpeechProvider } from "./Context/SpeechContext";
 
 // import * as tf from "@tensorflow/tfjs";
 // import "@tensorflow/tfjs-react-native";
@@ -34,6 +36,7 @@ export type RootStackParamList = {
   Content: { lessonId: string; grade: string };
   QuizList: { subCategoryId: number };
   Quiz: { quizId: number };
+  Help: undefined;
   StudentLogin: undefined;
   LessonPlayer: { subTopicId: string; title: string };
 };
@@ -63,26 +66,29 @@ export default function App() {
   // }
   return (
     // <SettingsProvider>
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{ headerShown: true }}
-        initialRouteName="StudentLogin"
-      >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Modules" component={Modules} />
-        <Stack.Screen name="Marks" component={Marks} />
-        <Stack.Screen name="Quizes" component={Quizes} />
-        <Stack.Screen name="Assessments" component={Assessments} />
-        <Stack.Screen name="Grades" component={Grades} />
-        <Stack.Screen name="Lessons" component={Lessons} />
-        <Stack.Screen name="Content" component={Content} />
-        <Stack.Screen name="QuizList" component={QuizList} />
-        <Stack.Screen name="StudentLogin" component={StudentLogin} />
-        <Stack.Screen name="LessonPlayer" component={LessonPlayer} />
+    <SpeechProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName="StudentLogin"
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Modules" component={Modules} />
+          <Stack.Screen name="Marks" component={Marks} />
+          <Stack.Screen name="Quizes" component={Quizes} />
+          <Stack.Screen name="Assessments" component={Assessments} />
+          <Stack.Screen name="Grades" component={Grades} />
+          <Stack.Screen name="Lessons" component={Lessons} />
+          <Stack.Screen name="Content" component={Content} />
+          <Stack.Screen name="QuizList" component={QuizList} />
+          <Stack.Screen name="StudentLogin" component={StudentLogin} />
+          <Stack.Screen name="LessonPlayer" component={LessonPlayer} />
+          <Stack.Screen name="Help" component={Help} />
+          {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SpeechProvider>
 
-        {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
-      </Stack.Navigator>
-    </NavigationContainer>
     // </SettingsProvider>
   );
 }

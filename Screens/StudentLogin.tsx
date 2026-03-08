@@ -2,16 +2,21 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { StyleSheet, Text, View, PanResponder, Dimensions } from "react-native";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
-import { validateStudentLogin } from "../data/studentData";
 import { useFocusEffect } from "@react-navigation/native";
+import useStrugglePredictor from "../Hooks/useStrugglePredictor";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { apiLogin } from "../Services/api";
 
-const PIN_LENGTH = 5;
+const PIN_LENGTH = 4;
 const DOUBLE_TAP_DELAY = 450;
 const PAD = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Clear", "0", "OK"];
+const SESSION_KEY = "student_session";
+const SESSION_DURATION = 30 * 24 * 60 * 60 * 1000; // 30 days in ms
 
 const PinLogin = ({ navigation }: any) => {
   const [pin, setPin] = useState("");
   const [activeKey, setActiveKey] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const pinRef = useRef(pin);
   const focusedKeyRef = useRef<string | null>(null);
@@ -21,26 +26,49 @@ const PinLogin = ({ navigation }: any) => {
   >({});
   const viewRefs = useRef<Record<string, View | null>>({});
 
-  // Keep ref updated
+  const { predict } = useStrugglePredictor();
+  const gestureHistory = useRef<string[]>([]);
+
   useEffect(() => {
     pinRef.current = pin;
   }, [pin]);
 
+  // --- CHECK EXISTING SESSION (30-day persistence) ---
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const sessionData = await AsyncStorage.getItem(SESSION_KEY);
+        if (sessionData) {
+          const session = JSON.parse(sessionData);
+          const now = Date.now();
+          if (now - session.loginTime < SESSION_DURATION) {
+            Speech.speak(`Welcome back ${session.student.name}`);
+            navigation.replace("Home");
+            return;
+          }
+          // Session expired — clear it
+          await AsyncStorage.removeItem(SESSION_KEY);
+        }
+      } catch (e) {
+        console.warn("Session check failed:", e);
+      }
+      setIsLoading(false);
+    };
+    checkSession();
+  }, [navigation]);
+
   useFocusEffect(
     useCallback(() => {
-      Speech.stop(); // stop previous speech
-      Speech.speak(
-        "Hi.., welcome To vision Bridge.., enter your student pin to login..,  swipe through the screen to type numbers..., double tap to enter the number",
-        {
-          rate: 1,
-          pitch: 1,
-          volume: 1.0,
-        }
-      );
-    }, [])
+      if (!isLoading) {
+        Speech.stop();
+        Speech.speak(
+          "Hi, welcome to Vision Bridge. Enter your four digit student pin to login. Swipe to explore numbers, double tap to select.",
+          { rate: 1, pitch: 1, volume: 1.0 },
+        );
+      }
+    }, [isLoading]),
   );
 
-  // Key press logic
   const handleKeyPress = (key: string) => {
     Haptics.selectionAsync().catch(() => {});
 
@@ -51,20 +79,37 @@ const PinLogin = ({ navigation }: any) => {
     } else if (key === "OK") {
       const currentPin = pinRef.current;
       if (currentPin.length === PIN_LENGTH) {
-        const student = validateStudentLogin(currentPin);
-        if (student) {
-          Speech.stop();
-          Speech.speak(`Welcome ${student.name}`);
-          navigation.navigate("Home");
-        } else {
-          Speech.stop();
-          Speech.speak("Incorrect PIN. Cleared.");
-          setPin("");
-        }
+        // --- CALL BACKEND API ---
+        Speech.stop();
+        Speech.speak("Checking your pin, please wait.");
+        apiLogin(currentPin)
+          .then(async (student) => {
+            const session = {
+              student,
+              loginTime: Date.now(),
+            };
+            await AsyncStorage.setItem(SESSION_KEY, JSON.stringify(session));
+
+            Speech.stop();
+            Speech.speak(`Welcome ${student.name}`);
+            navigation.replace("Home");
+          })
+          .catch((error) => {
+            console.error("Login error:", error.message);
+            Speech.stop();
+            if (error.message === "Network request failed") {
+              Speech.speak(
+                "Cannot connect to server. Please check your connection.",
+              );
+            } else {
+              Speech.speak("Incorrect PIN. Cleared.");
+            }
+            setPin("");
+          });
       } else {
         Speech.stop();
         Speech.speak(
-          `PIN incomplete. You have entered ${currentPin.length} digits.`
+          `PIN incomplete. You have only entered ${currentPin.length} digits.`,
         );
       }
     } else {
@@ -72,20 +117,21 @@ const PinLogin = ({ navigation }: any) => {
         setPin((prev) => {
           const newPin = prev + key;
           Speech.stop();
-          Speech.speak(key);
+          Speech.speak(`${key} entered`);
           if (newPin.length === PIN_LENGTH) {
-            Speech.speak("PIN complete. Select OK to login");
+            Speech.speak(
+              "PIN complete. Now find the OK button at the bottom right to login.",
+            );
           }
           return newPin;
         });
       } else {
         Speech.stop();
-        Speech.speak("PIN is full. Select OK.");
+        Speech.speak("PIN is full. Select OK to proceed.");
       }
     }
   };
 
-  // PanResponder
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -95,6 +141,7 @@ const PinLogin = ({ navigation }: any) => {
         const now = Date.now();
         const { pageX, pageY } = evt.nativeEvent;
         let foundKey: string | null = null;
+        gestureHistory.current = [];
 
         for (const key of PAD) {
           const l = layouts.current[key];
@@ -128,9 +175,25 @@ const PinLogin = ({ navigation }: any) => {
       },
 
       onPanResponderMove: (evt, gestureState) => {
-        const { moveX, moveY } = gestureState;
-        let currentKey: string | null = null;
+        const { moveX, moveY, vx, vy } = gestureState;
 
+        if (Math.abs(vx) > 0.1 || Math.abs(vy) > 0.1) {
+          const dir =
+            Math.abs(vx) > Math.abs(vy)
+              ? vx > 0
+                ? "R"
+                : "L"
+              : vy > 0
+                ? "D"
+                : "U";
+          if (
+            gestureHistory.current[gestureHistory.current.length - 1] !== dir
+          ) {
+            gestureHistory.current.push(dir);
+          }
+        }
+
+        let currentKey: string | null = null;
         for (const key of PAD) {
           const l = layouts.current[key];
           if (
@@ -153,11 +216,32 @@ const PinLogin = ({ navigation }: any) => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         }
       },
-      onPanResponderRelease: () => setActiveKey(null),
-    })
+
+      onPanResponderRelease: () => {
+        setActiveKey(null);
+
+        if (gestureHistory.current.length > 3) {
+          const userPath = gestureHistory.current.join("");
+          const prediction = predict(userPath, "D");
+
+          if (prediction.predictedIndex === 2) {
+            if (pinRef.current.length === PIN_LENGTH) {
+              Speech.speak(
+                "You have finished typing. The OK button is located at the very bottom right corner of the keypad.",
+                { rate: 0.8 },
+              );
+            } else {
+              Speech.speak(
+                "Need help? The numbers start from one at the top left. Zero is at the bottom center, and Clear is to its left.",
+                { rate: 0.8 },
+              );
+            }
+          }
+        }
+      },
+    }),
   ).current;
 
-  // Measure keys
   const measureKey = (key: string) => {
     const tryMeasure = () => {
       viewRefs.current[key]?.measure((x, y, width, height, pageX, pageY) => {
@@ -170,6 +254,11 @@ const PinLogin = ({ navigation }: any) => {
     };
     tryMeasure();
   };
+
+  // Show nothing while checking session
+  if (isLoading) {
+    return <View style={styles.container} />;
+  }
 
   return (
     <View style={styles.container} {...panResponder.panHandlers}>
