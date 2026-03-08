@@ -64,7 +64,7 @@ export default function StudentRegistration({ navigation }: Props) {
   };
 
   return (
-    <Screen>
+    <View style={{ flex: 1, marginTop: 60 }}>
       <PageHeader
         title="Student Registration"
         subtitle="Register a new student for VisionBridge"
@@ -165,7 +165,7 @@ export default function StudentRegistration({ navigation }: Props) {
           </Text>
         </Card>
       </View>
-    </Screen>
+    </View>
   );
 }
 
