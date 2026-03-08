@@ -69,6 +69,7 @@ exports.getAllReports = (req, res) => {
       .all(student.id);
 
     return {
+      student,
       totalLogs: logs.length,
       logs,
     };
