@@ -25,6 +25,7 @@ import TeacherStudentRegistration from "./Screens/Teacher/StudentRegistration";
 import TeacherReports from "./Screens/Teacher/Reports";
 import TeacherWeakTopics from "./Screens/Teacher/WeakTopics";
 import TeacherSettings from "./Screens/Teacher/Settings";
+import TeacherStudentsList from "./Screens/Teacher/StudentsList";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -49,6 +50,7 @@ export type RootStackParamList = {
   TeacherReports: undefined;
   TeacherWeakTopics: undefined;
   TeacherSettings: undefined;
+  TeacherStudentsList: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -132,6 +134,11 @@ export default function App() {
           name="TeacherLessonUpload"
           component={TeacherLessonUpload}
           options={{ title: "Lesson Upload" }}
+        />
+        <Stack.Screen
+          name="TeacherStudentsList"
+          component={TeacherStudentsList}
+          options={{ title: "Students" }}
         />
         <Stack.Screen
           name="TeacherStudents"
