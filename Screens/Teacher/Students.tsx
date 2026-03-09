@@ -85,7 +85,7 @@ export default function Students({ navigation }: Props) {
   };
 
   return (
-    <Screen>
+    <View style={{ flex: 1, marginTop: 60 }}>
       <PageHeader
         title="Students"
         subtitle="Manage student accounts and monitor activity"
@@ -93,10 +93,6 @@ export default function Students({ navigation }: Props) {
 
       <View style={styles.body}>
         <Card title="Actions">
-          <Button
-            title="Register Student"
-            onPress={() => navigation.navigate("TeacherStudentRegistration")}
-          />
           <View style={{ height: 10 }} />
           <Button
             title="View Weak Topics"
@@ -162,7 +158,7 @@ export default function Students({ navigation }: Props) {
           )}
         </Card>
       </View>
-    </Screen>
+    </View>
   );
 }
 

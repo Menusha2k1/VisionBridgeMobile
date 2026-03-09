@@ -6,6 +6,7 @@ import {
   Alert,
   ActivityIndicator,
   FlatList,
+  ScrollView,
 } from "react-native";
 import Screen from "./components/layout/Screen";
 import PageHeader from "./components/layout/PageHeader";
@@ -21,6 +22,7 @@ export default function Reports() {
     loading: analyticsLoading,
     error: analyticsError,
   } = useAnalytics();
+
   const {
     data: predictionData,
     loading: predictionLoading,
@@ -45,7 +47,10 @@ export default function Reports() {
       `PR-AUC: ${mlMetrics.prAuc.toFixed(3)}`,
       `Total Students: ${analyticsData.stats.totalStudents}`,
       `High Risk Students: ${predictionData.highRiskStudentCount}`,
-      `Average Completion Rate: ${Math.round(analyticsData.stats.avgCompletionRate * 100)}%`,
+      `Average Completion Rate: ${Math.round(
+        analyticsData.stats.avgCompletionRate * 100
+      )}%`,
+      `Average BLDI: ${Math.round(predictionData.avgBLDI)}`,
       `Top Risk Student: ${topRiskStudent?.full_name ?? "N/A"}`,
       `Top Risk Topic: ${topRiskStudent?.most_risky_topic ?? "N/A"}`,
     ].join("\n");
@@ -60,7 +65,9 @@ export default function Reports() {
             id: "1",
             title: "Best Performing Model",
             value: mlMetrics.bestModel,
-            note: `F1-Macro ${mlMetrics.f1Macro.toFixed(3)} | Balanced Accuracy ${mlMetrics.balancedAccuracy.toFixed(3)}`,
+            note: `F1-Macro ${mlMetrics.f1Macro.toFixed(
+              3
+            )} | Balanced Accuracy ${mlMetrics.balancedAccuracy.toFixed(3)}`,
           },
           {
             id: "2",
@@ -77,7 +84,9 @@ export default function Reports() {
           {
             id: "4",
             title: "Average Completion Rate",
-            value: `${Math.round(analyticsData.stats.avgCompletionRate * 100)}%`,
+            value: `${Math.round(
+              analyticsData.stats.avgCompletionRate * 100
+            )}%`,
             note: "Lesson completion across all student interactions",
           },
           {
@@ -102,7 +111,11 @@ export default function Reports() {
         subtitle="Research evaluation summary, prediction analytics, and intervention reporting"
       />
 
-      <View style={styles.body}>
+      <ScrollView
+        style={styles.body}
+        contentContainerStyle={styles.contentContainer}
+        showsVerticalScrollIndicator={true}
+      >
         {loading ? (
           <Card title="Loading Reports">
             <View style={styles.centerBox}>
@@ -124,7 +137,7 @@ export default function Reports() {
                 prediction results to support early teacher intervention for
                 visually impaired ICT learners.
               </Text>
-              <View style={{ marginTop: 12 }}>
+              <View style={styles.buttonWrap}>
                 <Button title="Export Current Report" onPress={handleExport} />
               </View>
             </Card>
@@ -137,7 +150,7 @@ export default function Reports() {
                 ItemSeparatorComponent={() => <View style={styles.sep} />}
                 renderItem={({ item }) => (
                   <View style={styles.row}>
-                    <View style={{ flex: 1 }}>
+                    <View style={styles.rowTextWrap}>
                       <Text style={styles.rowTitle}>{item.title}</Text>
                       <Text style={styles.rowNote}>{item.note}</Text>
                     </View>
@@ -159,7 +172,7 @@ export default function Reports() {
                     <Text style={styles.topicValue}>
                       Risk: {student.display_risk_label} | Prob:{" "}
                       {student.display_probability}% | Topic:{" "}
-                      {student.most_risky_topic}
+                      {student.most_risky_topic} | BLDI: {student.max_bldi}
                     </Text>
                   </View>
                 ))}
@@ -184,21 +197,27 @@ export default function Reports() {
             </Text>
           </Card>
         )}
-      </View>
+      </ScrollView>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   body: {
+    flex: 1,
+  },
+  contentContainer: {
     paddingHorizontal: 16,
+    paddingBottom: 80,
     gap: 12,
-    paddingBottom: 24,
   },
   centerBox: {
     paddingVertical: 24,
     alignItems: "center",
     justifyContent: "center",
+  },
+  buttonWrap: {
+    marginTop: 12,
   },
   infoText: {
     marginTop: 10,
@@ -221,6 +240,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 12,
     gap: 12,
+  },
+  rowTextWrap: {
+    flex: 1,
   },
   rowTitle: {
     fontSize: 14,

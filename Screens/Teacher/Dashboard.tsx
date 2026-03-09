@@ -29,6 +29,7 @@ type RootStackParamList = {
   TeacherReports: undefined;
   TeacherWeakTopics: undefined;
   TeacherSettings: undefined;
+  TeacherStudentsList: undefined;
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "TeacherDashboard">;
@@ -65,7 +66,7 @@ export default function Dashboard({ navigation }: Props) {
   const topStudents = predictionData?.studentSummaries.slice(0, 5) ?? [];
 
   return (
-    <Screen>
+    <View style={{ flex: 1, marginTop: 40 }}>
       <PageHeader
         title="Teacher Dashboard"
         subtitle="AI-powered learning analytics for visually impaired ICT learners"
@@ -121,6 +122,11 @@ export default function Dashboard({ navigation }: Props) {
                 <Button
                   title="Lesson Upload"
                   onPress={() => navigation.navigate("TeacherLessonUpload")}
+                />
+                <Button
+                  title="Students Registration"
+                  variant="secondary"
+                  onPress={() => navigation.navigate("TeacherStudentsList")}
                 />
                 <Button
                   title="Students"
@@ -282,7 +288,7 @@ export default function Dashboard({ navigation }: Props) {
           </Card>
         )}
       </ScrollView>
-    </Screen>
+    </View>
   );
 }
 
