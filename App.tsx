@@ -35,13 +35,14 @@ import TeacherStudentRegistration from "./Screens/Teacher/StudentRegistration";
 import TeacherReports from "./Screens/Teacher/Reports";
 import TeacherWeakTopics from "./Screens/Teacher/WeakTopics";
 import TeacherSettings from "./Screens/Teacher/Settings";
+import AssessmentList from "./Screens/AssessmentList";
 
 export type RootStackParamList = {
   Home: undefined;
   Modules: undefined;
   Marks: undefined;
   Quizes: undefined;
-  Assessments: undefined;
+  Assessments: { id: number };
   Grades: undefined;
   Lessons: { grade: string };
   Content: { lessonId: string; grade: string };
@@ -49,8 +50,9 @@ export type RootStackParamList = {
   Quiz: { quizId: number };
   Help: undefined;
   StudentLogin: undefined;
-    
-    // Teacher routes
+  AssessmentList: undefined; // ← add this line
+
+  // Teacher routes
   TeacherLogin: undefined;
   TeacherDashboard: undefined;
   TeacherLessonUpload: undefined;
@@ -59,12 +61,8 @@ export type RootStackParamList = {
   TeacherReports: undefined;
   TeacherWeakTopics: undefined;
   TeacherSettings: undefined;
-    
 
   LessonPlayer: { subTopicId: string; title: string };
-
-
-  
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -89,53 +87,54 @@ export default function App() {
           <Stack.Screen name="QuizList" component={QuizList} />
           <Stack.Screen name="StudentLogin" component={StudentLogin} />
           <Stack.Screen name="LessonPlayer" component={LessonPlayer} />
+          <Stack.Screen name="AssessmentList" component={AssessmentList} />
+
           <Stack.Screen name="Help" component={Help} />
-           {/* Teacher / Research ML Flow */}
-        <Stack.Screen
-          name="TeacherLogin"
-          component={TeacherLogin}
-          options={{ title: "Teacher Login" }}
-        />
-        <Stack.Screen
-          name="TeacherDashboard"
-          component={TeacherDashboard}
-          options={{ title: "Teacher Dashboard" }}
-        />
-        <Stack.Screen
-          name="TeacherLessonUpload"
-          component={TeacherLessonUpload}
-          options={{ title: "Lesson Upload" }}
-        />
-        <Stack.Screen
-          name="TeacherStudents"
-          component={TeacherStudents}
-          options={{ title: "Students" }}
-        />
-        <Stack.Screen
-          name="TeacherStudentRegistration"
-          component={TeacherStudentRegistration}
-          options={{ title: "Register Student" }}
-        />
-        <Stack.Screen
-          name="TeacherReports"
-          component={TeacherReports}
-          options={{ title: "Reports" }}
-        />
-        <Stack.Screen
-          name="TeacherWeakTopics"
-          component={TeacherWeakTopics}
-          options={{ title: "Weak Topics" }}
-        />
-        <Stack.Screen
-          name="TeacherSettings"
-          component={TeacherSettings}
-          options={{ title: "Settings" }}
-        />
+          {/* Teacher / Research ML Flow */}
+          <Stack.Screen
+            name="TeacherLogin"
+            component={TeacherLogin}
+            options={{ title: "Teacher Login" }}
+          />
+          <Stack.Screen
+            name="TeacherDashboard"
+            component={TeacherDashboard}
+            options={{ title: "Teacher Dashboard" }}
+          />
+          <Stack.Screen
+            name="TeacherLessonUpload"
+            component={TeacherLessonUpload}
+            options={{ title: "Lesson Upload" }}
+          />
+          <Stack.Screen
+            name="TeacherStudents"
+            component={TeacherStudents}
+            options={{ title: "Students" }}
+          />
+          <Stack.Screen
+            name="TeacherStudentRegistration"
+            component={TeacherStudentRegistration}
+            options={{ title: "Register Student" }}
+          />
+          <Stack.Screen
+            name="TeacherReports"
+            component={TeacherReports}
+            options={{ title: "Reports" }}
+          />
+          <Stack.Screen
+            name="TeacherWeakTopics"
+            component={TeacherWeakTopics}
+            options={{ title: "Weak Topics" }}
+          />
+          <Stack.Screen
+            name="TeacherSettings"
+            component={TeacherSettings}
+            options={{ title: "Settings" }}
+          />
 
           {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </SpeechProvider>
-
   );
 }

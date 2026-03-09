@@ -36,11 +36,8 @@ const Login: React.FC<Props> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-<<<<<<< Updated upstream
       <Text style={styles.title}>Login Teacher</Text>
-=======
       <Text style={styles.title}>Teacher Login</Text>
->>>>>>> Stashed changes
 
       <TextInput
         style={styles.input}
