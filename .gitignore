@@ -39,3 +39,8 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# SQLite temporary files
+backend/db/*.db-shm
+backend/db/*.db-wal
+backend/db/*.db-journal
