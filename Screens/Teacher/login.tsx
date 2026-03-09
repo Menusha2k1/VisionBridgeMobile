@@ -36,9 +36,6 @@ const Login: React.FC<Props> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login Teacher</Text>
-      <Text style={styles.title}>Teacher Login</Text>
-
       <View style={styles.card}>
         <Text style={styles.title}>Teacher Login</Text>
         <Text style={styles.subtitle}>
