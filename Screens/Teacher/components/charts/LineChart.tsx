@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Svg, { Path, Circle, Text as SvgText } from "react-native-svg";
 
 type Datum = { label: string; value: number };
@@ -27,13 +27,19 @@ export default function LineChart({
     .join(" ");
 
   return (
-    <View style={{ paddingTop: 6 }}>
+    <View style={styles.container}>
       <Svg width={width} height={height}>
-        <Path d={dPath} strokeWidth={3} fill="none" />
+        <Path d={dPath} strokeWidth={3} stroke={styles.line.color} fill="none" />
         {points.map((p, idx) => (
           <React.Fragment key={`${p.label}-${idx}`}>
-            <Circle cx={p.x} cy={p.y} r={4} />
-            <SvgText x={p.x} y={height - 4} fontSize="10" textAnchor="middle">
+            <Circle cx={p.x} cy={p.y} r={4} fill={styles.dot.color} />
+            <SvgText
+              x={p.x}
+              y={height - 4}
+              fontSize="10"
+              fill={styles.label.color}
+              textAnchor="middle"
+            >
               {p.label}
             </SvgText>
           </React.Fragment>
@@ -42,3 +48,23 @@ export default function LineChart({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 6,
+    padding: 10,
+    borderRadius: 14,
+    backgroundColor: "#ffffff",
+    borderWidth: 1,
+    borderColor: "#e2e8f0",
+  },
+  line: {
+    color: "#2563eb",
+  },
+  dot: {
+    color: "#1d4ed8",
+  },
+  label: {
+    color: "#334155",
+  },
+});

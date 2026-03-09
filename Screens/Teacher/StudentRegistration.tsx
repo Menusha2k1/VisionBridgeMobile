@@ -26,17 +26,14 @@ type Props = NativeStackScreenProps<
 >;
 
 const IMPAIRMENT_OPTIONS = [
-  "Fully Impaired",
-  "Partially Impaired",
+  "Total Blindness",
   "Low Vision",
-  "Color Blind",
-  "None",
 ];
 
 export default function StudentRegistration({ navigation }: Props) {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("10");
-  const [guardianPhone, setGuardianPhone] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
   const [impairmentType, setImpairmentType] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
@@ -50,12 +47,12 @@ export default function StudentRegistration({ navigation }: Props) {
       const result = await apiRegisterStudent({
         name,
         grade,
-        phone_number: guardianPhone,
+        phone_number: phoneNo,
         impairment_type: impairmentType || undefined,
       });
       Alert.alert(
         "Success",
-        `Student "${name}" registered successfully.\nGenerated PIN: ${result.pin}`,
+        `Student "${name}" registered successfully.\nGenerated PIN: ${result.pin}`
       );
       navigation.goBack();
     } catch (error: any) {
@@ -145,24 +142,18 @@ export default function StudentRegistration({ navigation }: Props) {
             </TouchableOpacity>
           </Modal>
 
-          <Text style={styles.label}>Guardian Phone</Text>
+          <Text style={styles.label}>Phone Number</Text>
           <TextInput
             style={styles.input}
-            value={guardianPhone}
-            onChangeText={setGuardianPhone}
+            value={phoneNo}
+            onChangeText={setPhoneNo}
             placeholder="07X XXX XXXX"
             keyboardType="phone-pad"
           />
 
-          <Button title="Register" onPress={submit} />
-        </Card>
-
-        <Card title="Captured Analytics (later)">
-          <Text style={styles.bullet}>• Quiz attempts and average score</Text>
-          <Text style={styles.bullet}>• Completion time patterns</Text>
-          <Text style={styles.bullet}>
-            • Weak topic detection for early intervention
-          </Text>
+          <View style={styles.registerButtonWrap}>
+            <Button title="Register" onPress={submit} />
+          </View>
         </Card>
       </View>
     </View>
@@ -170,45 +161,115 @@ export default function StudentRegistration({ navigation }: Props) {
 }
 
 const styles = StyleSheet.create({
-  body: { paddingHorizontal: 16, gap: 12, paddingBottom: 24 },
-  label: { fontSize: 12, color: "#6b7280", marginTop: 10, marginBottom: 6 },
+  body: {
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    paddingBottom: 32,
+    gap: 16,
+    backgroundColor: "#f8fafc",
+    flex: 1,
+  },
+
+  label: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: "#475569",
+    marginTop: 12,
+    marginBottom: 8,
+    letterSpacing: 0.2,
+  },
+
   input: {
     borderWidth: 1,
-    borderColor: "#e5e7eb",
-    borderRadius: 10,
-    padding: 12,
-    backgroundColor: "#fff",
+    borderColor: "#dbeafe",
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 14,
+    backgroundColor: "#ffffff",
+    fontSize: 15,
+    color: "#0f172a",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.04,
+    shadowRadius: 6,
+    elevation: 2,
   },
-  selectedText: { fontSize: 14, color: "#111827" },
-  placeholderText: { fontSize: 14, color: "#9ca3af" },
+
+  selectedText: {
+    fontSize: 15,
+    color: "#0f172a",
+    fontWeight: "500",
+  },
+
+  placeholderText: {
+    fontSize: 15,
+    color: "#94a3b8",
+  },
+
   modalOverlay: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.4)",
+    backgroundColor: "rgba(15,23,42,0.45)",
     justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal: 20,
   },
+
   dropdown: {
-    backgroundColor: "#fff",
-    borderRadius: 12,
-    width: "80%",
-    maxHeight: 300,
-    padding: 16,
+    backgroundColor: "#ffffff",
+    borderRadius: 18,
+    width: "100%",
+    maxWidth: 360,
+    maxHeight: 320,
+    padding: 18,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
+    elevation: 8,
   },
+
   dropdownTitle: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#111827",
-    marginBottom: 12,
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#0f172a",
+    marginBottom: 14,
+    textAlign: "center",
   },
+
   dropdownItem: {
-    paddingVertical: 12,
+    paddingVertical: 14,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: 12,
+    marginBottom: 8,
+    backgroundColor: "#f8fafc",
+    borderWidth: 1,
+    borderColor: "#e2e8f0",
   },
+
   dropdownItemSelected: {
-    backgroundColor: "#e0e7ff",
+    backgroundColor: "#dbeafe",
+    borderColor: "#3b82f6",
   },
-  dropdownItemText: { fontSize: 14, color: "#374151" },
-  dropdownItemTextSelected: { color: "#4338ca", fontWeight: "600" },
-  bullet: { fontSize: 13, color: "#111827", marginTop: 6 },
+
+  dropdownItemText: {
+    fontSize: 15,
+    color: "#334155",
+    fontWeight: "500",
+  },
+
+  dropdownItemTextSelected: {
+    color: "#1d4ed8",
+    fontWeight: "700",
+  },
+
+  bullet: {
+    fontSize: 13,
+    color: "#334155",
+    marginTop: 8,
+    lineHeight: 20,
+  },
+
+  registerButtonWrap: {
+    marginTop: 16,
+  },
 });
