@@ -40,3 +40,8 @@ yarn-error.*
 /ios
 /android
 package-lock.json
+
+# SQLite temporary files
+backend/db/*.db-shm
+backend/db/*.db-wal
+backend/db/*.db-journal
