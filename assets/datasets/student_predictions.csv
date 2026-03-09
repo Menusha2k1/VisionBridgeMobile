@@ -1,0 +1,158 @@
+student_id,lesson_id,full_name,grade,topic,unit,difficulty_probability,predicted_difficulty,risk_level
+VS0001,ICT_L01,Ravindu Senanayake,10,Introduction to Programming and Algorithms,Programming,0.9696367,1,HIGH
+VS0001,ICT_L02,Ravindu Senanayake,10,Functions of an Operating System,Operating Systems,0.9898134,1,HIGH
+VS0001,ICT_L03,Ravindu Senanayake,10,"Types of Networks: LAN, MAN, WAN",Networking,0.9538165,1,HIGH
+VS0001,ICT_L04,Ravindu Senanayake,10,"Internet, Web, and Common Services",Internet & Web,0.99151015,1,HIGH
+VS0002,ICT_L05,Kasun Wijesinghe,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.99485284,1,HIGH
+VS0002,ICT_L06,Kasun Wijesinghe,10,Networking Devices and Client Server Model,Networking,0.98996335,1,HIGH
+VS0002,ICT_L04,Kasun Wijesinghe,10,"Internet, Web, and Common Services",Internet & Web,0.99857306,1,HIGH
+VS0002,ICT_L01,Kasun Wijesinghe,10,Introduction to Programming and Algorithms,Programming,0.8956706,1,HIGH
+VS0003,ICT_L07,Nethmi Jayawardena,10,Input and Output Devices,Computer Hardware,0.9817054,1,HIGH
+VS0003,ICT_L01,Nethmi Jayawardena,10,Introduction to Programming and Algorithms,Programming,0.9986015,1,HIGH
+VS0003,ICT_L08,Nethmi Jayawardena,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.9802373,1,HIGH
+VS0003,ICT_L09,Nethmi Jayawardena,10,Types of Computer Systems,Computer Hardware,0.9977381,1,HIGH
+VS0004,ICT_L01,Sanduni Fernando,10,Introduction to Programming and Algorithms,Programming,0.06356402,0,LOW
+VS0004,ICT_L10,Sanduni Fernando,10,Structured Programming in Pascal-Style Syntax,Programming,0.0027688988,0,LOW
+VS0005,ICT_L01,Tharindu Gunathilaka,10,Introduction to Programming and Algorithms,Programming,0.9958306,1,HIGH
+VS0005,ICT_L06,Tharindu Gunathilaka,10,Networking Devices and Client Server Model,Networking,0.032444615,0,LOW
+VS0006,ICT_L11,Dilshan Bandara,11,Systems Development Life Cycle,Systems Development,0.99490535,1,HIGH
+VS0006,ICT_L09,Dilshan Bandara,11,Types of Computer Systems,Computer Hardware,0.0023593844,0,LOW
+VS0006,ICT_L12,Dilshan Bandara,11,Role of ICT in Society,ICT & Society,0.9829348,1,HIGH
+VS0007,ICT_L03,Sathmi Perera,11,"Types of Networks: LAN, MAN, WAN",Networking,0.9991066,1,HIGH
+VS0007,ICT_L13,Sathmi Perera,11,Applications of ICT in Different Sectors,ICT Applications,0.99317425,1,HIGH
+VS0007,ICT_L10,Sathmi Perera,11,Structured Programming in Pascal-Style Syntax,Programming,0.9957306,1,HIGH
+VS0007,ICT_L04,Sathmi Perera,11,"Internet, Web, and Common Services",Internet & Web,0.9985588,1,HIGH
+VS0008,ICT_L14,Dinuka Silva,11,Introduction to Computer Networks,Networking,0.98817796,1,HIGH
+VS0008,ICT_L11,Dinuka Silva,11,Systems Development Life Cycle,Systems Development,0.97541434,1,HIGH
+VS0009,ICT_L12,Sewmini Rathnayake,11,Role of ICT in Society,ICT & Society,0.9888582,1,HIGH
+VS0009,ICT_L08,Sewmini Rathnayake,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.93788433,1,HIGH
+VS0009,ICT_L06,Sewmini Rathnayake,11,Networking Devices and Client Server Model,Networking,0.9956923,1,HIGH
+VS0010,ICT_L15,Yasiru Abeysekara,10,Basics of Web Page Development,Web Development,0.15884651,0,LOW
+VS0010,ICT_L16,Yasiru Abeysekara,10,Number Systems and Data Units,Data Representation,0.97353315,1,HIGH
+VS0010,ICT_L04,Yasiru Abeysekara,10,"Internet, Web, and Common Services",Internet & Web,0.9963676,1,HIGH
+VS0011,ICT_L07,Tharushi Karunarathna,10,Input and Output Devices,Computer Hardware,0.9928717,1,HIGH
+VS0011,ICT_L05,Tharushi Karunarathna,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.9834229,1,HIGH
+VS0011,ICT_L04,Tharushi Karunarathna,10,"Internet, Web, and Common Services",Internet & Web,0.011659422,0,LOW
+VS0011,ICT_L10,Tharushi Karunarathna,10,Structured Programming in Pascal-Style Syntax,Programming,0.9843424,1,HIGH
+VS0012,ICT_L13,Nipuni Wickramasinghe,10,Applications of ICT in Different Sectors,ICT Applications,0.9337355,1,HIGH
+VS0012,ICT_L04,Nipuni Wickramasinghe,10,"Internet, Web, and Common Services",Internet & Web,0.051637877,0,LOW
+VS0013,ICT_L01,Chamod Lakshan,11,Introduction to Programming and Algorithms,Programming,0.99657106,1,HIGH
+VS0013,ICT_L03,Chamod Lakshan,11,"Types of Networks: LAN, MAN, WAN",Networking,0.9975061,1,HIGH
+VS0013,ICT_L17,Chamod Lakshan,11,Introduction to Database Systems,Database Management,0.98860896,1,HIGH
+VS0013,ICT_L08,Chamod Lakshan,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.9975337,1,HIGH
+VS0014,ICT_L13,Isuru Jayakody,11,Applications of ICT in Different Sectors,ICT Applications,0.96250075,1,HIGH
+VS0014,ICT_L04,Isuru Jayakody,11,"Internet, Web, and Common Services",Internet & Web,0.9468879,1,HIGH
+VS0014,ICT_L06,Isuru Jayakody,11,Networking Devices and Client Server Model,Networking,0.9969067,1,HIGH
+VS0014,ICT_L11,Isuru Jayakody,11,Systems Development Life Cycle,Systems Development,0.9895711,1,HIGH
+VS0015,ICT_L12,Piumi Herath,10,Role of ICT in Society,ICT & Society,0.985796,1,HIGH
+VS0015,ICT_L09,Piumi Herath,10,Types of Computer Systems,Computer Hardware,0.99659914,1,HIGH
+VS0015,ICT_L02,Piumi Herath,10,Functions of an Operating System,Operating Systems,0.9959747,1,HIGH
+VS0016,ICT_L08,Sahan Dissanayake,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.9907432,1,HIGH
+VS0016,ICT_L09,Sahan Dissanayake,10,Types of Computer Systems,Computer Hardware,0.9876439,1,HIGH
+VS0017,ICT_L17,Harini De Alwis,11,Introduction to Database Systems,Database Management,0.98801816,1,HIGH
+VS0017,ICT_L08,Harini De Alwis,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.010613209,0,LOW
+VS0017,ICT_L14,Harini De Alwis,11,Introduction to Computer Networks,Networking,0.056855284,0,LOW
+VS0018,ICT_L18,Pasindu Weerasinghe,11,Basic Logic Gates,Logic Gates,0.9925563,1,HIGH
+VS0018,ICT_L08,Pasindu Weerasinghe,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.99698216,1,HIGH
+VS0018,ICT_L12,Pasindu Weerasinghe,11,Role of ICT in Society,ICT & Society,0.994272,1,HIGH
+VS0019,ICT_L03,Thilini Madushani,10,"Types of Networks: LAN, MAN, WAN",Networking,0.893419,1,HIGH
+VS0019,ICT_L14,Thilini Madushani,10,Introduction to Computer Networks,Networking,0.96927243,1,HIGH
+VS0019,ICT_L09,Thilini Madushani,10,Types of Computer Systems,Computer Hardware,0.9915993,1,HIGH
+VS0019,ICT_L05,Thilini Madushani,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.03395826,0,LOW
+VS0020,ICT_L03,Navod Randima,10,"Types of Networks: LAN, MAN, WAN",Networking,0.8800175,1,HIGH
+VS0020,ICT_L07,Navod Randima,10,Input and Output Devices,Computer Hardware,0.9682387,1,HIGH
+VS0020,ICT_L16,Navod Randima,10,Number Systems and Data Units,Data Representation,0.03757292,0,LOW
+VS0020,ICT_L17,Navod Randima,10,Introduction to Database Systems,Database Management,0.9858598,1,HIGH
+VS0021,ICT_L04,Chathura Pradeep,11,"Internet, Web, and Common Services",Internet & Web,0.9864016,1,HIGH
+VS0021,ICT_L13,Chathura Pradeep,11,Applications of ICT in Different Sectors,ICT Applications,0.0018091687,0,LOW
+VS0022,ICT_L12,Malithi Sewwandi,10,Role of ICT in Society,ICT & Society,0.9977343,1,HIGH
+VS0022,ICT_L06,Malithi Sewwandi,10,Networking Devices and Client Server Model,Networking,0.9980348,1,HIGH
+VS0023,ICT_L09,Supun Nirmal,11,Types of Computer Systems,Computer Hardware,0.0060188533,0,LOW
+VS0023,ICT_L18,Supun Nirmal,11,Basic Logic Gates,Logic Gates,0.975132,1,HIGH
+VS0023,ICT_L04,Supun Nirmal,11,"Internet, Web, and Common Services",Internet & Web,0.99273574,1,HIGH
+VS0023,ICT_L01,Supun Nirmal,11,Introduction to Programming and Algorithms,Programming,0.9565475,1,HIGH
+VS0024,ICT_L14,Hashini Kaushalya,10,Introduction to Computer Networks,Networking,0.004831473,0,LOW
+VS0024,ICT_L13,Hashini Kaushalya,10,Applications of ICT in Different Sectors,ICT Applications,0.053215448,0,LOW
+VS0025,ICT_L04,Lahiru Sandaruwan,11,"Internet, Web, and Common Services",Internet & Web,0.028057978,0,LOW
+VS0025,ICT_L18,Lahiru Sandaruwan,11,Basic Logic Gates,Logic Gates,0.95697767,1,HIGH
+VS0025,ICT_L17,Lahiru Sandaruwan,11,Introduction to Database Systems,Database Management,0.017639464,0,LOW
+VS0025,ICT_L01,Lahiru Sandaruwan,11,Introduction to Programming and Algorithms,Programming,0.13600296,0,LOW
+VS0026,ICT_L02,Kavindi Hansika,10,Functions of an Operating System,Operating Systems,0.9977591,1,HIGH
+VS0026,ICT_L03,Kavindi Hansika,10,"Types of Networks: LAN, MAN, WAN",Networking,0.0024848792,0,LOW
+VS0026,ICT_L15,Kavindi Hansika,10,Basics of Web Page Development,Web Development,0.0059982515,0,LOW
+VS0026,ICT_L09,Kavindi Hansika,10,Types of Computer Systems,Computer Hardware,0.0036698526,0,LOW
+VS0027,ICT_L14,Shehan Chamika,11,Introduction to Computer Networks,Networking,0.9973322,1,HIGH
+VS0027,ICT_L03,Shehan Chamika,11,"Types of Networks: LAN, MAN, WAN",Networking,0.99555796,1,HIGH
+VS0027,ICT_L17,Shehan Chamika,11,Introduction to Database Systems,Database Management,0.9922118,1,HIGH
+VS0027,ICT_L15,Shehan Chamika,11,Basics of Web Page Development,Web Development,0.969898,1,HIGH
+VS0028,ICT_L07,Methmi Sachintha,10,Input and Output Devices,Computer Hardware,0.9304454,1,HIGH
+VS0028,ICT_L05,Methmi Sachintha,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.964318,1,HIGH
+VS0028,ICT_L08,Methmi Sachintha,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.9800397,1,HIGH
+VS0028,ICT_L06,Methmi Sachintha,10,Networking Devices and Client Server Model,Networking,0.97654617,1,HIGH
+VS0029,ICT_L10,Dilmi Samanthi,11,Structured Programming in Pascal-Style Syntax,Programming,0.99572843,1,HIGH
+VS0029,ICT_L13,Dilmi Samanthi,11,Applications of ICT in Different Sectors,ICT Applications,0.012326355,0,LOW
+VS0029,ICT_L02,Dilmi Samanthi,11,Functions of an Operating System,Operating Systems,0.9841137,1,HIGH
+VS0029,ICT_L15,Dilmi Samanthi,11,Basics of Web Page Development,Web Development,0.9843317,1,HIGH
+VS0030,ICT_L06,Rukshan Maduranga,10,Networking Devices and Client Server Model,Networking,0.9916931,1,HIGH
+VS0030,ICT_L14,Rukshan Maduranga,10,Introduction to Computer Networks,Networking,0.9917591,1,HIGH
+VS0030,ICT_L16,Rukshan Maduranga,10,Number Systems and Data Units,Data Representation,0.9601931,1,HIGH
+VS0030,ICT_L15,Rukshan Maduranga,10,Basics of Web Page Development,Web Development,0.9987294,1,HIGH
+VS0031,ICT_L18,Janith Lakshan,10,Basic Logic Gates,Logic Gates,0.9982895,1,HIGH
+VS0031,ICT_L05,Janith Lakshan,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.9664097,1,HIGH
+VS0031,ICT_L08,Janith Lakshan,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.022521485,0,LOW
+VS0031,ICT_L09,Janith Lakshan,10,Types of Computer Systems,Computer Hardware,0.076872475,0,LOW
+VS0032,ICT_L04,Sachini Fernando,11,"Internet, Web, and Common Services",Internet & Web,0.018950677,0,LOW
+VS0032,ICT_L05,Sachini Fernando,11,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.17107087,0,LOW
+VS0033,ICT_L06,Praveen Chathuranga,11,Networking Devices and Client Server Model,Networking,0.9852867,1,HIGH
+VS0033,ICT_L10,Praveen Chathuranga,11,Structured Programming in Pascal-Style Syntax,Programming,0.9899974,1,HIGH
+VS0034,ICT_L05,Kavisha Dilrukshi,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.0072725755,0,LOW
+VS0034,ICT_L02,Kavisha Dilrukshi,10,Functions of an Operating System,Operating Systems,0.9919693,1,HIGH
+VS0034,ICT_L06,Kavisha Dilrukshi,10,Networking Devices and Client Server Model,Networking,0.9878198,1,HIGH
+VS0034,ICT_L04,Kavisha Dilrukshi,10,"Internet, Web, and Common Services",Internet & Web,0.9792727,1,HIGH
+VS0035,ICT_L07,Nisal Randika,11,Input and Output Devices,Computer Hardware,0.9969754,1,HIGH
+VS0035,ICT_L08,Nisal Randika,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.9961081,1,HIGH
+VS0036,ICT_L07,Tharushi Sewwandi,10,Input and Output Devices,Computer Hardware,0.98976994,1,HIGH
+VS0036,ICT_L18,Tharushi Sewwandi,10,Basic Logic Gates,Logic Gates,0.99328303,1,HIGH
+VS0037,ICT_L17,Shenal Abeysinghe,11,Introduction to Database Systems,Database Management,0.9960704,1,HIGH
+VS0037,ICT_L12,Shenal Abeysinghe,11,Role of ICT in Society,ICT & Society,0.99751604,1,HIGH
+VS0038,ICT_L16,Piyumi Thilakarathna,10,Number Systems and Data Units,Data Representation,0.099033736,0,LOW
+VS0038,ICT_L18,Piyumi Thilakarathna,10,Basic Logic Gates,Logic Gates,0.9962463,1,HIGH
+VS0038,ICT_L10,Piyumi Thilakarathna,10,Structured Programming in Pascal-Style Syntax,Programming,0.9924119,1,HIGH
+VS0038,ICT_L07,Piyumi Thilakarathna,10,Input and Output Devices,Computer Hardware,0.5699167,1,MEDIUM
+VS0039,ICT_L07,Dineth Kalhara,11,Input and Output Devices,Computer Hardware,0.993274,1,HIGH
+VS0039,ICT_L15,Dineth Kalhara,11,Basics of Web Page Development,Web Development,0.9782994,1,HIGH
+VS0040,ICT_L12,Sachintha Jayalath,10,Role of ICT in Society,ICT & Society,0.9851354,1,HIGH
+VS0040,ICT_L02,Sachintha Jayalath,10,Functions of an Operating System,Operating Systems,0.010982917,0,LOW
+VS0040,ICT_L16,Sachintha Jayalath,10,Number Systems and Data Units,Data Representation,0.99255604,1,HIGH
+VS0040,ICT_L13,Sachintha Jayalath,10,Applications of ICT in Different Sectors,ICT Applications,0.99041826,1,HIGH
+VS0041,ICT_L13,Hiruni Samarasinghe,11,Applications of ICT in Different Sectors,ICT Applications,0.99247426,1,HIGH
+VS0041,ICT_L08,Hiruni Samarasinghe,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.93909323,1,HIGH
+VS0041,ICT_L17,Hiruni Samarasinghe,11,Introduction to Database Systems,Database Management,0.9725513,1,HIGH
+VS0042,ICT_L13,Akila Nethmal,10,Applications of ICT in Different Sectors,ICT Applications,0.9859957,1,HIGH
+VS0042,ICT_L03,Akila Nethmal,10,"Types of Networks: LAN, MAN, WAN",Networking,0.9913291,1,HIGH
+VS0043,ICT_L10,Isumi Kavindya,11,Structured Programming in Pascal-Style Syntax,Programming,0.0011322325,0,LOW
+VS0043,ICT_L09,Isumi Kavindya,11,Types of Computer Systems,Computer Hardware,0.99845016,1,HIGH
+VS0043,ICT_L08,Isumi Kavindya,11,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.9917282,1,HIGH
+VS0043,ICT_L02,Isumi Kavindya,11,Functions of an Operating System,Operating Systems,0.9358568,1,HIGH
+VS0044,ICT_L09,Dasun Priyankara,10,Types of Computer Systems,Computer Hardware,0.9962851,1,HIGH
+VS0044,ICT_L08,Dasun Priyankara,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.99559325,1,HIGH
+VS0044,ICT_L11,Dasun Priyankara,10,Systems Development Life Cycle,Systems Development,0.029978316,0,LOW
+VS0045,ICT_L18,Menaka Wijerathna,11,Basic Logic Gates,Logic Gates,0.99752086,1,HIGH
+VS0045,ICT_L15,Menaka Wijerathna,11,Basics of Web Page Development,Web Development,0.99806446,1,HIGH
+VS0045,ICT_L14,Menaka Wijerathna,11,Introduction to Computer Networks,Networking,0.99747247,1,HIGH
+VS0046,ICT_L01,Sithmi Navodya,10,Introduction to Programming and Algorithms,Programming,0.008460654,0,LOW
+VS0046,ICT_L18,Sithmi Navodya,10,Basic Logic Gates,Logic Gates,0.9966588,1,HIGH
+VS0046,ICT_L08,Sithmi Navodya,10,"Health, Safety, and Environmental Issues in ICT",Health & Safety,0.029772032,0,LOW
+VS0047,ICT_L10,Rashmika Tharindu,11,Structured Programming in Pascal-Style Syntax,Programming,0.9640367,1,HIGH
+VS0047,ICT_L11,Rashmika Tharindu,11,Systems Development Life Cycle,Systems Development,0.98716646,1,HIGH
+VS0047,ICT_L06,Rashmika Tharindu,11,Networking Devices and Client Server Model,Networking,0.0050893677,0,LOW
+VS0048,ICT_L17,Kavindu Dissanayake,10,Introduction to Database Systems,Database Management,0.9932642,1,HIGH
+VS0048,ICT_L05,Kavindu Dissanayake,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.0038660658,0,LOW
+VS0048,ICT_L06,Kavindu Dissanayake,10,Networking Devices and Client Server Model,Networking,0.99784863,1,HIGH
+VS0049,ICT_L16,Sachini Madusha,11,Number Systems and Data Units,Data Representation,0.991227,1,HIGH
+VS0049,ICT_L03,Sachini Madusha,11,"Types of Networks: LAN, MAN, WAN",Networking,0.9933733,1,HIGH
+VS0049,ICT_L15,Sachini Madusha,11,Basics of Web Page Development,Web Development,0.8967215,1,HIGH
+VS0050,ICT_L05,Thimira Jayasinghe,10,"Computer Security, Ethics, and Legal Issues",ICT & Society,0.0021128664,0,LOW
+VS0050,ICT_L15,Thimira Jayasinghe,10,Basics of Web Page Development,Web Development,0.9937045,1,HIGH
+VS0050,ICT_L06,Thimira Jayasinghe,10,Networking Devices and Client Server Model,Networking,0.015474962,0,LOW
+VS0050,ICT_L13,Thimira Jayasinghe,10,Applications of ICT in Different Sectors,ICT Applications,0.9961487,1,HIGH
