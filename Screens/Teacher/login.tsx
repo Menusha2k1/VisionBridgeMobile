@@ -36,9 +36,14 @@ const Login: React.FC<Props> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Login Teacher</Text>
+      <Text style={styles.title}>Teacher Login</Text>
+
       <View style={styles.card}>
         <Text style={styles.title}>Teacher Login</Text>
-        <Text style={styles.subtitle}>Sign in to continue to your dashboard</Text>
+        <Text style={styles.subtitle}>
+          Sign in to continue to your dashboard
+        </Text>
 
         <TextInput
           style={styles.input}
@@ -59,11 +64,17 @@ const Login: React.FC<Props> = ({ navigation }) => {
           secureTextEntry
         />
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin} activeOpacity={0.9}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleLogin}
+          activeOpacity={0.9}
+        >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
-        <Text style={styles.hint}>Demo login: teacher@visionbridge.lk / 1234</Text>
+        <Text style={styles.hint}>
+          Demo login: teacher@visionbridge.lk / 1234
+        </Text>
       </View>
     </View>
   );
