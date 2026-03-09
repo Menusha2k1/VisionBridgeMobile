@@ -31,7 +31,6 @@ const IMPAIRMENT_OPTIONS = [
 ];
 
 export default function StudentRegistration({ navigation }: Props) {
-  const [sid, setSID] = useState("");
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("10");
   const [phoneNo, setPhoneNo] = useState("");
@@ -39,8 +38,8 @@ export default function StudentRegistration({ navigation }: Props) {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const submit = async () => {
-    if (!sid.trim()) {
-      Alert.alert("Missing SID", "Please enter the student SID.");
+    if (!name.trim()) {
+      Alert.alert("Missing name", "Please enter the student name.");
       return;
     }
 
@@ -70,14 +69,6 @@ export default function StudentRegistration({ navigation }: Props) {
 
       <View style={styles.body}>
         <Card title="Student Details">
-          <Text style={styles.label}>Student ID (SID)</Text>
-          <TextInput
-            style={styles.input}
-            value={sid}
-            onChangeText={setSID}
-            placeholder="Eg: VS0001"
-          />
-          
           <Text style={styles.label}>Student Name</Text>
           <TextInput
             style={styles.input}
