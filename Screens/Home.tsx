@@ -123,6 +123,8 @@ export default function Home({ navigation }: Props) {
     if (destination === "Lessons") navigation.navigate("Grades");
     else if (destination === "Quizes")
       navigation.navigate("QuizList", { grade: "Grade 10" });
+    else if (destination === "Assessments")
+      navigation.navigate("AssessmentList" as any);
     else if (destination === "Logout") {
       haddleLogout();
     } else navigation.navigate(destination as any);
