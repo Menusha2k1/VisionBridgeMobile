@@ -63,7 +63,7 @@ const Login: React.FC<Props> = ({ navigation }) => {
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
-        <Text style={styles.hint}>Demo login: teacher@visionbridge.lk / 1234</Text>
+        {/* <Text style={styles.hint}>Demo login: teacher@visionbridge.lk / 1234</Text> */}
       </View>
     </View>
   );

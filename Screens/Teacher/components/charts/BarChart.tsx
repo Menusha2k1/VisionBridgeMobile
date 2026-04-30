@@ -31,7 +31,7 @@ export default function BarChart({
           const percentageY = Math.max(12, y - 6);
 
           return (
-            <React.Fragment key={d.label}>
+            <React.Fragment key={`${d.label}-${i}`}>
               <Rect x={x} y={y} width={barWidth} height={h} rx={6} fill={fill} />
               <SvgText
                 x={x + barWidth / 2}

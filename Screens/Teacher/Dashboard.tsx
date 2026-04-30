@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import Screen from "./components/layout/Screen";
@@ -23,6 +24,7 @@ import {
 } from "../../data/mlMetrics";
 
 type RootStackParamList = {
+  TeacherLogin: undefined;
   TeacherDashboard: undefined;
   TeacherLessonUpload: undefined;
   TeacherStudents: undefined;
@@ -65,6 +67,22 @@ export default function Dashboard({ navigation }: Props) {
 
   const topStudents = predictionData?.studentSummaries.slice(0, 5) ?? [];
 
+  const handleLogout = () => {
+    Alert.alert("Log out", "Are you sure you want to log out?", [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Log out",
+        style: "destructive",
+        onPress: () => {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: "TeacherLogin" }],
+          });
+        },
+      },
+    ]);
+  };
+
   return (
     <View style={{ flex: 1, marginTop: 40 }}>
       <PageHeader
@@ -94,26 +112,32 @@ export default function Dashboard({ navigation }: Props) {
                 label="Total Students"
                 value={String(analyticsData.stats.totalStudents)}
                 helper="Registered learners"
+                iconName="account-group-outline"
               />
               <StatCard
                 label="High Risk Students"
                 value={String(predictionData.highRiskStudentCount)}
                 helper="Unique learners predicted high risk"
+                iconName="alert-octagon-outline"
+                iconColor="#dc2626"
               />
               <StatCard
                 label="Avg Risk Prob."
                 value={`${Math.round(predictionData.avgProbability * 100)}%`}
                 helper="Across all lesson records"
+                iconName="percent-outline"
               />
               <StatCard
                 label="Avg Completion"
                 value={`${Math.round(analyticsData.stats.avgCompletionRate * 100)}%`}
                 helper="Lesson completion performance"
+                iconName="check-decagram-outline"
               />
               <StatCard
                 label="Avg BLDI"
                 value={String(Math.round(predictionData.avgBLDI))}
                 helper="Behavioral difficulty index"
+                iconName="chart-line"
               />
             </View>
 
@@ -121,37 +145,45 @@ export default function Dashboard({ navigation }: Props) {
               <View style={styles.actions}>
                 <Button
                   title="Lesson Upload"
+                  iconName="cloud-upload-outline"
                   onPress={() => navigation.navigate("TeacherLessonUpload")}
                 />
                 <Button
                   title="Students Registration"
-                  variant="secondary"
+                  iconName="account-plus-outline"
                   onPress={() => navigation.navigate("TeacherStudentsList")}
                 />
                 <Button
-                  title="Students"
-                  variant="secondary"
+                  title="Students Progress"
+                  iconName="account-group-outline"
                   onPress={() => navigation.navigate("TeacherStudents")}
                 />
                 <Button
                   title="Reports"
-                  variant="secondary"
+                  iconName="file-chart-outline"
                   onPress={() => navigation.navigate("TeacherReports")}
                 />
                 <Button
                   title="Weak Topics"
-                  variant="secondary"
+                  iconName="alert-circle-outline"
                   onPress={() => navigation.navigate("TeacherWeakTopics")}
                 />
                 <Button
                   title="Settings"
+                  iconName="cog-outline"
                   variant="ghost"
                   onPress={() => navigation.navigate("TeacherSettings")}
+                />
+                <Button
+                  title="Logout"
+                  iconName="logout"
+                  variant="ghost"
+                  onPress={handleLogout}
                 />
               </View>
             </Card>
 
-            <Card title="ML Research Summary">
+            {/* <Card title="ML Research Summary">
               <View style={styles.metricsRow}>
                 <View style={styles.metricBox}>
                   <Text style={styles.metricLabel}>Best Model</Text>
@@ -181,9 +213,9 @@ export default function Dashboard({ navigation }: Props) {
                 audio-learning signals such as pause frequency, replay
                 behaviour, seek-back time, and completion rate.
               </Text>
-            </Card>
+            </Card> */}
 
-            <Card title="Novelty Metric: BLDI">
+            {/* <Card title="Novelty Metric: BLDI">
               <View style={styles.metricsRow}>
                 <View style={styles.metricBox}>
                   <Text style={styles.metricLabel}>Metric</Text>
@@ -202,15 +234,15 @@ export default function Dashboard({ navigation }: Props) {
                 completion gap. Higher values indicate greater struggle in audio
                 based learning.
               </Text>
-            </Card>
+            </Card> */}
 
-            <Card title="Model Comparison (F1-Macro %)">
+            {/* <Card title="Model Comparison (F1-Macro %)">
               <BarChart data={modelComparison} />
               <Text style={styles.caption}>
                 XGBoost achieved the strongest overall performance among the
                 three evaluated models.
               </Text>
-            </Card>
+            </Card> */}
 
             <Card title="Risk Distribution">
               <BarChart data={riskDistribution} />
@@ -272,13 +304,13 @@ export default function Dashboard({ navigation }: Props) {
               )}
             </Card>
 
-            <Card title="Research Highlights">
+            {/* <Card title="Research Highlights">
               {researchHighlights.map((item, idx) => (
                 <Text key={idx} style={styles.bullet}>
                   • {item}
                 </Text>
               ))}
-            </Card>
+            </Card> */}
           </>
         ) : (
           <Card title="No Data">
