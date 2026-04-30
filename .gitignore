@@ -47,3 +47,7 @@ backend/db/*.db-shm
 backend/db/*.db-wal
 
 backend/db/*.db-journal
+
+*.db
+*.db-shm
+*.db-wal

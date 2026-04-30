@@ -15,6 +15,11 @@ import Button from "./components/ui/Button";
 import { useAnalytics } from "./useAnalytics";
 import { usePredictions } from "./usePredictions";
 import { mlMetrics } from "../../data/mlMetrics";
+import {
+  modelComparison,
+  researchHighlights,
+} from "../../data/mlMetrics";
+import BarChart from "./components/charts/BarChart";
 
 export default function Reports() {
   const {
@@ -189,6 +194,75 @@ export default function Reports() {
                 backs, and completion patterns.
               </Text>
             </Card>
+
+            <Card title="ML Research Summary">
+              <View style={styles.metricsRow}>
+                <View style={styles.metricBox}>
+                  <Text style={styles.metricLabel}>Best Model</Text>
+                  <Text style={styles.metricValue}>{mlMetrics.bestModel}</Text>
+                </View>
+                <View style={styles.metricBox}>
+                  <Text style={styles.metricLabel}>F1-Macro</Text>
+                  <Text style={styles.metricValue}>
+                    {mlMetrics.f1Macro.toFixed(3)}
+                  </Text>
+                </View>
+                <View style={styles.metricBox}>
+                  <Text style={styles.metricLabel}>Bal. Accuracy</Text>
+                  <Text style={styles.metricValue}>
+                    {mlMetrics.balancedAccuracy.toFixed(3)}
+                  </Text>
+                </View>
+                <View style={styles.metricBox}>
+                  <Text style={styles.metricLabel}>PR-AUC</Text>
+                  <Text style={styles.metricValue}>
+                    {mlMetrics.prAuc.toFixed(3)}
+                  </Text>
+                </View>
+              </View>
+              <Text style={styles.caption}>
+                The model predicts learner difficulty using behavioural
+                audio-learning signals such as pause frequency, replay
+                behaviour, seek-back time, and completion rate.
+              </Text>
+            </Card>
+
+            <Card title="Novelty Metric: BLDI">
+              <View style={styles.metricsRow}>
+                <View style={styles.metricBox}>
+                  <Text style={styles.metricLabel}>Metric</Text>
+                  <Text style={styles.metricValue}>BLDI</Text>
+                </View>
+                <View style={styles.metricBox}>
+                  <Text style={styles.metricLabel}>Average Score</Text>
+                  <Text style={styles.metricValue}>
+                    {Math.round(predictionData.avgBLDI)}
+                  </Text>
+                </View>
+              </View>
+              <Text style={styles.caption}>
+                The Behavioral Learning Difficulty Index is a composite score
+                derived from pauses, replays, seek back behaviour, and
+                completion gap. Higher values indicate greater struggle in audio
+                based learning.
+              </Text>
+            </Card>
+
+            <Card title="Model Comparison (F1-Macro %)">
+              <BarChart data={modelComparison} />
+              <Text style={styles.caption}>
+                XGBoost achieved the strongest overall performance among the
+                three evaluated models.
+              </Text>
+            </Card>
+
+            <Card title="Research Highlights">
+              {researchHighlights.map((item, idx) => (
+                <Text key={idx} style={styles.bullet}>
+                  • {item}
+                </Text>
+              ))}
+            </Card>
           </>
         ) : (
           <Card title="No Report Data">
@@ -279,5 +353,36 @@ const styles = StyleSheet.create({
     color: "#6b7280",
     marginTop: 4,
     lineHeight: 17,
+  },
+  metricBox: {
+    flexGrow: 1,
+    minWidth: "45%",
+    backgroundColor: "#f8fafc",
+    borderWidth: 1,
+    borderColor: "#e5e7eb",
+    borderRadius: 12,
+    padding: 12,
+  },
+  metricLabel: {
+    fontSize: 11,
+    color: "#64748b",
+    fontWeight: "700",
+  },
+  metricValue: {
+    marginTop: 6,
+    fontSize: 18,
+    fontWeight: "800",
+    color: "#0f172a",
+  },
+  metricsRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10,
+  },
+  bullet: {
+    fontSize: 13,
+    color: "#111827",
+    lineHeight: 19,
+    marginTop: 6,
   },
 });

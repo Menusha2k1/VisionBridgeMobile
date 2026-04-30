@@ -53,7 +53,7 @@ export default function LessonUpload() {
     setUploading(true);
     try {
       // Demo behavior: simulate content packaging
-      await new Promise((r) => setTimeout(r, 900));
+      await new Promise<void>((resolve) => setTimeout(() => resolve(), 900));
       Alert.alert(
         "Package generated",
         "Lesson content package is ready for mobile app consumption (demo)."
@@ -73,7 +73,7 @@ export default function LessonUpload() {
             Supported: PDF, DOCX, TXT. This screen simulates packaging for offline mobile usage.
           </Text>
 
-          <Button title="Choose File" onPress={pickFile} />
+          <Button title="Choose File" onPress={pickFile} iconName="file-upload-outline" />
 
           <View style={styles.fileBox}>
             <Text style={styles.fileLabel}>Selected:</Text>
@@ -91,6 +91,7 @@ export default function LessonUpload() {
             onPress={generatePackage}
             disabled={uploading}
             variant="secondary"
+            iconName="cogs"
           />
         </Card>
 

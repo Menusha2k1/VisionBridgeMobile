@@ -147,3 +147,21 @@ exports.updateStudent = (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+exports.deleteStudent = (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const existing = db.prepare("SELECT id FROM students WHERE id = ?").get(id);
+    if (!existing) {
+      return res.status(404).json({ error: "Student not found" });
+    }
+
+    db.prepare("DELETE FROM students WHERE id = ?").run(id);
+
+    res.json({ message: "Student deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting student:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};

@@ -10,7 +10,7 @@ const assessmentRoutes = require("./routes/assessmentRoutes");
 const studentRoutes = require("./routes/studentRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());

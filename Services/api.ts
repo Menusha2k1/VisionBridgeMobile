@@ -1,5 +1,5 @@
-const API_BASE = "http://172.20.10.2:3000/api"; // Android emulator → localhost
-// Use your machine's IP (e.g. "http://192.168.1.x:3000/api") for physical device
+const API_BASE = "http://172.22.192.91:3001/api"; // Android emulator → localhost
+// Use your machine's IP (e.g. "http://192.168.1.x:3001/api") for physical device
 
 export const apiLogin = async (pin: string) => {
   const response = await fetch(`${API_BASE}/login`, {
@@ -111,6 +111,17 @@ export const apiUpdateStudent = async (
   const data = await response.json();
   if (!response.ok) {
     throw new Error(data.error || "Failed to update student");
+  }
+  return data;
+};
+
+export const apiDeleteStudent = async (id: number) => {
+  const response = await fetch(`${API_BASE}/students/${id}`, {
+    method: "DELETE",
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error || "Failed to delete student");
   }
   return data;
 };
