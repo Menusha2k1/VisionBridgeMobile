@@ -1,0 +1,4178 @@
+1
+
+Programming
+
+ The chapter concerns the following;
+
+How to analyze a problem and develop an algorithm
+Control structures and their use
+
+²
+²
+² (cid:39)(cid:85)(cid:68)(cid:90)(cid:76)(cid:81)(cid:74)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:70)(cid:75)(cid:68)(cid:85)(cid:87)(cid:86)(cid:15)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:83)(cid:86)(cid:72)(cid:88)(cid:71)(cid:82)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:70)(cid:82)(cid:81)(cid:89)(cid:72)(cid:85)(cid:86)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:69)(cid:72)(cid:87)(cid:90)(cid:72)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:80)
+²
+²
+²
+
+Finding alternate solutions to a problem
+Programming in Pascal
+Evolution of programming languages
+
+1.1  Analyzing a problem
+
+The raw materials that are used to solve a problem are known as the 'input'. 
+The result obtained after solving a problem is known as the 'output'. Converting 
+input to output is called the 'process'. A process takes place step by step and it is 
+(cid:89)(cid:72)(cid:85)(cid:92)(cid:3)(cid:76)(cid:80)(cid:83)(cid:82)(cid:85)(cid:87)(cid:68)(cid:81)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:86)(cid:87)(cid:68)(cid:81)(cid:71)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:17)(cid:3)(cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:68)(cid:81)(cid:68)(cid:79)(cid:92)(cid:93)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:69)(cid:79)(cid:72)(cid:80)(cid:15)(cid:3)
+(cid:87)(cid:75)(cid:72)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:71)(cid:3)(cid:86)(cid:72)(cid:83)(cid:68)(cid:85)(cid:68)(cid:87)(cid:72)(cid:79)(cid:92)(cid:17)(cid:3)
+
+Example -
+
+Problem 1 :
+
+Preparing a letter which can be posted.
+
+Input :   
+
+Process : 
+
+A sheet of paper suitable to write the letter on and a pen 
+An envelope and a stamp
+Glue
+
+1. Writing the letter 
+2. Folding the letter and putting it into 
+    the envelope
+3. Pasting the envelope 
+4. Writing the recipient's address on the 
+    envelope
+5. Sticking the stamp
+
+Output :  
+Note:
+(cid:3)
+
+(cid:3)
+
+(cid:3)
+
+A letter ready to be posted.
+Steps No. 4 and 5 in this process can be interchanged.  
+(cid:43)(cid:82)(cid:90)(cid:72)(cid:89)(cid:72)(cid:85)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:86)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:3)
+
+indicated.
+
+For free distribution
+
+1
+
+ 
+ 
+ 
+ 
+     
+ 
+                           
+  
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Problem 2 : Making a cup of tea
+
+Input :  
+
+Process :  
+
+(cid:15)(cid:3)(cid:86)(cid:88)(cid:74)(cid:68)(cid:85)(cid:15)(cid:3)(cid:75)(cid:82)(cid:87)(cid:3)(cid:90)(cid:68)(cid:87)(cid:72)(cid:85)
+
+Tea leaves
+
+1. Putting tea leaves in the strainer
+2. Pouring hot water to the cup through
+    the strainer  
+3. Adding some sugar to the cup
+4. Stirring it well with a spoon
+(cid:24)(cid:17)(cid:3)(cid:55)(cid:72)(cid:86)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:87)(cid:68)(cid:86)(cid:87)(cid:72)(cid:15)(cid:3)(cid:87)(cid:68)(cid:78)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:86)(cid:80)(cid:68)(cid:79)(cid:79)(cid:3)(cid:86)(cid:76)(cid:83)(cid:3)(cid:73)(cid:85)(cid:82)(cid:80)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:88)(cid:83)
+(cid:25)(cid:17)(cid:3)(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:87)(cid:68)(cid:86)(cid:87)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:73)(cid:68)(cid:70)(cid:87)(cid:82)(cid:85)(cid:92)(cid:15)(cid:3)(cid:74)(cid:82)(cid:3)(cid:87)(cid:82)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:3)(cid:22)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:68)(cid:87)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)
+
+    Nos. 4 and 5
+
+Output :  
+
+A cup of tea
+
+Problem 3 :
+
+Dividing  40  page  and  80  page  books  from  a  parcel  of 
+
+            books between two siblings - Sanduni and Anupama.
+
+Input :
+
+The parcel of books
+
+Process :  
+
+1. Opening the book parcel
+2. Taking a book out from the parcel 
+(cid:22)(cid:17)(cid:3)(cid:44)(cid:73)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:23)(cid:19)(cid:3)(cid:83)(cid:68)(cid:74)(cid:72)(cid:3)(cid:69)(cid:82)(cid:82)(cid:78)(cid:15)(cid:3)(cid:74)(cid:76)(cid:89)(cid:76)(cid:81)(cid:74)(cid:3)(cid:76)(cid:87)(cid:3)(cid:87)(cid:82)
+
+(cid:3)
+
+(cid:3)(cid:3)(cid:3)(cid:3)
+
+(cid:3)
+
+     Sanduni
+(cid:23)(cid:17)(cid:3)(cid:44)(cid:73)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:27)(cid:19)(cid:3)(cid:83)(cid:68)(cid:74)(cid:72)(cid:3)(cid:69)(cid:82)(cid:82)(cid:78)(cid:15)(cid:3)(cid:74)(cid:76)(cid:89)(cid:76)(cid:81)(cid:74)(cid:3)(cid:76)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)
+
+    Anupama
+5. Go  to  Step  No.  2  till  all  the  books  are  taken  out  of  the 
+    parcel
+
+Output :  
+
+Sanduni getting 40 page books
+Anupama getting 80 page books
+
+Problem 4 : Adding two numbers 
+
+Input :
+
+Two numbers 
+
+Process :  
+
+Adding the two numbers
+
+Output :  
+
+Total
+
+Problem 5 :
+
+Finding the area of a rectangle 
+
+Input :
+
+Length and width of the rectangle
+
+Process :  
+
+Area = Length x Width
+
+Output :  
+
+Area
+
+2
+
+For free distribution
+
+ 
+ 
+ 
+   
+ 
+ 
+   
+ 
+ 
+Problem 6 :
+
+Finding the larger number between two numbers
+
+Input :
+
+Process : 
+
+(cid:3)
+
+Two numbers
+(cid:38)(cid:82)(cid:80)(cid:83)(cid:68)(cid:85)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:87)(cid:90)(cid:82)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:15)(cid:3)(cid:191)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:68)(cid:85)(cid:74)(cid:72)(cid:85)(cid:3)(cid:82)(cid:81)(cid:72)
+
+Output :  
+
+Larger number
+
+Problem 7 :
+
+Finding whether a number is odd or even
+
+Input :  
+
+Number
+
+Process :  
+
+Dividing the number by 2
+
+Deciding that the number is even if
+the remainder = 0
+
+Deciding that the number is odd if the remainder = 1
+
+Output :  
+
+Indicating whether the number is odd or even
+
+Activity
+
+(cid:20)(cid:17)(cid:3) (cid:44)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:73)(cid:92)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3)(cid:85)(cid:72)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:71)(cid:76)(cid:89)(cid:76)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:20)(cid:19)(cid:19)(cid:3)(cid:87)(cid:82)(cid:73)(cid:73)(cid:72)(cid:72)(cid:86)(cid:3)
+
+among 20 people.
+
+(cid:21)(cid:17)(cid:3) (cid:44)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:73)(cid:92)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3)(cid:76)(cid:81)(cid:3)(cid:80)(cid:68)(cid:78)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:78)(cid:76)(cid:87)(cid:72)(cid:17)(cid:3)
+
+What are alternative solutions?
+(cid:3)
+
+(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:80)(cid:82)(cid:85)(cid:72)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:87)(cid:82)(cid:3)(cid:68)(cid:3)(cid:74)(cid:76)(cid:89)(cid:72)(cid:81)(cid:3)(cid:83)(cid:85)(cid:82)(cid:69)(cid:79)(cid:72)(cid:80)(cid:15)(cid:3)(cid:86)(cid:88)(cid:70)(cid:75)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)
+
+called alternative solutions. Such solutions depend on the nature of the problem. 
+
+For free distribution
+
+3
+
+ 
+ 
+ 
+ 
+Example
+Imagine you come to school by school bus. If the bus breaks down on your way to 
+(cid:86)(cid:70)(cid:75)(cid:82)(cid:82)(cid:79)(cid:15)(cid:3)(cid:92)(cid:82)(cid:88)(cid:3)(cid:70)(cid:72)(cid:85)(cid:87)(cid:68)(cid:76)(cid:81)(cid:79)(cid:92)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:76)(cid:81)(cid:78)(cid:3)(cid:82)(cid:73)(cid:3)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:68)(cid:79)(cid:87)(cid:72)(cid:85)(cid:81)(cid:68)(cid:87)(cid:76)(cid:89)(cid:72)(cid:3)(cid:90)(cid:68)(cid:92)(cid:86)(cid:3)(cid:87)(cid:82)(cid:3)(cid:85)(cid:72)(cid:68)(cid:70)(cid:75)(cid:3)(cid:86)(cid:70)(cid:75)(cid:82)(cid:82)(cid:79)(cid:17)(cid:3)(cid:55)(cid:75)(cid:88)(cid:86)(cid:15)(cid:3)(cid:92)(cid:82)(cid:88)(cid:3)
+
+will think of alternative solutions to reach school.
+
+1.  Coming to school by another school bus which goes to your school
+(cid:44)(cid:73)(cid:3)(cid:92)(cid:82)(cid:88)(cid:3)(cid:75)(cid:68)(cid:89)(cid:72)(cid:3)(cid:80)(cid:82)(cid:81)(cid:72)(cid:92)(cid:15)(cid:3)(cid:85)(cid:72)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:70)(cid:75)(cid:82)(cid:82)(cid:79)(cid:3)(cid:69)(cid:92)(cid:3)(cid:38)(cid:55)(cid:37)(cid:3)(cid:82)(cid:85)(cid:3)(cid:83)(cid:85)(cid:76)(cid:89)(cid:68)(cid:87)(cid:72)(cid:3)(cid:69)(cid:88)(cid:86)
+
+2.
+
+3.  Walking to school along the road
+
+4.  Walking to school using a short-cut
+
+(cid:44)(cid:73)(cid:3) (cid:92)(cid:82)(cid:88)(cid:3) (cid:75)(cid:68)(cid:89)(cid:72)(cid:3) (cid:68)(cid:3) (cid:90)(cid:68)(cid:92)(cid:3) (cid:87)(cid:82)(cid:3) (cid:76)(cid:81)(cid:73)(cid:82)(cid:85)(cid:80)(cid:3) (cid:92)(cid:82)(cid:88)(cid:85)(cid:3) (cid:83)(cid:68)(cid:85)(cid:72)(cid:81)(cid:87)(cid:86)(cid:15)(cid:3) (cid:74)(cid:72)(cid:87)(cid:3) (cid:87)(cid:75)(cid:72)(cid:76)(cid:85)(cid:3) (cid:86)(cid:88)(cid:83)(cid:83)(cid:82)(cid:85)(cid:87)(cid:3) (cid:87)(cid:82)(cid:3) (cid:85)(cid:72)(cid:68)(cid:70)(cid:75)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3)
+
+5.
+
+school
+
+6. Reaching the school by car or motor bike with the support of a trustworthy 
+
+person
+
+You may select a good solution out of these if it is mandatory to go to school that 
+day. 
+(cid:55)(cid:75)(cid:88)(cid:86)(cid:15)(cid:3) (cid:76)(cid:73)(cid:3) (cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:80)(cid:68)(cid:81)(cid:92)(cid:3) (cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3) (cid:11)(cid:86)(cid:72)(cid:87)(cid:12)(cid:3) (cid:87)(cid:82)(cid:3) (cid:68)(cid:3) (cid:83)(cid:68)(cid:85)(cid:87)(cid:76)(cid:70)(cid:88)(cid:79)(cid:68)(cid:85)(cid:3) (cid:83)(cid:85)(cid:82)(cid:69)(cid:79)(cid:72)(cid:80)(cid:15)(cid:3) (cid:76)(cid:87)(cid:3) (cid:76)(cid:86)(cid:3) (cid:86)(cid:88)(cid:76)(cid:87)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3) (cid:87)(cid:82)(cid:3)
+
+consider these and select an appropriate solution.
+
+All the solutions pertaining to a problem are called solution space. In computer 
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:3) (cid:68)(cid:79)(cid:86)(cid:82)(cid:15)(cid:3) (cid:89)(cid:68)(cid:85)(cid:76)(cid:82)(cid:88)(cid:86)(cid:3) (cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3) (cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3) (cid:69)(cid:72)(cid:3) (cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:71)(cid:3) (cid:68)(cid:81)(cid:71)(cid:3) (cid:68)(cid:81)(cid:3) (cid:68)(cid:83)(cid:83)(cid:85)(cid:82)(cid:83)(cid:85)(cid:76)(cid:68)(cid:87)(cid:72)(cid:3)
+(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:72)(cid:71)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:81)(cid:15)(cid:3)(cid:90)(cid:72)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:70)(cid:85)(cid:72)(cid:68)(cid:87)(cid:72)(cid:3)(cid:68)(cid:3)(cid:86)(cid:75)(cid:82)(cid:85)(cid:87)(cid:15)(cid:3)(cid:86)(cid:76)(cid:80)(cid:83)(cid:79)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:17)
+
+Example 1 
+(cid:47)(cid:72)(cid:87)(cid:3)(cid:88)(cid:86)(cid:3)(cid:72)(cid:91)(cid:68)(cid:80)(cid:76)(cid:81)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:86)(cid:83)(cid:68)(cid:70)(cid:72)(cid:3)(cid:87)(cid:82)(cid:3)(cid:191)(cid:81)(cid:71)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:72)(cid:85)(cid:76)(cid:80)(cid:72)(cid:87)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:3)(cid:85)(cid:72)(cid:70)(cid:87)(cid:68)(cid:81)(cid:74)(cid:79)(cid:72)(cid:17)
+
+(cid:47)(cid:72)(cid:87)(cid:3)(cid:88)(cid:86)(cid:3)(cid:68)(cid:81)(cid:68)(cid:79)(cid:92)(cid:93)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3)(cid:85)(cid:72)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:87)(cid:75)(cid:76)(cid:86)(cid:3)(cid:83)(cid:85)(cid:82)(cid:69)(cid:79)(cid:72)(cid:80)(cid:17)
+
+Input     : Length and width of the rectangle
+
+Process : Calculating the perimeter
+
+Output  : Indicating the perimeter
+
+Let us examine the solution space to calculate the perimeter.
+
+1st solution  
+
+     Perimeter = length + width + length + width 
+
+2nd solution  
+(cid:22)(cid:85)(cid:71)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:3)
+
+     Perimeter = length × 2 + width × 2
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:51)(cid:72)(cid:85)(cid:76)(cid:80)(cid:72)(cid:87)(cid:72)(cid:85)(cid:3)(cid:32)(cid:3)(cid:11)(cid:79)(cid:72)(cid:81)(cid:74)(cid:87)(cid:75)(cid:3)(cid:14)(cid:3)(cid:90)(cid:76)(cid:71)(cid:87)(cid:75)(cid:12)(cid:3)(cid:238)(cid:3)(cid:21)
+
+(cid:50)(cid:88)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:86)(cid:72)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:15)(cid:3)(cid:68)(cid:3)(cid:83)(cid:72)(cid:85)(cid:86)(cid:82)(cid:81)(cid:3)(cid:90)(cid:75)(cid:82)(cid:3)(cid:75)(cid:68)(cid:86)(cid:3)(cid:78)(cid:81)(cid:82)(cid:90)(cid:79)(cid:72)(cid:71)(cid:74)(cid:72)(cid:3)(cid:82)(cid:81)(cid:79)(cid:92)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:71)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:15)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+1st solution as the most appropriate. A person who has knowledge of multiplication 
+and addition can select the 3rd solution out of the 2nd and 3rd solutions  as the most 
+(cid:68)(cid:83)(cid:83)(cid:85)(cid:82)(cid:83)(cid:85)(cid:76)(cid:68)(cid:87)(cid:72)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:68)(cid:86)(cid:82)(cid:81)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:87)(cid:75)(cid:76)(cid:86)(cid:3)(cid:76)(cid:86)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:75)(cid:68)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:80)(cid:76)(cid:81)(cid:76)(cid:80)(cid:88)(cid:80)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:71)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)
+
+multiplications.
+
+4
+
+For free distribution
+
+Example 2 
+(cid:44)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:68)(cid:87)(cid:3)(cid:68)(cid:3)(cid:86)(cid:87)(cid:88)(cid:71)(cid:72)(cid:81)(cid:87)(cid:3)(cid:75)(cid:68)(cid:86)(cid:3)(cid:73)(cid:68)(cid:76)(cid:79)(cid:72)(cid:71)(cid:3)(cid:76)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:70)(cid:82)(cid:85)(cid:72)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:44)(cid:38)(cid:55)(cid:3)(cid:54)(cid:88)(cid:69)(cid:77)(cid:72)(cid:70)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:79)(cid:72)(cid:86)(cid:86)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:22)(cid:24)(cid:15)(cid:3)
+
+and indicating pass if the score is 35 or above.
+
+Input : Marks
+
+Process : Comparing the mark scored with 35
+
+Solution 1.  
+
+If the mark is less than 35
+
+Result = Fail
+
+If not
+
+Result = Pass
+
+Solution 2.  
+
+If the mark is 35 or more than 35
+
+Result = Pass
+
+If not 
+
+Result = Fail
+
+Output : Fail or Pass
+
+Example 3 
+
+Finding the larger number from between two numbers 
+
+Let us consider the two input numbers as 
+
+and
+
+n1
+
+n2.
+
+n2,
+
+Solution 1.  
+
+n1
+
+n2
+
+If 
+
+If
+
+ is larger than 
+
+is larger than 
+
+Solution 2.   Subtract 
+
+n2
+
+n1.
+
+ from 
+
+(See problem 6 in page 3)
+
+ the larger number will be
+n1(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:68)(cid:85)(cid:74)(cid:72)(cid:85)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:69)(cid:72)(cid:3)n2.
+
+ n1.
+
+If the result is more than 
+
+ is the larger number.
+
+0, n1
+
+0, n2
+
+If the result is less than 
+(cid:55)(cid:75)(cid:88)(cid:86)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:76)(cid:80)(cid:83)(cid:82)(cid:85)(cid:87)(cid:68)(cid:81)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:83)(cid:83)(cid:85)(cid:82)(cid:83)(cid:85)(cid:76)(cid:68)(cid:87)(cid:72)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:82)(cid:88)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:89)(cid:68)(cid:76)(cid:79)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:68)(cid:79)(cid:87)(cid:72)(cid:85)(cid:81)(cid:68)(cid:87)(cid:76)(cid:89)(cid:72)(cid:3)
+
+ is the larger number.
+
+solutions.
+
+For free distribution
+
+5
+
+ 
+       
+ 
+ 
+ 
+        
+ 
+ 
+ 
+ 
+ 
+1.2  Problem Solving using Algorithms
+
+An
+An  algorithm  is  a  method  to  show  the  steps  in  solving  a  problem.
+algorithm is a step-by-step procedure for solving a problem. The need for this is to 
+present a way to solve the problem with a plan.
+
+Example 1 - Let us develop an algorithm to post a letter.
+
+(cid:11)(cid:20)(cid:12)(cid:3)(cid:58)(cid:85)(cid:76)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:72)(cid:87)(cid:87)(cid:72)(cid:85)
+
+(cid:11)(cid:21)(cid:12)(cid:3)(cid:41)(cid:82)(cid:79)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:72)(cid:87)(cid:87)(cid:72)(cid:85)
+
+(cid:11)(cid:22)(cid:12)(cid:3)(cid:44)(cid:81)(cid:86)(cid:72)(cid:85)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:72)(cid:87)(cid:87)(cid:72)(cid:85)(cid:3)(cid:76)(cid:81)(cid:3)(cid:68)(cid:81)(cid:3)(cid:72)(cid:81)(cid:89)(cid:72)(cid:79)(cid:82)(cid:83)(cid:72)
+
+(cid:11)(cid:23)(cid:12)(cid:3)(cid:58)(cid:85)(cid:76)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:71)(cid:71)(cid:85)(cid:72)(cid:86)(cid:86)
+
+(cid:11)(cid:24)(cid:12)(cid:3)(cid:3)(cid:54)(cid:87)(cid:76)(cid:70)(cid:78)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:68)(cid:80)(cid:83)
+
+(cid:11)(cid:25)(cid:12)(cid:3)(cid:51)(cid:82)(cid:86)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:72)(cid:87)(cid:87)(cid:72)(cid:85)
+
+(cid:3)
+(cid:54)(cid:87)(cid:72)(cid:83)(cid:3)(cid:11)(cid:20)(cid:12)(cid:15)(cid:3)(cid:11)(cid:21)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:11)(cid:22)(cid:12)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:76)(cid:86)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:74)(cid:76)(cid:89)(cid:72)(cid:81)(cid:3)(cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:17)(cid:3)
+(cid:54)(cid:87)(cid:72)(cid:83)(cid:3)(cid:11)(cid:23)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:11)(cid:24)(cid:12)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:85)(cid:70)(cid:75)(cid:68)(cid:81)(cid:74)(cid:72)(cid:71)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:68)(cid:86)(cid:82)(cid:81)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:87)(cid:75)(cid:76)(cid:86)(cid:3)(cid:76)(cid:86)(cid:15)(cid:3)(cid:92)(cid:82)(cid:88)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:72)(cid:76)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:86)(cid:87)(cid:76)(cid:70)(cid:78)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+stamp after writing the address or write the address after sticking the stamp. 
+(cid:3)
+(cid:55)(cid:75)(cid:88)(cid:86)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:3)(cid:68)(cid:3)(cid:86)(cid:87)(cid:85)(cid:76)(cid:70)(cid:87)(cid:3)
+(cid:86)(cid:72)(cid:84)(cid:88)(cid:72)(cid:81)(cid:87)(cid:76)(cid:68)(cid:79)(cid:3)(cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:17)(cid:3)(cid:54)(cid:82)(cid:80)(cid:72)(cid:87)(cid:76)(cid:80)(cid:72)(cid:86)(cid:15)(cid:3)(cid:76)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:86)(cid:82)(cid:80)(cid:72)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:86)(cid:3)(cid:76)(cid:86)(cid:3)(cid:70)(cid:75)(cid:68)(cid:81)(cid:74)(cid:72)(cid:71)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:71)(cid:82)(cid:72)(cid:86)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:68)(cid:73)(cid:73)(cid:72)(cid:70)(cid:87)(cid:3)
+
+the process and the output is same.
+
+Example 2 - Let us consider steps in measuring 500g of sugar using a scale. 
+
+(cid:11)(cid:20)(cid:12)(cid:3)(cid:51)(cid:88)(cid:87)(cid:87)
+
+ing sugar into a bag
+
+(cid:11)(cid:21)(cid:12)(cid:3)(cid:51)(cid:79)(cid:68)(cid:70)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:69)(cid:68)(cid:74)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:70)(cid:68)(cid:79)(cid:72)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:74)(cid:72)(cid:87)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+scale
+
+(cid:11)(cid:22)(cid:12)(cid:3)(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:90)(cid:72)(cid:76)(cid:74)(cid:75)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:88)(cid:74)(cid:68)(cid:85)(cid:3)(cid:76)(cid:86)(cid:3)(cid:79)(cid:72)(cid:86)(cid:86)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:24)(cid:19)(cid:19)(cid:74)(cid:15)(cid:3)(cid:68)(cid:71)(cid:71)(cid:3)(cid:86)(cid:88)(cid:74)(cid:68)(cid:85)(cid:3)(cid:87)(cid:76)(cid:79)(cid:79)(cid:3)
+
+it weighs 500g
+
+(cid:11)(cid:23)(cid:12)(cid:3)(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:90)(cid:72)(cid:76)(cid:74)(cid:75)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:88)(cid:74)(cid:68)(cid:85)(cid:3)(cid:76)(cid:86)(cid:3)(cid:80)(cid:82)(cid:85)(cid:72)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:24)(cid:19)(cid:19)(cid:74)(cid:15)(cid:3)(cid:85)(cid:72)(cid:80)(cid:82)(cid:89)(cid:72)(cid:3)(cid:86)(cid:88)(cid:74)(cid:68)(cid:85)(cid:3)
+
+from the bag till it weighs 500g
+
+(cid:11)(cid:24)(cid:12)(cid:3)(cid:53)(cid:72)(cid:80)(cid:82)(cid:89)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:69)(cid:68)(cid:74)(cid:3)(cid:82)(cid:73)(cid:3)(cid:86)(cid:88)(cid:74)(cid:68)(cid:85)(cid:3)(cid:73)(cid:85)(cid:82)(cid:80)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:70)(cid:68)(cid:79)(cid:72)(cid:3)(cid:90)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:90)(cid:72)(cid:76)(cid:74)(cid:75)(cid:87)(cid:3)
+
+is 500g
+
+The algorithm to measure 500g sugar is given above.
+
+Activity
+
+There  are  183  students  in  a  primary  school.  The  principal  has 
+decided  to  hold  an  inter-house  sports  meet  dividing  them  into  three 
+(cid:75)(cid:82)(cid:88)(cid:86)(cid:72)(cid:86)(cid:3)(cid:177)(cid:3)(cid:50)(cid:79)(cid:88)(cid:15)(cid:3)(cid:49)(cid:72)(cid:79)(cid:88)(cid:80)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:48)(cid:68)(cid:81)(cid:72)(cid:79)(cid:17)(cid:3)(cid:39)(cid:72)(cid:89)(cid:72)(cid:79)(cid:82)(cid:83)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3)(cid:87)(cid:82)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:71)(cid:72)(cid:89)(cid:76)(cid:71)(cid:72)(cid:3)
+
+the students into the three houses.
+
+6
+
+For free distribution
+
+ 
+ 
+ 
+1.2.1  Control Structures
+
+Three types of control structures are used in an algorithms.
+
+i.    Sequence 
+
+ii.   Selection       
+
+iii.  Repetition
+
+i. Sequence 
+
+(cid:68)(cid:3)(cid:86)(cid:87)(cid:85)(cid:76)(cid:70)(cid:87)(cid:3)(cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:70)(cid:68)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:68)(cid:3)(cid:86)(cid:72)(cid:84)(cid:88)(cid:72)(cid:81)(cid:70)(cid:72)(cid:17)
+
+If the steps from the beginning to the end of an algorithm are carried out in 
+
+Example -
+
+1.  Climbing up or down step by step when going on a staircase
+
+2.  Students  who  were  admitted  to  grade  1  of  the  school 
+     continue studies till grade 13
+
+Activity
+
+Write down two incidents which consist of sequences.
+
+ii. Selection 
+
+(cid:3)
+(cid:54)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:86)(cid:76)(cid:87)(cid:88)(cid:68)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:90)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:11)(cid:86)(cid:12)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:71)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:81)(cid:3)(cid:90)(cid:75)(cid:72)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:68)(cid:3)
+(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:3)(cid:82)(cid:85)(cid:3)(cid:81)(cid:82)(cid:87)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:87)(cid:90)(cid:82)(cid:3)(cid:70)(cid:75)(cid:82)(cid:76)(cid:70)(cid:72)(cid:86)(cid:30)(cid:3)(cid:76)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)
+(cid:76)(cid:86)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:15)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:72)(cid:71)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:76)(cid:73)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:72)(cid:71)(cid:17)
+
+For free distribution
+
+7
+
+Examples of selection
+
+1. Admitting a child to Grade 1:
+
+      If  a  child  is  below  5  years  as  at  31st  of          
+
+ January that year
+
+The child cannot be admitted to school
+
+      If not
+
+The child can be admitted to school
+
+2.  Passing a subject:
+
+If the mark is 35 or more
+
+It is a Pass
+
+      If not
+
+It is a Fail
+(cid:3)(cid:3)(cid:3)(cid:22)(cid:17)(cid:3)(cid:3)(cid:3)(cid:37)(cid:88)(cid:92)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:69)(cid:82)(cid:82)(cid:78)(cid:29)
+
+   If  you  have  money  equal  to  or  more  than
+  the price of the book
+
+You can buy the book
+
+        If not
+
+You cannot buy the book
+
+Activity
+
+1.  Write down three incidents which consist of selection.
+
+2. If a Sri Lankan citizen gets the right to vote after completing the age 
+(cid:82)(cid:73)(cid:3)(cid:20)(cid:27)(cid:15)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:80)(cid:82)(cid:86)(cid:87)(cid:3)(cid:86)(cid:88)(cid:76)(cid:87)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:69)(cid:79)(cid:68)(cid:81)(cid:78)(cid:86)(cid:3)(cid:74)(cid:76)(cid:89)(cid:72)(cid:81)(cid:3)(cid:69)(cid:72)(cid:79)(cid:82)(cid:90)(cid:17)
+
+(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:74)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:171)(cid:171)(cid:171)(cid:171)(cid:171)(cid:171)(cid:3)(cid:11)(cid:80)(cid:82)(cid:85)(cid:72)(cid:18)(cid:79)(cid:72)(cid:86)(cid:86)(cid:12)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:20)(cid:27)
+
+(cid:3)
+
+(cid:55)(cid:75)(cid:72)(cid:3)(cid:89)(cid:82)(cid:87)(cid:72)(cid:3)(cid:171)(cid:171)(cid:171)(cid:171)(cid:171)(cid:171)(cid:3)(cid:11)(cid:70)(cid:68)(cid:81)(cid:18)(cid:70)(cid:68)(cid:81)(cid:81)(cid:82)(cid:87)(cid:3)(cid:12)(cid:3)(cid:69)(cid:72)(cid:3)(cid:70)(cid:68)(cid:86)(cid:87)(cid:72)(cid:71)
+
+(cid:44)(cid:73)(cid:3)(cid:81)(cid:82)(cid:87)(cid:15)
+
+(cid:3)
+
+(cid:55)(cid:75)(cid:72)(cid:3)(cid:89)(cid:82)(cid:87)(cid:72)(cid:3)(cid:171)(cid:171)(cid:171)(cid:171)(cid:171)(cid:3)(cid:11)(cid:70)(cid:68)(cid:81)(cid:18)(cid:70)(cid:68)(cid:81)(cid:81)(cid:82)(cid:87)(cid:12)(cid:3)(cid:69)(cid:72)(cid:3)(cid:70)(cid:68)(cid:86)(cid:87)(cid:72)(cid:71)
+
+iii. Repetition
+
+(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:70)(cid:68)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)
+
+If  one  or  several  steps  of  an  algorithm  are  repeated  until  a  condition  is 
+
+8
+
+For free distribution
+
+       
+ 
+       
+       
+         
+         
+ 
+Examples
+
+1. Let  us  consider  the  process  of  a  class  teacher 
+
+marking the attendance register.
+(cid:3)
+
+(cid:11)(cid:20)(cid:12)(cid:3)(cid:3)(cid:3)(cid:38)(cid:68)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:74)(cid:76)(cid:86)(cid:87)(cid:72)(cid:85)
+
+(cid:3)
+
+(cid:3)
+
+(cid:3)
+
+(cid:3)
+
+(cid:11)(cid:21)(cid:12)(cid:3)(cid:3)(cid:3)(cid:48)(cid:68)(cid:85)(cid:78)(cid:3)(cid:20)(cid:3)(cid:76)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:88)(cid:71)(cid:72)(cid:81)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:83)(cid:85)(cid:72)(cid:86)(cid:72)(cid:81)(cid:87)
+
+(cid:11)(cid:22)(cid:12)(cid:3)(cid:3)(cid:3)(cid:48)(cid:68)(cid:85)(cid:78)(cid:3)(cid:19)(cid:3)(cid:76)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:88)(cid:71)(cid:72)(cid:81)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:69)(cid:86)(cid:72)(cid:81)(cid:87)
+
+(cid:11)(cid:23)(cid:12)(cid:3)(cid:3)(cid:3)(cid:38)(cid:68)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:72)(cid:91)(cid:87)(cid:3)(cid:86)(cid:87)(cid:88)(cid:71)(cid:72)(cid:81)(cid:87)
+
+(cid:11)(cid:24)(cid:12)(cid:3)(cid:3)(cid:3)(cid:53)(cid:72)(cid:83)(cid:72)(cid:68)(cid:87)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:3)(cid:11)(cid:21)(cid:12)(cid:3)(cid:82)(cid:85)(cid:3)(cid:11)(cid:22)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:11)(cid:23)(cid:12)(cid:3)(cid:3)(cid:87)(cid:76)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+        last name of the register is called
+
+2. Let us consider the process of reading a paragraph 
+and calculating the number of words you read.
+(cid:11)(cid:20)(cid:12)(cid:3)(cid:3)(cid:3)(cid:53)(cid:72)(cid:68)(cid:71)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:68)(cid:85)(cid:68)(cid:74)(cid:85)(cid:68)(cid:83)(cid:75)
+
+(cid:11)(cid:21)(cid:12)(cid:3)(cid:3)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:86)(cid:3)(cid:32)(cid:3)(cid:20)
+
+(cid:11)(cid:22)(cid:12)(cid:3)(cid:3)(cid:3)(cid:53)(cid:72)(cid:68)(cid:71)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:72)(cid:91)(cid:87)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)
+
+(cid:11)(cid:23)(cid:12)(cid:3)(cid:3)(cid:3)(cid:36)(cid:71)(cid:71)(cid:3)(cid:20)(cid:3)(cid:87)(cid:82)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:86)
+
+(cid:11)(cid:24)(cid:12)(cid:3)(cid:3)(cid:3)(cid:53)(cid:72)(cid:83)(cid:72)(cid:68)(cid:87)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:3)(cid:11)(cid:22)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:11)(cid:23)(cid:12)(cid:3)(cid:87)(cid:76)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:81)(cid:71)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:68)(cid:85)(cid:68)(cid:74)(cid:85)(cid:68)(cid:83)(cid:75)
+
+(cid:11)(cid:25)(cid:12)(cid:3)(cid:3)(cid:3)(cid:36)(cid:73)(cid:87)(cid:72)(cid:85)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:68)(cid:85)(cid:68)(cid:74)(cid:85)(cid:68)(cid:83)(cid:75)(cid:15)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:86)
+
+Activity
+
+1.
+
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:3)(cid:71)(cid:82)(cid:90)(cid:81)(cid:3)(cid:68)(cid:86)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:86)(cid:15)(cid:3)(cid:87)(cid:90)(cid:82)(cid:3)(cid:86)(cid:70)(cid:72)(cid:81)(cid:68)(cid:85)(cid:76)(cid:82)(cid:3)(cid:87)(cid:75)(cid:68)(cid:87)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:85)(cid:76)(cid:86)(cid:72)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)
+
+2. Fill  in  the  blanks  below  related  to  repetition  that  output  5 
+
+times from 5 to 60.
+
+I.  n = 5
+
+II.  Output the value of n.
+
+III. Add 5 to the value of n.
+
+IV. Repeat step number ……… and ……….. till the value 
+
+of n = 60.
+
+1.3 Representation of an algorithm
+
+Flow charts and pseudo codes are used as tools to present an algorithm to 
+
+make the algorithm understand better.
+
+For free distribution
+
+9
+
+1.3.1
+
+Flowcharts
+
+Flowcharts are used to present how the algorithm is built step by step in a 
+dramatic manner. The symbols given in table are used to indicate different functions. 
+(cid:11)(cid:54)(cid:72)(cid:72)(cid:3)(cid:55)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:20)(cid:17)(cid:20)(cid:12)
+
+Symbol
+
+Table 1.1
+
+Function
+Start or end
+
+Input or output
+
+Process
+
+Decision
+
+Flow direction
+
+Connector
+
+Sequence
+
+In sequence the steps from the beginning to the end are executed in order.
+
+E.g. 1 - Finding the area of a circle.
+
+Start
+
+Input the radius of the circle
+
+Calculate the area of the circle
+
+Output the area of the circle
+
+End
+
+10
+
+For free distribution
+
+ 
+ 
+ 
+ 
+Selection
+
+(cid:55)(cid:75)(cid:72)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:82)(cid:73)(cid:3)(cid:71)(cid:76)(cid:85)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:71)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:81)(cid:3)(cid:68)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:69)(cid:72)(cid:76)(cid:81)(cid:74)(cid:3)
+
+(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:3)(cid:82)(cid:85)(cid:3)(cid:81)(cid:82)(cid:87)(cid:17)
+
+E.g. - Finding whether a number is odd or even
+
+Start
+
+Input the number
+
+Find the remainder when the 
+number is divided by 2
+
+Is the remainder 0?
+
+  An odd number          
+
+No
+
+Yes
+
+An even number                   
+
+End
+
+Repetition
+(cid:3)
+(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:17)
+
+(cid:54)(cid:87)(cid:72)(cid:83)(cid:86)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:85)(cid:72)(cid:83)(cid:72)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3) (cid:87)(cid:76)(cid:79)(cid:79)(cid:3) (cid:68)(cid:3) (cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3) (cid:76)(cid:86)(cid:3) (cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:3) (cid:82)(cid:85)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:70)(cid:82)(cid:81)(cid:87)(cid:76)(cid:81)(cid:88)(cid:72)(cid:71)(cid:3) (cid:87)(cid:76)(cid:79)(cid:79)(cid:3) (cid:76)(cid:87)(cid:3) (cid:76)(cid:86)(cid:3)
+
+E.g. - Finding the total of some numbers
+
+Start
+
+Total = 0
+
+Get the number N
+
+Total = Total + N
+
+Are there any more 
+numbers?
+No
+
+Output the Total                                                                                      
+
+Yes
+
+End
+
+For free distribution
+
+11
+
+Activity
+
+(cid:39)(cid:85)(cid:68)(cid:90)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:70)(cid:75)(cid:68)(cid:85)(cid:87)(cid:86)(cid:3)(cid:87)(cid:82)(cid:3)(cid:86)(cid:82)(cid:79)(cid:89)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:69)(cid:79)(cid:72)(cid:80)(cid:86)(cid:3)(cid:74)(cid:76)(cid:89)(cid:72)(cid:81)(cid:3)(cid:69)(cid:72)(cid:79)(cid:82)(cid:90)(cid:17)
+
+1.  Find the perimeter and area of a rectangle.
+
+2.
+
+It is decided to add Rs.5000 to the basic salary of the employees of 
+a company. Calculate the new salary.
+
+(cid:22)(cid:17)(cid:3) (cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:83)(cid:82)(cid:86)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:79)(cid:72)(cid:87)(cid:87)(cid:72)(cid:85)(cid:15)(cid:3)(cid:83)(cid:82)(cid:86)(cid:87)(cid:68)(cid:79)(cid:3)(cid:73)(cid:68)(cid:85)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:70)(cid:75)(cid:68)(cid:85)(cid:74)(cid:72)(cid:71)(cid:3)(cid:68)(cid:70)(cid:70)(cid:82)(cid:85)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:82)(cid:3)(cid:76)(cid:87)(cid:86)(cid:3)(cid:90)(cid:72)(cid:76)(cid:74)(cid:75)(cid:87)(cid:17)(cid:3)
+
+The standard fare should be paid for letters which are equal to or 
+less than the standard weight. An additional fare should be charged 
+if the weight is more than the standard weight. 
+
+(cid:23)(cid:17)(cid:3) (cid:44)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:20)(cid:21)(cid:3)(cid:80)(cid:88)(cid:79)(cid:87)(cid:76)(cid:83)(cid:79)(cid:72)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:26)(cid:17)(cid:3)(cid:3)
+
+(cid:24)(cid:17)(cid:3)(cid:3)(cid:3)(cid:39)(cid:85)(cid:68)(cid:90)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:70)(cid:75)(cid:68)(cid:85)(cid:87)(cid:86)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:91)(cid:68)(cid:80)(cid:83)(cid:79)(cid:72)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:20)(cid:29)(cid:21)(cid:29)(cid:20)(cid:17)
+
+1.3.2 Pseudo codes
+
+When an algorithm is presented in simple English terms it is called a pseudo 
+code. Pseudo codes are independent of a computer language. Pseudo codes can be 
+(cid:70)(cid:82)(cid:81)(cid:89)(cid:72)(cid:85)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:68)(cid:81)(cid:92)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:3)(cid:76)(cid:81)(cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:17)(cid:3)(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:83)(cid:86)(cid:72)(cid:88)(cid:71)(cid:82)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:86)(cid:3)(cid:80)(cid:68)(cid:78)(cid:72)(cid:3)
+
+computer programming easier.
+
+Let us see simple English terms used in an pseudo code.
+
+(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)(cid:3)(cid:16)(cid:3)(cid:55)(cid:82)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:3)(cid:68)(cid:3)(cid:69)(cid:72)(cid:74)(cid:76)(cid:81)(cid:81)(cid:76)(cid:81)(cid:74)
+
+END  - To indicate an end
+(cid:44)(cid:49)(cid:51)(cid:56)(cid:55)(cid:3)(cid:15)(cid:3)(cid:53)(cid:40)(cid:36)(cid:39)(cid:3)(cid:15)(cid:3)(cid:42)(cid:40)(cid:55)(cid:3)(cid:16)(cid:3)(cid:55)(cid:82)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:3)(cid:68)(cid:81)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)
+(cid:50)(cid:56)(cid:55)(cid:51)(cid:56)(cid:55)(cid:15)(cid:3)(cid:39)(cid:44)(cid:54)(cid:51)(cid:47)(cid:36)(cid:60)(cid:3)(cid:15)(cid:3)(cid:54)(cid:43)(cid:50)(cid:58)(cid:3)(cid:3)(cid:16)(cid:3)(cid:55)(cid:82)(cid:3)(cid:86)(cid:75)(cid:82)(cid:90)(cid:3)(cid:68)(cid:81)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)
+(cid:51)(cid:53)(cid:50)(cid:38)(cid:40)(cid:54)(cid:54)(cid:15)(cid:3)(cid:38)(cid:36)(cid:47)(cid:38)(cid:56)(cid:47)(cid:36)(cid:55)(cid:40)(cid:3)(cid:16)(cid:3)(cid:55)(cid:82)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:3)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)
+
+IF … THEN .. .ELSE  … ENDIF  - Used to indicate a selection
+FOR – DO
+WHILE – ENDWHILE 
+REPEAT - UNTIL
+
+Used to indicate a repetition
+
+Writing pseudo codes
+
+E.g. 1 - Finding the area of a circle
+
+(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)
+
+}
+
+(cid:3)
+
+(cid:3)
+
+INPUT Radius 
+(cid:38)(cid:36)(cid:47)(cid:38)(cid:56)(cid:47)(cid:36)(cid:55)(cid:40)(cid:3)(cid:36)(cid:85)(cid:72)(cid:68)(cid:3)(cid:32)(cid:3)(cid:21)(cid:21)(cid:18)(cid:26)(cid:3)«
+
+«
+ Radius
+ Radius 
+
+DISPLAY Area
+
+ END.
+For free distribution
+
+12
+
+ 
+ 
+ 
+E.g. 2 - Finding whether a number is odd or even
+
+(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)
+
+READ number as N
+
+CALCULATE  Remainder after number is divided by 2
+IF Remainder = 0 THEN
+
+DISPLAY “Even number”
+
+DISPLAY “Odd number”
+
+ELSE
+
+ENDIF
+
+     END.
+
+E.g. 3 - Finding the total of some numbers
+
+(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)
+
+Total = 0
+
+REPEAT
+
+READ Number as N
+
+CALCULATE Total = Total + N
+
+UNTIL numbers are over
+
+DISPLAY Total
+
+END.
+
+E.g. 4 - Finding the total and the average of 10 numbers 
+
+(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)
+
+Total = 0
+
+Average = 0
+
+n = 1
+
+WHILE n <= 10
+
+READ Number 
+
+CALCULATE Total = Total + Number
+
+n = n + 1
+
+ENDWHILE
+(cid:38)(cid:36)(cid:47)(cid:38)(cid:56)(cid:47)(cid:36)(cid:55)(cid:40)(cid:3)(cid:36)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)(cid:3)(cid:32)(cid:3)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:18)(cid:11)(cid:81)(cid:3)(cid:16)(cid:3)(cid:20)(cid:12)(cid:3)(cid:3)
+
+(cid:39)(cid:44)(cid:54)(cid:51)(cid:47)(cid:36)(cid:60)(cid:3)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:15)(cid:3)(cid:36)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)
+
+END.
+
+For free distribution
+
+13
+
+Following are some of the facts about the above pseudo code.
+²
+
+Total, Average and Number are variables.
+
+²
+
+²
+
+²
+
+²
+
+²
+
+²
+
+²
+
+²
+
+²
+
+°  When values are assigned to number variable, the value of Total, Average 
+
+and n variables change.
+
+n indicates the number of repetitions. (Number of times the loop is executed)
+
+The statements  Total  =  0  and  Average  =  0,  makes  starting  values  of  these 
+variables assigned as 0.
+
+°  Hence, the initial value of Total and Average are 0s.
+
+The statement n = 1, makes the starting value of n is assigned to 1.
+(cid:81)(cid:3)(cid:31)(cid:32)(cid:3)(cid:20)(cid:19)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:68)(cid:87)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:17)
+
+WHILE n <= 10 indicates that the loop n should be repeated until value of n is 
+10.
+
+°  Repetition occurs when the value of n is 10 or less than 10. This means, 
+till the condition n <=10 is true, repetition occurs. When the value of n 
+becomes 11, the repetition stops. Then the condition becomes false. 
+
+READ denotes getting a value for Number variable.
+
+Total  =  Total  +  Number  denotes  the
+present  value  of  Total  is  added  to 
+number  and  the  resultant  value  is 
+assigned on the new value of Total.
+
+n  =  n  +  1  calculates  the  number  of 
+repetitions. 1 is added to the present 
+value  of  n  and  the  result  is  assigned 
+to n.
+
+ENDWHILE  indicates  the  limit  to 
+end  repetition.  Hence,  only  READ 
+number, Total = Total + Number and n = n + 1 are repeated till the condition n 
+(cid:31)(cid:32)(cid:3)(cid:20)(cid:19)(cid:3)(cid:76)(cid:86)(cid:3)(cid:73)(cid:88)(cid:79)(cid:191)(cid:79)(cid:79)(cid:72)(cid:71)(cid:17)
+
+²
+When the repetition stops, the value of n is 11 and the condition is false. 
+² (cid:37)(cid:92)(cid:3)(cid:36)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)(cid:3)(cid:32)(cid:3)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:18)(cid:11)(cid:81)(cid:3)(cid:16)(cid:3)(cid:20)(cid:12)(cid:3)(cid:15)(cid:3)(cid:191)(cid:81)(cid:68)(cid:79)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:76)(cid:86)(cid:3)(cid:71)(cid:76)(cid:89)(cid:76)(cid:71)(cid:72)(cid:71)(cid:3)(cid:69)(cid:92)(cid:3)(cid:11)(cid:81)(cid:3)(cid:177)(cid:3)(cid:20)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:87)(cid:75)(cid:68)(cid:87)(cid:3)
+
+²
+
+value is assigned to Average variable. 
+
+DISPLAY (Total, Average) produces the output of the total of 10 numbers and 
+its average.
+
+14
+
+For free distribution
+
+Observation
+
+² (cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:68)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:86)(cid:86)(cid:76)(cid:74)(cid:81)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:68)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:72)(cid:89)(cid:76)(cid:82)(cid:88)(cid:86)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)
+
+lost.
+
+² (cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:3)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:32)(cid:3)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:14)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+value assigned to the Number variable is added with the value 
+assigned to Total variable and the result obtained is assigned 
+to the Total variable. 
+
+Total = Total + Number is not a mathematical formula.
+
+²
+
+(cid:20)(cid:17)(cid:22)(cid:17)(cid:22)(cid:3)(cid:3)(cid:38)(cid:82)(cid:81)(cid:89)(cid:72)(cid:85)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:70)(cid:75)(cid:68)(cid:85)(cid:87)(cid:86)(cid:3)(cid:87)(cid:82)(cid:3)(cid:83)(cid:86)(cid:72)(cid:88)(cid:71)(cid:82)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:86)
+
+(cid:36)(cid:81)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:83)(cid:85)(cid:72)(cid:86)(cid:72)(cid:81)(cid:87)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:3)(cid:68)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:70)(cid:75)(cid:68)(cid:85)(cid:87)(cid:3)(cid:68)(cid:86)(cid:3)(cid:90)(cid:72)(cid:79)(cid:79)(cid:3)(cid:68)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:68)(cid:3)(cid:83)(cid:86)(cid:72)(cid:88)(cid:71)(cid:82)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:17)(cid:3)
+
+(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:79)(cid:72)(cid:87)(cid:3)(cid:88)(cid:86)(cid:3)(cid:72)(cid:91)(cid:68)(cid:80)(cid:76)(cid:81)(cid:72)(cid:3)(cid:75)(cid:82)(cid:90)(cid:3)(cid:68)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:70)(cid:75)(cid:68)(cid:85)(cid:87)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:89)(cid:72)(cid:85)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:68)(cid:3)(cid:83)(cid:86)(cid:72)(cid:88)(cid:71)(cid:82)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:17)(cid:3)
+
+Start
+
+Put tea bag in cup
+
+(cid:37)(cid:82)(cid:76)(cid:79)(cid:3)(cid:90)(cid:68)(cid:87)(cid:72)(cid:85)
+
+Water boiled?
+
+No
+
+Yes
+
+Pour water in Cup
+
+Stir tea
+
+Want sugar?
+
+Add sugar
+
+Yes
+
+No
+
+End
+
+(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)
+
+Put tea bag in cup
+(cid:58)(cid:43)(cid:44)(cid:47)(cid:40)(cid:3)(cid:11)(cid:81)(cid:82)(cid:87)(cid:3)(cid:90)(cid:68)(cid:87)(cid:72)(cid:85)(cid:3)(cid:69)(cid:82)(cid:76)(cid:79)(cid:72)(cid:71)(cid:12)
+
+(cid:3)
+
+(cid:37)(cid:82)(cid:76)(cid:79)(cid:3)(cid:90)(cid:68)(cid:87)(cid:72)(cid:85)
+
+ENDWHILE
+
+Pour water in cup
+
+(cid:58)(cid:43)(cid:44)(cid:47)(cid:40)(cid:3)(cid:11)(cid:86)(cid:88)(cid:74)(cid:68)(cid:85)(cid:3)(cid:81)(cid:72)(cid:72)(cid:71)(cid:72)(cid:71)(cid:12)
+
+Add sugar
+
+Stir tea
+
+ENDWHILE
+
+(cid:3)
+
+(cid:3)
+
+(cid:3)
+
+END
+
+For free distribution
+
+15
+
+ 
+ 
+ 
+ 
+ 
+E.g. 1 - Finding the larger number from two different numbers
+
+Start
+
+  (cid:37)(cid:40)(cid:42)(cid:44)(cid:49)
+
+Input the two numbers 
+(cid:49)(cid:20)(cid:15)(cid:3)(cid:49)(cid:21)
+
+Is N1 larger than 
+N2?
+
+Larger number is 
+N2
+
+No
+
+Yes
+
+(cid:3)(cid:49)(cid:20)(cid:15)(cid:3)(cid:49)(cid:21)
+
+READ
+
+IF N1 > N2 THEN
+
+Large = N1
+
+ELSE
+
+ENDIF
+
+Large = N2
+
+Larger number is N1          
+
+DISPLAY Large
+
+  End.
+
+Output the larger 
+number
+
+End
+
+E.g. 2 - Finding the smallest number from 10 numbers
+
+Start
+
+Input the number N
+
+Min =  N
+Count =1
+
+Count < 10 ?
+
+Yes
+
+No
+
+Output Min                                                                                    
+
+Output the number N
+
+End
+
+Count = Count + 1
+
+No
+
+N < Min ?
+
+Yes
+ Min =  N
+
+16
+
+For free distribution
+
+   
+ 
+   
+ 
+(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)
+
+INPUT Number as N
+
+Min = N
+
+Count = 1
+
+WHILE Count < 10
+
+OUTPUT Number as N
+
+IF N < Min  Then
+
+Min = N
+
+ENDIF
+
+Count = Count + 1
+
+ENDWHILE
+
+PRINT  Min
+
+END.
+
+1.4  Pascal programming
+(cid:20)(cid:17)(cid:23)(cid:17)(cid:20)(cid:3)(cid:44)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86) 
+
+(cid:36)(cid:81)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:87)(cid:72)(cid:85)(cid:80)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:85)(cid:72)(cid:83)(cid:85)(cid:72)(cid:86)(cid:72)(cid:81)(cid:87)(cid:3)(cid:68)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:15)(cid:3)(cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:68)(cid:81)(cid:87)(cid:3)(cid:82)(cid:85)(cid:3)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:17)(cid:3)
+
+(cid:55)(cid:75)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:86)(cid:82)(cid:80)(cid:72)(cid:3)(cid:85)(cid:88)(cid:79)(cid:72)(cid:86)(cid:3)(cid:87)(cid:75)(cid:68)(cid:87)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:3)(cid:71)(cid:72)(cid:70)(cid:79)(cid:68)(cid:85)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:81)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:17)
+
+²
+
+Reserved  words  in  Pascal  cannot 
+(cid:69)(cid:72)(cid:3) (cid:88)(cid:86)(cid:72)(cid:71)(cid:3) (cid:68)(cid:86)(cid:3) (cid:68)(cid:81)(cid:3) (cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:3) (cid:81)(cid:68)(cid:80)(cid:72)(cid:17)(cid:3)
+
+reserved word
+
+(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:192)(cid:72)(cid:85)
+
+In  any  programming 
+language 
+reserved  words  cannot  be  used  as 
+(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86)(cid:17)
+
+Var year : integer; 
+
+(cid:16)(cid:3)(cid:37)(cid:40)(cid:42)(cid:44)(cid:49)(cid:15)(cid:3)(cid:40)(cid:49)(cid:39)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:89)(cid:68)(cid:79)(cid:76)(cid:71)
+(cid:16)(cid:3)(cid:36)(cid:16)(cid:61)(cid:15)(cid:3)(cid:68)(cid:16)(cid:93)(cid:12)
+
+E.g.
+(cid:11)
+E.g.
+
+(cid:3)
+²
+² (cid:36)(cid:73)(cid:87)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:79)(cid:72)(cid:87)(cid:87)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:15)(cid:3)(cid:79)(cid:72)(cid:87)(cid:87)(cid:72)(cid:85)(cid:86)(cid:3)(cid:11)(cid:68)(cid:16)(cid:93)(cid:15)(cid:3)(cid:36)(cid:16)(cid:61)(cid:12)(cid:3)(cid:82)(cid:85)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:3)(cid:11)(cid:19)(cid:16)(cid:28)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)
+
+Should start with an English letter.
+
+data type
+
+(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:86)(cid:70)(cid:82)(cid:85)(cid:72)(cid:3)(cid:11)(cid:3)(cid:66)(cid:3)(cid:12)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:17)
+
+E.g.
+
+(cid:3)(cid:16)(cid:3)(cid:54)(cid:87)(cid:88)(cid:71)(cid:72)(cid:81)(cid:87)(cid:66)(cid:81)(cid:68)(cid:80)(cid:72)
+² (cid:49)(cid:82)(cid:87)(cid:3)(cid:70)(cid:68)(cid:86)(cid:72)(cid:3)(cid:86)(cid:72)(cid:81)(cid:86)(cid:76)(cid:87)(cid:76)(cid:89)(cid:72)(cid:3)(cid:11)
+²
+
+E.g.
+
+There should not be any space between words.
+E.g. - Student Name - Not valid
+
+(cid:3)(cid:16)(cid:3)(cid:36)(cid:85)(cid:87)(cid:15)(cid:3)(cid:68)(cid:85)(cid:87)(cid:15)(cid:3)(cid:36)(cid:53)(cid:55)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:69)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:68)(cid:80)(cid:72)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:12)
+
+For free distribution
+
+17
+
+²
+
+The special characters such as the following should not be included in an 
+(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:17)
+
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:97)(cid:3)(cid:3)(cid:3)(cid:4)(cid:3)(cid:3)(cid:3)(cid:35)(cid:3)(cid:3)(cid:3)(cid:6)(cid:3)(cid:3)(cid:3)(cid:7)(cid:3)(cid:3)(cid:8)(cid:3)(cid:3)(cid:3)(cid:65)(cid:3)(cid:3)(cid:3)(cid:3)(cid:9)(cid:3)(cid:3)(cid:3)(cid:13)(cid:3)(cid:3)(cid:3)(cid:11)(cid:3)(cid:3)(cid:12)(cid:3)(cid:3)(cid:3)(cid:3)(cid:16)(cid:3)(cid:3)(cid:3)(cid:14)(cid:3)(cid:3)(cid:32)(cid:3)(cid:3)(cid:94)(cid:3)(cid:3)(cid:96)(cid:3)(cid:3)(cid:62)(cid:3)(cid:3)(cid:64)(cid:3)(cid:3)(cid:29)(cid:3)(cid:3)(cid:30)(cid:3)(cid:3)(cid:181)(cid:3)(cid:3)(cid:179)(cid:3)(cid:3)(cid:31)(cid:33)(cid:3)(cid:34)(cid:3)(cid:3)(cid:15)(cid:3)(cid:3)(cid:17)(cid:3)(cid:3)(cid:18)(cid:3)(cid:3)(cid:95)(cid:3)(cid:3)(cid:63)
+
+(cid:3)
+
+(cid:69)(cid:88)(cid:87)(cid:15)(cid:3)(cid:82)(cid:81)(cid:79)(cid:92)(cid:3)(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:86)(cid:70)(cid:82)(cid:85)(cid:72)(cid:3)(cid:11)(cid:3)(cid:66)(cid:3)(cid:12)(cid:3)(cid:76)(cid:86)(cid:3)(cid:89)(cid:68)(cid:79)(cid:76)(cid:71)(cid:17)(cid:3)
+
+² (cid:56)(cid:86)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:80)(cid:72)(cid:68)(cid:81)(cid:76)(cid:81)(cid:74)(cid:73)(cid:88)(cid:79)(cid:3)(cid:87)(cid:72)(cid:85)(cid:80)(cid:86)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:80)(cid:68)(cid:78)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:72)(cid:68)(cid:86)(cid:76)(cid:79)(cid:92)(cid:3)(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:86)(cid:87)(cid:82)(cid:82)(cid:71)(cid:17)
+
+(cid:40)(cid:91)(cid:68)(cid:80)(cid:83)(cid:79)(cid:72)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:89)(cid:68)(cid:79)(cid:76)(cid:71)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86)
+
+(cid:54)(cid:88)(cid:80)(cid:15)(cid:3)(cid:54)(cid:56)(cid:48)(cid:15)(cid:3)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:66)(cid:49)(cid:82)(cid:86)(cid:15)(cid:3)(cid:49)(cid:88)(cid:80)(cid:20)(cid:15)(cid:3)(cid:41)(cid:76)(cid:85)(cid:86)(cid:87)(cid:49)(cid:68)(cid:80)(cid:72)(cid:15)(cid:3)(cid:47)(cid:68)(cid:86)(cid:87)(cid:66)(cid:49)(cid:68)(cid:80)(cid:72)
+
+(cid:40)(cid:91)(cid:68)(cid:80)(cid:83)(cid:79)(cid:72)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86)(cid:3)(cid:87)(cid:75)(cid:68)(cid:87)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:89)(cid:68)(cid:79)(cid:76)(cid:71)
+
+(cid:7)(cid:26)(cid:24)(cid:15)(cid:3)(cid:36)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)(cid:3)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:15)(cid:3)(cid:28)(cid:36)(cid:15)(cid:3)
+
+Last-name
+
+1.4.2 Reserved words
+
+(cid:55)(cid:75)(cid:72)(cid:3) (cid:85)(cid:72)(cid:86)(cid:72)(cid:85)(cid:89)(cid:72)(cid:71)(cid:3) (cid:90)(cid:82)(cid:85)(cid:71)(cid:86)(cid:3) (cid:76)(cid:81)(cid:3) (cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:15)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:71)(cid:72)(cid:191)(cid:81)(cid:72)(cid:71)(cid:3) (cid:76)(cid:81)(cid:3) (cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:3) (cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:17)(cid:3) (cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)
+
+(cid:85)(cid:72)(cid:86)(cid:72)(cid:85)(cid:89)(cid:72)(cid:71)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:68)(cid:86)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86)(cid:17)
+
+Reserved words are different from language to language. The following are 
+
+reserved words used in Pascal.
+
+and
+
+asm
+
+array
+
+begin
+
+case
+
+const
+
+constructor
+
+destructor
+
+div
+
+do
+
+downto
+
+else
+
+end
+
+exports
+(cid:191)(cid:79)(cid:72)
+
+for
+
+function
+
+goto
+
+if
+
+implementation
+
+in
+
+inherited
+
+inline
+
+interface
+
+label
+
+library
+
+mod
+
+nil
+
+not
+
+object
+
+of
+
+or
+
+packed
+
+procedure
+
+program
+
+record
+
+repeat
+
+set
+
+shl
+
+shr
+
+string
+
+then
+
+to
+
+type
+
+unit
+
+until
+
+uses
+
+var
+
+while
+
+with
+
+xor
+ate
+to
+
+18
+
+For free distribution
+
+1.4.3 Standard data types in Pascal
+
+(cid:58)(cid:75)(cid:72)(cid:81)(cid:3) (cid:68)(cid:3) (cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3) (cid:76)(cid:86)(cid:3) (cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:15)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:3) (cid:68)(cid:81)(cid:71)(cid:3) (cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3) (cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3) (cid:69)(cid:72)(cid:3) (cid:86)(cid:87)(cid:82)(cid:85)(cid:72)(cid:71)(cid:3) (cid:76)(cid:81)(cid:3)
+(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:3)(cid:80)(cid:72)(cid:80)(cid:82)(cid:85)(cid:92)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:3)(cid:86)(cid:83)(cid:68)(cid:70)(cid:72)(cid:3)(cid:81)(cid:72)(cid:72)(cid:71)(cid:72)(cid:71)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:72)(cid:68)(cid:70)(cid:75)(cid:3)(cid:76)(cid:86)(cid:3)(cid:71)(cid:72)(cid:191)(cid:81)(cid:72)(cid:71)(cid:3)(cid:68)(cid:70)(cid:70)(cid:82)(cid:85)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:82)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:17)(cid:3)
+(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:86)(cid:86)(cid:72)(cid:81)(cid:87)(cid:76)(cid:68)(cid:79)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:72)(cid:85)(cid:3)(cid:87)(cid:82)(cid:3)(cid:75)(cid:68)(cid:89)(cid:72)(cid:3)(cid:78)(cid:81)(cid:82)(cid:90)(cid:79)(cid:72)(cid:71)(cid:74)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:86)(cid:17)(cid:3)
+
+The following are data types and their ranges.
+
+Integer - Plus or minus whole numbers 
+
+(cid:3)(cid:16)(cid:3)(cid:19)(cid:15)(cid:3)(cid:23)(cid:25)(cid:15)(cid:3)(cid:16)(cid:20)(cid:21)
+
+ E.g.
+
+- 
+
+Real
+
+Plus or minus decimal numbers 
+
+(cid:3)(cid:16)(cid:3)(cid:19)(cid:17)(cid:19)(cid:15)(cid:3)(cid:21)(cid:24)(cid:17)(cid:25)(cid:27)
+
+E.g.
+
+Boolean
+
+ True
+
+or False
+
+Char - Any character of the key  
+
+board 
+(cid:3)(cid:16)(cid:3)(cid:181)(cid:78)(cid:182)(cid:15)(cid:3)(cid:181)(cid:6)(cid:182)(cid:15)(cid:3)(cid:181)(cid:26)(cid:181)(cid:3)
+
+ E.g. 
+
+String - Any sequence of characters
+
+(cid:16)(cid:3)(cid:181)(cid:44)(cid:38)(cid:55)(cid:182)(cid:15)(cid:3)(cid:181)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:182)(cid:15)(cid:3)(cid:181)(cid:54)(cid:85)(cid:76)(cid:3)(cid:47)(cid:68)(cid:81)(cid:78)(cid:68)(cid:182)
+
+ E.g. 
+
+Important
+
+(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:38)(cid:75)(cid:68)(cid:85)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:54)(cid:87)(cid:85)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:76)(cid:81)(cid:70)(cid:79)(cid:88)(cid:71)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:3)(cid:86)(cid:76)(cid:81)(cid:74)(cid:79)(cid:72)(cid:3)(cid:84)(cid:88)(cid:82)(cid:87)(cid:68)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:181)(cid:3)(cid:182)(cid:17)
+
+1.4.4 Variables and constants
+
+Variable
+
+(cid:36)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:81)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)(cid:70)(cid:75)(cid:68)(cid:81)(cid:74)(cid:72)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:86)(cid:3)(cid:74)(cid:76)(cid:89)(cid:72)(cid:81)(cid:3)(cid:87)(cid:82)(cid:3)(cid:76)(cid:87)(cid:3)(cid:90)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+program is being executed. 
+
+For free distribution
+
+19
+
+ 
+ 
+ 
+(cid:44)(cid:81)(cid:3)(cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:15)
+
+ “var” is used to declare variables. 
+
+Retrive
+
+Store
+
+E.g. -
+
+var  count : integer;
+(cid:89)(cid:68)(cid:85)(cid:3)(cid:3)(cid:68)(cid:15)(cid:69)(cid:3)(cid:29)(cid:3)(cid:85)(cid:72)(cid:68)(cid:79)(cid:30)
+(cid:89)(cid:68)(cid:85)(cid:3)(cid:3)
+
+(cid:81)(cid:20)(cid:15)(cid:3)(cid:81)(cid:21)(cid:3)(cid:29)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:30)
+
+Avg : real ;
+Pass : boolean;
+Character : char;
+(cid:49)(cid:68)(cid:80)(cid:72)(cid:15)(cid:86)(cid:70)(cid:75)(cid:82)(cid:82)(cid:79)(cid:3)(cid:29)(cid:3)(cid:54)(cid:87)(cid:85)(cid:76)(cid:81)(cid:74)(cid:30)
+
+Important
+
+A variable has a name
+
+value of the declared type.
+
+(cid:15)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:76)(cid:87)(cid:3)(cid:86)(cid:87)(cid:82)(cid:85)(cid:72)(cid:86)(cid:3)(cid:68)(cid:3)
+
+Constants
+
+(cid:55)(cid:75)(cid:72)(cid:3) (cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86)(cid:3) (cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3) (cid:71)(cid:82)(cid:3) (cid:81)(cid:82)(cid:87)(cid:3) (cid:70)(cid:75)(cid:68)(cid:81)(cid:74)(cid:72)(cid:3) (cid:87)(cid:75)(cid:72)(cid:76)(cid:85)(cid:3) (cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:86)(cid:3) (cid:90)(cid:75)(cid:76)(cid:79)(cid:72)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3) (cid:76)(cid:86)(cid:3)
+
+(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:70)(cid:68)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:68)(cid:81)(cid:87)(cid:86)(cid:17)(cid:3)(cid:44)(cid:81)(cid:3)(cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:15)(cid:3)(cid:179)(cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:180)(cid:3)(cid:76)(cid:86)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:71)(cid:72)(cid:70)(cid:79)(cid:68)(cid:85)(cid:72)(cid:3)(cid:68)(cid:3)(cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:68)(cid:81)(cid:87)(cid:17)
+
+Example
+
+Const
+(cid:38)(cid:82)(cid:81)(cid:86)(cid:87)(cid:3)(cid:3) (cid:3)
+
+max = 100;
+(cid:83)(cid:76)(cid:3)(cid:32)(cid:3)(cid:21)(cid:21)(cid:18)(cid:26)(cid:30)
+
+Observation
+
+² (cid:58)(cid:75)(cid:72)(cid:81)(cid:3) (cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3) (cid:68)(cid:3) (cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:15)(cid:3) (cid:68)(cid:3) (cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3) (cid:70)(cid:68)(cid:81)(cid:3) (cid:87)(cid:68)(cid:78)(cid:72)(cid:3) (cid:71)(cid:76)(cid:73)(cid:73)(cid:72)(cid:85)(cid:72)(cid:81)(cid:87)(cid:3)
+(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:86)(cid:17)(cid:3)(cid:43)(cid:82)(cid:90)(cid:72)(cid:89)(cid:72)(cid:85)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:3)(cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:68)(cid:81)(cid:87)(cid:3)(cid:85)(cid:72)(cid:80)(cid:68)(cid:76)(cid:81)(cid:86)(cid:3)(cid:88)(cid:81)(cid:70)(cid:75)(cid:68)(cid:81)(cid:74)(cid:72)(cid:71)(cid:17)
+
+1.5 Operators
+
+(cid:50)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:85)(cid:72)(cid:84)(cid:88)(cid:76)(cid:85)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:83)(cid:72)(cid:85)(cid:73)(cid:82)(cid:85)(cid:80)(cid:3)(cid:70)(cid:68)(cid:79)(cid:70)(cid:88)(cid:79)(cid:68)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:15)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:68)(cid:85)(cid:76)(cid:86)(cid:82)(cid:81)(cid:86)(cid:15)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:72)(cid:89)(cid:68)(cid:79)(cid:88)(cid:68)(cid:87)(cid:72)(cid:3)
+
+(cid:79)(cid:82)(cid:74)(cid:76)(cid:70)(cid:68)(cid:79)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:86)(cid:17)(cid:3)(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:72)(cid:86)(cid:86)(cid:72)(cid:81)(cid:87)(cid:76)(cid:68)(cid:79)(cid:3)(cid:76)(cid:81)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:17)
+
+20
+
+For free distribution
+
+ 
+Basic types of operators 
+
+  1. Algebra operators
+
+  Operator                Usage                       Example expression          Result
+
+            +
+-
+*
+/
+DIV 
+MOD
+
+Addition
+Subtraction  
+Multiplication  
+Division 
+Division of round numbers  20 DIV 6 
+Remainder after division     20 MOD 6 
+
+6 + 3
+7 - 5
+2 * 5
+10/4
+
+9
+2
+10
+
+          2.50
+
+3
+2
+
+3
+6 20
+18
+2
+
+DIV
+
+MOD
+
+2. Comparison operator
+
+(cid:3)
+
+(cid:38)(cid:82)(cid:80)(cid:83)(cid:68)(cid:85)(cid:76)(cid:86)(cid:82)(cid:81)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:68)(cid:85)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:86)(cid:3)(cid:82)(cid:85)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:86)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:3)(cid:191)(cid:81)(cid:68)(cid:79)(cid:3)
+
+result  of  an  expression  which  consists  of  a  comparison  always  takes  a  Boolean 
+value. Hence expression will be True or False.
+
+ Function                Usage                    Example expression           Result
+
+>
+>=
+<
+<=
+=
+< >
+
+Greater than
+Greater than or equal
+Less than
+Less than or equal
+Equal
+Not equal
+
+7 > 3
+8 >= 8
+3 < 2 
+  4 <= 6
+3 = 1 
+  2 < > 5
+
+True
+True
+False
+True
+False
+True
+
+3. Logical operators
+
+Logical operators are used to combine two or more expressions. For further 
+
+study on this refer basic logic gates that you learnt in Grade 10.
+
+For free distribution
+
+21
+
+ 
+     
+ 
+ 
+ 
+   
+ 
+ 
+ 
+     
+ 
+ 
+   
+    
+ 
+     
+ 
+ 
+ 
+ 
+      
+ 
+ 
+     
+ 
+ 
+ 
+ 
+ 
+    
+ 
+     
+ 
+ 
+ 
+ 
+   
+ 
+    
+     
+ 
+ 
+ 
+ 
+     
+    
+ 
+     
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+     
+i) AND operator
+
+(cid:36)(cid:49)(cid:39)(cid:3) (cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:3) (cid:87)(cid:68)(cid:78)(cid:72)(cid:86)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:73)(cid:82)(cid:85)(cid:80)(cid:3) (cid:179)(cid:11)(cid:41)(cid:76)(cid:85)(cid:86)(cid:87)(cid:3) (cid:40)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:12)(cid:3) (cid:36)(cid:49)(cid:39)(cid:3) (cid:11)(cid:54)(cid:72)(cid:70)(cid:82)(cid:81)(cid:71)(cid:3)
+(cid:40)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:12)(cid:180)(cid:17)(cid:3)(cid:39)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3)(cid:82)(cid:85)(cid:3)(cid:86)(cid:72)(cid:70)(cid:82)(cid:81)(cid:71)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3)(cid:69)(cid:72)(cid:76)(cid:81)(cid:74)(cid:3)(cid:55)(cid:85)(cid:88)(cid:72)(cid:3)
+(cid:82)(cid:85)(cid:3)(cid:41)(cid:68)(cid:79)(cid:86)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:86)(cid:88)(cid:79)(cid:87)(cid:3)(cid:69)(cid:72)(cid:70)(cid:82)(cid:80)(cid:72)(cid:86)(cid:3)(cid:55)(cid:85)(cid:88)(cid:72)(cid:3)(cid:82)(cid:85)(cid:3)(cid:41)(cid:68)(cid:79)(cid:86)(cid:72)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:86)(cid:75)(cid:82)(cid:90)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)
+
+of AND.
+
+First Expression Second Expression (First Expression) AND (Second 
+
+False
+False
+True
+True
+
+False
+True
+False
+True
+
+Expression)
+False
+False
+False
+True
+
+Example
+
+(cid:11)(cid:53)(cid:68)(cid:76)(cid:81)(cid:3)(cid:73)(cid:68)(cid:79)(cid:79)(cid:3)(cid:33)(cid:3)(cid:24)(cid:25)(cid:12)(cid:3)(cid:36)(cid:49)(cid:39)(cid:3)(cid:11)(cid:55)(cid:72)(cid:80)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:88)(cid:85)(cid:72)(cid:3)(cid:31)(cid:3)(cid:22)(cid:19)(cid:12)(cid:3)
+(cid:11)(cid:43)(cid:72)(cid:76)(cid:74)(cid:75)(cid:87)(cid:3)(cid:33)(cid:3)(cid:25)(cid:19)(cid:12)(cid:3)(cid:36)(cid:49)(cid:39)(cid:3)(cid:3)(cid:11)(cid:36)(cid:74)(cid:72)(cid:3)(cid:31)(cid:3)(cid:20)(cid:24)(cid:12)
+(cid:47)(cid:72)(cid:87)(cid:3)(cid:88)(cid:86)(cid:3)(cid:70)(cid:82)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:85)(cid:15)(cid:3)(cid:11)(cid:22)(cid:3)(cid:33)(cid:32)(cid:3)(cid:21)(cid:12)(cid:3)(cid:36)(cid:49)(cid:39)(cid:11)(cid:22)(cid:3)(cid:31)(cid:3)(cid:33)(cid:3)(cid:22)(cid:12)
+
+1.
+2.
+3.
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:22)(cid:3)(cid:33)(cid:32)(cid:3)(cid:21)(cid:3)(cid:76)(cid:86)(cid:3)(cid:55)(cid:85)(cid:88)(cid:72)(cid:17)(cid:3)(cid:22)(cid:3)(cid:31)(cid:3)(cid:33)(cid:3)(cid:22)(cid:3)(cid:76)(cid:86)(cid:3)(cid:41)(cid:68)(cid:79)(cid:86)(cid:72)(cid:17)(cid:3)(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:86)(cid:88)(cid:79)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:41)(cid:68)(cid:79)(cid:86)(cid:72)(cid:17)
+
+Important
+
+(cid:146) (cid:44)(cid:73)(cid:3)(cid:68)(cid:87)(cid:3)(cid:79)(cid:72)(cid:68)(cid:86)(cid:87)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:3)(cid:82)(cid:88)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:87)(cid:90)(cid:82)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:86)(cid:3)(cid:76)(cid:86)(cid:3)(cid:73)(cid:68)(cid:79)(cid:86)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:36)(cid:49)(cid:39)(cid:3)
+
+evaluates to false.
+
+(cid:146) (cid:58)(cid:75)(cid:72)(cid:81)(cid:3) (cid:82)(cid:81)(cid:79)(cid:92)(cid:3) (cid:69)(cid:82)(cid:87)(cid:75)(cid:3) (cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:86)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:87)(cid:85)(cid:88)(cid:72)(cid:15)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3) (cid:82)(cid:73)(cid:3) (cid:36)(cid:49)(cid:39)(cid:3)
+
+evaluates to true. 
+
+ii)  OR operator
+
+(cid:50)(cid:53)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:3)(cid:87)(cid:68)(cid:78)(cid:72)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:73)(cid:82)(cid:85)(cid:80)(cid:3)(cid:179)(cid:11)(cid:41)(cid:76)(cid:85)(cid:86)(cid:87)(cid:3)(cid:40)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:12)(cid:3)(cid:50)(cid:53)(cid:3)(cid:11)(cid:54)(cid:72)(cid:70)(cid:82)(cid:81)(cid:71)(cid:3)(cid:40)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:12)(cid:180)(cid:17)(cid:3)
+(cid:39)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:86)(cid:72)(cid:70)(cid:82)(cid:81)(cid:71)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3)(cid:69)(cid:72)(cid:76)(cid:81)(cid:74)(cid:3)(cid:55)(cid:85)(cid:88)(cid:72)(cid:3)(cid:82)(cid:85)(cid:3)(cid:41)(cid:68)(cid:79)(cid:86)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+result of OR is True or False. The following table shows the function of the OR 
+operator. 
+
+First expression
+
+Second expression (First expression) OR (Second 
+
+False
+
+False
+True
+True
+
+False
+
+True
+False
+True
+
+22
+
+For free distribution
+
+expression)
+False
+
+True
+True
+True
+
+Example
+
+1.
+2.
+
+(cid:3)(cid:11)(cid:55)(cid:72)(cid:80)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:88)(cid:85)(cid:72)(cid:3)(cid:33)(cid:3)(cid:22)(cid:19)(cid:12)(cid:3)(cid:50)(cid:53)(cid:3)(cid:11)(cid:53)(cid:68)(cid:76)(cid:81)(cid:73)(cid:68)(cid:79)(cid:79)(cid:3)(cid:31)(cid:3)(cid:24)(cid:24)(cid:12)(cid:3)
+(cid:3)(cid:47)(cid:72)(cid:87)(cid:3)(cid:88)(cid:86)(cid:3)(cid:70)(cid:82)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:85)(cid:15)(cid:3)(cid:11)(cid:22)(cid:3)(cid:33)(cid:32)(cid:3)(cid:21)(cid:12)(cid:3)(cid:3)(cid:50)(cid:53)(cid:3)(cid:11)(cid:22)(cid:3)(cid:31)(cid:3)(cid:33)(cid:3)(cid:22)(cid:12)(cid:3)
+
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3) (cid:22)(cid:3)(cid:33)(cid:32)(cid:3)(cid:21)(cid:3)(cid:76)(cid:86)(cid:3)(cid:55)(cid:85)(cid:88)(cid:72)(cid:17)(cid:3)(cid:22)(cid:3)(cid:31)(cid:3)(cid:33)(cid:3)(cid:22)(cid:3)(cid:76)(cid:86)(cid:3)(cid:73)(cid:68)(cid:79)(cid:86)(cid:72)(cid:17)(cid:3)(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:86)(cid:88)(cid:79)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:85)(cid:88)(cid:72)(cid:17)
+
+Important
+
+(cid:146) (cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:68)(cid:87)(cid:3)(cid:79)(cid:72)(cid:68)(cid:86)(cid:87)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:3)(cid:82)(cid:88)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:87)(cid:90)(cid:82)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:86)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:85)(cid:88)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+OR operator evaluates to true.
+
+(cid:146) (cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:82)(cid:81)(cid:79)(cid:92)(cid:3)(cid:69)(cid:82)(cid:87)(cid:75)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:73)(cid:68)(cid:79)(cid:86)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:3)(cid:82)(cid:73)(cid:3)(cid:50)(cid:53)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:3)
+
+evaluates to false.
+
+iii)  NOT operator
+
+A True expression is always evaluated as false with a NOT operator while a 
+
+false expression is always evaluated as true.
+
+Expression
+False
+True
+
+NOT (Expression)
+True
+False
+
+Example
+
+(cid:49)(cid:50)(cid:55)(cid:3)(cid:11)(cid:55)(cid:72)(cid:80)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:88)(cid:85)(cid:72)(cid:3)(cid:33)(cid:3)(cid:22)(cid:19)(cid:12)(cid:3)
+(cid:49)(cid:50)(cid:55)(cid:11)(cid:24)(cid:3)(cid:32)(cid:3)(cid:24)(cid:12)(cid:3)(cid:76)(cid:86)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:68)(cid:86)(cid:3)(cid:73)(cid:68)(cid:79)(cid:86)(cid:72)(cid:3)(cid:54)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:17)
+
+1.
+2.
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:55)(cid:75)(cid:72)(cid:85)(cid:72)(cid:73)(cid:82)(cid:85)(cid:72)(cid:3)(cid:24)(cid:3)(cid:32)(cid:3)(cid:24)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:87)(cid:85)(cid:88)(cid:72)(cid:3)(cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:17)(cid:3)(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:3)(cid:49)(cid:50)(cid:55)(cid:3)(cid:11)(cid:24)(cid:3)(cid:32)(cid:3)(cid:24)(cid:12)(cid:3)(cid:76)(cid:86)(cid:3)
+
+indicated as false 
+
+Operator precedence
+
+(cid:58)(cid:75)(cid:72)(cid:81)(cid:3) (cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:3) (cid:72)(cid:91)(cid:83)(cid:85)(cid:72)(cid:86)(cid:86)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:72)(cid:89)(cid:68)(cid:79)(cid:88)(cid:68)(cid:87)(cid:72)(cid:71)(cid:15)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:3) (cid:82)(cid:73)(cid:3) (cid:83)(cid:85)(cid:72)(cid:70)(cid:72)(cid:71)(cid:72)(cid:81)(cid:70)(cid:72)(cid:3) (cid:76)(cid:86)(cid:3) (cid:74)(cid:76)(cid:89)(cid:72)(cid:81)(cid:3)
+
+below. 
+
+Priority order   
+
+1 
+2 
+
+Operator
+
+NOT
+(cid:13)(cid:3)
+
+(cid:18)(cid:3)
+
+(cid:39)(cid:44)(cid:57)(cid:3) (cid:48)(cid:50)(cid:39)(cid:3) (cid:36)(cid:49)(cid:39)
+
+high
+
+3 
+4 
+
++ 
+= 
+
+- 
+< > 
+
+OR
+< 
+
+<= 
+
+> 
+
+>=
+
+less
+
+For free distribution
+
+23
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Evaluating expressions
+
+E.g. 1
+(cid:24)(cid:3)(cid:14)(cid:3)(cid:20)(cid:23)(cid:3)(cid:48)(cid:50)(cid:39)(cid:3)(cid:23)(cid:3)(cid:3)
+
+5 + 2 
+7
+
+E.g. 4
+(cid:49)(cid:50)(cid:55)(cid:3)(cid:11)(cid:27)(cid:3)(cid:48)(cid:50)(cid:39)(cid:3)(cid:21)(cid:3)(cid:33)(cid:3)(cid:24)(cid:12)(cid:3) (cid:3)
+(cid:3)
+(cid:49)(cid:50)(cid:55)(cid:3)(cid:11)(cid:19)(cid:3)(cid:33)(cid:3)(cid:24)(cid:12)(cid:3)
+(cid:3)
+(cid:49)(cid:50)(cid:55)(cid:11)(cid:41)(cid:68)(cid:79)(cid:86)(cid:72)(cid:12)(cid:3)
+
+(cid:3)
+(cid:3)
+
+(cid:3)
+(cid:3)
+(cid:3)
+
+ -
+E.g.
+3
+(cid:20)(cid:25)(cid:3)(cid:18)(cid:3)(cid:23)(cid:3)(cid:13)(cid:3)(cid:21)
+
+4 * 2
+8
+
+E.g. 2
+(cid:22)(cid:3)(cid:14)(cid:3)(cid:26)(cid:3)(cid:39)(cid:44)(cid:57)(cid:3)(cid:21)(cid:3)(cid:3)
+
+(cid:3)
+
+(cid:3)
+
+3 + 3 
+6
+
+5
+
+ -
+E.g.
+(cid:23)(cid:3)(cid:33)(cid:32)(cid:3)(cid:23)(cid:3)(cid:36)(cid:49)(cid:39)(cid:3)(cid:49)(cid:50)(cid:55)(cid:11)(cid:26)(cid:3)(cid:33)(cid:3)(cid:28)(cid:12)(cid:3)
+(cid:55)(cid:85)(cid:88)(cid:72)(cid:3)(cid:36)(cid:49)(cid:39)(cid:3)(cid:49)(cid:50)(cid:55)(cid:11)(cid:41)(cid:68)(cid:79)(cid:86)(cid:72)(cid:12)
+(cid:55)(cid:85)(cid:88)(cid:72)(cid:3)(cid:36)(cid:49)(cid:39)(cid:3)(cid:55)(cid:85)(cid:88)(cid:72)
+
+true 
+
+true
+
+Let us identify the basic components of a normal Pascal program.
+
+program addNum
+var
+
+(cid:3)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)(cid:3)(cid:49)(cid:68)(cid:80)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:11)(cid:68)(cid:71)(cid:71)(cid:49)(cid:88)(cid:80)(cid:12)(cid:3)
+
+(cid:81)(cid:88)(cid:80)(cid:20)(cid:15)(cid:81)(cid:88)(cid:80)(cid:21)(cid:15)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:29)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:30)(cid:3)
+
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)    
+
+          avg: real;
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)(cid:81)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:80)(cid:68)(cid:76)(cid:81)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)
+
+} Declaring the variables
+
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:11)(cid:181)(cid:58)(cid:72)(cid:79)(cid:70)(cid:82)(cid:80)(cid:72)(cid:3)(cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:3)(cid:51)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:182)(cid:12)(cid:30)
+(cid:94)(cid:70)(cid:68)(cid:79)(cid:70)(cid:88)(cid:79)(cid:68)(cid:87)(cid:72)(cid:3)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:3)(cid:68)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:90)(cid:82)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:96)
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:41)(cid:76)(cid:85)(cid:86)(cid:87)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:182)(cid:12)(cid:30)
+(cid:53)(cid:72)(cid:68)(cid:71)(cid:11)(cid:81)(cid:88)(cid:80)(cid:20)(cid:12)(cid:30)
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:54)(cid:72)(cid:70)(cid:82)(cid:81)(cid:71)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:182)(cid:12)(cid:30)
+(cid:53)(cid:72)(cid:68)(cid:71)(cid:11)(cid:81)(cid:88)(cid:80)(cid:21)(cid:12)(cid:30)
+
+Indicating
+comments
+
+Input
+
+Output
+
+total: =num1 + num 2; 
+(cid:68)(cid:89)(cid:74)(cid:3)(cid:29)(cid:32)(cid:3)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:18)(cid:21)(cid:30)
+(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:76)(cid:86)(cid:3)(cid:181)(cid:3)(cid:15)(cid:3)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:12)(cid:30)
+(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:36)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:181)(cid:3)(cid:15)(cid:3)(cid:68)(cid:89)(cid:74)(cid:12)(cid:30)
+
+}
+
+Expressions which indicate 
+the process
+
+Ending of the main program
+End.
+(cid:49)(cid:82)(cid:87)(cid:72)(cid:3)(cid:29)(cid:3)(cid:55)(cid:82)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:3)(cid:70)(cid:82)(cid:80)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:11)(cid:13)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:13)(cid:12)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:68)(cid:79)(cid:86)(cid:82)(cid:3)(cid:69)(cid:72)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:17)
+
+²
+
+²
+
+²
+
+(cid:179)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:180)(cid:15)(cid:3)(cid:179)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:180)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:179)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:180)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:85)(cid:72)(cid:86)(cid:72)(cid:85)(cid:89)(cid:72)(cid:71)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:86)(cid:17)
+
+(cid:179)(cid:68)(cid:71)(cid:71)(cid:49)(cid:88)(cid:80)(cid:180)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:81)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:17)(cid:3)(cid:55)(cid:75)(cid:76)(cid:86)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:17)(cid:3)(cid:44)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:72)(cid:86)(cid:86)(cid:72)(cid:81)(cid:87)(cid:76)(cid:68)(cid:79)(cid:3)(cid:87)(cid:82)(cid:3)
+(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:76)(cid:81)(cid:3)(cid:69)(cid:85)(cid:68)(cid:70)(cid:78)(cid:72)(cid:87)(cid:86)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:17)
+
+(cid:85)(cid:72)(cid:68)(cid:71)(cid:11)(cid:3)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:79)(cid:81)(cid:11)(cid:3)(cid:12)(cid:3)(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:17)
+
+(cid:190) (cid:39)(cid:68)(cid:87)(cid:68)(cid:3)(cid:76)(cid:86)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)(cid:81)(cid:88)(cid:80)(cid:20)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:87)(cid:75)(cid:85)(cid:82)(cid:88)(cid:74)(cid:75)(cid:3)(cid:53)(cid:72)(cid:68)(cid:71)(cid:11)(cid:81)(cid:88)(cid:80)(cid:20)(cid:12)(cid:30)(cid:3)
+(cid:190) (cid:39)(cid:68)(cid:87)(cid:68)(cid:3)(cid:76)(cid:86)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:3)(cid:73)(cid:85)(cid:82)(cid:80)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:79)(cid:81)(cid:11)(cid:12)(cid:3)(cid:73)(cid:85)(cid:82)(cid:80)(cid:3)(cid:68)(cid:3)(cid:81)(cid:72)(cid:90)(cid:3)(cid:85)(cid:82)(cid:90)(cid:17)
+
+24
+
+For free distribution
+
+   
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+² (cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:11)(cid:3)(cid:12)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:3)(cid:12)(cid:3)(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:17)
+
+(cid:190) (cid:41)(cid:85)(cid:82)(cid:80)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:73)(cid:88)(cid:81)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3) (cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:11)(cid:181)(cid:58)(cid:72)(cid:79)(cid:70)(cid:82)(cid:80)(cid:72)(cid:3) (cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:3) (cid:51)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:182)(cid:12)(cid:3) (cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:86)(cid:3)
+
+'Welcome Pascal Programming'.
+
+(cid:190) (cid:55)(cid:75)(cid:72)(cid:3) (cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3) (cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:36)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)(cid:3) (cid:76)(cid:86)(cid:3) (cid:181)(cid:3) (cid:15)(cid:3) (cid:68)(cid:89)(cid:74)(cid:12)(cid:30)(cid:3) (cid:83)(cid:85)(cid:76)(cid:81)(cid:87)(cid:86)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3) (cid:82)(cid:73)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3)(cid:36)(cid:89)(cid:74)(cid:3)
+
+variable in a new line.
+
+When writing Pascal statements;
+² (cid:54)(cid:72)(cid:80)(cid:76)(cid:16)(cid:70)(cid:82)(cid:79)(cid:82)(cid:81)(cid:3) (cid:11)(cid:30)(cid:12)(cid:3) (cid:76)(cid:86)(cid:3) (cid:88)(cid:86)(cid:72)(cid:71)(cid:3) (cid:68)(cid:87)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:72)(cid:81)(cid:71)(cid:3) (cid:82)(cid:73)(cid:3) (cid:68)(cid:81)(cid:3)
+
+Total
+
+num 1
+
+num 2
+
+statement. Semi-colon indicates the end of 
+an statement.
+
+5.7
+
+=
+
+3.4
+
++
+
+2.3
+
+} 
+
+What  happens  with 
+the  expression 
+total :
+num1  +  num2  is  that  it  adds  the 
+variables num1 and num2 and assign result 
+to the variable 'total'
+“:
+
+}(cid:182)(cid:182)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:86)(cid:86)(cid:76)(cid:74)(cid:81)(cid:80)(cid:72)(cid:81)(cid:87)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:82)(cid:85)(cid:17)
+
+²
+
+²
+
+i: integer 
+i := 4;
+
+1.6 Selection
+
+IF statement
+
+If condition structure is as follows. 
+
+No
+
+Is the condition 
+True?
+
+Yes
+(cid:54)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:11)(cid:86)(cid:12)
+
+Flow chart
+
+IF  Condition  THEN
+(cid:54)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:11)(cid:86)(cid:12)
+(cid:3)
+
+ENDIF
+
+Pseudo Code
+
+For free distribution
+
+25
+
+   
+               
+There are two types of IF statements.
+(cid:76)(cid:12)(cid:3)(cid:44)(cid:41)(cid:17)(cid:17)(cid:17)(cid:3)(cid:55)(cid:43)(cid:40)(cid:49)(cid:17)(cid:17)(cid:17)(cid:17)(cid:3)(cid:40)(cid:49)(cid:39)(cid:44)(cid:41)
+
+(cid:43)(cid:72)(cid:85)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:69)(cid:72)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:76)(cid:73)(cid:3)(cid:82)(cid:81)(cid:79)(cid:92)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:17)(cid:3)
+
+E.g. 1 - If the input number is
+
+(cid:3)(cid:82)(cid:81)(cid:79)(cid:92)(cid:3)(cid:83)(cid:82)(cid:86)(cid:76)(cid:87)(cid:76)(cid:89)(cid:72)(cid:15)(cid:3)(cid:83)(cid:85)(cid:76)(cid:81)(cid:87)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:17)
+
+Start
+
+(cid:42)(cid:72)(cid:87)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:11)(cid:49)(cid:12)
+
+Is N > 0?
+
+Yes
+
+Print N 
+
+No
+
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+
+   Input N
+   IF  N > 0
+THEN
+
+Print N
+
+   ENDIF
+End.
+
+Pseudo Code
+
+End
+
+(cid:51)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:83)(cid:82)(cid:86)(cid:76)(cid:87)(cid:76)(cid:89)(cid:72)(cid:49)(cid:82)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+
+Flow chart
+
+Var  N : integer;
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:182)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:53)(cid:72)(cid:68)(cid:71)(cid:11)(cid:49)(cid:12)(cid:30)
+
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:51)(cid:82)(cid:86)(cid:76)(cid:87)(cid:76)(cid:89)(cid:72)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:182)(cid:12)(cid:30)
+
+If N > 0 then
+
+End.
+
+Pascal Code
+
+(cid:76)(cid:76)(cid:12)(cid:3)(cid:44)(cid:41)(cid:17)(cid:17)(cid:17)(cid:3)(cid:55)(cid:43)(cid:40)(cid:49)(cid:17)(cid:17)(cid:17)(cid:17)(cid:3)(cid:40)(cid:47)(cid:54)(cid:40)(cid:3)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:17)(cid:3)(cid:40)(cid:49)(cid:39)(cid:44)(cid:41)  
+(cid:3)
+
+(cid:44)(cid:73)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3) (cid:76)(cid:86)(cid:3) (cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:3) (cid:54)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:3) (cid:20)(cid:3) (cid:76)(cid:86)(cid:3) (cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3) (cid:76)(cid:73)(cid:3) (cid:81)(cid:82)(cid:87)(cid:3) (cid:54)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:3) (cid:21)(cid:3) (cid:76)(cid:86)(cid:3)
+
+executed. The If condition structure is as follows. 
+
+Is the condition 
+True? 
+
+Yes
+
+Statement 1
+
+Flow chart
+
+26
+
+For free distribution
+
+No
+
+IF  Condition  THEN
+
+Statement 2
+
+Statement1
+
+Statement2
+
+ELSE
+
+ENDIF
+
+Pseudo Code
+
+ 
+  
+  
+ 
+ 
+      
+ 
+ 
+ 
+ 
+ 
+E.g. 2 - Finding the larger number from two unequal numbers.
+
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:47)(cid:68)(cid:85)(cid:74)(cid:72)(cid:49)(cid:82)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+(cid:57)(cid:68)(cid:85)(cid:3)(cid:3)(cid:49)(cid:20)(cid:15)(cid:49)(cid:21)(cid:15)(cid:47)(cid:68)(cid:85)(cid:74)(cid:72)(cid:29)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:30)
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+(cid:3)
+(cid:3)
+
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:55)(cid:90)(cid:82)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:182)(cid:12)(cid:30)
+(cid:53)(cid:72)(cid:68)(cid:71)(cid:11)(cid:49)(cid:20)(cid:15)(cid:49)(cid:21)(cid:12)(cid:30)
+
+If N1 > N2 then
+}
+Large :
+
+ N1
+
+Else
+
+}
+Large :
+
+ N2;
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:47)(cid:68)(cid:85)(cid:74)(cid:72)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:76)(cid:86)(cid:3)(cid:182)(cid:3)(cid:15)(cid:3)(cid:47)(cid:68)(cid:85)(cid:74)(cid:72)(cid:12)(cid:30)
+
+(cid:3)
+
+End.
+
+Pascal program
+
+Nested IF
+
+(cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:80)(cid:88)(cid:79)(cid:87)(cid:76)(cid:83)(cid:79)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:68)(cid:73)(cid:87)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:15)(cid:3)(cid:49)(cid:72)(cid:86)(cid:87)(cid:72)(cid:71)(cid:3)(cid:44)(cid:41)(cid:3)(cid:76)(cid:86)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:17)
+
+(cid:76)(cid:12) 
+
+Use of Nested IF when there are multiple conditions for a single variable
+
+E.g. 3 - Finding the Grade when the marks scored by a student for a subject is given 
+                as input.
+
+Start
+
+(cid:42)(cid:72)(cid:87)(cid:3)(cid:80)(cid:68)(cid:85)(cid:78)(cid:86)(cid:3)(cid:11)(cid:48)(cid:12)
+
+No
+
+Is M >= 75?
+
+Is M >= 65?
+
+No
+
+Is M >= 50?
+
+No
+
+Is M >= 35?
+
+No
+
+Yes
+Result
+
+= ''A''
+
+Yes
+(cid:53)(cid:72)(cid:86)(cid:88)(cid:79)(cid:87)(cid:3)(cid:3)(cid:32)(cid:3)(cid:10)(cid:10)(cid:37)(cid:10)(cid:10)
+
+Yes
+
+Yes
+
+Result  = ''C'' 
+
+Result
+
+ = ''S'' 
+
+Output result
+
+End
+
+Flow chart
+
+Result
+
+ = ''F'' 
+
+For free distribution
+
+27
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+
+(cid:3)
+
+Input Marks as M
+IF M >= 75 Then 
+(cid:182)(cid:182)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:42)(cid:85)(cid:68)(cid:71)(cid:72)(cid:3)(cid:32)(cid:3)(cid:181)(cid:181)
+A
+
+      ELSE
+      IF M >= 65 then
+(cid:181)(cid:181)(cid:37)(cid:182)(cid:182)
+            Grade = 
+            ELSE
+            IF M >= 50 then
+(cid:182)(cid:182)
+C
+
+(cid:181)(cid:181)
+
+       Grade = 
+       ELSE
+       IF M >= 35 then
+(cid:182)(cid:182)
+
+(cid:181)(cid:181)
+
+Grade = 
+ELSE
+Grade = 
+
+S
+
+(cid:181)(cid:181)
+
+(cid:182)(cid:182)
+
+F
+
+        ENDIF
+ENDIF
+
+        ENDIF
+ENDIF
+Display Grade
+
+End.
+
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:42)(cid:85)(cid:68)(cid:71)(cid:72)(cid:41)(cid:82)(cid:85)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:3)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+
+Var    M: integer;
+Grade: char;
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:182)(cid:12)(cid:30)
+(cid:3)
+(cid:53)(cid:72)(cid:68)(cid:71)(cid:11)(cid:48)(cid:12)(cid:30)
+(cid:3)
+
+If M >= 75 then
+} (cid:181)(cid:36)(cid:182)
+    Grade :
+Else 
+    If M >= 65 then
+} (cid:181)(cid:37)(cid:182)
+Grade :
+                Else
+
+        If M >= 50 then
+} (cid:181)(cid:38)(cid:182)(cid:3)
+Grade :
+
+       Else
+
+(cid:182)
+
+If M >= 35 then
+    Grade :
+Else
+    Grade :
+Grade = 
+
+} (cid:181)
+S
+} (cid:181)(cid:41)(cid:182)(cid:30)
+(cid:182)(cid:182)(cid:15)(cid:3)(cid:42)(cid:85)(cid:68)(cid:71)(cid:72)(cid:12)(cid:30)
+
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:181)
+
+(cid:3)
+
+End.
+
+Pseudo Code
+
+Pascal Code
+
+Using CASE statement when a variable has multiple conditions
+
+(cid:53)(cid:68)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:88)(cid:86)(cid:76)(cid:81)(cid:74)(cid:3)(cid:44)(cid:41)(cid:171)(cid:17)(cid:3)(cid:55)(cid:43)(cid:40)(cid:49)(cid:171)(cid:3)(cid:3)(cid:40)(cid:47)(cid:54)(cid:40)(cid:171)(cid:3)(cid:3)(cid:40)(cid:49)(cid:39)(cid:44)(cid:41)(cid:3)(cid:76)(cid:73)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:68)(cid:87)(cid:72)(cid:71)(cid:79)(cid:92)(cid:15)(cid:3)
+
+it is easier to use CASE statement.
+
+Start
+
+(cid:42)(cid:72)(cid:87)(cid:3)(cid:80)(cid:68)(cid:85)(cid:78)(cid:86)(cid:3)(cid:11)(cid:48)(cid:12)
+
+Marks
+
+0-34
+
+35-49
+
+Result = ''W'' 
+
+Result = ''W'' 
+
+50-64
+Result = ''C'' 
+
+ 65-74
+Result
+
+(cid:3)(cid:32)(cid:3)(cid:10)(cid:10)(cid:37)(cid:10)(cid:10)(cid:3)
+
+75-100
+
+other
+
+Result = ''A'' 
+
+Output grade
+
+Indicate marks as invalid
+
+28
+
+For free distribution
+
+end
+
+Flow chart
+
+   
+                                                                                                  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:41)(cid:76)(cid:81)(cid:71)(cid:42)(cid:85)(cid:68)(cid:71)(cid:72)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+
+var  Marks : integer;
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+(cid:3)
+(cid:3)
+
+Grade: char;
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:182)(cid:12)(cid:30)
+(cid:53)(cid:72)(cid:68)(cid:71)(cid:11)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:12)(cid:30)
+
+Case Marks of
+
+      0..34 : Grade :
+      35..49 : Grade :
+      50..64 : Grade :
+      65..74 : Grade :
+      75..100 : Grade :
+
+} (cid:181)(cid:58)(cid:182)(cid:30)
+} (cid:181)(cid:54)(cid:182)(cid:30)
+} (cid:181)(cid:38)(cid:182)(cid:30)
+}(cid:3)(cid:181)(cid:37)(cid:182)(cid:30)
+} (cid:181)(cid:36)(cid:182)(cid:30)
+
+Else
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:44)(cid:81)(cid:89)(cid:68)(cid:79)(cid:76)(cid:71)(cid:3)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:182)(cid:12)(cid:30)
+
+End;
+(cid:76)(cid:73)(cid:3)(cid:11)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:3)(cid:33)(cid:32)(cid:3)(cid:19)(cid:12)(cid:3)(cid:36)(cid:49)(cid:39)(cid:3)(cid:11)(cid:48)(cid:68)(cid:85)(cid:78)(cid:86)(cid:3)(cid:31)(cid:32)(cid:3)(cid:20)(cid:19)(cid:19)(cid:12)(cid:3)(cid:87)(cid:75)(cid:72)(cid:81)
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:42)(cid:85)(cid:68)(cid:71)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:182)(cid:3)(cid:15)(cid:3)(cid:42)(cid:85)(cid:68)(cid:71)(cid:72)(cid:12)(cid:30)
+(cid:3)
+
+(cid:3)
+
+(cid:3)
+(cid:3)
+
+End.
+
+Pascal program    
+
+1.7  Repetition
+
+Let  us  examine  how  repetition  structures  are  used  when  the  number  of 
+
+repetitions is known in advance.
+
+i) FOR – DO structure (1st Method)
+
+}(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:20)(cid:3)(cid:55)(cid:50)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:21)(cid:3)(cid:39)(cid:50)
+
+FOR  Variable :
+² (cid:55)(cid:75)(cid:72)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:57)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:15)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:20)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:21)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:17)
+² (cid:55)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:21)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:79)(cid:68)(cid:85)(cid:74)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:20)(cid:3)(cid:87)(cid:82)(cid:3)(cid:86)(cid:87)(cid:68)(cid:85)(cid:87)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)
+² (cid:53)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:87)(cid:68)(cid:85)(cid:87)(cid:72)(cid:71)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:20)(cid:3)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:72)(cid:81)(cid:71)(cid:72)(cid:71)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:21)(cid:17)
+² (cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3) (cid:41)(cid:50)(cid:53)(cid:3) (cid:177)(cid:3) (cid:39)(cid:50)(cid:3) (cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:88)(cid:85)(cid:72)(cid:3) (cid:70)(cid:68)(cid:81)(cid:3) (cid:69)(cid:72)(cid:3) (cid:88)(cid:86)(cid:72)(cid:71)(cid:3) (cid:90)(cid:75)(cid:72)(cid:81)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3) (cid:82)(cid:73)(cid:3) (cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3) (cid:76)(cid:86)(cid:3)
+
+known in advance.
+
+Repetition structure
+
+}
+1 TO 5 DO
+FOR X :
+}
+ 0 TO 4 DO
+FOR X :
+}
+ 5 TO 10 DO
+FOR X :
+
+Starting 
+value
+1
+0
+5
+
+Ending
+value
+5
+4
+10
+
+Number of repetitions
+
+5
+5
+6
+
+For free distribution
+
+29
+
+ 
+ 
+ 
+ 
+ 
+E.g. - Printing the values from 1 to 10
+(cid:51)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:83)(cid:85)(cid:76)(cid:81)(cid:87)(cid:20)(cid:19)(cid:49)(cid:82)(cid:86)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+
+Var  
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+
+count : integer;
+
+}
+For  count :
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:12)(cid:30)
+
+ 1 to 10 do
+
+End.
+
+(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:86)(cid:15)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:87)(cid:90)(cid:82)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:20)(cid:19)(cid:3)(cid:87)(cid:76)(cid:80)(cid:72)(cid:86)(cid:17)
+
+Here the count variable value is changed from 1 to 10 while printing the 
+
+ii) FOR – DO  Loop (Method 2)
+
+}(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:20)(cid:3)(cid:39)(cid:50)(cid:58)(cid:49)(cid:55)(cid:50)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:21)(cid:3)(cid:39)(cid:50)
+
+FOR  Variable :
+² (cid:55)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:20)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:86)(cid:80)(cid:68)(cid:79)(cid:79)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:21)(cid:3)(cid:87)(cid:82)(cid:3)(cid:86)(cid:87)(cid:68)(cid:85)(cid:87)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)
+² (cid:53)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:87)(cid:68)(cid:85)(cid:87)(cid:72)(cid:71)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:20)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:72)(cid:81)(cid:71)(cid:72)(cid:71)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:3)(cid:57)(cid:68)(cid:79)(cid:88)(cid:72)(cid:66)(cid:21)(cid:17)
+
+Repetition structure
+
+Starting value Ending value
+
+} 
+
+FOR X :
+
+} 
+
+FOR X :
+
+10 DOWNTO 5 
+DO
+
+4 DOWNTO 0 DO
+
+10
+
+4
+
+5
+
+0
+
+Number of 
+repetitions
+6
+
+5
+
+E.g. - Printing of values from 10 to 1
+(cid:51)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:83)(cid:85)(cid:76)(cid:81)(cid:87)(cid:3)(cid:53)(cid:72)(cid:89)(cid:72)(cid:85)(cid:86)(cid:72)(cid:3)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+
+Var  
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+
+count : integer;
+
+}
+For  count :
+(cid:58)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:12)(cid:30)
+
+ 10  downto 1 do
+
+(cid:3)
+
+End.
+
+Count variable value is changed from 10 to 1 while printing the output and 
+
+and the loop in executed 10 times.
+
+30
+
+For free distribution
+
+ 
+Finding the total and average of ten numbers
+
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:66)(cid:68)(cid:89)(cid:74)(cid:3)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+(cid:44)(cid:15)(cid:81)(cid:88)(cid:80)(cid:15)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:29)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:30)
+(cid:89)(cid:68)(cid:85)(cid:3)(cid:3)
+
+(cid:37)(cid:72)(cid:74)(cid:76)(cid:81)
+
+avg: real;
+
+0;
+ 1 to  10 do
+
+} 
+total :
+}
+for I :
+begin
+(cid:3)
+(cid:3)
+
+(cid:3)
+(cid:3)
+
+end;
+
+(cid:3)
+(cid:3)
+
+end.
+
+(cid:3)
+(cid:3)
+
+(cid:3)
+(cid:3)
+
+(cid:3)
+(cid:3)
+
+(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:182)(cid:12)(cid:30)
+(cid:85)(cid:72)(cid:68)(cid:71)(cid:11)(cid:81)(cid:88)(cid:80)(cid:12)(cid:30)
+} 
+
+total :
+
+total+num;
+
+} (cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:18)(cid:44)(cid:30)
+
+avg :
+(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:55)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:76)(cid:86)(cid:3)(cid:181)(cid:3)(cid:15)(cid:3)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:12)(cid:30)
+(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:181)(cid:36)(cid:89)(cid:72)(cid:85)(cid:68)(cid:74)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:181)(cid:15)(cid:68)(cid:89)(cid:74)(cid:12)(cid:30)
+
+}
+
+A block of statments in 
+repetition.
+
+Important
+
+A block of statements indent properly is written between 'begin' and 
+'end'; inside the FOR loop.
+
+(cid:3)
+
+(cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:78)(cid:81)(cid:82)(cid:90)(cid:81)(cid:3)(cid:76)(cid:81)(cid:3)(cid:68)(cid:71)(cid:89)(cid:68)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:10)(cid:10)(cid:58)(cid:75)(cid:76)(cid:79)(cid:72)(cid:3)(cid:71)(cid:82)(cid:10)(cid:10)(cid:3)(cid:82)(cid:85)(cid:3)
+
+''repeat until'' structures are used.
+
+i) WHILE DO Loop
+
+²
+² (cid:54)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:76)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:11)(cid:76)(cid:72)(cid:29)(cid:3)(cid:68)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:87)(cid:75)(cid:68)(cid:87)(cid:3)(cid:85)(cid:88)(cid:81)(cid:86)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:72)(cid:89)(cid:72)(cid:85)(cid:12)(cid:3)(cid:82)(cid:81)(cid:79)(cid:92)(cid:3)(cid:76)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+Conditions are checked at the beginning of the loop.
+
+²
+²
+²
+
+condition is true.
+Statements inside the loop never executed if the condition is false.
+The condition becomes false at the end of the repetition.
+(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:71)(cid:82)(cid:72)(cid:86)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:69)(cid:72)(cid:70)(cid:82)(cid:80)(cid:72)(cid:3)(cid:73)(cid:68)(cid:79)(cid:86)(cid:72)(cid:3)(cid:90)(cid:75)(cid:76)(cid:79)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)
+(cid:69)(cid:72)(cid:3)(cid:68)(cid:81)(cid:3)(cid:76)(cid:81)(cid:191)(cid:81)(cid:76)(cid:87)(cid:72)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:17)
+
+E.g. 1 -  while number > 0 do 
+
+  Repetition is executed if only the value of the variable number is positive.  
+
+E.g. 2 -
+
+number :
+
+;
+
+} 1
+
+    while number <= 
+} 
+
+number :
+
+10 
+
+do
+number + 
+
+1
+;
+
+For free distribution
+
+31
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(cid:405)
+  Condition is true since the starting value of the variable 'number' is 1.
+(cid:405)(cid:3) (cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:17)
+(cid:405)(cid:3) (cid:40)(cid:68)(cid:70)(cid:75)(cid:3)(cid:87)(cid:76)(cid:80)(cid:72)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:15)(cid:3)(cid:20)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:71)(cid:71)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:10)(cid:10)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:10)(cid:10)(cid:17)
+(cid:405)(cid:3) (cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:47)(cid:82)(cid:82)(cid:83)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:90)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:10)(cid:10)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:10)(cid:10)(cid:3)(cid:76)(cid:86)(cid:3)(cid:20)(cid:19)(cid:3)(cid:82)(cid:85)(cid:3)(cid:79)(cid:72)(cid:86)(cid:86)(cid:3)(cid:87)(cid:75)(cid:68)(cid:81)(cid:3)(cid:20)(cid:19)(cid:17)
+(cid:405)
+  Loop stops when the value of the ''number'' variable is 11.
+
+ii) REPEAT UNTIL Structure
+
+Condition is not checked at the beginning of loop.
+
+²
+² (cid:38)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:70)(cid:75)(cid:72)(cid:70)(cid:78)(cid:72)(cid:71)(cid:15)(cid:3)(cid:68)(cid:73)(cid:87)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:68)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:82)(cid:81)(cid:70)(cid:72)(cid:17)
+²
+²
+²
+
+Loop is started if the condition is false only.
+Loop stops when the condition becomes true.
+(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:71)(cid:82)(cid:72)(cid:86)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:69)(cid:72)(cid:70)(cid:82)(cid:80)(cid:72)(cid:3)(cid:87)(cid:85)(cid:88)(cid:72)(cid:3)(cid:90)(cid:75)(cid:76)(cid:79)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:15)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:69)(cid:72)(cid:3)
+(cid:68)(cid:81)(cid:3)(cid:76)(cid:81)(cid:191)(cid:81)(cid:76)(cid:87)(cid:72)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:17)
+
+E.g. 1 -
+
+count = 0;
+Repeat
+
+^(cid:181)(cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:182)&
+;
+writeln  
+1
+} 
+count + 
+:
+count
+
+Until count > 5;
+
+  The starting value of count variable is 0.
+  The word Pascal is displayed on the screen.
+  1 is added to the count variable.
+
+(cid:405)
+(cid:405)
+(cid:405)
+(cid:405)
+(cid:405)
+  Loop is executed till the value of the 'count' variable becomes 5.
+(cid:405)
+  Loop stops when the value of count is 6.
+(cid:405)(cid:3) (cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:47)(cid:82)(cid:82)(cid:83)(cid:3)(cid:86)(cid:87)(cid:82)(cid:83)(cid:86)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:90)(cid:82)(cid:85)(cid:71)(cid:3)(cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:3)(cid:76)(cid:86)(cid:3)(cid:71)(cid:76)(cid:86)(cid:83)(cid:79)(cid:68)(cid:92)(cid:72)(cid:71)(cid:3)(cid:86)(cid:76)(cid:91)(cid:3)(cid:87)(cid:76)(cid:80)(cid:72)(cid:86)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:70)(cid:85)(cid:72)(cid:72)(cid:81)(cid:17)
+
+It is checked whether the value of 'count' variable is larger than 5.
+
+E.g. 2 -
+
+} 
+
+sum :
+repeat
+
+(cid:3)
+
+(cid:3)
+
+0;
+
+}
+sum :
+(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:86)(cid:88)(cid:80)(cid:12)(cid:30)
+
+ sum + 5;
+
+until sum < 50;
+
+32
+
+For free distribution
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+The starting value of sum variable is 0.
+5 is added to the value of sum.
+The value of sum is 5 and it is displayed on the screen.
+It is checked whether the value of sum variable is less than 50.
+
+²
+²
+²
+²
+² (cid:55)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:86)(cid:88)(cid:80)(cid:3)(cid:31)(cid:3)(cid:24)(cid:19)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:3)(cid:11)(cid:55)(cid:85)(cid:88)(cid:72)(cid:12)(cid:17)
+² (cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:47)(cid:82)(cid:82)(cid:83)(cid:3)(cid:86)(cid:87)(cid:82)(cid:83)(cid:86)(cid:17)
+
+E.g. 3 -
+
+} 0
+:
+sum
+repeat
+
+;
+
+}
+
+:
+
+ sum + 5;
+sum
+&
+^
+;
+sum
+writeln
+
+until sum >=
+
+50;
+
+The starting value of sum variable is 0.
+5 is added to the value of sum.
+The value of sum is displayed on the screen.
+It is checked whether the value of sum variable is greater than or equal to 50.
+
+²
+²
+²
+²
+² (cid:47)(cid:82)(cid:82)(cid:83)(cid:3)(cid:76)(cid:86)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:76)(cid:79)(cid:79)(cid:3)(cid:86)(cid:88)(cid:80)(cid:3)(cid:33)(cid:32)(cid:3)(cid:24)(cid:19)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:3)(cid:11)(cid:55)(cid:85)(cid:88)(cid:72)(cid:12)(cid:17)
+² (cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:86)(cid:87)(cid:82)(cid:83)(cid:86)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:86)(cid:88)(cid:80)(cid:3)(cid:76)(cid:86)(cid:3)(cid:24)(cid:19)(cid:17)
+²
+²
+
+Loop is executed 10 times.
+Multiples of 5 from 5 to 50 will be given as output.
+
+1.8  Nested control structures
+
+(cid:44)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:15)(cid:3)(cid:68)(cid:3)(cid:70)(cid:82)(cid:81)(cid:87)(cid:85)(cid:82)(cid:79)(cid:3)(cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:88)(cid:85)(cid:72)(cid:11)(cid:86)(cid:12)(cid:3)(cid:80)(cid:68)(cid:92)(cid:3)(cid:69)(cid:72)(cid:3)(cid:76)(cid:81)(cid:70)(cid:79)(cid:88)(cid:71)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:3)(cid:68)(cid:81)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:17)
+(cid:41)(cid:82)(cid:85)(cid:3)(cid:72)(cid:91)(cid:68)(cid:80)(cid:83)(cid:79)(cid:72)(cid:15)(cid:3)(cid:68)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:79)(cid:82)(cid:82)(cid:83)(cid:3)(cid:80)(cid:68)(cid:92)(cid:3)(cid:69)(cid:72)(cid:3)(cid:76)(cid:81)(cid:70)(cid:79)(cid:88)(cid:71)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:3)(cid:68)(cid:81)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)(cid:3)(cid:54)(cid:76)(cid:80)(cid:76)(cid:79)(cid:68)(cid:85)(cid:79)(cid:92)(cid:3)
+
+a  selection  may  be  included  inside  another  selection.  Hence  nested  controlling 
+structures should be used in programming.
+
+1.8.1 Repetition inside selection
+
+(cid:86)(cid:68)(cid:87)(cid:76)(cid:86)(cid:191)(cid:72)(cid:71)(cid:3)(cid:82)(cid:85)(cid:3)(cid:81)(cid:82)(cid:87)(cid:17)
+
+A repetition may be executed depending on a condition of a selection being 
+
+(cid:39)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3) (cid:82)(cid:81)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:88)(cid:86)(cid:72)(cid:85)(cid:182)(cid:86)(cid:3) (cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:15)(cid:3) (cid:68)(cid:81)(cid:3) (cid:68)(cid:86)(cid:70)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3) (cid:82)(cid:85)(cid:3) (cid:71)(cid:72)(cid:86)(cid:70)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3) (cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)
+
+E.g.  - 
+            sequence can be produced as output.
+
+For free distribution
+
+33
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:82)(cid:85)(cid:71)(cid:72)(cid:85)(cid:49)(cid:82)(cid:86)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+
+var  
+
+num:integer;
+cho:char;
+
+begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:54)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:3)(cid:36)(cid:86)(cid:86)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:11)(cid:36)(cid:12)(cid:3)(cid:82)(cid:85)(cid:3)(cid:39)(cid:72)(cid:86)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:11)(cid:39)(cid:12)(cid:10)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:11)(cid:70)(cid:75)(cid:82)(cid:12)(cid:30)
+
+     if cho = 'A' then
+        begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:36)(cid:86)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:50)(cid:85)(cid:71)(cid:72)(cid:85)(cid:10)(cid:12)(cid:30)
+} 
+
+             for num :
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:81)(cid:88)(cid:80)(cid:12)(cid:30)
+
+1 to 6 do
+
+        end;
+     if cho = 'D' then
+         begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:39)(cid:72)(cid:86)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:50)(cid:85)(cid:71)(cid:72)(cid:85)(cid:10)(cid:12)(cid:30)
+}
+ 6 downto 1 do
+
+              for num :
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:81)(cid:88)(cid:80)(cid:12)(cid:30)
+
+         end;
+end.
+
+1.8.2 Selection in repetition
+
+Let us consider how selection takes place while the repetition control structure 
+
+being executed.
+
+E.g.  -  Determining  whether  the  numbers  input  by  the  user  are  odd  or  even  and
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:70)(cid:68)(cid:79)(cid:70)(cid:88)(cid:79)(cid:68)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:87)(cid:82)(cid:87)(cid:68)(cid:79)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:82)(cid:73)(cid:3)(cid:82)(cid:71)(cid:71)(cid:15)(cid:3)(cid:72)(cid:89)(cid:72)(cid:81)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:3)(cid:86)(cid:72)(cid:83)(cid:68)(cid:85)(cid:68)(cid:87)(cid:72)(cid:79)(cid:92)(cid:17)(cid:3)
+
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:85)(cid:72)(cid:83)(cid:66)(cid:86)(cid:72)(cid:79)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+(cid:89)(cid:68)(cid:85)(cid:3)(cid:81)(cid:88)(cid:80)(cid:15)(cid:85)(cid:72)(cid:80)(cid:15)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:15)(cid:72)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:15)(cid:82)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:29)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:30)
+
+} 
+
+begin
+     for count :
+         begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:10)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:11)(cid:81)(cid:88)(cid:80)(cid:12)(cid:30)
+
+1 to 10 do
+
+ num mod 2;
+
+}
+              rem :
+              if rem = 0 then
+                 begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:40)(cid:89)(cid:72)(cid:81)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:10)(cid:12)(cid:30)
+} (cid:72)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:14)(cid:20)(cid:30)
+              (cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:72)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:3)
+:
+
+                 end
+
+34
+
+For free distribution
+
+ 
+              else
+                  begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:50)(cid:71)(cid:71)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:3)(cid:10)(cid:12)(cid:30)
+} (cid:82)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:3)(cid:14)(cid:3)(cid:20)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:82)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:3)
+:
+
+                  end;
+         end;
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:72)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:15)(cid:10)(cid:40)(cid:89)(cid:72)(cid:81)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:18)(cid:86)(cid:10)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:11)(cid:82)(cid:66)(cid:70)(cid:82)(cid:88)(cid:81)(cid:87)(cid:3)(cid:15)(cid:10)(cid:50)(cid:71)(cid:71)(cid:3)(cid:49)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:18)(cid:86)(cid:10)(cid:12)(cid:30)
+
+end.
+
+ 1.9 Arreys
+
+It  is  essential  in  programming  to  use  variables  to  store  data  items  in 
+(cid:80)(cid:72)(cid:80)(cid:82)(cid:85)(cid:92)(cid:17)(cid:3)(cid:41)(cid:88)(cid:85)(cid:87)(cid:75)(cid:72)(cid:85)(cid:15)(cid:3)(cid:86)(cid:88)(cid:70)(cid:75)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:86)(cid:3)(cid:75)(cid:68)(cid:89)(cid:72)(cid:3)(cid:86)(cid:88)(cid:76)(cid:87)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:86)(cid:17)(cid:3)(cid:57)(cid:68)(cid:85)(cid:76)(cid:82)(cid:88)(cid:86)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:86)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)
+
+are different in names are needed to store data items which belong to the same data 
+type.
+
+(cid:41)(cid:82)(cid:85)(cid:3) (cid:76)(cid:81)(cid:86)(cid:87)(cid:68)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3) (cid:191)(cid:89)(cid:72)(cid:3) (cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:86)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:81)(cid:72)(cid:72)(cid:71)(cid:72)(cid:71)(cid:3) (cid:87)(cid:82)(cid:3) (cid:86)(cid:68)(cid:89)(cid:72)(cid:3) (cid:191)(cid:89)(cid:72)(cid:3) (cid:85)(cid:82)(cid:88)(cid:81)(cid:71)(cid:3) (cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:3) (cid:76)(cid:81)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3)
+E.g.  - 
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:80)(cid:72)(cid:80)(cid:82)(cid:85)(cid:92)(cid:17)(cid:3)(cid:37)(cid:72)(cid:73)(cid:82)(cid:85)(cid:72)(cid:3)(cid:88)(cid:86)(cid:76)(cid:81)(cid:74)(cid:3)(cid:86)(cid:88)(cid:70)(cid:75)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:86)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:92)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:71)(cid:72)(cid:70)(cid:79)(cid:68)(cid:85)(cid:72)(cid:71)(cid:3)(cid:68)(cid:86)(cid:3)(cid:74)(cid:76)(cid:89)(cid:72)(cid:81)(cid:3)(cid:69)(cid:72)(cid:79)(cid:82)(cid:90)(cid:17)
+
+(cid:57)(cid:68)(cid:85)(cid:3)
+
+(cid:83)(cid:15)(cid:3)(cid:84)(cid:15)(cid:3)(cid:85)(cid:15)(cid:3)(cid:86)(cid:15)(cid:3)(cid:87)(cid:3)(cid:29)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:30) 
+(cid:81)(cid:20)(cid:15)(cid:3)(cid:81)(cid:21)(cid:15)(cid:3)(cid:81)(cid:22)(cid:15)(cid:3)(cid:81)(cid:23)(cid:15)(cid:3)(cid:81)(cid:24)
+
+: real;
+
+1.9.1 Use of arrays
+
+An  array  is  used  to  save  data  items  of  the  same  type  in  memory  using  a 
+(cid:86)(cid:76)(cid:81)(cid:74)(cid:79)(cid:72)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:17)(cid:3)(cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:88)(cid:86)(cid:72)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:72)(cid:81)(cid:68)(cid:69)(cid:79)(cid:72)(cid:86)(cid:3)(cid:87)(cid:82)(cid:3)(cid:86)(cid:87)(cid:82)(cid:85)(cid:72)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:68)(cid:86)(cid:3)(cid:85)(cid:72)(cid:84)(cid:88)(cid:76)(cid:85)(cid:72)(cid:71)(cid:3)
+(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:3)(cid:68)(cid:3)(cid:86)(cid:76)(cid:81)(cid:74)(cid:79)(cid:72)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:82)(cid:88)(cid:87)(cid:3)(cid:83)(cid:85)(cid:82)(cid:89)(cid:76)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:71)(cid:76)(cid:73)(cid:73)(cid:72)(cid:85)(cid:72)(cid:81)(cid:87)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:86)(cid:3)
+
+to each item.
+
+Here comes the data 
+
+train
+
+Each cart holds a 
+single piece of data
+
+For free distribution
+
+35
+
+ 
+  
+(cid:20)(cid:17)(cid:28)(cid:17)(cid:21)(cid:3)(cid:39)(cid:72)(cid:191)(cid:81)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:82)(cid:81)(cid:72)(cid:16)(cid:71)(cid:76)(cid:80)(cid:72)(cid:81)(cid:86)(cid:76)(cid:82)(cid:81)(cid:68)(cid:79)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)
+
+This is a data structure used to save data of the same type sequentially. An 
+array uses a group of adjoining memory spaces. A one dimensional array can be as 
+follows.
+
+Var  Name_of_Array
+
+ ( (cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:62)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:76)(cid:81)(cid:71)(cid:72)(cid:91)(cid:3)(cid:17)(cid:17)(cid:3)(cid:79)(cid:68)(cid:86)(cid:87)(cid:3)(cid:76)(cid:81)(cid:71)(cid:72)(cid:91)(cid:64)(cid:3)(cid:82)(cid:73)(cid:3)
+
+data type
+
+((cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:62)(cid:19)''(cid:28)(cid:64)(cid:3)(cid:82)(cid:73)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:30)
+
+var marks 
+
+E.g. -
+² (cid:41)(cid:85)(cid:82)(cid:80)(cid:3) (cid:87)(cid:75)(cid:76)(cid:86)(cid:15)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3) (cid:81)(cid:68)(cid:80)(cid:72)(cid:71)(cid:3) (cid:80)(cid:68)(cid:85)(cid:78)(cid:86)(cid:3) (cid:76)(cid:86)(cid:3) (cid:71)(cid:72)(cid:191)(cid:81)(cid:72)(cid:71)(cid:3) (cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3) (cid:70)(cid:68)(cid:81)(cid:3) (cid:76)(cid:81)(cid:70)(cid:79)(cid:88)(cid:71)(cid:72)(cid:3) (cid:20)(cid:19)(cid:3) (cid:90)(cid:75)(cid:82)(cid:79)(cid:72)(cid:3)
+
+numbers.
+
+1.9.3 Attributes of an array
+
+² (cid:40)(cid:79)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:83)(cid:82)(cid:86)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:72)(cid:71)(cid:3)(cid:81)(cid:72)(cid:91)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)(cid:72)(cid:68)(cid:70)(cid:75)(cid:3)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:17)(cid:3)(cid:11)(cid:85)(cid:72)(cid:3)(cid:68)(cid:71)(cid:77)(cid:68)(cid:70)(cid:72)(cid:81)(cid:87)(cid:79)(cid:92)(cid:12)
+² (cid:55)(cid:75)(cid:72)(cid:3)(cid:76)(cid:81)(cid:71)(cid:72)(cid:91)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:11)(cid:86)(cid:72)(cid:84)(cid:88)(cid:72)(cid:81)(cid:87)(cid:76)(cid:68)(cid:79)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:12)(cid:3)(cid:76)(cid:86)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:3)(cid:76)(cid:81)(cid:3)
+
+square brackets.
+
+Array Name 
+
+(cid:48)(cid:62)(cid:19)(cid:64)
+
+(cid:48)(cid:62)(cid:20)(cid:64)
+
+Index
+(cid:48)(cid:62)(cid:21)(cid:64)
+
+(cid:48)(cid:62)(cid:22)(cid:64)
+
+(cid:48)(cid:62)(cid:23)(cid:64)
+
+First element
+lowest index
+
+(cid:59)(cid:62)(cid:19)(cid:64)
+
+(cid:59)(cid:62)(cid:20)(cid:64)
+
+(cid:59)(cid:62)(cid:21)(cid:64)
+
+Last element 
+highest index
+(cid:59)(cid:62)(cid:23)(cid:64)
+
+(cid:59)(cid:62)(cid:22)(cid:64)
+
+element 1
+
+element 5
+
+36
+
+For free distribution
+
+ 
+E.g. - the size of the array Var M : Array[0..4] of integer;  is 5.
+
+From M[0] to M[4], it consists of 5 elements.
+
+Index is indicated in square brackets.
+(cid:39)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:90)(cid:68)(cid:92)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:76)(cid:86)(cid:3)(cid:71)(cid:72)(cid:191)(cid:81)(cid:72)(cid:71)(cid:15)(cid:3)(cid:76)(cid:81)(cid:71)(cid:72)(cid:91)(cid:3)(cid:83)(cid:82)(cid:86)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:74)(cid:72)(cid:87)(cid:3)(cid:70)(cid:75)(cid:68)(cid:81)(cid:74)(cid:72)(cid:71)(cid:17)
+
+E.g. - ; Var X : Array[1..5] of integer;
+
+Only data items which belong to the same type can be stored in the array.
+
+Any element of the array can be accessed randomly. Hence, an array can be 
+
+accessed easily through a repetition control structure. 
+
+E.g. - Entering Maths marks of 40 students into an array
+
+var   maths : array[0..39] of integer;
+
+for i :
+
+i,marks : integer; 
+}
+ 0 to 39 do
+begin
+
+writeln(‘Enter marks’);
+read(marks);
+maths[i] :
+
+ marks;
+
+}
+
+end;
+
+1.9.4 Assigning values to an array
+
+(cid:47)(cid:72)(cid:87)(cid:3)(cid:88)(cid:86)(cid:3)(cid:70)(cid:82)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:85)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:74)(cid:72)(cid:85)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:3)(cid:191)(cid:89)(cid:72)(cid:3)(cid:72)(cid:79)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:3)(cid:90)(cid:75)(cid:82)(cid:79)(cid:72)(cid:3)(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:17)(cid:3)
+
+var    num : array[0..4] of integer;
+
+num[0] num[1] num[2] num[3] num[4]
+
+}
+num[0] :
+}
+num[2] :
+}
+num[1] :
+}
+num[3] :
+
+ 45; 
+
+ 36,num[4] :
+
+}
+
+ 60;
+
+ num[4] + 15;
+ num[0] + num[2]
+
+45
+
+45
+
+75
+
+36
+
+36
+
+60
+
+60
+
+81
+
+For free distribution
+
+37
+
+ 
+ 
+ 
+ 
+ 
+1.9.5 Declaring values of an array
+
+The elements declare the values of an array. 
+
+&
+num[4]
+
+^
+writeln
+^
+writeln
+} 
+:
+for  x
+
+&
+num[3]
+;
+" 
+num[1]
+0 to 3 do 
+
+^
+writeln
+} 
+for  x :
+
+&
+;
+num[x]
+2 to 4 do
+
+writeln
+for  x :
+
+^
+} 
+
+&
+num[x]
+;
+0 to 4 do 
+
+;
+
+Print the 4th element (81)
+Declaring  2nd and 5th elements (36, 60)
+   (cid:51)(cid:85)(cid:76)(cid:81)(cid:87)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:191)(cid:85)(cid:86)(cid:87)(cid:3)(cid:23)(cid:3)(cid:72)(cid:79)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:11)(cid:23)(cid:24)(cid:15)(cid:3)(cid:26)(cid:24)(cid:15)
+
+36, 81) 
+
+Print the 3 elements - 3rd, 4th, 5th - of the array
+  (36, 81, 60) 
+   (cid:51)(cid:85)(cid:76)(cid:81)(cid:87)(cid:3)(cid:68)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:79)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:85)(cid:85)(cid:68)(cid:92)(cid:3)(cid:11)(cid:23)(cid:24)(cid:15)(cid:3)(cid:26)(cid:24)(cid:15)(cid:3)(cid:22)(cid:25)(cid:15)
+
+  81, 60) 
+
+E.g. - Entering Information and Communication Technology marks of 35 students,
+          determining the highest mark and calculating the average.    
+
+}
+ 0 to 34 do
+
+program ictMarks(input,output);
+var marks : array[0..34] of integer;
+    i,tot,max : integer;
+    avg : real;
+begin
+     for i :
+         begin
+              writeln('Enter Marks');
+              read(marks[i]);(* Read Marks to array *)
+}
+              tot :
+         end;
+}
+ tot/35;
+     avg :
+}
+ marks[0];
+     max :
+}
+     for i :
+ 1 to 34 do
+}
+         if marks[i] > max then max :
+     writeln('Maximum marks = ', max);
+     writeln('Average marks = ',avg);
+end.
+
+ tot + marks[i];(* Add marks *)
+
+ marks[i];
+
+1.10 Use of sub-programs
+
+As a program becomes complex, when the number of sub processes increase, 
+(cid:76)(cid:87)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:69)(cid:72)(cid:3)(cid:71)(cid:76)(cid:73)(cid:191)(cid:70)(cid:88)(cid:79)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:86)(cid:87)(cid:68)(cid:81)(cid:71)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:68)(cid:79)(cid:86)(cid:82)(cid:3)(cid:87)(cid:82)(cid:3)(cid:80)(cid:68)(cid:76)(cid:81)(cid:87)(cid:68)(cid:76)(cid:81)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:85)(cid:72)(cid:73)(cid:82)(cid:85)(cid:72)(cid:15)(cid:3)(cid:88)(cid:86)(cid:76)(cid:81)(cid:74)(cid:3)(cid:86)(cid:88)(cid:69)(cid:3)
+
+programs as much as possible while writing is useful.
+
+38
+
+For free distribution
+
+   
+  
+ 
+ 
+  
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+Main
+problem
+
+sub
+problem 1
+
+sub
+problem 2
+
+sub
+problem n
+
+sub program 1
+-----------------       
+-----------------
+
+sub program 2
+-----------------       
+-----------------
+
+sub program n
+-----------------       
+-----------------
+
+1.10.1 Types of sub program
+
+There are two types of sub programs in addition to the main program. A 
+sub program which returns an output back to the main program and a sub program 
+which does not return an output back to the main program. A sub program which 
+returns an output back is called a Function and a sub program which does not give 
+an output is called a Procedure.
+
+1.10.2 Introducing sub programs
+
+PROGRAM
+CONST 
+VAR
+
+BEGIN
+
+END
+
+Function and 
+procedure 
+declaration
+
+Main
+program
+
+(cid:37)(cid:72)(cid:73)(cid:82)(cid:85)(cid:72)(cid:3) (cid:86)(cid:87)(cid:68)(cid:85)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3) (cid:80)(cid:68)(cid:76)(cid:81)(cid:3) (cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:15)(cid:3) (cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3) (cid:68)(cid:81)(cid:71)(cid:3) (cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:86)(cid:3) (cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3) (cid:69)(cid:72)(cid:3)
+(cid:71)(cid:72)(cid:70)(cid:79)(cid:68)(cid:85)(cid:72)(cid:71)(cid:17)(cid:3)(cid:54)(cid:88)(cid:69)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:86)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:70)(cid:68)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:80)(cid:68)(cid:76)(cid:81)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:17)(cid:3)(cid:11)(cid:38)(cid:68)(cid:79)(cid:79)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)
+(cid:82)(cid:85)(cid:3)(cid:68)(cid:3)(cid:51)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:12)(cid:17)
+
+For free distribution
+
+39
+
+(cid:55)(cid:75)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:76)(cid:81)(cid:74)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:92)(cid:81)(cid:87)(cid:68)(cid:91)(cid:3)(cid:87)(cid:82)(cid:3)(cid:71)(cid:72)(cid:191)(cid:81)(cid:72)(cid:3)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:17)
+
+(cid:51)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:3)(cid:3)(cid:49)(cid:68)(cid:80)(cid:72)(cid:66)(cid:82)(cid:73)(cid:66)(cid:51)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:11)(cid:3)(cid:81)(cid:68)(cid:80)(cid:72)(cid:66)(cid:82)(cid:73)(cid:66)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:29)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:12)(cid:30)
+
+E.g. -
+
+(cid:51)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:3)(cid:87)(cid:82)(cid:3)(cid:191)(cid:81)(cid:71)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:68)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:3)(cid:70)(cid:76)(cid:85)(cid:70)(cid:79)(cid:72)
+
+(cid:51)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:3)(cid:70)(cid:68)(cid:79)(cid:70)(cid:88)(cid:79)(cid:68)(cid:87)(cid:72)(cid:36)(cid:85)(cid:72)(cid:68)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:30)(cid:3)
+
+(cid:41)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:3)(cid:49)(cid:68)(cid:80)(cid:72)(cid:66)(cid:82)(cid:73)(cid:66)(cid:41)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:11)(cid:81)(cid:68)(cid:80)(cid:72)(cid:66)(cid:82)(cid:73)(cid:66)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:3)(cid:29)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:12)(cid:3)(cid:29)(cid:3)(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:3)(cid:30)
+
+E.g. -
+
+(cid:41)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:87)(cid:82)(cid:3)(cid:191)(cid:81)(cid:71)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:68)(cid:3)(cid:82)(cid:73)(cid:3)(cid:68)(cid:3)(cid:70)(cid:76)(cid:85)(cid:70)(cid:79)(cid:72)
+
+(cid:41)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:70)(cid:68)(cid:79)(cid:70)(cid:88)(cid:79)(cid:68)(cid:87)(cid:72)(cid:36)(cid:85)(cid:72)(cid:68)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:3)(cid:29)(cid:3)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:29)(cid:3)(cid:85)(cid:72)(cid:68)(cid:79)(cid:3)(cid:30)
+
+(cid:55)(cid:75)(cid:72)(cid:3)(cid:73)(cid:82)(cid:79)(cid:79)(cid:82)(cid:90)(cid:76)(cid:81)(cid:74)(cid:3)(cid:86)(cid:92)(cid:81)(cid:87)(cid:68)(cid:91)(cid:3)(cid:71)(cid:72)(cid:191)(cid:81)(cid:72)(cid:3)(cid:68)(cid:3)(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)
+
+Procedure declaration
+
+Function declaration
+
+Main Program
+
+(cid:94)
+(cid:94)
+(cid:94)
+
+(cid:51)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:3)(cid:86)(cid:88)(cid:69)(cid:20)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:91)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:30)
+
+begin
+
+end;
+
+statement
+………………
+
+(cid:41)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:86)(cid:88)(cid:69)(cid:21)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:91)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:29)(cid:3)
+
+real ;
+
+begin
+
+end;
+
+statement
+………….
+
+begin
+
+(cid:3)
+
+statement
+………………
+(cid:86)(cid:88)(cid:69)(cid:20)(cid:11)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:12)(cid:30)
+
+………………
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:57)(cid:3)(cid:32)(cid:3)(cid:86)(cid:88)(cid:69)(cid:21)(cid:11)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:12)(cid:30)
+
+………………
+statement
+
+end.
+
+Return Output 
+
+Calling the procedure
+
+Calling the function
+
+E.g.  -  Let  us  consider  the  program  to  calculate  the  area  and  circumference  of  a 
+           circle. 
+
+40
+
+For free distribution
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1. A program built with procedures
+
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:66)(cid:70)(cid:76)(cid:85)(cid:70)(cid:79)(cid:72)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+(cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:3)(cid:83)(cid:76)(cid:72)(cid:3)(cid:32)(cid:3)(cid:21)(cid:21)(cid:18)(cid:26)(cid:30)
+
+var radius:real;
+
+(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:3)(cid:74)(cid:72)(cid:87)(cid:39)(cid:68)(cid:87)(cid:68)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:29)(cid:3)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:30)
+
+          begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:53)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:10)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:11)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:12)(cid:30)
+
+          end;
+(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:36)(cid:85)(cid:72)(cid:68)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:30)
+
+          var area:real;
+          begin
+}
+               area :
+ pie * radius * radius;
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:36)(cid:85)(cid:72)(cid:68)(cid:3)(cid:32)(cid:3)(cid:10)(cid:15)(cid:68)(cid:85)(cid:72)(cid:68)(cid:12)(cid:30)
+
+          end;
+(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:71)(cid:88)(cid:85)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:38)(cid:76)(cid:85)(cid:70)(cid:88)(cid:80)(cid:73)(cid:72)(cid:85)(cid:68)(cid:81)(cid:70)(cid:72)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:30)
+
+          var circum:real;
+          begin
+}
+              circum :
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:38)(cid:76)(cid:85)(cid:70)(cid:88)(cid:80)(cid:73)(cid:72)(cid:85)(cid:68)(cid:81)(cid:70)(cid:72)(cid:3)(cid:32)(cid:3)(cid:10)(cid:15)(cid:70)(cid:76)(cid:85)(cid:70)(cid:88)(cid:80)(cid:12)(cid:30)
+
+ 2 * pie * radius;
+
+          end;
+begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:74)(cid:72)(cid:87)(cid:39)(cid:68)(cid:87)(cid:68)(cid:11)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:38)(cid:76)(cid:85)(cid:70)(cid:88)(cid:80)(cid:73)(cid:72)(cid:85)(cid:68)(cid:81)(cid:70)(cid:72)(cid:11)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:36)(cid:85)(cid:72)(cid:68)(cid:11)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:12)(cid:30)
+
+end.
+
+2. A program with functions
+
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:66)(cid:70)(cid:76)(cid:85)(cid:70)(cid:79)(cid:72)(cid:11)(cid:76)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:12)(cid:30)
+(cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:3)(cid:83)(cid:76)(cid:3)(cid:32)(cid:3)(cid:21)(cid:21)(cid:18)(cid:26)(cid:30)
+
+var radius:real;
+
+(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:36)(cid:85)(cid:72)(cid:68)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:30)
+
+          var area:real;
+          begin
+}
+ pi * radius * radius;
+               area :
+
+For free distribution
+
+41
+
+}
+               processArea :
+          end;
+(cid:73)(cid:88)(cid:81)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:38)(cid:76)(cid:85)(cid:70)(cid:88)(cid:80)(cid:73)(cid:72)(cid:85)(cid:72)(cid:81)(cid:70)(cid:72)(cid:11)(cid:89)(cid:68)(cid:85)(cid:3)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:12)(cid:29)(cid:85)(cid:72)(cid:68)(cid:79)(cid:30)
+
+ area;
+
+          var circum:real;
+          begin
+}
+ 2 * pi * radius;
+              circum :
+}
+              processCircumference :
+          end;
+begin
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:40)(cid:81)(cid:87)(cid:72)(cid:85)(cid:3)(cid:53)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:10)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:85)(cid:72)(cid:68)(cid:71)(cid:11)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:38)(cid:76)(cid:85)(cid:70)(cid:88)(cid:80)(cid:73)(cid:72)(cid:85)(cid:72)(cid:81)(cid:70)(cid:72)(cid:3)(cid:32)(cid:3)(cid:10)(cid:15)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:38)(cid:76)(cid:85)(cid:70)(cid:88)(cid:80)(cid:73)(cid:72)(cid:85)(cid:72)(cid:81)(cid:70)(cid:72)(cid:11)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:12)(cid:12)(cid:30)
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:72)(cid:79)(cid:81)(cid:11)(cid:10)(cid:36)(cid:85)(cid:72)(cid:68)(cid:3)(cid:32)(cid:3)(cid:10)(cid:15)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:36)(cid:85)(cid:72)(cid:68)(cid:11)(cid:85)(cid:68)(cid:71)(cid:76)(cid:88)(cid:86)(cid:12)(cid:12)(cid:30)
+
+ circum;
+
+end.
+
+1.11 Evolution of programming languages
+
+1.11.1  Need of a programming language
+
+A  program 
+
+sequence  of 
+is 
+instructions  which  performs  a  certain  task 
+using  the  computer.  A  computer  language  is 
+needed 
+
+instructions. 
+
+to  provide 
+
+the 
+
+a 
+
+Hello Mr. 
+Computer?
+
+'1010101010101010'
+
+42
+
+For free distribution
+
+1.11.2  Low level programming languages
+
+Machine language
+
+(cid:55)(cid:75)(cid:76)(cid:86)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:71)(cid:76)(cid:85)(cid:72)(cid:70)(cid:87)(cid:79)(cid:92)(cid:3)(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:86)(cid:87)(cid:82)(cid:82)(cid:71)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:17)(cid:3)(cid:37)(cid:76)(cid:81)(cid:68)(cid:85)(cid:92)(cid:3)
+(cid:81)(cid:88)(cid:80)(cid:69)(cid:72)(cid:85)(cid:86)(cid:3) (cid:86)(cid:88)(cid:70)(cid:75)(cid:3) (cid:68)(cid:86)(cid:3) (cid:19)(cid:86)(cid:3) (cid:68)(cid:81)(cid:71)(cid:3) (cid:20)(cid:86)(cid:3) (cid:11)(cid:37)(cid:76)(cid:87)(cid:86)(cid:12)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:88)(cid:86)(cid:72)(cid:71)(cid:3) (cid:87)(cid:82)(cid:3) (cid:83)(cid:85)(cid:82)(cid:89)(cid:76)(cid:71)(cid:72)(cid:3) (cid:76)(cid:81)(cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:17)(cid:3) (cid:43)(cid:72)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3) (cid:87)(cid:75)(cid:72)(cid:3)
+
+processor could directly run a program written in machine language.
+
+A program written in machine language has the following features;
+
+²
+²
+²
+² (cid:39)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:72)(cid:81)(cid:70)(cid:92)(cid:3)(cid:82)(cid:81)(cid:3)(cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:86)(cid:3)(cid:11)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:87)(cid:72)(cid:81)(cid:3)(cid:87)(cid:82)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:3)(cid:80)(cid:68)(cid:92)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:85)(cid:88)(cid:81)(cid:3)
+
+Executed directly on the machine
+Fast in operation
+No need of language translating programs
+
+(cid:82)(cid:81)(cid:3)(cid:68)(cid:81)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:12)
+
+² (cid:39)(cid:76)(cid:73)(cid:191)(cid:70)(cid:88)(cid:79)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:86)(cid:87)(cid:68)(cid:81)(cid:71)(cid:3)(cid:69)(cid:92)(cid:3)(cid:75)(cid:88)(cid:80)(cid:68)(cid:81)(cid:86)(cid:3)(cid:68)(cid:86)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:87)(cid:72)(cid:81)(cid:3)(cid:88)(cid:86)(cid:76)(cid:81)(cid:74)(cid:3)(cid:19)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:20)(cid:17)
+
+Assembly language
+
+(cid:44)(cid:81)(cid:86)(cid:87)(cid:72)(cid:68)(cid:71)(cid:3)(cid:82)(cid:73)(cid:3)(cid:70)(cid:82)(cid:80)(cid:80)(cid:68)(cid:81)(cid:71)(cid:86)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:87)(cid:72)(cid:81)(cid:3)(cid:76)(cid:81)(cid:3)(cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:3)(cid:88)(cid:86)(cid:76)(cid:81)(cid:74)(cid:3)(cid:19)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:20)(cid:15)(cid:3)(cid:3)(cid:68)(cid:86)(cid:86)(cid:72)(cid:80)(cid:69)(cid:79)(cid:92)(cid:3)
+
+language is designed using simple symbols.
+
+²
+²
+
+A program written in assembly language has the following features;
+
+Operation is comparatively slower than machine language.
+Assembly language should be translated to instructions using the language 
+translating program called assembler.
+² (cid:39)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:72)(cid:81)(cid:70)(cid:92)(cid:3)(cid:82)(cid:81)(cid:3)(cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:86)(cid:3)(cid:11)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:87)(cid:72)(cid:81)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:3)(cid:70)(cid:68)(cid:81)(cid:81)(cid:82)(cid:87)(cid:3)(cid:69)(cid:72)(cid:3)
+
+(cid:85)(cid:88)(cid:81)(cid:3)(cid:82)(cid:81)(cid:3)(cid:68)(cid:81)(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:17)(cid:12)
+
+²
+
+The use of symbols makes it more simple to understand.
+
+A program written in 
+Assembly language
+
+Assembler
+
+ Machine language 
+instructions
+
+1.11.3  High-level programming languages
+
+Languages  which  are  designed  with  simple  English  words  enabling  the 
+
+programmer to understand it easily are called high-level computer languages.
+
+For free distribution
+
+43
+
+Examples for high level computer languages
+(cid:41)(cid:50)(cid:53)(cid:55)(cid:53)(cid:36)(cid:49)(cid:15)(cid:3)(cid:37)(cid:36)(cid:54)(cid:44)(cid:38)(cid:15)(cid:3)(cid:38)(cid:50)(cid:37)(cid:50)(cid:47)(cid:15)(cid:3)(cid:51)(cid:36)(cid:54)(cid:38)(cid:36)(cid:47)(cid:15)(cid:3)(cid:38)(cid:3)
+
+A  program  written  in  a  high-level 
+
+language has the following features;
+
+²
+²
+
+²
+
+Easy to understand.
+High 
+level 
+translated 
+to 
+executing on a computer.
+Do not depend on the machine.
+
+languages  should  be 
+instructions  before 
+
+FORTRAN 
+
+C
+
+Pascal
+
+High-Level Language
+
+Assembly language
+
+Machine language
+
+Hardware
+
+1.11.4  Programming language types 
+
+Programming is a creative task where a computer programmer to provide 
+instructions to the computer on how to perform a particular task done. A program 
+(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:71)(cid:72)(cid:191)(cid:81)(cid:72)(cid:71)(cid:3)(cid:68)(cid:86)(cid:3)(cid:68)(cid:3)(cid:86)(cid:72)(cid:87)(cid:3)(cid:82)(cid:73)(cid:3)(cid:76)(cid:81)(cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)(cid:76)(cid:81)(cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)(cid:87)(cid:68)(cid:86)(cid:78)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)
+(cid:69)(cid:72)(cid:3)(cid:70)(cid:68)(cid:85)(cid:85)(cid:76)(cid:72)(cid:71)(cid:3)(cid:82)(cid:88)(cid:87)(cid:3)(cid:87)(cid:82)(cid:3)(cid:191)(cid:81)(cid:71)(cid:3)(cid:68)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:87)(cid:82)(cid:3)(cid:68)(cid:3)(cid:70)(cid:72)(cid:85)(cid:87)(cid:68)(cid:76)(cid:81)(cid:3)(cid:83)(cid:85)(cid:82)(cid:69)(cid:79)(cid:72)(cid:80)(cid:17)
+
+There are many different approaches to computer programming. These are 
+called programming paradigms. Different approaches develop solutions to problems 
+using programs using different paradigms. Even though most of the programming 
+(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:86)(cid:3)(cid:70)(cid:82)(cid:80)(cid:72)(cid:3)(cid:88)(cid:81)(cid:71)(cid:72)(cid:85)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:83)(cid:68)(cid:85)(cid:68)(cid:71)(cid:76)(cid:74)(cid:80)(cid:3)(cid:87)(cid:92)(cid:83)(cid:72)(cid:15)(cid:3)(cid:70)(cid:72)(cid:85)(cid:87)(cid:68)(cid:76)(cid:81)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:86)(cid:3)(cid:86)(cid:75)(cid:82)(cid:90)(cid:3)(cid:72)(cid:79)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:86)(cid:3)(cid:85)(cid:72)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)
+
+to different paradigms.
+
+Paradigms
+
+Imperative
+
+Declarative
+
+Procedural
+(cid:135)(cid:3)(cid:3)(cid:3)(cid:38)
+
+Object
+Oriented
+(cid:135)(cid:3)(cid:3)(cid:3)(cid:45)(cid:68)(cid:89)(cid:68)
+
+Parallel
+Processing
+(cid:135)(cid:3)(cid:3)(cid:3)(cid:45)(cid:68)(cid:89)(cid:68)
+
+Logic
+(cid:135)(cid:3)(cid:3)(cid:3)(cid:51)(cid:85)(cid:82)(cid:79)(cid:82)(cid:74)
+
+Functional
+(cid:39)(cid:68)(cid:87)(cid:68)(cid:192)(cid:82)(cid:90)
+
+(cid:135)(cid:3)(cid:3)(cid:3)(cid:47)(cid:76)(cid:86)(cid:83)
+
+Database
+(cid:135)(cid:3)(cid:3)(cid:3)(cid:54)(cid:52)(cid:47)
+
+44
+
+For free distribution
+
+ Programming Paradigms
+
+  
+ 
+ 
+(cid:44)(cid:80)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:76)(cid:89)(cid:72)(cid:18)(cid:3)
+
+Algorithmic
+
+Algol
+Cobol
+(cid:51)(cid:47)(cid:18)(cid:20)(cid:3)
+
+Ada
+C
+Modula - 3
+
+Declarative
+
+Logic  Programming
+Prolog
+
+Functional Programming
+Lisp
+Haskell
+ML
+Miranda
+APL
+
+Object-
+Oriented
+
+Smalltalk
+Simula
+C++
+Java
+
+There  are  a  number  of  programming.  The  differences  among  different 
+
+programming language types.
+
+Difference between procedural and declarative paradigms
+
+A procedural language is a computer programming language which consists 
+of a well structured set of steps and procedures. This includes statements for problem 
+solving steps.
+
+Example - 
+
+Procedural Programming
+
+Procedure 1
+
+Declarative Procedure
+
+Procedure 2
+
+Declarative Procedure
+
+Procedure 3
+
+Code
+
+Data
+
+Data is 
+exchanged
+between
+procedures
+
+For free distribution
+
+45
+
+ 
+ 
+           
+The Pascal programming has procedural paradigm features.
+
+A  declarative  paradigm  develops  a  structure  and  elements  of  computer 
+(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:69)(cid:92)(cid:3)(cid:76)(cid:81)(cid:71)(cid:76)(cid:70)(cid:68)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:70)(cid:68)(cid:79)(cid:70)(cid:88)(cid:79)(cid:68)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:18)(cid:82)(cid:85)(cid:3)(cid:79)(cid:82)(cid:74)(cid:76)(cid:70)(cid:3)(cid:90)(cid:76)(cid:87)(cid:75)(cid:82)(cid:88)(cid:87)(cid:3)(cid:68)(cid:3)(cid:70)(cid:82)(cid:81)(cid:87)(cid:85)(cid:82)(cid:79)(cid:3)(cid:192)(cid:82)(cid:90)(cid:17)(cid:3)(cid:55)(cid:75)(cid:76)(cid:86)(cid:3)(cid:75)(cid:72)(cid:79)(cid:83)(cid:86)(cid:3)(cid:87)(cid:82)(cid:3)
+(cid:85)(cid:72)(cid:71)(cid:88)(cid:70)(cid:72)(cid:3)(cid:82)(cid:85)(cid:3)(cid:72)(cid:79)(cid:76)(cid:80)(cid:76)(cid:81)(cid:68)(cid:87)(cid:72)(cid:3)(cid:86)(cid:76)(cid:71)(cid:72)(cid:3)(cid:72)(cid:73)(cid:73)(cid:72)(cid:70)(cid:87)(cid:86)(cid:17)(cid:3)(cid:44)(cid:81)(cid:3)(cid:71)(cid:72)(cid:70)(cid:79)(cid:68)(cid:85)(cid:68)(cid:87)(cid:76)(cid:89)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:15)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:76)(cid:86)(cid:3)(cid:71)(cid:72)(cid:86)(cid:76)(cid:74)(cid:81)(cid:72)(cid:71)(cid:3)
+
+to solve problems explaining what you want rather than stating how to solve the 
+problem as in primary programming languages. The program itself does not explain 
+how it is executed. This means the computer is provided only what the problem and 
+(cid:87)(cid:75)(cid:72)(cid:3)(cid:85)(cid:72)(cid:84)(cid:88)(cid:76)(cid:85)(cid:72)(cid:71)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:15)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:75)(cid:82)(cid:90)(cid:3)(cid:87)(cid:82)(cid:3)(cid:86)(cid:82)(cid:79)(cid:89)(cid:72)(cid:3)(cid:76)(cid:87)(cid:17)(cid:3)(cid:55)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:3)(cid:191)(cid:81)(cid:71)(cid:86)(cid:3)(cid:86)(cid:82)(cid:79)(cid:88)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3)(cid:85)(cid:72)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)
+
+to the given problem. This is completely different from procedural paradigms which 
+(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3)(cid:68)(cid:86)(cid:3)(cid:72)(cid:91)(cid:83)(cid:79)(cid:68)(cid:81)(cid:68)(cid:87)(cid:82)(cid:85)(cid:92)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:86)(cid:17)(cid:3)(cid:39)(cid:72)(cid:70)(cid:79)(cid:68)(cid:85)(cid:68)(cid:87)(cid:76)(cid:89)(cid:72)(cid:3)(cid:83)(cid:68)(cid:85)(cid:68)(cid:71)(cid:76)(cid:74)(cid:80)(cid:86)(cid:3)(cid:85)(cid:72)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:36)(cid:85)(cid:87)(cid:76)(cid:191)(cid:70)(cid:76)(cid:68)(cid:79)(cid:3)
+
+Intelligence.
+
+Important
+
+Procedural Paradigm
+
+Declarative Paradigm
+
+Saying how you achieve it
+
+Saying what you want
+
+C
+B
+A
+
+1. Keep block A                                            
+(cid:21)(cid:17)(cid:3)(cid:46)(cid:72)(cid:72)(cid:83)(cid:3)(cid:69)(cid:79)(cid:82)(cid:70)(cid:78)(cid:3)(cid:37)(cid:3)(cid:82)(cid:81)(cid:3)(cid:87)(cid:82)(cid:83)
+
+    of  block A
+3. Keep block C on top 
+(cid:3)(cid:3)(cid:3)(cid:3)(cid:82)(cid:73)(cid:3)(cid:69)(cid:79)(cid:82)(cid:70)(cid:78)(cid:3)(cid:37)
+
+C
+B
+A
+
+A pillar which 
+consists of 3 
+blocks
+
+Comparison of structured and object oriented paradigms
+
+A structured program is a logic based paradigm and it is the pre discussed 
+object oriented program. A structured programming paradigm provides facilities to 
+understand and modify the program. The system is divided into sub systems and 
+(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:87)(cid:82)(cid:83)(cid:3)(cid:177)(cid:3)(cid:71)(cid:82)(cid:90)(cid:81)(cid:3)(cid:192)(cid:82)(cid:90)(cid:3)(cid:76)(cid:81)(cid:3)(cid:76)(cid:87)(cid:17)
+
+Structured Program
+
+Informs the user to enter data
+
+Retrieves data entered by the user
+
+Data is processed
+
+User is given the output
+
+46
+
+For free distribution
+
+  
+The  Pascal  programming  has  the  structure  of  structured  programming  as 
+
+well.
+
+Object  oriented  programming  is  a 
+programming paradigm based on the concept 
+of objects.  Objects  consists  of  data  and 
+methods.  Methods  are  codes  that  are  in  the 
+form  of  procedures  that  handle  data. These
+(cid:71)(cid:68)(cid:87)(cid:68)(cid:3)(cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:88)(cid:85)(cid:72)(cid:86)(cid:3)(cid:72)(cid:91)(cid:76)(cid:86)(cid:87)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:73)(cid:82)(cid:85)(cid:80)(cid:3)(cid:82)(cid:73)(cid:3)(cid:191)(cid:72)(cid:79)(cid:71)(cid:86)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)
+
+Object 
+
+Property 
+
+Method 
+
+are called Attributes. Class is the basic structure of object oriented programming. 
+Class describes the behaviours of data and instances. Class can create objects of 
+same type.
+
+An object-oriented program consists of many objects and         
+
+interacting with each other by sending messages
+
+Library Information Systems
+
+Structured Approach
+Decompose by functions or processes
+
+Object Approach
+
+Decompose by objects or concepts
+
+System
+
+Record loans
+
+Add
+resources
+
+(cid:53)(cid:72)(cid:83)(cid:82)(cid:85)(cid:87)(cid:3)(cid:191)(cid:81)(cid:72)(cid:86)
+
+Catalog
+
+Librarian
+
+(cid:37)(cid:82)(cid:82)(cid:78)
+
+Library
+
+For free distribution
+
+47
+
+ 
+ 
+ 
+Class
+
+Dog
+
+Object
+
+Create Instance
+
+Tommy
+
+Property
+(Data)
+Color
+Eye Color
+Height
+Length
+Weight
+
+Methods
+(Code)
+Sitting
+Laying
+Shaking
+walking
+
+Methods
+Sitting
+Lying
+Shaking
+Walking 
+
+Property Values
+Color - Gray, 
+White and Black
+Eye Color - Blue 
+and Brown 
+Height - 18 Inches
+Length - 36 Inches
+Weight - 30 
+Pounds
+
+Procedural Languages
+
+Computation involves 
+code operating on Data
+
+Code (Methods)
+
+Data (Property)
+
+An object encapsulates 
+both code and data
+
+Code (Methods)
+
+Data (Property)
+
+Computation involves 
+objects interacting with 
+each other
+
+Object-Oriented Languages
+
+48
+
+For free distribution
+
+ 
+ 
+Activity
+
+(cid:38)(cid:82)(cid:81)(cid:86)(cid:76)(cid:71)(cid:72)(cid:85)(cid:3)(cid:38)(cid:68)(cid:85)(cid:3)(cid:68)(cid:86)(cid:3)(cid:70)(cid:79)(cid:68)(cid:86)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:73)(cid:92)(cid:3)(cid:76)(cid:87)(cid:86)(cid:3)(cid:82)(cid:69)(cid:77)(cid:72)(cid:70)(cid:87)(cid:86)(cid:15)(cid:3)(cid:83)(cid:85)(cid:82)(cid:83)(cid:72)(cid:85)(cid:87)(cid:76)(cid:72)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:80)(cid:72)(cid:87)(cid:75)(cid:82)(cid:71)(cid:86)(cid:17)
+
+Programming and scripting
+
+(cid:56)(cid:86)(cid:88)(cid:68)(cid:79)(cid:79)(cid:92)(cid:15)(cid:3) (cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:75)(cid:68)(cid:85)(cid:71)(cid:3) (cid:68)(cid:81)(cid:71)(cid:3) (cid:73)(cid:68)(cid:86)(cid:87)(cid:3) (cid:86)(cid:92)(cid:81)(cid:87)(cid:68)(cid:91)(cid:3) (cid:85)(cid:88)(cid:79)(cid:72)(cid:86)(cid:3) (cid:76)(cid:81)(cid:3) (cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:3) (cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:86)(cid:17)(cid:3)
+
+These  should  often  be  compiled.  Programming  languages  need  to  be  compiled. 
+(cid:41)(cid:88)(cid:85)(cid:87)(cid:75)(cid:72)(cid:85)(cid:15)(cid:3)(cid:86)(cid:70)(cid:85)(cid:76)(cid:83)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:86)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:85)(cid:83)(cid:85)(cid:72)(cid:87)(cid:72)(cid:71)(cid:17)(cid:3)
+
+(cid:37)(cid:82)(cid:87)(cid:75)(cid:3)(cid:45)(cid:68)(cid:89)(cid:68)(cid:54)(cid:70)(cid:85)(cid:76)(cid:83)(cid:87)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:51)(cid:43)(cid:51)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:86)(cid:70)(cid:85)(cid:76)(cid:83)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:86)(cid:17)
+
+Activity
+
+Compare  the  differences  between  the  programming  paradigms  given 
+below.
+(cid:120)
+(cid:120)
+(cid:120)
+
+Procedural vs Declarative
+Structured vs Object oriented
+Programming vs Scripting
+
+1.11.5  Language translators
+
+Programs  written  in  any  computer  language  except  in  machine  language 
+(cid:11)(cid:82)(cid:69)(cid:77)(cid:72)(cid:70)(cid:87)(cid:3) (cid:70)(cid:82)(cid:71)(cid:72)(cid:12)(cid:3) (cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3) (cid:69)(cid:72)(cid:3) (cid:87)(cid:85)(cid:68)(cid:81)(cid:86)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3) (cid:87)(cid:82)(cid:3) (cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:3) (cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:3) (cid:76)(cid:81)(cid:86)(cid:87)(cid:85)(cid:88)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:86)(cid:3) (cid:69)(cid:72)(cid:73)(cid:82)(cid:85)(cid:72)(cid:3)
+
+execution.
+
+A program written in Assembly language is translated to machine language 
+
+instructions using a language translator called Assembler.
+
+Two  language  translators  are  used  to  translate  a  program  written  in 
+
+high-level language to machine language instructions.
+
+1.  Interpreter
+2.  Compiler
+
+For free distribution
+
+49
+
+Interpreter
+
+This is the language translator which translates each statement written in a 
+high-level computer language to machine language commands one by one and the 
+translated program is executed using the necessary commands instantly.
+
+(cid:58)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:85)(cid:68)(cid:81)(cid:86)(cid:79)(cid:68)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:82)(cid:69)(cid:77)(cid:72)(cid:70)(cid:87)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:70)(cid:82)(cid:80)(cid:83)(cid:88)(cid:87)(cid:72)(cid:85)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:86)(cid:3)(cid:90)(cid:75)(cid:76)(cid:70)(cid:75)(cid:3)(cid:88)(cid:86)(cid:72)(cid:3)(cid:76)(cid:81)(cid:87)(cid:72)(cid:85)(cid:83)(cid:85)(cid:72)(cid:87)(cid:72)(cid:85)(cid:86)(cid:15)(cid:3)(cid:3)
+
+1.
+2.
+
+(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:81)(cid:82)(cid:3)(cid:86)(cid:92)(cid:81)(cid:87)(cid:68)(cid:91)(cid:3)(cid:72)(cid:85)(cid:85)(cid:82)(cid:85)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:86)(cid:87)(cid:72)(cid:80)(cid:72)(cid:81)(cid:87)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:69)(cid:72)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)
+(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:86)(cid:92)(cid:81)(cid:87)(cid:68)(cid:91)(cid:3)(cid:72)(cid:85)(cid:85)(cid:82)(cid:85)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:90)(cid:76)(cid:79)(cid:79)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:3)(cid:87)(cid:82)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:81)(cid:71)(cid:17)(cid:3)(cid:11)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)
+(cid:83)(cid:82)(cid:86)(cid:86)(cid:76)(cid:69)(cid:79)(cid:72)(cid:3)(cid:87)(cid:82)(cid:3)(cid:82)(cid:83)(cid:72)(cid:85)(cid:68)(cid:87)(cid:72)(cid:3)(cid:76)(cid:87)(cid:3)(cid:87)(cid:76)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:85)(cid:85)(cid:82)(cid:85)(cid:3)(cid:76)(cid:86)(cid:3)(cid:85)(cid:72)(cid:68)(cid:70)(cid:75)(cid:72)(cid:71)(cid:12)
+
+Important
+
+An interpreter translates code each time the program is executed.
+
+A program written in 
+high level language
+
+Interpreter
+
+Machine language 
+instructions
+
+Compiler
+
+(cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:3)(cid:68)(cid:86)(cid:3)(cid:68)(cid:3)(cid:90)(cid:75)(cid:82)(cid:79)(cid:72)(cid:15)(cid:3)(cid:69)(cid:72)(cid:73)(cid:82)(cid:85)(cid:72)(cid:3)(cid:76)(cid:87)(cid:3)(cid:70)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:17)
+
+Compiler translates the entire program written in a high level language to 
+
+A program written in 
+high level language
+
+Compiler
+
+Machine language 
+instructions
+
+When translating source code to machine code in computer languages which 
+
+use compilers.
+(cid:20)(cid:17)(cid:3) (cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:81)(cid:82)(cid:3)(cid:86)(cid:92)(cid:81)(cid:87)(cid:68)(cid:91)(cid:3)(cid:72)(cid:85)(cid:85)(cid:82)(cid:85)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:15)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:85)(cid:68)(cid:81)(cid:86)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:17)
+(cid:21)(cid:17)(cid:3) (cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:86)(cid:92)(cid:81)(cid:87)(cid:68)(cid:91)(cid:3)(cid:72)(cid:85)(cid:85)(cid:82)(cid:85)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:81)(cid:82)(cid:87)(cid:3)(cid:69)(cid:72)(cid:3)(cid:87)(cid:85)(cid:68)(cid:81)(cid:86)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:17)(cid:3)
+
+These errors are highlighted.
+
+Important
+
+(cid:36)(cid:73)(cid:87)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:76)(cid:86)(cid:3)(cid:87)(cid:85)(cid:68)(cid:81)(cid:86)(cid:79)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:80)(cid:68)(cid:70)(cid:75)(cid:76)(cid:81)(cid:72)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:3)(cid:82)(cid:81)(cid:70)(cid:72)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)
+
+execute any number of times. A translation is needed again only if 
+the source code is changed.
+
+50
+
+For free distribution
+
+ 
+Summary
+
+(cid:44)(cid:81)(cid:83)(cid:88)(cid:87)(cid:15)(cid:3)(cid:82)(cid:88)(cid:87)(cid:83)(cid:88)(cid:87)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:71)(cid:3)(cid:69)(cid:92)(cid:3)(cid:68)(cid:81)(cid:68)(cid:79)(cid:92)(cid:93)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:3)(cid:83)(cid:85)(cid:82)(cid:69)(cid:79)(cid:72)(cid:80)(cid:17)
+
+²
+² (cid:41)(cid:79)(cid:82)(cid:90)(cid:70)(cid:75)(cid:68)(cid:85)(cid:87)(cid:86)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:83)(cid:86)(cid:72)(cid:88)(cid:71)(cid:82)(cid:3)(cid:70)(cid:82)(cid:71)(cid:72)(cid:86)(cid:3)(cid:70)(cid:68)(cid:81)(cid:3)(cid:69)(cid:72)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:87)(cid:82)(cid:3)(cid:69)(cid:88)(cid:76)(cid:79)(cid:71)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:17)
+² (cid:55)(cid:75)(cid:72)(cid:3)(cid:69)(cid:68)(cid:86)(cid:76)(cid:70)(cid:3)(cid:86)(cid:72)(cid:84)(cid:88)(cid:72)(cid:81)(cid:70)(cid:72)(cid:3)(cid:88)(cid:86)(cid:72)(cid:71)(cid:3)(cid:76)(cid:81)(cid:3)(cid:90)(cid:85)(cid:76)(cid:87)(cid:76)(cid:81)(cid:74)(cid:3)(cid:68)(cid:81)(cid:92)(cid:3)(cid:86)(cid:72)(cid:84)(cid:88)(cid:72)(cid:81)(cid:70)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:86)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)
+² (cid:54)(cid:72)(cid:84)(cid:88)(cid:72)(cid:81)(cid:70)(cid:72)(cid:3)(cid:76)(cid:86)(cid:3)(cid:83)(cid:85)(cid:82)(cid:70)(cid:72)(cid:86)(cid:86)(cid:76)(cid:81)(cid:74)(cid:3)(cid:86)(cid:82)(cid:80)(cid:72)(cid:3)(cid:82)(cid:85)(cid:3)(cid:68)(cid:79)(cid:79)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:86)(cid:3)(cid:76)(cid:81)(cid:3)(cid:68)(cid:81)(cid:3)(cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3)(cid:82)(cid:81)(cid:72)(cid:3)(cid:68)(cid:73)(cid:87)(cid:72)(cid:85)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)
+
+(cid:82)(cid:87)(cid:75)(cid:72)(cid:85)(cid:3)(cid:73)(cid:85)(cid:82)(cid:80)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:69)(cid:72)(cid:74)(cid:76)(cid:81)(cid:81)(cid:76)(cid:81)(cid:74)(cid:3)(cid:87)(cid:82)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:72)(cid:81)(cid:71)(cid:17)
+
+² (cid:54)(cid:72)(cid:79)(cid:72)(cid:70)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:86)(cid:76)(cid:87)(cid:88)(cid:68)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:90)(cid:75)(cid:72)(cid:85)(cid:72)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:86)(cid:87)(cid:72)(cid:83)(cid:3)(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:3)(cid:86)(cid:75)(cid:82)(cid:88)(cid:79)(cid:71)(cid:3)(cid:69)(cid:72)(cid:3)(cid:71)(cid:72)(cid:70)(cid:76)(cid:71)(cid:72)(cid:71)(cid:3)(cid:71)(cid:72)(cid:83)(cid:72)(cid:81)(cid:71)(cid:76)(cid:81)(cid:74)(cid:3)
+
+(cid:82)(cid:81)(cid:3)(cid:68)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:69)(cid:72)(cid:76)(cid:81)(cid:74)(cid:3)(cid:73)(cid:88)(cid:79)(cid:191)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:82)(cid:85)(cid:3)(cid:81)(cid:82)(cid:87)(cid:17)
+
+²
+
+(cid:44)(cid:73)(cid:3) (cid:68)(cid:3) (cid:86)(cid:87)(cid:72)(cid:83)(cid:3) (cid:82)(cid:85)(cid:3) (cid:86)(cid:82)(cid:80)(cid:72)(cid:3) (cid:86)(cid:87)(cid:72)(cid:83)(cid:86)(cid:3) (cid:76)(cid:81)(cid:3) (cid:68)(cid:81)(cid:3) (cid:68)(cid:79)(cid:74)(cid:82)(cid:85)(cid:76)(cid:87)(cid:75)(cid:80)(cid:3) (cid:68)(cid:85)(cid:72)(cid:3) (cid:85)(cid:72)(cid:83)(cid:72)(cid:68)(cid:87)(cid:72)(cid:71)(cid:3) (cid:88)(cid:81)(cid:87)(cid:76)(cid:79)(cid:3) (cid:68)(cid:3) (cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3) (cid:76)(cid:86)(cid:3)
+(cid:73)(cid:88)(cid:79)(cid:191)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:82)(cid:85)(cid:3)(cid:87)(cid:82)(cid:3)(cid:80)(cid:68)(cid:76)(cid:81)(cid:87)(cid:68)(cid:76)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:70)(cid:82)(cid:81)(cid:71)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:3)(cid:69)(cid:72)(cid:76)(cid:81)(cid:74)(cid:3)(cid:73)(cid:88)(cid:79)(cid:191)(cid:79)(cid:79)(cid:72)(cid:71)(cid:15)(cid:3)(cid:76)(cid:87)(cid:3)(cid:76)(cid:86)(cid:3)(cid:70)(cid:68)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:85)(cid:72)(cid:83)(cid:72)(cid:87)(cid:76)(cid:87)(cid:76)(cid:82)(cid:81)(cid:17)
+² (cid:36)(cid:3) (cid:81)(cid:68)(cid:80)(cid:72)(cid:3) (cid:88)(cid:86)(cid:72)(cid:71)(cid:3) (cid:87)(cid:82)(cid:3) (cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:73)(cid:92)(cid:3) (cid:68)(cid:3) (cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:15)(cid:3) (cid:70)(cid:82)(cid:81)(cid:86)(cid:87)(cid:68)(cid:81)(cid:87)(cid:3) (cid:82)(cid:85)(cid:3) (cid:68)(cid:3) (cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3) (cid:76)(cid:86)(cid:3) (cid:70)(cid:68)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3) (cid:68)(cid:81)(cid:3)
+
+(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:17)
+
+²
+
+(cid:44)(cid:73)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:89)(cid:68)(cid:79)(cid:88)(cid:72)(cid:86)(cid:3)(cid:68)(cid:86)(cid:86)(cid:76)(cid:74)(cid:81)(cid:72)(cid:71)(cid:3)(cid:73)(cid:82)(cid:85)(cid:3)(cid:76)(cid:71)(cid:72)(cid:81)(cid:87)(cid:76)(cid:191)(cid:72)(cid:85)(cid:86)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:70)(cid:75)(cid:68)(cid:81)(cid:74)(cid:72)(cid:71)(cid:3)(cid:90)(cid:75)(cid:72)(cid:81)(cid:3)(cid:87)(cid:75)(cid:72)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:3)(cid:76)(cid:86)(cid:3)(cid:69)(cid:72)(cid:76)(cid:81)(cid:74)(cid:3)
+(cid:72)(cid:91)(cid:72)(cid:70)(cid:88)(cid:87)(cid:72)(cid:71)(cid:15)(cid:3)(cid:87)(cid:75)(cid:72)(cid:86)(cid:72)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:70)(cid:68)(cid:79)(cid:79)(cid:72)(cid:71)(cid:3)(cid:89)(cid:68)(cid:85)(cid:76)(cid:68)(cid:69)(cid:79)(cid:72)(cid:86)(cid:17)
+
+² (cid:51)(cid:68)(cid:86)(cid:70)(cid:68)(cid:79)(cid:3)(cid:76)(cid:86)(cid:3)(cid:68)(cid:3)(cid:75)(cid:76)(cid:74)(cid:75)(cid:3)(cid:79)(cid:72)(cid:89)(cid:72)(cid:79)(cid:3)(cid:83)(cid:85)(cid:82)(cid:74)(cid:85)(cid:68)(cid:80)(cid:80)(cid:76)(cid:81)(cid:74)(cid:3)(cid:79)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:17)
+
+For free distribution
+
+51
+
+²
+
+²
+
+Evaluation  of  an  expression  occurs  depending  on  the  priority  level  of 
+functions.
+
+Machine  language  and  Assembly  language  are  considered  low–level 
+programming languages.
+
+² (cid:47)(cid:68)(cid:81)(cid:74)(cid:88)(cid:68)(cid:74)(cid:72)(cid:86)(cid:3)(cid:79)(cid:76)(cid:78)(cid:72)(cid:3)(cid:51)(cid:36)(cid:54)(cid:38)(cid:36)(cid:47)(cid:15)(cid:3)(cid:37)(cid:36)(cid:54)(cid:44)(cid:38)(cid:15)(cid:3)(cid:38)(cid:3)(cid:68)(cid:81)(cid:71)(cid:3)(cid:45)(cid:36)(cid:57)(cid:36)(cid:3)(cid:68)(cid:85)(cid:72)(cid:3)(cid:72)(cid:91)(cid:68)(cid:80)(cid:83)(cid:79)(cid:72)(cid:86)(cid:3)(cid:82)(cid:73)(cid:3)(cid:75)(cid:76)(cid:74)(cid:75)(cid:177)(cid:79)(cid:72)(cid:89)(cid:72)(cid:79)(cid:3)
+
+²
+
+²
+
+²
+
+programming languages.
+
+A  program  written  using  Machine  language  can  be  directly  run  in  the 
+processor.
+
+A program written in any computer language except in Machine language 
+should be translated to Machine language instructions before it runs.
+
+Interpreter and Compiler are two translation programs.
+
+52
+
+For free distribution
+
+

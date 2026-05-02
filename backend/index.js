@@ -6,6 +6,7 @@ const authRoutes = require("./routes/authRoutes");
 const logRoutes = require("./routes/logRoutes");
 const reportRoutes = require("./routes/reportRoutes");
 const studentRoutes = require("./routes/studentRoutes");
+const teacherScriptRoutes = require("./routes/teacherScriptRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,15 @@ app.use("/api", authRoutes);
 app.use("/api", logRoutes);
 app.use("/api", reportRoutes);
 app.use("/api", studentRoutes);
+app.use("/api", teacherScriptRoutes);
+
+const bookmarkRoutes =
+  require("./routes/bookmarkRoutes");
+
+app.use(
+  "/api/bookmarks",
+  bookmarkRoutes
+);
 
 app.get("/", (req, res) => {
   res.json({ message: "VisionBridge API is running" });
