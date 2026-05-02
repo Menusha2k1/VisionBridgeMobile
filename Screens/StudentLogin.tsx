@@ -42,7 +42,7 @@ const PinLogin = ({ navigation }: Props) => {
     pinRef.current = pin;
   }, [pin]);
 
-  // --- CHECK EXISTING SESSION ---
+  // --- CHECK EXISTING SESSION (no auto-redirect) ---
   useEffect(() => {
     const checkSession = async () => {
       try {
@@ -50,20 +50,21 @@ const PinLogin = ({ navigation }: Props) => {
         if (sessionData) {
           const session = JSON.parse(sessionData);
           const now = Date.now();
-          if (now - session.loginTime < SESSION_DURATION) {
-            Speech.speak(`Welcome back ${session.student.name}`);
-            navigation.replace("Home");
-            return;
+          // If session expired, clear it. Otherwise we simply keep it so
+          // student can continue later, but we still stay on this screen
+          // to allow Teacher access before student login.
+          if (now - session.loginTime >= SESSION_DURATION) {
+            await AsyncStorage.removeItem(SESSION_KEY);
           }
-          await AsyncStorage.removeItem(SESSION_KEY);
         }
       } catch (e) {
         console.warn("Session check failed:", e);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
     checkSession();
-  }, [navigation]);
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -233,7 +234,7 @@ const PinLogin = ({ navigation }: Props) => {
   if (isLoading) return <View style={styles.container} />;
 
   return (
-    <View style={styles.container} {...panResponder.panHandlers}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>PIN Login</Text>
         <View style={styles.dotContainer}>
@@ -243,7 +244,7 @@ const PinLogin = ({ navigation }: Props) => {
         </View>
       </View>
 
-      <View style={styles.grid}>
+      <View style={styles.grid} {...panResponder.panHandlers}>
         {PAD.map((key) => (
           <View
             key={key}

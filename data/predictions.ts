@@ -1,5 +1,6 @@
 import { Asset } from "expo-asset";
 import * as FileSystem from "expo-file-system/legacy";
+import { Platform } from "react-native";
 import { parseCsv } from "../utils/csv";
 
 export type PredictionRow = {
@@ -54,11 +55,23 @@ async function readPredictionCsv(): Promise<string> {
   const asset = Asset.fromModule(require("../assets/model/student_predictions.csv"));
   await asset.downloadAsync();
 
-  if (!asset.localUri) {
+  // On native, use FileSystem to read the downloaded file.
+  // On web, FileSystem.readAsStringAsync isn't available, so fall back to fetch.
+  const uri = (asset as any).localUri ?? (asset as any).uri;
+
+  if (!uri) {
     throw new Error("Prediction CSV could not be loaded.");
   }
 
-  return FileSystem.readAsStringAsync(asset.localUri);
+  if (Platform.OS === "web") {
+    const response = await fetch(uri);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch prediction CSV: ${response.status}`);
+    }
+    return response.text();
+  }
+
+  return FileSystem.readAsStringAsync(uri);
 }
 
 function toNum(v: unknown): number {

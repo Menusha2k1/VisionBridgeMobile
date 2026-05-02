@@ -1,5 +1,6 @@
 import { Asset } from "expo-asset";
 import * as FileSystem from "expo-file-system/legacy";
+import { Platform } from "react-native";
 import { parseCsv } from "../utils/csv";
 
 export type Student = {
@@ -50,8 +51,19 @@ const assets = {
 async function readAssetText(assetModule: number): Promise<string> {
   const asset = Asset.fromModule(assetModule);
   await asset.downloadAsync();
-  if (!asset.localUri) throw new Error("Asset has no localUri");
-  return FileSystem.readAsStringAsync(asset.localUri);
+
+  const uri = (asset as any).localUri ?? (asset as any).uri;
+  if (!uri) throw new Error("Asset has no URI");
+
+  if (Platform.OS === "web") {
+    const response = await fetch(uri);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch asset text: ${response.status}`);
+    }
+    return response.text();
+  }
+
+  return FileSystem.readAsStringAsync(uri);
 }
 
 function toInt(v: string) {

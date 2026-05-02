@@ -1,4 +1,4 @@
-const API_BASE = "http://172.20.10.2:3000/api"; // Android emulator → localhost
+const API_BASE = "http://192.168.126.215:3000/api"; // Android emulator → localhost
 // Use your machine's IP (e.g. "http://192.168.1.x:3000/api") for physical device
 
 export const apiLogin = async (pin: string) => {
