@@ -1,7 +1,15 @@
 const Database = require("better-sqlite3");
 const path = require("path");
 
-const dbPath = path.join(__dirname, "visionbridge.db");
+// Create DB file in backend root folder
+const dbPath = path.join(
+  __dirname,
+  "..",
+  "visionbridge.db"
+);
+
+console.log("DB Path:", dbPath);
+
 const db = new Database(dbPath, {
   timeout: 5000,
 });
@@ -10,24 +18,53 @@ db.pragma("journal_mode = WAL");
 db.pragma("foreign_keys = ON");
 db.pragma("busy_timeout = 5000");
 
-// db.exec(`
-//   CREATE TABLE IF NOT EXISTS students (
-//     id INTEGER PRIMARY KEY AUTOINCREMENT,
-//     name TEXT NOT NULL,
-//     pin TEXT NOT NULL UNIQUE, -- PIN එක unique වීම වැදගත්
-//     grade TEXT NOT NULL
-//   );
 
-//   CREATE TABLE IF NOT EXISTS struggle_logs (
-//     id INTEGER PRIMARY KEY AUTOINCREMENT,
-//     student_id INTEGER NOT NULL,
-//     screen_name TEXT NOT NULL,
-//     user_path TEXT NOT NULL,
-//     prediction_label TEXT NOT NULL,
-//     timestamp TEXT DEFAULT (datetime('now', 'localtime')),
-//     FOREIGN KEY (student_id) REFERENCES students(id)
-//   );
-// `);
+// ==============================
+// MAIN SCRIPT TABLE
+// ==============================
+
+db.exec(`
+
+CREATE TABLE IF NOT EXISTS teacher_scripts (
+
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+  title TEXT NOT NULL,
+
+  source_filename TEXT,
+
+  script_text TEXT NOT NULL,
+
+  created_at TEXT DEFAULT
+  (datetime('now','localtime'))
+
+);
+
+`);
+
+
+// ==============================
+// PAGE RANGE HISTORY TABLE
+// ==============================
+
+db.exec(`
+
+CREATE TABLE IF NOT EXISTS page_range_history (
+
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+  source_filename TEXT,
+
+  start_page INTEGER,
+
+  end_page INTEGER,
+
+  created_at TEXT DEFAULT
+  (datetime('now','localtime'))
+
+);
+
+`);
 
 console.log("✅ Database connected and tables verified.");
 

@@ -20,6 +20,7 @@ type RootStackParamList = {
   Help: undefined;
   QuizList: { grade: string };
   StudentLogin: undefined;
+  TeacherLogin: undefined;
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
