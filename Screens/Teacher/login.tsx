@@ -36,9 +36,6 @@ const Login: React.FC<Props> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login Teacher</Text>
-      <Text style={styles.title}>Teacher Login</Text>
-
       <View style={styles.card}>
         <Text style={styles.title}>Teacher Login</Text>
         <Text style={styles.subtitle}>
@@ -72,9 +69,9 @@ const Login: React.FC<Props> = ({ navigation }) => {
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
-        <Text style={styles.hint}>
+        {/* <Text style={styles.hint}>
           Demo login: teacher@visionbridge.lk / 1234
-        </Text>
+        </Text> */}
       </View>
     </View>
   );

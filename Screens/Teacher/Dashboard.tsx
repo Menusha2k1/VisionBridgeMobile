@@ -30,6 +30,8 @@ type RootStackParamList = {
   TeacherWeakTopics: undefined;
   TeacherSettings: undefined;
   TeacherStudentsList: undefined;
+  UploadAssessment: undefined;
+  AssessmentListTeacher: undefined;
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "TeacherDashboard">;
@@ -122,6 +124,10 @@ export default function Dashboard({ navigation }: Props) {
                 <Button
                   title="Lesson Upload"
                   onPress={() => navigation.navigate("TeacherLessonUpload")}
+                />
+                <Button
+                  title="Upload Assessment"
+                  onPress={() => navigation.navigate("AssessmentListTeacher")}
                 />
                 <Button
                   title="Students Registration"

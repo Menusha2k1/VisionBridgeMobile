@@ -13,5 +13,6 @@ router.post(
 
 router.get("/", assessmentController.getAssessments);
 router.get("/:id", assessmentController.getAssessmentById);
+router.delete("/:id", assessmentController.deleteAssessment);
 
 module.exports = router;
