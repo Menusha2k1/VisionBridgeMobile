@@ -13,6 +13,11 @@ import { RootStackParamList } from "../App";
 import * as Haptics from "expo-haptics";
 import * as Speech from "expo-speech";
 import { Audio } from "expo-av";
+import useStrugglePredictor from "../Hooks/useStrugglePredictor";
+import { useSpeechSettings } from "../Context/SpeechContext";
+import { apiSaveLog } from "../Services/api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { API_BASE_URL } from "../Services/apiConfig";
 
 // ─── Interfaces ─────────────────────────────────────────
 interface GateData {
@@ -43,7 +48,7 @@ interface AssessmentDetail {
 
 type AssessmentsRouteProp = RouteProp<RootStackParamList, "Assessments">;
 
-const { height: SCREEN_H, width: SCREEN_W } = Dimensions.get("window");
+const { height: SCREEN_H } = Dimensions.get("window");
 const SCROLL_ZONE = 150;
 const SCROLL_SPEED = 10;
 const SWIPE_LEFT_THRESHOLD = -120;
@@ -68,6 +73,21 @@ const Assessments: React.FC<{ route: AssessmentsRouteProp }> = ({ route }) => {
   const scrollDirection = useRef<"up" | "down" | null>(null);
   const contentHeight = useRef(0);
 
+  // Struggle detection
+  const { predict } = useStrugglePredictor();
+  const { globalRate, setGlobalRate } = useSpeechSettings();
+  const gestureHistory = useRef<string[]>([]);
+  const studentIdRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    AsyncStorage.getItem("student_session").then((data) => {
+      if (data) {
+        const session = JSON.parse(data);
+        studentIdRef.current = session.student.id;
+      }
+    });
+  }, []);
+
   useEffect(() => {
     dataRef.current = data;
   }, [data]);
@@ -87,17 +107,12 @@ const Assessments: React.FC<{ route: AssessmentsRouteProp }> = ({ route }) => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://172.20.10.2:3000/api/assessments/${id}`)
+    fetch(`${API_BASE_URL}/assessments/${id}`)
       .then((res) => res.json())
       .then((json: AssessmentDetail) => {
         setData(json);
         setLoading(false);
-
-        const count =
-          json.assessment_type === "Logic Gates"
-            ? (json.gate_data?.length ?? 0)
-            : (json.table_data?.rows.length ?? 0);
-
+        Speech.stop();
         Speech.speak(
           `${json.assessment_type} assessment loaded. ${json.title}. ${json.summary}. Slide your finger to explore.`,
           { rate: 0.8 },
@@ -123,7 +138,7 @@ const Assessments: React.FC<{ route: AssessmentsRouteProp }> = ({ route }) => {
         setActiveKey(key);
         playFeedback();
         Speech.stop();
-        Speech.speak(text, { rate: 0.8 });
+        Speech.speak(text, { rate: 0.9 });
       }
     },
     [playFeedback],
@@ -218,6 +233,25 @@ const Assessments: React.FC<{ route: AssessmentsRouteProp }> = ({ route }) => {
         if (s.moveY > SCREEN_H - SCROLL_ZONE) startAutoScroll("down");
         else if (s.moveY < SCROLL_ZONE) startAutoScroll("up");
         else stopAutoScroll();
+
+        // Struggle gesture tracking
+        const { vx, vy } = s;
+        if (Math.abs(vx) > 0.1 || Math.abs(vy) > 0.1) {
+          const dir =
+            Math.abs(vx) > Math.abs(vy)
+              ? vx > 0
+                ? "R"
+                : "L"
+              : vy > 0
+                ? "D"
+                : "U";
+          if (
+            gestureHistory.current[gestureHistory.current.length - 1] !== dir
+          ) {
+            gestureHistory.current.push(dir);
+          }
+        }
+
         checkHit(s.moveX, s.moveY);
       },
       onPanResponderRelease: (_, s) => {
@@ -227,6 +261,35 @@ const Assessments: React.FC<{ route: AssessmentsRouteProp }> = ({ route }) => {
           Speech.speak("Going back.");
           navigation.goBack();
         }
+
+        // --- AI STRUGGLE PREDICTION ---
+        if (gestureHistory.current.length > 2) {
+          const userPath = gestureHistory.current.join("");
+          const prediction = predict(userPath, "D");
+
+          if (prediction.predictedIndex === 0) {
+            setGlobalRate(1.2);
+          } else if (prediction.predictedIndex === 2) {
+            setGlobalRate(0.8);
+            Speech.stop();
+            Speech.speak(
+              "It looks like you're having trouble. Try sliding your finger slowly downwards to explore the assessment. Double tap to open one.",
+              { rate: 0.8 },
+            );
+
+            if (studentIdRef.current) {
+              apiSaveLog({
+                student_id: studentIdRef.current,
+                screen_name: "Assessments",
+                user_path: userPath,
+                prediction_label: prediction.label,
+              }).catch((err) =>
+                console.warn("Failed to save struggle log:", err),
+              );
+            }
+          }
+        }
+        gestureHistory.current = [];
       },
     }),
   ).current;

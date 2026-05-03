@@ -1,7 +1,10 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const db = require("../db/connection");
 
-const genAI = new GoogleGenerativeAI("AIzaSyCZgO8Sb7HVbzmrqhPt9FfIG3s3_GI1Q8A");
+const genAI = new GoogleGenerativeAI(
+  "VisionBridgeMobile",
+  process.env.ASSESSMENT_GEMINI_API_KEY,
+);
 
 // 1. GET ALL
 exports.getAssessments = (req, res) => {
@@ -38,7 +41,9 @@ exports.uploadAssessment = async (req, res) => {
     const { title, assessment_type } = req.body;
     if (!req.file) return res.status(400).send("No image provided.");
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.5-flash",
+    });
 
     const prompt = `
       Analyze this image. It is either a "Logic Gate Circuit" or a "Truth Table".
@@ -73,16 +78,26 @@ exports.uploadAssessment = async (req, res) => {
       },
     ]);
 
-    const aiData = JSON.parse(
-      result.response
-        .text()
-        .replace(/```json|```/g, "")
-        .trim(),
-    );
+    const responseText = result.response.text();
 
-    const stmt = db.prepare(
-      `INSERT INTO assessments (title, assessment_type, summary, gate_data, table_data, final_output) VALUES (?, ?, ?, ?, ?, ?)`,
-    );
+    let aiData;
+    try {
+      // Extract the first JSON object from the response text
+      const match = responseText.match(/{[\s\S]*}/);
+      if (!match) throw new Error("No JSON object found in AI response.");
+      aiData = JSON.parse(match[0]);
+    } catch (parseError) {
+      console.error("AI JSON Parse Error:", parseError);
+      console.log("Raw text from AI:", responseText);
+      return res
+        .status(500)
+        .json({ error: "AI returned invalid data format." });
+    }
+
+    const stmt = db.prepare(`
+      INSERT INTO assessments (title, assessment_type, summary, gate_data, table_data, final_output) 
+      VALUES (?, ?, ?, ?, ?, ?)
+    `);
 
     const info = stmt.run(
       title || "Untitled",
@@ -97,5 +112,18 @@ exports.uploadAssessment = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Server Error: " + error.message);
+  }
+};
+
+// 4. DELETE
+exports.deleteAssessment = (req, res) => {
+  try {
+    const stmt = db.prepare("DELETE FROM assessments WHERE id = ?");
+    const result = stmt.run(req.params.id);
+    if (result.changes === 0)
+      return res.status(404).send("Assessment not found");
+    res.json({ message: "Deleted successfully" });
+  } catch (err) {
+    res.status(500).send(err.message);
   }
 };
