@@ -1,7 +1,10 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const db = require("../db/connection");
 
-const genAI = new GoogleGenerativeAI("AIzaSyAupyk6Mjd3jeXKZvtuFgdTATYLhEqgcMw");
+const genAI = new GoogleGenerativeAI(
+  "VisionBridgeMobile",
+  process.env.ASSESSMENT_GEMINI_API_KEY,
+);
 
 // 1. GET ALL
 exports.getAssessments = (req, res) => {
@@ -79,8 +82,10 @@ exports.uploadAssessment = async (req, res) => {
 
     let aiData;
     try {
-      const cleanedJsonString = responseText.replace(/```json|```/g, "").trim();
-      aiData = JSON.parse(cleanedJsonString);
+      // Extract the first JSON object from the response text
+      const match = responseText.match(/{[\s\S]*}/);
+      if (!match) throw new Error("No JSON object found in AI response.");
+      aiData = JSON.parse(match[0]);
     } catch (parseError) {
       console.error("AI JSON Parse Error:", parseError);
       console.log("Raw text from AI:", responseText);

@@ -41,6 +41,9 @@ yarn-error.*
 /android
 package-lock.json
 
+# Ignore environment variable files
+.env
+
 # SQLite temporary files
 backend/db/*.db-shm
 backend/db/*.db-wal
