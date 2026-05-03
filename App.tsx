@@ -1,3 +1,4 @@
+// import "react-native-gesture-handler";
 // import "./utils/"; // MUST BE THE FIRST LINE
 
 import React from "react";
@@ -38,8 +39,7 @@ import AssessmentList from "./Screens/AssessmentList";
 import TeacherStudentsList from "./Screens/Teacher/StudentsList";
 import AssesmentUpload from "./Screens/Teacher/AssesmentUpload";
 import AssessmentListTeacher from "./Screens/Teacher/AssessmentListTeacher";
-import LessonQuizScreen from "./Screens/screens/LessonQuizScreen";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+// import LessonQuizScreen from "./Screens/screens/LessonQuizScreen";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -159,11 +159,11 @@ export default function App() {
             component={AssessmentListTeacher}
             options={{ title: "Assessment List" }}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="LessonQuiz"
             component={LessonQuizScreen}
             options={{ title: "Lesson Quiz" }}
-          />
+          /> */}
 
           {/* <Stack.Screen name="Quiz" component={Quiz} /> */}
         </Stack.Navigator>
