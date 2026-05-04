@@ -39,3 +39,14 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+package-lock.json
+
+# Ignore environment variable files
+.env
+
+# SQLite temporary files
+backend/db/*.db-shm
+backend/db/*.db-wal
+
+backend/db/*.db-journal

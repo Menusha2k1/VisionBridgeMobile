@@ -93,10 +93,6 @@ export default function Students({ navigation }: Props) {
 
       <View style={styles.body}>
         <Card title="Actions">
-          <Button
-            title="Register Student"
-            onPress={() => navigation.navigate("TeacherStudentRegistration")}
-          />
           <View style={{ height: 10 }} />
           <Button
             title="View Weak Topics"

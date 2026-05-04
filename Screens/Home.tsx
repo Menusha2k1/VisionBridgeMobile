@@ -73,10 +73,9 @@ export default function Home({ navigation }: Props) {
 
   useFocusEffect(
     useCallback(() => {
-      // Pro ද නැද්ද බලලා commands තෝරනවා
       const isPro = globalRate > 1.0;
       const message = isPro ? "Main Menu." : commands.Home.welcome;
-
+      Speech.stop();
       Speech.speak(message, {
         rate: globalRate,
         pitch: 1,
@@ -122,7 +121,9 @@ export default function Home({ navigation }: Props) {
     const destination = focused.current;
     if (destination === "Lessons") navigation.navigate("Grades");
     else if (destination === "Quizes")
-      navigation.navigate("QuizList", { grade: "Grade 10" });
+      navigation.navigate("LessonQuiz" as any);
+    else if (destination === "Assessments")
+      navigation.navigate("AssessmentList" as any);
     else if (destination === "Logout") {
       haddleLogout();
     } else navigation.navigate(destination as any);
@@ -212,7 +213,7 @@ export default function Home({ navigation }: Props) {
         // --- AI STRUGGLE PREDICTION (Gestures) ---
         if (gestureHistory.current.length > 2) {
           const userPath = gestureHistory.current.join("");
-          const prediction = predict(userPath, "D");
+          const prediction = predict(userPath, "DUTT");
 
           if (prediction.predictedIndex === 0) {
             setGlobalRate(1.2);
