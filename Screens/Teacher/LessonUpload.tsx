@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { View, Text, StyleSheet, Alert, TextInput, Platform, ScrollView } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { View, Text, StyleSheet, Alert, TextInput, Platform, ScrollView, Modal, TouchableOpacity, FlatList } from "react-native";
 import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system/legacy";
 import Screen from "./components/layout/Screen";
@@ -30,6 +31,12 @@ export default function LessonUpload() {
   const [savedScripts, setSavedScripts] = useState<
     { id: number; title: string; source_filename?: string | null; created_at: string }[]
   >([]);
+
+  // ⭐ BOOKMARK STATES
+  const [fileBookmarks, setFileBookmarks] = useState<any[]>([]);
+  const [allBookmarks, setAllBookmarks] = useState<any[]>([]);
+  const [showAllModal, setShowAllModal] = useState(false);
+  const [bookmarking, setBookmarking] = useState(false);
 
   const sizeLabel = useMemo(() => {
     if (!file?.size) return "Unknown size";
@@ -63,6 +70,111 @@ export default function LessonUpload() {
       mimeType: f.mimeType,
       webFile: f.file,
     });
+
+    // Fetch bookmarks for this new file
+    fetchFileBookmarks(f.name);
+  };
+
+  const fetchFileBookmarks = async (filename: string) => {
+    try {
+      const res = await fetch(`${baseUrl}/api/bookmarks/${encodeURIComponent(filename)}`);
+      if (res.ok) {
+        const json = await res.json();
+        const list = json.bookmarks || [];
+        setFileBookmarks(list);
+        // Cache locally
+        await AsyncStorage.setItem(`bookmarks_${filename}`, JSON.stringify(list));
+      } else {
+        throw new Error("Backend unavailable");
+      }
+    } catch (err) {
+      console.log("Fetch failed, trying local cache...");
+      const cached = await AsyncStorage.getItem(`bookmarks_${filename}`);
+      if (cached) {
+        setFileBookmarks(JSON.parse(cached));
+      }
+    }
+  };
+
+  const fetchAllBookmarks = async () => {
+    try {
+      const res = await fetch(`${baseUrl}/api/bookmarks/all`);
+      if (res.ok) {
+        const json = await res.json();
+        const list = json.bookmarks || [];
+        setAllBookmarks(list);
+        setShowAllModal(true);
+        // Cache locally
+        await AsyncStorage.setItem('all_bookmarks', JSON.stringify(list));
+      } else {
+        throw new Error("Backend unavailable");
+      }
+    } catch (err) {
+      console.log("Fetch all failed, trying local cache...");
+      const cached = await AsyncStorage.getItem('all_bookmarks');
+      if (cached) {
+        setAllBookmarks(JSON.parse(cached));
+        setShowAllModal(true);
+      } else {
+        Alert.alert("Offline", "No bookmarked scripts found in local cache.");
+      }
+    }
+  };
+
+  const handleSaveBookmark = async () => {
+    if (!scriptText || !file) return;
+
+    setBookmarking(true);
+    try {
+      const res = await fetch(`${baseUrl}/api/bookmarks`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sourceFilename: file.name,
+          startPage,
+          endPage,
+          scriptText,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to save bookmark");
+
+      const json = await res.json();
+      const newBookmark = {
+        id: json.id,
+        source_filename: file.name,
+        start_page,
+        end_page,
+        script_text,
+        created_at: new Date().toISOString()
+      };
+
+      // Update local file cache
+      const updatedFileCache = [newBookmark, ...fileBookmarks];
+      setFileBookmarks(updatedFileCache);
+      await AsyncStorage.setItem(`bookmarks_${file.name}`, JSON.stringify(updatedFileCache));
+
+      // Update global cache if it exists
+      const globalCached = await AsyncStorage.getItem('all_bookmarks');
+      if (globalCached) {
+        const parsed = JSON.parse(globalCached);
+        await AsyncStorage.setItem('all_bookmarks', JSON.stringify([newBookmark, ...parsed]));
+      }
+
+      Alert.alert("Success", "Bookmark saved!");
+    } catch (err: any) {
+      Alert.alert("Error", err.message);
+    } finally {
+      setBookmarking(false);
+    }
+  };
+
+  const loadBookmark = (b: any) => {
+    setStartPage(b.start_page);
+    setEndPage(b.end_page);
+    setScriptText(b.script_text);
+    setIsEditing(false);
+    setShowAllModal(false);
   };
 
   const refreshSavedScripts = async () => {
@@ -230,10 +342,20 @@ export default function LessonUpload() {
 
         <Card title="Select Lesson File">
 
-          <Button
-            title="Choose File"
-            onPress={pickFile}
-          />
+          <View style={styles.topButtons}>
+            <View style={{ flex: 1 }}>
+              <Button
+                title="Choose File"
+                onPress={pickFile}
+              />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Button
+                title="Bookmarked scripts"
+                onPress={fetchAllBookmarks}
+              />
+            </View>
+          </View>
 
           <View style={styles.fileBox}>
 
@@ -254,6 +376,24 @@ export default function LessonUpload() {
             </Text>
 
           </View>
+
+          {/* ⭐ FILE BOOKMARKS SECTION */}
+          {fileBookmarks.length > 0 && (
+            <View style={styles.bookmarkSection}>
+              <Text style={styles.bookmarkTitle}>Bookmarked Scripts for this file:</Text>
+              {fileBookmarks.map((b) => (
+                <TouchableOpacity
+                  key={b.id}
+                  style={styles.bookmarkItem}
+                  onPress={() => loadBookmark(b)}
+                >
+                  <Text style={styles.bookmarkItemText}>
+                    Bookmark {fileBookmarks.indexOf(b) + 1} (Pages {b.start_page}-{b.end_page})
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
 
           {/* ⭐ PAGE RANGE INPUTS */}
 
@@ -338,6 +478,11 @@ export default function LessonUpload() {
                   }
                 />
 
+                <Button
+                  title={bookmarking ? "Saving..." : "Bookmark Script"}
+                  onPress={handleSaveBookmark}
+                />
+
               </View>
 
             </View>
@@ -347,6 +492,39 @@ export default function LessonUpload() {
         </Card>
 
       </ScrollView>
+
+      {/* ⭐ ALL BOOKMARKS MODAL */}
+      <Modal
+        visible={showAllModal}
+        animationType="slide"
+        transparent={false}
+      >
+        <Screen>
+          <PageHeader
+            title="All Bookmarked Scripts"
+          />
+          <ScrollView contentContainerStyle={styles.body}>
+            {allBookmarks.length === 0 ? (
+              <Text style={{ textAlign: 'center', marginTop: 20 }}>No bookmarks found.</Text>
+            ) : (
+              allBookmarks.map((b) => (
+                <Card key={b.id} title={b.source_filename || 'Unknown File'}>
+                  <Button
+                    title={`Load Pages ${b.start_page}-${b.end_page}`}
+                    onPress={() => loadBookmark(b)}
+                  />
+                </Card>
+              ))
+            )}
+            <View style={{ marginTop: 20 }}>
+              <Button
+                title="Close"
+                onPress={() => setShowAllModal(false)}
+              />
+            </View>
+          </ScrollView>
+        </Screen>
+      </Modal>
 
     </Screen>
 
@@ -400,7 +578,42 @@ const styles = StyleSheet.create({
   saveRow: {
     flexDirection: "row",
     gap: 10,
-    marginTop: 10
+    marginTop: 10,
+    flexWrap: "wrap"
+  },
+
+  topButtons: {
+    flexDirection: "row",
+    gap: 10,
+    marginBottom: 10
+  },
+
+  bookmarkSection: {
+    backgroundColor: "#f0f7ff",
+    padding: 10,
+    borderRadius: 8,
+    marginVertical: 10,
+    borderWidth: 1,
+    borderColor: "#cce4ff"
+  },
+
+  bookmarkTitle: {
+    fontWeight: "bold",
+    marginBottom: 8,
+    fontSize: 14
+  },
+
+  bookmarkItem: {
+    backgroundColor: "#2196F3",
+    padding: 12,
+    borderRadius: 6,
+    marginBottom: 6,
+    alignItems: "center"
+  },
+
+  bookmarkItemText: {
+    color: "white",
+    fontWeight: "600"
   }
 
 });

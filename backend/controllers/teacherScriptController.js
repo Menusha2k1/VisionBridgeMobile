@@ -240,3 +240,97 @@ exports.listTeacherScripts = (req, res) => {
   }
 
 };
+
+
+// ==============================
+// BOOKMARK SCRIPT
+// ==============================
+
+exports.bookmarkScript = (req, res) => {
+  try {
+    const { sourceFilename, startPage, endPage, scriptText } = req.body;
+
+    if (!scriptText) {
+      return res.status(400).json({ error: "Script text is required" });
+    }
+
+    const stmt = db.prepare(
+      `INSERT INTO bookmarks 
+       (source_filename, start_page, end_page, script_text) 
+       VALUES (?, ?, ?, ?)`
+    );
+
+    const result = stmt.run(
+      sourceFilename || null,
+      startPage || null,
+      endPage || null,
+      scriptText
+    );
+
+    res.json({
+      status: "success",
+      id: result.lastInsertRowid,
+      message: "Bookmark saved successfully",
+    });
+  } catch (error) {
+    console.error("Bookmark error:", error.message);
+    res.status(500).json({ error: "Failed to bookmark script" });
+  }
+};
+
+// ==============================
+// GET BOOKMARKS BY FILE
+// ==============================
+
+exports.getBookmarksByFile = (req, res) => {
+  try {
+    const { filename } = req.params;
+
+    const rows = db.prepare(
+      `SELECT * FROM bookmarks 
+       WHERE source_filename = ? 
+       ORDER BY id DESC`
+    ).all(filename);
+
+    res.json({ bookmarks: rows });
+  } catch (error) {
+    console.error("Fetch bookmarks error:", error);
+    res.status(500).json({ error: "Failed to fetch bookmarks", details: error.message });
+  }
+};
+
+// ==============================
+// GET ALL BOOKMARKS
+// ==============================
+
+exports.getAllBookmarks = (req, res) => {
+  try {
+    const rows = db.prepare(
+      `SELECT * FROM bookmarks 
+       ORDER BY created_at DESC`
+    ).all();
+
+    res.json({ bookmarks: rows });
+  } catch (error) {
+    console.error("Fetch all bookmarks error:", error.message);
+    res.status(500).json({ error: "Failed to fetch all bookmarks" });
+  }
+};
+
+// ==============================
+// DELETE BOOKMARK
+// ==============================
+
+exports.deleteBookmark = (req, res) => {
+  try {
+    const bookmarkId = req.params.id;
+
+    const stmt = db.prepare("DELETE FROM bookmarks WHERE id = ?");
+    stmt.run(bookmarkId);
+
+    res.json({ status: "success", message: "Bookmark deleted" });
+  } catch (error) {
+    console.error("Delete bookmark error:", error.message);
+    res.status(500).json({ error: "Failed to delete bookmark" });
+  }
+};

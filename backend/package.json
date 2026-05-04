@@ -7,6 +7,7 @@
     "init-db": "node db/init.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "better-sqlite3": "^11.0.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",

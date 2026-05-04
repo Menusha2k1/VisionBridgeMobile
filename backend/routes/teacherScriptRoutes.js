@@ -80,4 +80,27 @@ router.get(
 
 );
 
+
+// Bookmark routes
+router.post(
+  "/bookmarks",
+  teacherScriptController.bookmarkScript
+);
+
+router.get(
+  "/bookmarks/all",
+  teacherScriptController.getAllBookmarks
+);
+
+router.get(
+  "/bookmarks/:filename",
+  teacherScriptController.getBookmarksByFile
+);
+
+router.delete(
+  "/bookmarks/:id",
+  teacherScriptController.deleteBookmark
+);
+
+
 module.exports = router;

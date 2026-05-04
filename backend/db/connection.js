@@ -35,6 +35,10 @@ CREATE TABLE IF NOT EXISTS teacher_scripts (
 
   script_text TEXT NOT NULL,
 
+  start_page INTEGER,
+
+  end_page INTEGER,
+
   created_at TEXT DEFAULT
   (datetime('now','localtime'))
 
@@ -65,6 +69,32 @@ CREATE TABLE IF NOT EXISTS page_range_history (
 );
 
 `);
+
+// ==============================
+// BOOKMARKS TABLE
+// ==============================
+
+db.exec(`
+
+CREATE TABLE IF NOT EXISTS bookmarks (
+
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+  source_filename TEXT,
+
+  start_page INTEGER,
+
+  end_page INTEGER,
+
+  script_text TEXT NOT NULL,
+
+  created_at TEXT DEFAULT
+  (datetime('now','localtime'))
+
+);
+
+`);
+
 
 console.log("✅ Database connected and tables verified.");
 
