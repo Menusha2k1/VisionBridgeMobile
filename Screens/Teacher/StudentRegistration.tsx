@@ -25,6 +25,11 @@ type Props = NativeStackScreenProps<
   "TeacherStudentRegistration"
 >;
 
+const GRADE_OPTIONS = [
+  "10",
+  "11",
+];
+
 const IMPAIRMENT_OPTIONS = [
   "Total Blindness",
   "Low Vision",
@@ -32,10 +37,11 @@ const IMPAIRMENT_OPTIONS = [
 
 export default function StudentRegistration({ navigation }: Props) {
   const [name, setName] = useState("");
-  const [grade, setGrade] = useState("10");
+  const [grade, setGrade] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [impairmentType, setImpairmentType] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [dropdownType, setDropdownType] = useState<"grade" | "impairment" | null>(null);
 
   const submit = async () => {
     if (!name.trim()) {
@@ -78,17 +84,29 @@ export default function StudentRegistration({ navigation }: Props) {
           />
 
           <Text style={styles.label}>Grade</Text>
-          <TextInput
+          <TouchableOpacity
             style={styles.input}
-            value={grade}
-            onChangeText={setGrade}
-            placeholder="10 or 11"
-          />
+            onPress={() => {
+              setDropdownType("grade");
+              setDropdownVisible(true);
+            }}
+          >
+            <Text
+              style={
+                grade ? styles.selectedText : styles.placeholderText
+              }
+            >
+              {grade || "Select grade"}
+            </Text>
+          </TouchableOpacity>
 
           <Text style={styles.label}>Impairment Type</Text>
           <TouchableOpacity
             style={styles.input}
-            onPress={() => setDropdownVisible(true)}
+            onPress={() => {
+              setDropdownType("impairment");
+              setDropdownVisible(true);
+            }}
           >
             <Text
               style={
@@ -111,25 +129,34 @@ export default function StudentRegistration({ navigation }: Props) {
               onPress={() => setDropdownVisible(false)}
             >
               <View style={styles.dropdown}>
-                <Text style={styles.dropdownTitle}>Select Impairment Type</Text>
+                <Text style={styles.dropdownTitle}>
+                  {dropdownType === "grade" ? "Select Grade" : "Select Impairment Type"}
+                </Text>
                 <FlatList
-                  data={IMPAIRMENT_OPTIONS}
+                  data={dropdownType === "grade" ? GRADE_OPTIONS : IMPAIRMENT_OPTIONS}
                   keyExtractor={(item) => item}
                   renderItem={({ item }) => (
                     <TouchableOpacity
                       style={[
                         styles.dropdownItem,
-                        item === impairmentType && styles.dropdownItemSelected,
+                        ((dropdownType === "grade" && item === grade) ||
+                          (dropdownType === "impairment" && item === impairmentType)) &&
+                          styles.dropdownItemSelected,
                       ]}
                       onPress={() => {
-                        setImpairmentType(item);
+                        if (dropdownType === "grade") {
+                          setGrade(item);
+                        } else {
+                          setImpairmentType(item);
+                        }
                         setDropdownVisible(false);
                       }}
                     >
                       <Text
                         style={[
                           styles.dropdownItemText,
-                          item === impairmentType &&
+                          ((dropdownType === "grade" && item === grade) ||
+                            (dropdownType === "impairment" && item === impairmentType)) &&
                             styles.dropdownItemTextSelected,
                         ]}
                       >

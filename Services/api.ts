@@ -14,6 +14,39 @@ export const apiLogin = async (pin: string) => {
   return data.student; // { id, name, grade }
 };
 
+export const apiTeacherRegister = async (teacher: {
+  name: string;
+  email: string;
+  password: string;
+}) => {
+  const response = await fetch(`${API_BASE}/teachers/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(teacher),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error || "Failed to register teacher");
+  }
+  return data.teacher;
+};
+
+export const apiTeacherLogin = async (credentials: {
+  email: string;
+  password: string;
+}) => {
+  const response = await fetch(`${API_BASE}/teachers/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(credentials),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error || "Login failed");
+  }
+  return data.teacher;
+};
+
 export const apiSaveLog = async (log: {
   student_id: number;
   screen_name: string;

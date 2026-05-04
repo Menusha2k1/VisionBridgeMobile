@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "",
+    "name": "VisionBridgeMobile",
     "slug": "vision",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.thinusha.vision"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,8 +24,7 @@
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.anonymous.vision",
-        "usesCleartextTraffic": true
-
+      "usesCleartextTraffic": true
     },
     "web": {
       "favicon": "./assets/favicon.png"

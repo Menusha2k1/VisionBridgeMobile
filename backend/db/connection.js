@@ -10,24 +10,34 @@ db.pragma("journal_mode = WAL");
 db.pragma("foreign_keys = ON");
 db.pragma("busy_timeout = 5000");
 
-// db.exec(`
-//   CREATE TABLE IF NOT EXISTS students (
-//     id INTEGER PRIMARY KEY AUTOINCREMENT,
-//     name TEXT NOT NULL,
-//     pin TEXT NOT NULL UNIQUE, -- PIN එක unique වීම වැදගත්
-//     grade TEXT NOT NULL
-//   );
+db.exec(`
+  CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    pin TEXT NOT NULL UNIQUE,
+    grade TEXT NOT NULL,
+    phone_number TEXT,
+    impairment_type TEXT
+  );
 
-//   CREATE TABLE IF NOT EXISTS struggle_logs (
-//     id INTEGER PRIMARY KEY AUTOINCREMENT,
-//     student_id INTEGER NOT NULL,
-//     screen_name TEXT NOT NULL,
-//     user_path TEXT NOT NULL,
-//     prediction_label TEXT NOT NULL,
-//     timestamp TEXT DEFAULT (datetime('now', 'localtime')),
-//     FOREIGN KEY (student_id) REFERENCES students(id)
-//   );
-// `);
+  CREATE TABLE IF NOT EXISTS struggle_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER NOT NULL,
+    screen_name TEXT NOT NULL,
+    user_path TEXT NOT NULL,
+    prediction_label TEXT NOT NULL,
+    timestamp TEXT DEFAULT (datetime('now', 'localtime')),
+    FOREIGN KEY (student_id) REFERENCES students(id)
+  );
+
+  CREATE TABLE IF NOT EXISTS teachers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    role TEXT DEFAULT 'teacher'
+  );
+`);
 
 console.log("✅ Database connected and tables verified.");
 

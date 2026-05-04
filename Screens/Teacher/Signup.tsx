@@ -6,45 +6,67 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  ScrollView,
 } from "react-native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { apiTeacherLogin } from "../../Services/api";
+import { apiTeacherRegister } from "../../Services/api";
 import type { RootStackParamList } from "../../App";
 
-type Props = NativeStackScreenProps<RootStackParamList, "TeacherLogin">;
+type Props = NativeStackScreenProps<RootStackParamList, "TeacherSignup">;
 
-const Login: React.FC<Props> = ({ navigation }) => {
+export default function Signup({ navigation }: Props) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleLogin = async () => {
-    if (!email.trim() || !password.trim()) {
-      Alert.alert("Missing details", "Please enter both email and password.");
+  const handleSignup = async () => {
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim().toLowerCase();
+    const trimmedPassword = password.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedPassword || !confirmPassword.trim()) {
+      Alert.alert("Missing details", "Please complete all fields.");
+      return;
+    }
+
+    if (trimmedPassword !== confirmPassword.trim()) {
+      Alert.alert("Password mismatch", "Passwords do not match.");
       return;
     }
 
     try {
       setIsSubmitting(true);
-      await apiTeacherLogin({
-        email: email.trim(),
-        password: password.trim(),
+      await apiTeacherRegister({
+        name: trimmedName,
+        email: trimmedEmail,
+        password: trimmedPassword,
       });
-      navigation.replace("TeacherDashboard");
+      Alert.alert("Success", "Teacher account created. You can now log in.");
+      navigation.replace("TeacherLogin");
     } catch (error: any) {
-      Alert.alert("Login failed", error.message);
+      Alert.alert("Signup failed", error.message);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>Teacher Login</Text>
+        <Text style={styles.title}>Teacher Signup</Text>
         <Text style={styles.subtitle}>
-          Sign in with the account you created
+          Create your teacher account to access the dashboard.
         </Text>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Full name"
+          placeholderTextColor="#94a3b8"
+          value={name}
+          onChangeText={setName}
+        />
 
         <TextInput
           style={styles.input}
@@ -65,32 +87,40 @@ const Login: React.FC<Props> = ({ navigation }) => {
           secureTextEntry
         />
 
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm password"
+          placeholderTextColor="#94a3b8"
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+          secureTextEntry
+        />
+
         <TouchableOpacity
           style={[styles.button, isSubmitting && styles.buttonDisabled]}
-          onPress={handleLogin}
+          onPress={handleSignup}
           activeOpacity={0.9}
           disabled={isSubmitting}
         >
           <Text style={styles.buttonText}>
-            {isSubmitting ? "Logging in..." : "Login"}
+            {isSubmitting ? "Creating account..." : "Create Account"}
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate("TeacherSignup")}>
-          <Text style={styles.link}>New teacher? Create an account</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("TeacherLogin")}>
+          <Text style={styles.link}>Already have an account? Log in</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
-};
-
-export default Login;
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
     paddingHorizontal: 20,
+    paddingVertical: 28,
     backgroundColor: "#eef4ff",
   },
   card: {

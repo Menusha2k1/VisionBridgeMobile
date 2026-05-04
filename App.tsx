@@ -28,6 +28,7 @@ import { SpeechProvider } from "./Context/SpeechContext";
 
 // Teacher screens
 import TeacherLogin from "./Screens/Teacher/login";
+import TeacherSignup from "./Screens/Teacher/Signup";
 import TeacherDashboard from "./Screens/Teacher/Dashboard";
 import TeacherLessonUpload from "./Screens/Teacher/LessonUpload";
 import TeacherStudents from "./Screens/Teacher/Students";
@@ -55,6 +56,7 @@ export type RootStackParamList = {
 
   // Teacher routes
   TeacherLogin: undefined;
+  TeacherSignup: undefined;
   TeacherDashboard: undefined;
   TeacherLessonUpload: undefined;
   TeacherStudents: undefined;
@@ -97,6 +99,11 @@ export default function App() {
             name="TeacherLogin"
             component={TeacherLogin}
             options={{ title: "Teacher Login" }}
+          />
+          <Stack.Screen
+            name="TeacherSignup"
+            component={TeacherSignup}
+            options={{ title: "Teacher Signup" }}
           />
           <Stack.Screen
             name="TeacherDashboard"
