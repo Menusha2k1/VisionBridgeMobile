@@ -1,0 +1,730 @@
+{
+  "course_id": "ICT_OL_SRI_LANKA",
+  "title": "G.C.E. O/L ICT Structured Audio Lessons",
+  "grades": [
+    10,
+    11
+  ],
+  "lessons": [
+    {
+      "lesson_id": "L_G10_01_ICT_ROLE",
+      "category": "ICT & Society",
+      "grade": 10,
+      "order": 10,
+      "title": "Role of ICT in Society",
+      "objective": "describe the role of information and communication technology in modern society and national development",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will describe the role of information and communication technology in modern society and national development."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Information and Communication Technology, or ICT, refers to technologies used to handle information and support communication, such as computers, networks, mobile phones, and digital services."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "ICT supports national development by improving areas such as e-government, e-learning, e-health, agriculture, and business productivity."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Examples of ICT applications include online banking, e-mail communication, video conferencing, online examinations, e-commerce, and digital government portals."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Using ICT effectively can reduce paperwork, speed up decision making, increase transparency, and make services more accessible to citizens in both urban and rural areas."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, describe the role of information and communication technology in modern society and national development."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G10_02_COMPUTER_SYSTEMS",
+      "category": "Computer Hardware",
+      "grade": 10,
+      "order": 20,
+      "title": "Types of Computer Systems",
+      "objective": "identify different types of computer systems and their common uses",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will identify different types of computer systems and their common uses."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Computer systems can be classified into categories such as microcomputers, laptops, tablets, smartphones, servers, and supercomputers."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Microcomputers and laptops are commonly used in homes, schools, and offices for tasks such as word processing, spreadsheets, and web browsing."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Servers are powerful computers that provide shared services such as file storage, web hosting, or database access to many clients on a network."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Supercomputers are extremely powerful systems used for complex scientific simulations, weather forecasting, and research that require very high processing speed."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, identify different types of computer systems and their common uses."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G10_03_INPUT_OUTPUT",
+      "category": "Computer Hardware",
+      "grade": 10,
+      "order": 30,
+      "title": "Input and Output Devices",
+      "objective": "identify common input and output devices and explain their uses",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will identify common input and output devices and explain their uses."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Input devices allow users to provide data and commands to the computer, for example a keyboard, mouse, scanner, microphone, barcode reader, and digital camera."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Output devices present processed information back to the user, such as monitors, projectors, printers, speakers, and plotters."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Special input devices such as OCR, MICR, touchscreen, and biometric sensors are used in applications like banking, mobile phones, and security systems."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Choosing appropriate input and output devices depends on the task, for example using a scanner to capture printed text, or a multimedia projector to present slides to a class."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, identify common input and output devices and explain their uses."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G10_04_DATA_REPRESENTATION",
+      "category": "Data Representation",
+      "grade": 10,
+      "order": 40,
+      "title": "Number Systems and Data Units",
+      "objective": "explain number systems and basic units used to measure data",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will explain number systems and basic units used to measure data."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Computers represent data using binary digits, or bits, which can take the value zero or one."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Number systems such as decimal, binary, octal, and hexadecimal are used when converting values between human-friendly and machine-friendly representations."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Data size is measured in units such as bit, byte, kilobyte, megabyte, gigabyte, and terabyte, where each larger unit represents a multiple of the previous unit."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Understanding data units is important when working with file sizes, storage capacity, and network bandwidth, for example when downloading a file or choosing a storage device."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, explain number systems and basic units used to measure data."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G10_05_LOGIC_GATES",
+      "category": "Logic Gates",
+      "grade": 10,
+      "order": 50,
+      "title": "Basic Logic Gates",
+      "objective": "describe the basic logic gates and interpret simple truth tables",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will describe the basic logic gates and interpret simple truth tables."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Digital circuits use logic gates such as AND, OR, and NOT to perform operations on binary inputs."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "The AND gate gives output one only when all inputs are one, while the OR gate gives output one when at least one input is one."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "The NOT gate inverts the input, producing one when the input is zero and zero when the input is one."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Truth tables are used to show all possible combinations of inputs and their corresponding outputs for each gate, which helps in analysing digital circuits."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, describe the basic logic gates and interpret simple truth tables."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G10_06_OPERATING_SYSTEMS",
+      "category": "Operating Systems",
+      "grade": 10,
+      "order": 60,
+      "title": "Functions of an Operating System",
+      "objective": "explain the main functions of an operating system",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will explain the main functions of an operating system."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "An operating system is system software that manages the hardware resources of a computer and provides services for application software."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Key functions include process management, memory management, file management, input and output control, and user interface management."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Modern operating systems provide graphical user interfaces, support for multitasking, device drivers, and basic security features such as user accounts and permissions."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Examples of operating systems include Windows, Linux, macOS, and mobile operating systems such as Android and iOS."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, explain the main functions of an operating system."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G10_07_DBMS_INTRO",
+      "category": "Database Management",
+      "grade": 10,
+      "order": 70,
+      "title": "Introduction to Database Systems",
+      "objective": "define a database and explain basic database concepts",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will define a database and explain basic database concepts."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "A database is an organized collection of related data that is stored in a structured form so that it can be easily accessed, managed, and updated."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "A Database Management System, or DBMS, is software used to create, maintain, and control access to databases."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Fundamental concepts in databases include fields, records, tables, primary keys, and relationships between tables."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Using a DBMS helps to reduce data redundancy, improve data consistency, and enforce security and integrity rules."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, define a database and explain basic database concepts."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G10_08_ICT_APPS",
+      "category": "ICT Applications",
+      "grade": 10,
+      "order": 80,
+      "title": "Applications of ICT in Different Sectors",
+      "objective": "identify key applications of ICT in various sectors such as education, health, banking, and agriculture",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will identify key applications of ict in various sectors such as education, health, banking, and agriculture."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "In education, ICT is used for e-learning platforms, digital libraries, computer assisted learning, and online examinations."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "In health, ICT supports hospital information systems, telemedicine, electronic medical records, and health awareness campaigns."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "In banking, ICT enables automated teller machines, online banking, mobile banking, and secure electronic fund transfers."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "In agriculture and other sectors, ICT can support weather information services, market price information, supply chain tracking, and decision support systems."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, identify key applications of ict in various sectors such as education, health, banking, and agriculture."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_01_NETWORK_INTRO",
+      "category": "Networking",
+      "grade": 11,
+      "order": 110,
+      "title": "Introduction to Computer Networks",
+      "objective": "explain what a computer network is and describe the advantages of networking",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will explain what a computer network is and describe the advantages of networking."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "A computer network is a collection of interconnected devices that can share data, resources, and services."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Networking allows users to share files, printers, applications, and internet connections, reducing cost and duplications."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Networks improve communication by providing services such as e-mail, instant messaging, and video conferencing over local and wide area networks."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Using networks, organizations can centralize data storage, perform regular backups, and enforce security policies from a central location."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, explain what a computer network is and describe the advantages of networking."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_02_NETWORK_TYPES",
+      "category": "Networking",
+      "grade": 11,
+      "order": 120,
+      "title": "Types of Networks: LAN, MAN, WAN",
+      "objective": "describe LAN, MAN, and WAN with suitable examples",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will describe lan, man, and wan with suitable examples."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "A Local Area Network, or LAN, connects devices within a small geographical area such as a computer lab, office, or school building."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "A Metropolitan Area Network, or MAN, covers a city or campus and can be used to connect several LANs in the same region."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "A Wide Area Network, or WAN, spans a large geographical area such as a country or multiple countries and is often implemented using telecommunication links."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "The Internet is an example of a very large WAN, while a school network is typically a LAN, and a university network spread across a city can be considered a MAN."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, describe lan, man, and wan with suitable examples."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_03_NETWORK_DEVICES",
+      "category": "Networking",
+      "grade": 11,
+      "order": 130,
+      "title": "Networking Devices and Client Server Model",
+      "objective": "identify basic networking devices and explain the client server model",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will identify basic networking devices and explain the clientserver model."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Common networking devices include network interface cards, hubs, switches, routers, and wireless access points."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "A hub broadcasts incoming data to all connected devices, while a switch forwards data only to the specific destination device."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "A router connects different networks together, for example connecting a local area network to the internet using an IP address and routing protocols."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "In the clientserver model, servers provide shared services and resources, while clients are the user computers that request and use these services."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, identify basic networking devices and explain the clientserver model."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_04_INTERNET_WEB",
+      "category": "Internet & Web",
+      "grade": 11,
+      "order": 140,
+      "title": "Internet, Web, and Common Services",
+      "objective": "describe the Internet, the World Wide Web, and common internet services",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will describe the internet, the world wide web, and common internet services."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "The Internet is a global network of interconnected networks that uses the TCP IP protocol suite to link devices worldwide."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "The World Wide Web is a collection of interlinked documents and resources that can be accessed using web browsers over the Internet."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Common internet services include e-mail, file transfer, web browsing, instant messaging, voice over IP, and cloud-based applications."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Uniform Resource Locators, or URLs, and domain names help users access web resources in a human-readable way instead of using numeric IP addresses."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, describe the internet, the world wide web, and common internet services."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_05_WEB_DEV_BASICS",
+      "category": "Web Development",
+      "grade": 11,
+      "order": 150,
+      "title": "Basics of Web Page Development",
+      "objective": "identify basic HTML tags and explain the structure of a simple web page",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will identify basic html tags and explain the structure of a simple web page."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "A web page is written using Hyper Text Markup Language, or HTML, which defines the structure and content of the page."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "A basic HTML document includes tags such as html, head, title, and body, where the body contains visible content like headings and paragraphs."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Common tags include h1 to h6 for headings, p for paragraphs, a for hyperlinks, img for images, and table for tabular data."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Web pages can be styled using Cascading Style Sheets, or CSS, and can include client-side scripts to add interactivity."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, identify basic html tags and explain the structure of a simple web page."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_06_PROGRAMMING_INTRO",
+      "category": "Programming",
+      "grade": 11,
+      "order": 160,
+      "title": "Introduction to Programming and Algorithms",
+      "objective": "explain the concept of an algorithm and the basic structure of a program",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will explain the concept of an algorithm and the basic structure of a program."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "An algorithm is a finite sequence of well-defined steps that solves a problem or performs a task."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Programming is the process of converting algorithms into instructions that a computer can execute using a programming language."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Typical program structure includes variable declarations, input statements, processing using operators, and output statements."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Structured programming uses sequence, selection, and iteration control structures to write clear and maintainable code."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, explain the concept of an algorithm and the basic structure of a program."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_07_PROGRAMMING_PASCAL",
+      "category": "Programming",
+      "grade": 11,
+      "order": 170,
+      "title": "Structured Programming in Pascal-Style Syntax",
+      "objective": "describe variables, control structures, and simple input output using Pascal-style syntax",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will describe variables, control structures, and simple input output using pascal-style syntax."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "In Pascal-style syntax, a program uses reserved words such as program, var, begin, end, if, then, else, for, and while."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Variables are declared with data types such as integer, real, char, boolean, and string to store different kinds of values."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Selection control structures such as if then else and case of allow the program to make decisions based on conditions."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Iteration structures such as for, while, and repeat until are used to repeat a set of statements until a condition is satisfied."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, describe variables, control structures, and simple input output using pascal-style syntax."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_08_SDLC",
+      "category": "Systems Development",
+      "grade": 11,
+      "order": 180,
+      "title": "Systems Development Life Cycle",
+      "objective": "describe the main phases of the systems development life cycle",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will describe the main phases of the systems development life cycle."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "The systems development life cycle, or SDLC, is a structured approach used to develop information systems in several phases."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Typical phases include problem identification, requirements gathering, system analysis, system design, implementation, testing, and maintenance."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "In the implementation phase, different conversion strategies such as direct, parallel, phased, and pilot implementation can be used when introducing the new system."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Proper documentation, user training, and post-implementation review are important to ensure that the system meets user needs and can be maintained effectively."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, describe the main phases of the systems development life cycle."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_09_SECURITY_ETHICS",
+      "category": "ICT & Society",
+      "grade": 11,
+      "order": 190,
+      "title": "Computer Security, Ethics, and Legal Issues",
+      "objective": "explain basic security threats, ethical use of ICT, and relevant legal concepts",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will explain basic security threats, ethical use of ict, and relevant legal concepts."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Common security threats include viruses, worms, trojan horses, phishing, spam, and unauthorized access to systems and data."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Security measures include using strong passwords, antivirus software, firewalls, regular backups, and user awareness training."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Ethical use of ICT involves respecting privacy, avoiding software piracy, not spreading harmful content, and using digital resources responsibly."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Legal frameworks, such as computer crime laws and intellectual property laws, are designed to protect data, software, and digital content from misuse."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, explain basic security threats, ethical use of ict, and relevant legal concepts."
+        }
+      ]
+    },
+    {
+      "lesson_id": "L_G11_10_HEALTH_SAFETY",
+      "category": "Health & Safety",
+      "grade": 11,
+      "order": 200,
+      "title": "Health, Safety, and Environmental Issues in ICT",
+      "objective": "identify health risks, safety issues, and environmental impacts related to ICT use",
+      "segments": [
+        {
+          "id": "S1",
+          "type": "intro",
+          "text": "In this lesson, we will identify health risks, safety issues, and environmental impacts related to ict use."
+        },
+        {
+          "id": "S2",
+          "type": "definition",
+          "text": "Common health issues related to prolonged computer use include eye strain, headaches, repetitive strain injury, and back pain."
+        },
+        {
+          "id": "S3",
+          "type": "list",
+          "text": "Good ergonomic practices include correct posture, proper chair and desk height, suitable screen distance, and taking regular breaks."
+        },
+        {
+          "id": "S4",
+          "type": "list",
+          "text": "Safety issues include risks such as electric shock, cable tripping hazards, and improper use of electrical equipment in computer labs."
+        },
+        {
+          "id": "S5",
+          "type": "example",
+          "text": "Environmental issues include electronic waste, high energy consumption, and the need for responsible disposal and recycling of ICT equipment."
+        },
+        {
+          "id": "S6",
+          "type": "recap",
+          "text": "To recap, identify health risks, safety issues, and environmental impacts related to ict use."
+        }
+      ]
+    }
+  ]
+}

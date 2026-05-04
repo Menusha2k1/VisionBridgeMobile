@@ -14,7 +14,7 @@ import Lessons from "./Screens/Lessons";
 import QuizList from "./Screens/QuizList";
 import Content from "./Screens/Content";
 import StudentLogin from "./Screens/StudentLogin";
-import LessonPlayer from "./components/LessonPlayer";
+import LessonPlayerScreen from "./Screens/LessonPlayer";
 import Help from "./Screens/Help";
 import { SpeechProvider } from "./Context/SpeechContext";
 
@@ -70,7 +70,7 @@ export type RootStackParamList = {
 
   TeacherStudentsList: undefined;
 
-  LessonPlayer: { subTopicId: string; title: string };
+  LessonPlayer: { mode: "lesson" | "quiz" };
 
   //Lesson Quiz
   ConfidenceDashboard: undefined;
@@ -100,7 +100,7 @@ export default function App() {
           <Stack.Screen name="Content" component={Content} />
           <Stack.Screen name="QuizList" component={QuizList} />
           <Stack.Screen name="StudentLogin" component={StudentLogin} />
-          <Stack.Screen name="LessonPlayer" component={LessonPlayer} />
+          <Stack.Screen name="LessonPlayer" component={LessonPlayerScreen} />
           <Stack.Screen name="AssessmentList" component={AssessmentList} />
           <Stack.Screen name="Help" component={Help} />
           {/* Teacher / Research ML Flow */}

@@ -10,17 +10,7 @@ import commands from "../components/commands";
 import { useSpeechSettings } from "../Context/SpeechContext";
 import { apiSaveLog } from "../Services/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-type RootStackParamList = {
-  Home: undefined;
-  Grades: undefined;
-  Marks: undefined;
-  Quizes: undefined;
-  Assessments: undefined;
-  Help: undefined;
-  QuizList: { grade: string };
-  StudentLogin: undefined;
-};
+import { RootStackParamList } from "../App";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
@@ -119,14 +109,19 @@ export default function Home({ navigation }: Props) {
     if (!focused.current) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     const destination = focused.current;
-    if (destination === "Lessons") navigation.navigate("Grades");
-    else if (destination === "Quizes")
-      navigation.navigate("LessonQuiz" as any);
-    else if (destination === "Assessments")
+    if (destination === "Lessons") {
+      Speech.speak("Opening lessons", { rate: globalRate });
+      navigation.navigate("LessonPlayer", { mode: "lesson" });
+    } else if (destination === "Quizes") {
+      Speech.speak("Opening quizzes", { rate: globalRate });
+      navigation.navigate("LessonPlayer", { mode: "quiz" });
+    } else if (destination === "Assessments") {
       navigation.navigate("AssessmentList" as any);
-    else if (destination === "Logout") {
+    } else if (destination === "Logout") {
       haddleLogout();
-    } else navigation.navigate(destination as any);
+    } else {
+      navigation.navigate(destination as any);
+    }
   };
 
   const panResponder = useRef(

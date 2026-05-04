@@ -1,0 +1,184 @@
+{
+  "dataset": {
+    "path": "C:\\Users\\Ravindu\\Videos\\VisionBridge_Mobile\\assets\\data\\weakness_dataset.csv",
+    "rows": 2600,
+    "weak_label_rate": 0.44346153846153846,
+    "features": [
+      "attempts",
+      "correct_ratio",
+      "avg_time_sec",
+      "hint_rate",
+      "repeat_rate"
+    ],
+    "label": "weak_label"
+  },
+  "cross_validation": {
+    "logreg": {
+      "acc": 0.9330769230769231,
+      "precision": 0.9167606318963581,
+      "recall": 0.9349821193299455,
+      "f1": 0.9253941341930831,
+      "roc_auc": 0.9875598165955444
+    },
+    "rf": {
+      "acc": 0.9273076923076925,
+      "precision": 0.9218931460476707,
+      "recall": 0.9150348202522116,
+      "f1": 0.9179063065306927,
+      "roc_auc": 0.9852114108092227
+    },
+    "gb": {
+      "acc": 0.93,
+      "precision": 0.9246085341357251,
+      "recall": 0.9176284584980238,
+      "f1": 0.9208071478797887,
+      "roc_auc": 0.9857942376046058
+    }
+  },
+  "holdout_80_20": {
+    "logreg": {
+      "accuracy": 0.9403846153846154,
+      "precision": 0.9132231404958677,
+      "recall": 0.9567099567099567,
+      "f1": 0.9344608879492601,
+      "confusion_matrix": [
+        [
+          268,
+          21
+        ],
+        [
+          10,
+          221
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9640287769784173,
+          "recall": 0.9273356401384083,
+          "f1-score": 0.9453262786596119,
+          "support": 289.0
+        },
+        "1": {
+          "precision": 0.9132231404958677,
+          "recall": 0.9567099567099567,
+          "f1-score": 0.9344608879492601,
+          "support": 231.0
+        },
+        "accuracy": 0.9403846153846154,
+        "macro avg": {
+          "precision": 0.9386259587371425,
+          "recall": 0.9420227984241825,
+          "f1-score": 0.939893583304436,
+          "support": 520.0
+        },
+        "weighted avg": {
+          "precision": 0.9414593500025155,
+          "recall": 0.9403846153846154,
+          "f1-score": 0.9404995377863595,
+          "support": 520.0
+        }
+      },
+      "roc_auc": 0.9906379664165132
+    },
+    "rf": {
+      "accuracy": 0.9326923076923077,
+      "precision": 0.9188034188034188,
+      "recall": 0.9307359307359307,
+      "f1": 0.9247311827956989,
+      "confusion_matrix": [
+        [
+          270,
+          19
+        ],
+        [
+          16,
+          215
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9440559440559441,
+          "recall": 0.9342560553633218,
+          "f1-score": 0.9391304347826087,
+          "support": 289.0
+        },
+        "1": {
+          "precision": 0.9188034188034188,
+          "recall": 0.9307359307359307,
+          "f1-score": 0.9247311827956989,
+          "support": 231.0
+        },
+        "accuracy": 0.9326923076923077,
+        "macro avg": {
+          "precision": 0.9314296814296814,
+          "recall": 0.9324959930496263,
+          "f1-score": 0.9319308087891538,
+          "support": 520.0
+        },
+        "weighted avg": {
+          "precision": 0.9328379953379953,
+          "recall": 0.9326923076923077,
+          "f1-score": 0.9327338439961161,
+          "support": 520.0
+        }
+      },
+      "roc_auc": 0.9871927380577901
+    },
+    "gb": {
+      "accuracy": 0.9423076923076923,
+      "precision": 0.9205020920502092,
+      "recall": 0.9523809523809523,
+      "f1": 0.9361702127659575,
+      "confusion_matrix": [
+        [
+          270,
+          19
+        ],
+        [
+          11,
+          220
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9608540925266904,
+          "recall": 0.9342560553633218,
+          "f1-score": 0.9473684210526315,
+          "support": 289.0
+        },
+        "1": {
+          "precision": 0.9205020920502092,
+          "recall": 0.9523809523809523,
+          "f1-score": 0.9361702127659575,
+          "support": 231.0
+        },
+        "accuracy": 0.9423076923076923,
+        "macro avg": {
+          "precision": 0.9406780922884498,
+          "recall": 0.943318503872137,
+          "f1-score": 0.9417693169092944,
+          "support": 520.0
+        },
+        "weighted avg": {
+          "precision": 0.9429284923150227,
+          "recall": 0.9423076923076923,
+          "f1-score": 0.9423938323714359,
+          "support": 520.0
+        }
+      },
+      "roc_auc": 0.9878817837295346
+    }
+  },
+  "best_model": {
+    "key": "logreg",
+    "name": "Logistic Regression",
+    "selection_metric": "cv_accuracy",
+    "cv_accuracy": 0.9330769230769231,
+    "saved_path": "C:\\Users\\Ravindu\\Videos\\VisionBridge_Mobile\\assets\\data\\best_weakness_model.joblib"
+  },
+  "artifacts": {
+    "metrics_json": "C:\\Users\\Ravindu\\Videos\\VisionBridge_Mobile\\assets\\data\\weakness_model_metrics.json",
+    "best_model_joblib": "C:\\Users\\Ravindu\\Videos\\VisionBridge_Mobile\\assets\\data\\best_weakness_model.joblib",
+    "logreg_weights_json": "C:\\Users\\Ravindu\\Videos\\VisionBridge_Mobile\\assets\\data\\logreg_weights.json"
+  }
+}
