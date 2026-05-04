@@ -334,3 +334,58 @@ exports.deleteBookmark = (req, res) => {
     res.status(500).json({ error: "Failed to delete bookmark" });
   }
 };
+
+// ==============================
+// GENERATE AUDIO
+// ==============================
+
+exports.generateAudio = (req, res) => {
+  try {
+    const { scriptText } = req.body;
+
+    if (!scriptText) {
+      return res.status(400).json({ error: "No script text provided" });
+    }
+
+    const scriptPath = path.join(
+      __dirname,
+      "..",
+      "pythonTeacherScriptGenerator",
+      "generateAudioOnly.py"
+    );
+
+    const python = spawn(
+      "C:\\Users\\EX BOOK\\nlp_env310\\Scripts\\python.exe",
+      [scriptPath, scriptText]
+    );
+
+    let output = "";
+    let errorOutput = "";
+
+    python.stdout.on("data", (data) => {
+      output += data.toString();
+    });
+
+    python.stderr.on("data", (data) => {
+      errorOutput += data.toString();
+    });
+
+    python.on("close", (code) => {
+      if (code !== 0) {
+        console.error("Audio generation error:", errorOutput);
+        return res.status(500).json({ error: "Audio generation failed" });
+      }
+
+      try {
+        const parsed = JSON.parse(output);
+        res.json(parsed);
+      } catch (e) {
+        console.error("JSON parse error:", output);
+        res.status(500).json({ error: "Failed to parse audio output" });
+      }
+    });
+  } catch (error) {
+    console.error("Audio controller error:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};

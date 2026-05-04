@@ -7,6 +7,8 @@ import Screen from "./components/layout/Screen";
 import PageHeader from "./components/layout/PageHeader";
 import Card from "./components/ui/Card";
 import Button from "./components/ui/Button";
+import { Audio } from "expo-av";
+import { Ionicons } from "@expo/vector-icons";
 
 type PickedFile = {
   name: string;
@@ -37,6 +39,11 @@ export default function LessonUpload() {
   const [allBookmarks, setAllBookmarks] = useState<any[]>([]);
   const [showAllModal, setShowAllModal] = useState(false);
   const [bookmarking, setBookmarking] = useState(false);
+
+  // ⭐ AUDIO STATES
+  const [generatingAudio, setGeneratingAudio] = useState(false);
+  const [audioChunks, setAudioChunks] = useState<any[]>([]);
+  const [sound, setSound] = useState<Audio.Sound | null>(null);
 
   const sizeLabel = useMemo(() => {
     if (!file?.size) return "Unknown size";
@@ -169,6 +176,57 @@ export default function LessonUpload() {
     }
   };
 
+  const handleDeleteBookmark = async (id: number) => {
+    const performDelete = async () => {
+      try {
+        console.log("Deleting bookmark:", id);
+        const res = await fetch(`${baseUrl}/api/bookmarks/${id}`, { method: 'DELETE' });
+        if (!res.ok) throw new Error("Failed to delete from server");
+
+        // 1. Update file-specific state
+        setFileBookmarks(prev => prev.filter(b => b.id !== id));
+
+        // 2. Update global modal state
+        setAllBookmarks(prev => prev.filter(b => b.id !== id));
+
+        // 3. Update AsyncStorage (Local Cache)
+        if (file) {
+          const cached = await AsyncStorage.getItem(`bookmarks_${file.name}`);
+          if (cached) {
+            const parsed = JSON.parse(cached).filter((b: any) => b.id !== id);
+            await AsyncStorage.setItem(`bookmarks_${file.name}`, JSON.stringify(parsed));
+          }
+        }
+
+        const allCached = await AsyncStorage.getItem('all_bookmarks');
+        if (allCached) {
+          const parsed = JSON.parse(allCached).filter((b: any) => b.id !== id);
+          await AsyncStorage.setItem('all_bookmarks', JSON.stringify(parsed));
+        }
+
+        console.log("Deletion successful");
+      } catch (err: any) {
+        console.error("Delete error:", err);
+        Alert.alert("Error", err.message);
+      }
+    };
+
+    if (Platform.OS === 'web') {
+      if (window.confirm("Are you sure you want to remove this bookmark?")) {
+        performDelete();
+      }
+    } else {
+      Alert.alert(
+        "Delete Bookmark",
+        "Are you sure you want to remove this bookmark?",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Delete", style: "destructive", onPress: performDelete }
+        ]
+      );
+    }
+  };
+
   const loadBookmark = (b: any) => {
     setStartPage(b.start_page);
     setEndPage(b.end_page);
@@ -176,6 +234,56 @@ export default function LessonUpload() {
     setIsEditing(false);
     setShowAllModal(false);
   };
+
+  const handleGenerateAudio = async () => {
+    if (!scriptText) return;
+
+    setGeneratingAudio(true);
+    try {
+      const response = await fetch(`${baseUrl}/api/generate-audio`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ scriptText }),
+      });
+
+      const json = await response.json();
+
+      if (!response.ok || !json.chunks) {
+        throw new Error(json.error || "Audio generation failed");
+      }
+
+      setAudioChunks(json.chunks);
+      Alert.alert("Success", `Generated ${json.chunks.length} audio chunks!`);
+    } catch (err: any) {
+      Alert.alert("Error", err.message);
+    } finally {
+      setGeneratingAudio(false);
+    }
+  };
+
+  const playChunk = async (audioFile: string) => {
+    try {
+      if (sound) {
+        await sound.unloadAsync();
+      }
+
+      const { sound: newSound } = await Audio.Sound.createAsync(
+        { uri: `${baseUrl}/uploads/${audioFile}` },
+        { shouldPlay: true }
+      );
+      setSound(newSound);
+    } catch (err) {
+      Alert.alert("Error", "Could not play chunk");
+    }
+  };
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 
   const refreshSavedScripts = async () => {
 
@@ -382,15 +490,22 @@ export default function LessonUpload() {
             <View style={styles.bookmarkSection}>
               <Text style={styles.bookmarkTitle}>Bookmarked Scripts for this file:</Text>
               {fileBookmarks.map((b) => (
-                <TouchableOpacity
-                  key={b.id}
-                  style={styles.bookmarkItem}
-                  onPress={() => loadBookmark(b)}
-                >
-                  <Text style={styles.bookmarkItemText}>
-                    Bookmark {fileBookmarks.indexOf(b) + 1} (Pages {b.start_page}-{b.end_page})
-                  </Text>
-                </TouchableOpacity>
+                <View key={b.id} style={styles.bookmarkRow}>
+                  <TouchableOpacity
+                    style={styles.bookmarkItem}
+                    onPress={() => loadBookmark(b)}
+                  >
+                    <Text style={styles.bookmarkItemText}>
+                      Bookmark {fileBookmarks.indexOf(b) + 1} (Pages {b.start_page}-{b.end_page})
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.deleteBtn}
+                    onPress={() => handleDeleteBookmark(b.id)}
+                  >
+                    <Ionicons name="trash-outline" size={20} color="#ef4444" />
+                  </TouchableOpacity>
+                </View>
               ))}
             </View>
           )}
@@ -483,7 +598,33 @@ export default function LessonUpload() {
                   onPress={handleSaveBookmark}
                 />
 
+                <Button
+                  title={generatingAudio ? "Generating Audio..." : "Generate Audio"}
+                  onPress={handleGenerateAudio}
+                  variant="secondary"
+                />
+
               </View>
+
+              {/* ⭐ AUDIO CHUNKS LIST */}
+              {audioChunks.length > 0 && (
+                <View style={styles.audioChunkSection}>
+                  <Text style={styles.audioChunkTitle}>Generated Audio Chunks:</Text>
+                  {audioChunks.map((chunk, idx) => (
+                    <View key={idx} style={styles.audioChunkItem}>
+                      <Text style={styles.audioChunkText} numberOfLines={2}>
+                        {chunk.text}
+                      </Text>
+                      <TouchableOpacity 
+                        style={styles.audioChunkPlayBtn}
+                        onPress={() => playChunk(chunk.audio)}
+                      >
+                        <Ionicons name="play-circle" size={32} color="#2563eb" />
+                      </TouchableOpacity>
+                    </View>
+                  ))}
+                </View>
+              )}
 
             </View>
 
@@ -509,10 +650,20 @@ export default function LessonUpload() {
             ) : (
               allBookmarks.map((b) => (
                 <Card key={b.id} title={b.source_filename || 'Unknown File'}>
-                  <Button
-                    title={`Load Pages ${b.start_page}-${b.end_page}`}
-                    onPress={() => loadBookmark(b)}
-                  />
+                  <View style={styles.modalCardActions}>
+                    <View style={{ flex: 1 }}>
+                      <Button
+                        title={`Load Pages ${b.start_page}-${b.end_page}`}
+                        onPress={() => loadBookmark(b)}
+                      />
+                    </View>
+                    <TouchableOpacity
+                      style={styles.modalDeleteBtn}
+                      onPress={() => handleDeleteBookmark(b.id)}
+                    >
+                      <Ionicons name="trash-outline" size={24} color="#ef4444" />
+                    </TouchableOpacity>
+                  </View>
                 </Card>
               ))
             )}
@@ -607,13 +758,74 @@ const styles = StyleSheet.create({
     backgroundColor: "#2196F3",
     padding: 12,
     borderRadius: 6,
-    marginBottom: 6,
+    flex: 1,
     alignItems: "center"
   },
 
   bookmarkItemText: {
     color: "white",
     fontWeight: "600"
+  },
+
+  bookmarkRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 6
+  },
+
+  deleteBtn: {
+    padding: 10,
+    backgroundColor: "#fee2e2",
+    borderRadius: 6
+  },
+
+  modalCardActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12
+  },
+
+  modalDeleteBtn: {
+    padding: 12,
+    backgroundColor: "#fee2e2",
+    borderRadius: 12
+  },
+
+  audioChunkSection: {
+    marginTop: 20,
+    borderTopWidth: 1,
+    borderTopColor: "#e5e7eb",
+    paddingTop: 15
+  },
+
+  audioChunkTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#1f2937",
+    marginBottom: 10
+  },
+
+  audioChunkItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f9fafb",
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: "#f3f4f6"
+  },
+
+  audioChunkText: {
+    flex: 1,
+    fontSize: 14,
+    color: "#4b5563",
+    marginRight: 10
+  },
+
+  audioChunkPlayBtn: {
+    padding: 4
   }
 
 });

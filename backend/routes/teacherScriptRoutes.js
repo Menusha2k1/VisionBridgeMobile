@@ -103,4 +103,10 @@ router.delete(
 );
 
 
+router.post(
+  "/generate-audio",
+  teacherScriptController.generateAudio
+);
+
+
 module.exports = router;
