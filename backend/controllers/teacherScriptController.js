@@ -72,6 +72,9 @@ exports.generateTeacherScript = (req, res) => {
     });
 
     python.on("close", (code) => {
+      if (errorOutput) {
+        console.log(errorOutput);
+      }
 
       if (code !== 0) {
 

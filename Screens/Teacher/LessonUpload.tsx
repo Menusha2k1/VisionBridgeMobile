@@ -263,6 +263,16 @@ export default function LessonUpload() {
 
   const playChunk = async (audioFile: string) => {
     try {
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: false,
+        staysActiveInBackground: false,
+        interruptionModeIOS: 1, // InterruptionModeIOS.DoNotMix
+        playsInSilentModeIOS: true,
+        shouldDuckAndroid: true,
+        interruptionModeAndroid: 1, // InterruptionModeAndroid.DoNotMix
+        playThroughEarpieceAndroid: false,
+      });
+
       if (sound) {
         await sound.unloadAsync();
       }
@@ -367,6 +377,7 @@ export default function LessonUpload() {
 
       setScriptText(json.script);
       setIsEditing(false);
+      setAudioChunks([]); // ⭐ Clear old audio chunks
 
       Alert.alert(
         "Script Generated",
