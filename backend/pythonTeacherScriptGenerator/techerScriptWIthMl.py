@@ -7,11 +7,16 @@ import asyncio
 import edge_tts
 import time
 from docx import Document
+import warnings
+
+# Mute warnings
+warnings.filterwarnings("ignore")
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 # Load model (silent)
-tokenizer = T5Tokenizer.from_pretrained("t5-small")
+tokenizer = T5Tokenizer.from_pretrained("t5-small", legacy=False)
 model = T5ForConditionalGeneration.from_pretrained("t5-small")
 
 
@@ -89,7 +94,9 @@ def improve_text(text):
 
         input_ids = tokenizer(
             "simplify: " + text,
-            return_tensors="pt"
+            return_tensors="pt",
+            truncation=True,
+            max_length=512
         ).input_ids
 
         output = model.generate(
@@ -255,4 +262,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(main())
