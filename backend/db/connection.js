@@ -14,7 +14,7 @@ db.pragma("busy_timeout = 5000");
 //   CREATE TABLE IF NOT EXISTS students (
 //     id INTEGER PRIMARY KEY AUTOINCREMENT,
 //     name TEXT NOT NULL,
-//     pin TEXT NOT NULL UNIQUE, -- PIN එක unique වීම වැදගත්
+//     pin TEXT NOT NULL UNIQUE,
 //     grade TEXT NOT NULL
 //   );
 
